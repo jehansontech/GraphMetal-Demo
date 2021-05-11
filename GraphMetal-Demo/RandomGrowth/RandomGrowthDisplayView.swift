@@ -12,7 +12,8 @@ struct RandomGrowthDisplayView : View {
 
     @ObservedObject var demo: RandomGrowthDemo
 
-    @State var renderSettings = RenderSettings()
+    @State var renderSettings = RenderSettings(nodeSize: 20,
+                                               nodeSizeAutomatic: false)
 
     var body: some View {
         RendererView($renderSettings, demo.graphController!, demo.povController!)

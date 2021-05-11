@@ -12,70 +12,52 @@ import GraphMetal
 
 struct RandomGrowthNodeValue: RenderableNodeValue {
 
-    let colorFadeTime: Float = 10
+    let colorFadeTime: TimeInterval = 5
 
-    var red: Float {
-        return 1 - (Float(demo._currentStep - creationTime) / colorFadeTime).clamp(0, 1)
+    func green(_ f: Float) -> Float {
+        return 1.25 - f
     }
 
-    let green: Float = 0
+    func red(_ f: Float) -> Float {
+        return 0
+    }
 
-    let blue: Float = 0
+    func blue(_ f: Float) -> Float {
+        return 0
+    }
 
-    let alpha: Float = 1
+    func alpha(_ f: Float) -> Float {
+        return 1 // (f < 2) ? 1 : 3 - f
+    }
 
     var hidden: Bool { return false }
 
     var color: SIMD4<Float>? {
-        return SIMD4<Float>(red, green, blue, alpha)
+        let f: Float = Float(Date().timeIntervalSince(creationTime) / colorFadeTime)
+        return SIMD4<Float>(red(f).clamp(0, 1),
+                            green(f).clamp(0, 1),
+                            blue(f).clamp(0, 1),
+                            alpha(f).clamp(0, 1))
     }
-
-    weak var demo: RandomGrowthDemo!
 
     var location: SIMD3<Float>
 
-    let creationTime: Int
+    let creationTime: Date
 
-    init(_ demo: RandomGrowthDemo, _ location: SIMD3<Float>, _ creationTime: Int) {
-        self.demo = demo
+    init(_ location: SIMD3<Float>) {
         self.location = location
-        self.creationTime = creationTime
+        self.creationTime = Date()
     }
 }
 
 struct RandomGrowthEdgeValue: RenderableEdgeValue {
 
     var hidden: Bool { return false }
-
 }
 
 typealias RandomGrowthGraph = BaseGraph<RandomGrowthNodeValue, RandomGrowthEdgeValue>
 
 typealias RandomGrowthController = BasicGraphController<RandomGrowthGraph>
-
-//struct RandomGrowthController : RenderableGraphController {
-//
-//    public typealias HolderType = BasicGraphHolder<RandomGrowthGraph>
-//
-//    public var graphHolder: BasicGraphHolder<RandomGrowthGraph>
-//
-//    public var dispatchQueue: DispatchQueue
-//
-//    var stopRequested: Bool = false
-//
-//    public init(_ graph: RandomGrowthGraph, _ dispatchQueue: DispatchQueue) {
-//        self.graphHolder = BasicGraphHolder(graph)
-//        self.dispatchQueue = dispatchQueue
-//    }
-//
-//    func start() {
-//
-//    }
-//
-//    func stop() {
-//
-//    }
-//}
 
 class RandomGrowthDemo : ObservableObject, Demo {
 
@@ -108,18 +90,19 @@ class RandomGrowthDemo : ObservableObject, Demo {
         }
     }
 
-    @Published var newNodeInterval: Double = 1
+    @Published var stepTimeInterval: Double = 1/30
+
+    private var lastStepTimestamp: Date = .distantPast
+
+    @Published var newNodeTimeInterval: Double = 0.5
 
     @Published var newNodeOutDegree: Int = 2
+
+    private var _lastNewNodeTimestamp: Date = .distantPast
 
     private var stopIsRequested: Bool = false
 
     private var stepIsScheduled: Bool = false
-
-    private var lastStepTimestamp: Date = .distantPast
-
-    // background thread only
-    var _currentStep: Int = 0
 
     func setup() {
         self.graphController = RandomGrowthController(
@@ -136,9 +119,9 @@ class RandomGrowthDemo : ObservableObject, Demo {
     func possiblyScheduleNextStep() {
         if !(self.stopIsRequested || self.stepIsScheduled) {
             self.stepIsScheduled = true
-            let updateDelay =  newNodeInterval - Date().timeIntervalSince(lastStepTimestamp)
-            if (updateDelay > 0) {
-                graphController?.schedule(step, updateDelay, self.stepCompleted)
+            let stepDelay =  stepTimeInterval - Date().timeIntervalSince(lastStepTimestamp)
+            if (stepDelay > 0) {
+                graphController?.schedule(step, stepDelay, self.stepCompleted)
             }
             else {
                 graphController?.exec(step, self.stepCompleted)
@@ -146,32 +129,48 @@ class RandomGrowthDemo : ObservableObject, Demo {
         }
     }
 
-    func step(_ graphHolder: BasicGraphHolder<RandomGrowthGraph>) {
+    func step(_ graphHolder: BasicGraphHolder<RandomGrowthGraph>) -> StepResult {
+        let now = Date()
+        var nodeAdded = false
+        if now.timeIntervalSince(_lastNewNodeTimestamp) >= newNodeTimeInterval {
+            addNode(graphHolder.graph)
+            graphHolder.registerTopologyChange()
+            _lastNewNodeTimestamp = now
+            nodeAdded = true
+        }
+        else {
+            graphHolder.registerColorChange()
+        }
+        return StepResult(nodeAdded: nodeAdded)
+    }
 
-        let outDegree = min(graphHolder.graph.nodes.count, self.newNodeOutDegree)
+    func addNode(_ graph: RandomGrowthGraph) {
+        let outDegree = min(graph.nodes.count, self.newNodeOutDegree)
         var targetIDs = [NodeID]()
-        for node in graphHolder.graph.nodes.shuffled().prefix(outDegree) {
+        for node in graph.nodes.shuffled().prefix(outDegree) {
             targetIDs.append(node.id)
         }
 
-        let newNode = graphHolder.graph.addNode(RandomGrowthNodeValue(self, randomLocation(), self._currentStep))
+        let newNode = graph.addNode(RandomGrowthNodeValue(randomLocation()))
         for targetID in targetIDs {
-            try! graphHolder.graph.addEdge(newNode.id, targetID, RandomGrowthEdgeValue())
+            try!graph.addEdge(newNode.id, targetID, RandomGrowthEdgeValue())
         }
-
-        graphHolder.registerTopologyChange()
-        self._currentStep += 1
     }
 
-    func stepCompleted() {
+    func stepCompleted(_ result: StepResult) {
         self.stepIsScheduled = false
         self.lastStepTimestamp = Date()
         possiblyScheduleNextStep()
     }
 
     func randomLocation() -> SIMD3<Float> {
-        return SIMD3<Float>(x: Float.random(in: -1...1),
-                            y: Float.random(in: -1...1),
-                            z: Float.random(in: -1...1))
+        let r: Float = 1
+        let theta: Float = Float.random(in: 0..<Float.pi)
+        let phi: Float = Float.random(in: 0..<Float.twoPi)
+        return sphericalToCartesian(rtp: SIMD3<Float>(r, theta, phi))
     }
+}
+
+struct StepResult {
+    var nodeAdded: Bool
 }

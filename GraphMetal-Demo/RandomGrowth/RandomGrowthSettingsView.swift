@@ -17,14 +17,17 @@ struct RandomGrowthSettingsView : View {
     var body: some View {
         VStack {
 
-            HStack {
                 Button(action: { demo.growing = true }) {
                     Text("Start")
                 }
+                .foregroundColor(UIConstants.controlColor)
+                .modifier(SymbolButtonStyle())
+
                 Button(action: { demo.growing = false }) {
                     Text("Stop")
                 }
-            }
+                .foregroundColor(UIConstants.controlColor)
+                .modifier(SymbolButtonStyle())
 
         }
     }
