@@ -46,7 +46,7 @@ class CubeDemo: ObservableObject, Demo {
 
     let type: DemoType = .cube
 
-    var name: String = "Cube"
+    var name: String
 
     var graphController: CubeDemoController
 
@@ -84,9 +84,8 @@ class CubeDemo: ObservableObject, Demo {
         self.name = type.rawValue
         self.graphController = CubeDemoController(
             BaseGraph<CubeDemoNodeValue, CubeDemoEdgeValue>(),
-            DispatchQueue(label: "cubeDemo", qos: .userInitiated))
+            DispatchQueue(label: "CubeDemo", qos: .userInitiated))
         self.povController = POVController()
-
     }
 
     func setup() {

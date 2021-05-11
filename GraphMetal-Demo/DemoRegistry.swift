@@ -10,7 +10,7 @@ import UIStuffForSwift
 
 enum DemoType: String, CaseIterable {
     case cube = "Cube"
-    case scaleFree = "Scale Free"
+    case randomGrowth = "Random Growth"
 }
 
 protocol Demo {
@@ -27,12 +27,12 @@ protocol Demo {
 
 class DemoRegistry: ObservableObject {
 
-    @Published var cube = CubeDemo()
+    var cube = CubeDemo()
 
-    @Published var scaleFree = ScaleFreeDemo()
+    var randomGrowth = RandomGrowthDemo()
 
     var demoNames: [String] {
-        return [cube.name, scaleFree.name]
+        return [cube.name, randomGrowth.name]
     }
 
     @Published var selectionName: String = ""
@@ -50,8 +50,8 @@ class DemoRegistry: ObservableObject {
         switch name {
         case cube.name:
             cube.setup()
-        case scaleFree.name:
-            scaleFree.setup()
+        case randomGrowth.name:
+            randomGrowth.setup()
         default:
             break;
         }
@@ -61,8 +61,8 @@ class DemoRegistry: ObservableObject {
         switch name {
         case cube.name:
             cube.teardown()
-        case scaleFree.name:
-            scaleFree.teardown()
+        case randomGrowth.name:
+            randomGrowth.teardown()
         default:
             break;
         }
@@ -73,8 +73,8 @@ class DemoRegistry: ObservableObject {
             switch name {
             case self.cube.name:
                 self.cube.settingsView
-            case self.scaleFree.name:
-                self.scaleFree.settingsView
+            case self.randomGrowth.name:
+                self.randomGrowth.settingsView
             default:
                 EmptySettingsView()
             }
@@ -86,8 +86,8 @@ class DemoRegistry: ObservableObject {
             switch name {
             case self.cube.name:
                 self.cube.displayView
-            case self.scaleFree.name:
-                self.scaleFree.displayView
+            case self.randomGrowth.name:
+                self.randomGrowth.displayView
             default:
                 EmptyDisplayView()
             }
