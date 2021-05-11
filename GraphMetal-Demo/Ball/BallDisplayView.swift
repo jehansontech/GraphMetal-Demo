@@ -1,5 +1,5 @@
 //
-//  RandomGrowthDisplayView.swift
+//  BallDisplayView.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 5/10/21.
@@ -8,9 +8,9 @@
 import SwiftUI
 import GraphMetal
 
-struct RandomGrowthDisplayView : View {
+struct BallDisplayView : View {
 
-    @ObservedObject var demo: RandomGrowthDemo
+    @ObservedObject var demo: BallDemo
 
     @State var renderSettings = RenderSettings(nodeSize: 20,
                                                nodeSizeAutomatic: false)
@@ -21,7 +21,7 @@ struct RandomGrowthDisplayView : View {
             .navigationBarTitleDisplayMode(.inline)
     }
 
-    init(_ demo: RandomGrowthDemo) {
+    init(_ demo: BallDemo) {
         self.demo = demo
     }
 

@@ -1,5 +1,5 @@
 //
-//  RandomGrowthDemo.swift
+//  BallDemo.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 5/10/21.
@@ -10,34 +10,18 @@ import GenericGraph
 import GraphMetal
 
 
-struct RandomGrowthNodeValue: RenderableNodeValue {
+struct BallNodeValue: RenderableNodeValue {
 
     let colorFadeTime: TimeInterval = 5
-
-    func green(_ f: Float) -> Float {
-        return 1.25 - f
-    }
-
-    func red(_ f: Float) -> Float {
-        return 0
-    }
-
-    func blue(_ f: Float) -> Float {
-        return 0
-    }
-
-    func alpha(_ f: Float) -> Float {
-        return 1 // (f < 2) ? 1 : 3 - f
-    }
 
     var hidden: Bool { return false }
 
     var color: SIMD4<Float>? {
         let f: Float = Float(Date().timeIntervalSince(creationTime) / colorFadeTime)
-        return SIMD4<Float>(red(f).clamp(0, 1),
-                            green(f).clamp(0, 1),
-                            blue(f).clamp(0, 1),
-                            alpha(f).clamp(0, 1))
+        return SIMD4<Float>(0,
+                            (1 - f).clamp(0, 1),
+                            0,
+                            1)
     }
 
     var location: SIMD3<Float>
@@ -50,31 +34,31 @@ struct RandomGrowthNodeValue: RenderableNodeValue {
     }
 }
 
-struct RandomGrowthEdgeValue: RenderableEdgeValue {
+struct BallEdgeValue: RenderableEdgeValue {
 
     var hidden: Bool { return false }
 }
 
-typealias RandomGrowthGraph = BaseGraph<RandomGrowthNodeValue, RandomGrowthEdgeValue>
+typealias BallGraph = BaseGraph<BallNodeValue, BallEdgeValue>
 
-typealias RandomGrowthController = BasicGraphController<RandomGrowthGraph>
+typealias BallController = BasicGraphController<BallGraph>
 
-class RandomGrowthDemo : ObservableObject, Demo {
+class BallDemo : ObservableObject, Demo {
 
-    var type: DemoType = .randomGrowth
+    var type: DemoType = .ball
 
-    var name: String = DemoType.randomGrowth.rawValue
+    var name: String = DemoType.ball.rawValue
 
-    var graphController: RandomGrowthController? = nil
+    var graphController: BallController? = nil
 
     var povController: POVController? = nil
 
     var settingsView: some View {
-        RandomGrowthSettingsView(self)
+        BallSettingsView(self)
     }
 
     var displayView: some View {
-        RandomGrowthDisplayView(self)
+        BallDisplayView(self)
     }
 
     @Published var growing: Bool = true {
@@ -105,8 +89,8 @@ class RandomGrowthDemo : ObservableObject, Demo {
     private var stepIsScheduled: Bool = false
 
     func setup() {
-        self.graphController = RandomGrowthController(
-            BaseGraph<RandomGrowthNodeValue, RandomGrowthEdgeValue>(),
+        self.graphController = BallController(
+            BaseGraph<BallNodeValue, BallEdgeValue>(),
             DispatchQueue(label: "RandomGrowthDemo", qos: .userInitiated))
         self.povController = POVController()
     }
@@ -129,7 +113,7 @@ class RandomGrowthDemo : ObservableObject, Demo {
         }
     }
 
-    func step(_ graphHolder: BasicGraphHolder<RandomGrowthGraph>) -> StepResult {
+    func step(_ graphHolder: BasicGraphHolder<BallGraph>) -> StepResult {
         let now = Date()
         var nodeAdded = false
         if now.timeIntervalSince(_lastNewNodeTimestamp) >= newNodeTimeInterval {
@@ -144,16 +128,16 @@ class RandomGrowthDemo : ObservableObject, Demo {
         return StepResult(nodeAdded: nodeAdded)
     }
 
-    func addNode(_ graph: RandomGrowthGraph) {
+    func addNode(_ graph: BallGraph) {
         let outDegree = min(graph.nodes.count, self.newNodeOutDegree)
         var targetIDs = [NodeID]()
         for node in graph.nodes.shuffled().prefix(outDegree) {
             targetIDs.append(node.id)
         }
 
-        let newNode = graph.addNode(RandomGrowthNodeValue(randomLocation()))
+        let newNode = graph.addNode(BallNodeValue(randomLocation()))
         for targetID in targetIDs {
-            try!graph.addEdge(newNode.id, targetID, RandomGrowthEdgeValue())
+            try!graph.addEdge(newNode.id, targetID, BallEdgeValue())
         }
     }
 

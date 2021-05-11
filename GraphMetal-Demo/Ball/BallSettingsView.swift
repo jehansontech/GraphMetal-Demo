@@ -1,5 +1,5 @@
 //
-//  RandomGrowthSettingsView.swift
+//  BallSettingsView.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 5/10/21.
@@ -8,9 +8,9 @@
 import SwiftUI
 import UIStuffForSwift
 
-struct RandomGrowthSettingsView : View {
+struct BallSettingsView : View {
 
-    @ObservedObject var demo: RandomGrowthDemo
+    @ObservedObject var demo: BallDemo
 
     @State var group = SettingsGroup().itemStyle(.narrow)
 
@@ -32,7 +32,7 @@ struct RandomGrowthSettingsView : View {
         }
     }
 
-    init(_ demo: RandomGrowthDemo) {
+    init(_ demo: BallDemo) {
         self.demo = demo
     }
 }

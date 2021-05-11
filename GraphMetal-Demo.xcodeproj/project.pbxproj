@@ -20,9 +20,9 @@
 		38B574E9263847EF00E7A37A /* CubeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B574E8263847EF00E7A37A /* CubeSettingsView.swift */; };
 		38B574F12638528D00E7A37A /* CubeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B574F02638528D00E7A37A /* CubeDisplayView.swift */; };
 		38B574F72638740C00E7A37A /* DemoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B574F62638740C00E7A37A /* DemoDisplayView.swift */; };
-		38CBC98D2649E30100B4694C /* RandomGrowthDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98C2649E30100B4694C /* RandomGrowthDemo.swift */; };
-		38CBC98F2649E31700B4694C /* RandomGrowthSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98E2649E31700B4694C /* RandomGrowthSettingsView.swift */; };
-		38CBC9912649E32700B4694C /* RandomGrowthDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC9902649E32700B4694C /* RandomGrowthDisplayView.swift */; };
+		38CBC98D2649E30100B4694C /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98C2649E30100B4694C /* BallDemo.swift */; };
+		38CBC98F2649E31700B4694C /* BallSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98E2649E31700B4694C /* BallSettingsView.swift */; };
+		38CBC9912649E32700B4694C /* BallDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC9902649E32700B4694C /* BallDisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +39,9 @@
 		38B574E8263847EF00E7A37A /* CubeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeSettingsView.swift; sourceTree = "<group>"; };
 		38B574F02638528D00E7A37A /* CubeDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDisplayView.swift; sourceTree = "<group>"; };
 		38B574F62638740C00E7A37A /* DemoDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDisplayView.swift; sourceTree = "<group>"; };
-		38CBC98C2649E30100B4694C /* RandomGrowthDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGrowthDemo.swift; sourceTree = "<group>"; };
-		38CBC98E2649E31700B4694C /* RandomGrowthSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGrowthSettingsView.swift; sourceTree = "<group>"; };
-		38CBC9902649E32700B4694C /* RandomGrowthDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomGrowthDisplayView.swift; sourceTree = "<group>"; };
+		38CBC98C2649E30100B4694C /* BallDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemo.swift; sourceTree = "<group>"; };
+		38CBC98E2649E31700B4694C /* BallSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallSettingsView.swift; sourceTree = "<group>"; };
+		38CBC9902649E32700B4694C /* BallDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDisplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 		3880970826382D43002F9F67 /* GraphMetal-Demo */ = {
 			isa = PBXGroup;
 			children = (
-				38CBC98B2649E2E500B4694C /* RandomGrowth */,
+				38CBC98B2649E2E500B4694C /* Ball */,
 				3880970D26382D43002F9F67 /* Assets.xcassets */,
 				3880970B26382D43002F9F67 /* ContentView.swift */,
 				3880972D26383827002F9F67 /* Cube */,
@@ -110,14 +110,14 @@
 			path = Cube;
 			sourceTree = "<group>";
 		};
-		38CBC98B2649E2E500B4694C /* RandomGrowth */ = {
+		38CBC98B2649E2E500B4694C /* Ball */ = {
 			isa = PBXGroup;
 			children = (
-				38CBC98C2649E30100B4694C /* RandomGrowthDemo.swift */,
-				38CBC98E2649E31700B4694C /* RandomGrowthSettingsView.swift */,
-				38CBC9902649E32700B4694C /* RandomGrowthDisplayView.swift */,
+				38CBC98C2649E30100B4694C /* BallDemo.swift */,
+				38CBC98E2649E31700B4694C /* BallSettingsView.swift */,
+				38CBC9902649E32700B4694C /* BallDisplayView.swift */,
 			);
-			path = RandomGrowth;
+			path = Ball;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,13 +199,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3880970C26382D43002F9F67 /* ContentView.swift in Sources */,
-				38CBC98F2649E31700B4694C /* RandomGrowthSettingsView.swift in Sources */,
+				38CBC98F2649E31700B4694C /* BallSettingsView.swift in Sources */,
 				3880973326383910002F9F67 /* CubeDemo.swift in Sources */,
-				38CBC98D2649E30100B4694C /* RandomGrowthDemo.swift in Sources */,
+				38CBC98D2649E30100B4694C /* BallDemo.swift in Sources */,
 				388097292638364A002F9F67 /* DemoRegistry.swift in Sources */,
 				388097212638314F002F9F67 /* DemoSelectorView.swift in Sources */,
 				38B574E9263847EF00E7A37A /* CubeSettingsView.swift in Sources */,
-				38CBC9912649E32700B4694C /* RandomGrowthDisplayView.swift in Sources */,
+				38CBC9912649E32700B4694C /* BallDisplayView.swift in Sources */,
 				3880970A26382D43002F9F67 /* GraphMetal_DemoApp.swift in Sources */,
 				38B574F12638528D00E7A37A /* CubeDisplayView.swift in Sources */,
 				38B574F72638740C00E7A37A /* DemoDisplayView.swift in Sources */,

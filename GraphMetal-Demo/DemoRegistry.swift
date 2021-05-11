@@ -10,7 +10,7 @@ import UIStuffForSwift
 
 enum DemoType: String, CaseIterable {
     case cube = "Cube"
-    case randomGrowth = "Random Growth"
+    case ball = "Ball"
 }
 
 protocol Demo {
@@ -29,7 +29,7 @@ class DemoRegistry: ObservableObject {
 
     var cube = CubeDemo()
 
-    var randomGrowth = RandomGrowthDemo()
+    var randomGrowth = BallDemo()
 
     var demoNames: [String] {
         return [cube.name, randomGrowth.name]
