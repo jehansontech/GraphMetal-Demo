@@ -76,6 +76,10 @@ class BallDemo : ObservableObject, Demo {
 
     @Published var stepTimeInterval: Double = 1/30
 
+    @Published var nodeCount: Int = 0
+
+    @Published var edgeCount: Int = 0
+
     private var lastStepTimestamp: Date = .distantPast
 
     @Published var newNodeTimeInterval: Double = 0.5
@@ -125,7 +129,9 @@ class BallDemo : ObservableObject, Demo {
         else {
             graphHolder.registerColorChange()
         }
-        return StepResult(nodeAdded: nodeAdded)
+        return StepResult(nodeAdded: nodeAdded,
+                          nodeCount: graphHolder.graph.nodes.count,
+                          edgeCount: graphHolder.graph.edges.count)
     }
 
     func addNode(_ graph: BallGraph) {
@@ -144,6 +150,8 @@ class BallDemo : ObservableObject, Demo {
     func stepCompleted(_ result: StepResult) {
         self.stepIsScheduled = false
         self.lastStepTimestamp = Date()
+        self.nodeCount = result.nodeCount
+        self.edgeCount = result.edgeCount
         possiblyScheduleNextStep()
     }
 
@@ -157,4 +165,6 @@ class BallDemo : ObservableObject, Demo {
 
 struct StepResult {
     var nodeAdded: Bool
+    var nodeCount: Int
+    var edgeCount: Int
 }

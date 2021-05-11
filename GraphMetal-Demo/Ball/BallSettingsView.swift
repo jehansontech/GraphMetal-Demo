@@ -15,21 +15,25 @@ struct BallSettingsView : View {
     @State var group = SettingsGroup().itemStyle(.narrow)
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
 
-                Button(action: { demo.growing = true }) {
-                    Text("Start")
-                }
-                .foregroundColor(UIConstants.controlColor)
-                .modifier(SymbolButtonStyle())
+            Text("#nodes: \(demo.nodeCount)")
 
-                Button(action: { demo.growing = false }) {
-                    Text("Stop")
-                }
-                .foregroundColor(UIConstants.controlColor)
-                .modifier(SymbolButtonStyle())
+            Text("#edges: \(demo.edgeCount)")
 
-        }
+            Button(action: { demo.growing = true }) {
+                Text("Start")
+            }
+            .foregroundColor(UIConstants.controlColor)
+            .modifier(SymbolButtonStyle())
+
+            Button(action: { demo.growing = false }) {
+                Text("Stop")
+            }
+            .foregroundColor(UIConstants.controlColor)
+            .modifier(SymbolButtonStyle())
+
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     init(_ demo: BallDemo) {
