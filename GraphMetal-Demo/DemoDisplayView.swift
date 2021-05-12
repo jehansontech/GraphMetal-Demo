@@ -8,7 +8,7 @@
 import Foundation
 
 import SwiftUI
-import UIStuffForSwift
+import WacomaUI
 
 struct DemoDisplayView: View {
 

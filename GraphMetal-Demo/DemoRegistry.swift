@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import UIStuffForSwift
+import WacomaUI
 
 enum DemoType: String, CaseIterable {
     case cube = "Cube"

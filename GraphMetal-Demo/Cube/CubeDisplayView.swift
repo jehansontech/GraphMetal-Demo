@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import UIStuffForSwift
+import WacomaUI
 import GraphMetal
 import Combine
 

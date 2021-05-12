@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 import GenericGraph
 import GraphMetal
-import Taconic
+import Wacoma
 
 struct CubeDemoNodeValue: RenderableNodeValue {
 

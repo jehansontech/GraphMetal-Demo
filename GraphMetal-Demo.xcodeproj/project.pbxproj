@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38461EE2263C982D000E889B /* UIStuffForSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 38461EE1263C982D000E889B /* UIStuffForSwift */; };
-		38461EE5263C9886000E889B /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38461EE4263C9886000E889B /* GraphMetal */; };
-		38461EE7263C9886000E889B /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38461EE6263C9886000E889B /* Shaders */; };
+		3819661A264C56B40017836E /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38196619264C56B40017836E /* GraphMetal */; };
+		3819661C264C56B40017836E /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 3819661B264C56B40017836E /* Shaders */; };
 		3880970A26382D43002F9F67 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880970926382D43002F9F67 /* GraphMetal_DemoApp.swift */; };
 		3880970C26382D43002F9F67 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880970B26382D43002F9F67 /* ContentView.swift */; };
 		3880970E26382D43002F9F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3880970D26382D43002F9F67 /* Assets.xcassets */; };
@@ -49,9 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38461EE7263C9886000E889B /* Shaders in Frameworks */,
-				38461EE2263C982D000E889B /* UIStuffForSwift in Frameworks */,
-				38461EE5263C9886000E889B /* GraphMetal in Frameworks */,
+				3819661A264C56B40017836E /* GraphMetal in Frameworks */,
+				3819661C264C56B40017836E /* Shaders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +135,8 @@
 			);
 			name = "GraphMetal-Demo";
 			packageProductDependencies = (
-				38461EE1263C982D000E889B /* UIStuffForSwift */,
-				38461EE4263C9886000E889B /* GraphMetal */,
-				38461EE6263C9886000E889B /* Shaders */,
+				38196619264C56B40017836E /* GraphMetal */,
+				3819661B264C56B40017836E /* Shaders */,
 			);
 			productName = "GraphMetal-Demo";
 			productReference = 3880970626382D43002F9F67 /* GraphMetal-Demo.app */;
@@ -169,8 +166,7 @@
 			);
 			mainGroup = 388096FD26382D43002F9F67;
 			packageReferences = (
-				38461EE0263C982D000E889B /* XCRemoteSwiftPackageReference "UIStuffForSwift" */,
-				38461EE3263C9886000E889B /* XCRemoteSwiftPackageReference "GraphMetal" */,
+				38196618264C56B40017836E /* XCRemoteSwiftPackageReference "GraphMetal" */,
 			);
 			productRefGroup = 3880970726382D43002F9F67 /* Products */;
 			projectDirPath = "";
@@ -405,17 +401,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		38461EE0263C982D000E889B /* XCRemoteSwiftPackageReference "UIStuffForSwift" */ = {
+		38196618264C56B40017836E /* XCRemoteSwiftPackageReference "GraphMetal" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Users/jim/Projects/UIStuffForSwift/UIStuffForSwift";
-			requirement = {
-				branch = dev;
-				kind = branch;
-			};
-		};
-		38461EE3263C9886000E889B /* XCRemoteSwiftPackageReference "GraphMetal" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Users/jim/Projects/GraphMetal/GraphMetal";
+			repositoryURL = "https://github.com/jehansontech/GraphMetal.git";
 			requirement = {
 				branch = dev;
 				kind = branch;
@@ -424,19 +412,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		38461EE1263C982D000E889B /* UIStuffForSwift */ = {
+		38196619264C56B40017836E /* GraphMetal */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 38461EE0263C982D000E889B /* XCRemoteSwiftPackageReference "UIStuffForSwift" */;
-			productName = UIStuffForSwift;
-		};
-		38461EE4263C9886000E889B /* GraphMetal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 38461EE3263C9886000E889B /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			package = 38196618264C56B40017836E /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = GraphMetal;
 		};
-		38461EE6263C9886000E889B /* Shaders */ = {
+		3819661B264C56B40017836E /* Shaders */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 38461EE3263C9886000E889B /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			package = 38196618264C56B40017836E /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = Shaders;
 		};
 /* End XCSwiftPackageProductDependency section */
