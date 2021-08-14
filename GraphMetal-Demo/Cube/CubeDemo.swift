@@ -40,19 +40,21 @@ struct CubeDemoEdgeValue: RenderableEdgeValue {
 
 typealias CubeDemoGraph = BaseGraph<CubeDemoNodeValue, CubeDemoEdgeValue>
 
-typealias CubeDemoController = BasicGraphController<CubeDemoGraph>
+// typealias CubeDemoController = BasicGraphController<CubeDemoGraph>
 
-class CubeDemo: ObservableObject, Demo {
+class CubeDemo: ObservableObject, Demo, RenderableGraphHolder {
+
+    typealias GraphType = CubeDemoGraph
 
     let type: DemoType = .cube
 
     var name: String
 
-    var graphController: CubeDemoController
+    var graph: CubeDemoGraph
 
     var povController: POVController
 
-    @Published var renderSettings = RenderSettings(nodeSizeAutomatic: false)
+    @Published var rendererSettings = RendererSettings(nodeSizeAutomatic: false)
 
     @Published var red: Double = 0 {
         didSet {
@@ -82,14 +84,13 @@ class CubeDemo: ObservableObject, Demo {
 
     init() {
         self.name = type.rawValue
-        self.graphController = CubeDemoController(
-            BaseGraph<CubeDemoNodeValue, CubeDemoEdgeValue>(),
-            DispatchQueue(label: "CubeDemo", qos: .userInitiated))
+        self.graph = CubeDemoGraph()
         self.povController = POVController()
     }
 
     func setup() {
-        graphController.exec(buildCube, afterBuild)
+        buildCube()
+        afterBuild()
     }
 
     func teardown() {
@@ -118,10 +119,9 @@ class CubeDemo: ObservableObject, Demo {
         }
     }
 
-    func buildCube(_ holder: BasicGraphHolder<CubeDemoGraph>) {
+    func buildCube() {
 
         print("CubeDemo: building graph")
-        let graph = holder.graph
 
         let n0 = graph.addNode(CubeDemoNodeValue(SIMD3<Float>(-1, -1, -1), 1, self))
         let n1 = graph.addNode(CubeDemoNodeValue(SIMD3<Float>(-1, -1,  1), 2, self))
@@ -147,7 +147,7 @@ class CubeDemo: ObservableObject, Demo {
         try! graph.addEdge(n2.id, n6.id, CubeDemoEdgeValue())
         try! graph.addEdge(n3.id, n7.id, CubeDemoEdgeValue())
 
-        holder.registerTopologyChange()
+        fireGraphChange(RenderableGraphChange.ALL)
     }
 
     func afterBuild() {
@@ -168,11 +168,8 @@ class CubeDemo: ObservableObject, Demo {
     }
 
     private func updateColors() {
-        graphController.exec({ graphHolder in
-            graphHolder.registerColorChange()
-        })
+        fireGraphChange(RenderableGraphChange(nodeColors: true))
     }
-
 }
 
 

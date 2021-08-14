@@ -15,7 +15,7 @@ struct CubeDisplayView: View {
     @ObservedObject var cube: CubeDemo
 
     var body: some View {
-        RendererView($cube.renderSettings, cube.graphController, cube.povController)
+        GraphView($cube.rendererSettings, cube, cube.povController)
             .navigationTitle("\(cube.name)")
             .navigationBarTitleDisplayMode(.inline)
     }

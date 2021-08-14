@@ -25,7 +25,7 @@ struct CubeSettingsView: View {
             Text("Nodes")
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            RangeSetting("Size", $cube.renderSettings.nodeSize, $group, 1, 500, 1)
+            RangeSetting("Size", $cube.rendererSettings.nodeSize, $group, 1, 500, 1)
 
             RangeSetting("Red", $cube.red, $group, 0, 1, 0.01)
 
@@ -37,12 +37,12 @@ struct CubeSettingsView: View {
 
             RangeSetting("Edges", $edges, $group, 0, 1, 0.01)
                 .onChange(of: edges) { value in
-                    cube.renderSettings.edgeColor = SIMD4<Double>(value, value, value, 1)
+                    cube.rendererSettings.edgeColorDefault = SIMD4<Double>(value, value, value, 1)
                 }
 
             RangeSetting("Background", $background, $group, 0, 1, 0.01)
                 .onChange(of: background) { value in
-                    cube.renderSettings.backgroundColor = SIMD4<Double>(value, value, value, 1)
+                    cube.rendererSettings.backgroundColor = SIMD4<Double>(value, value, value, 1)
                 }
 
 

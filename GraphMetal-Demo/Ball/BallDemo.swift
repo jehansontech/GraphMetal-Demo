@@ -41,15 +41,31 @@ struct BallEdgeValue: RenderableEdgeValue {
 
 typealias BallGraph = BaseGraph<BallNodeValue, BallEdgeValue>
 
-typealias BallController = BasicGraphController<BallGraph>
+//public struct BallController<G: Graph>: RenderableGraphController where
+//    G.NodeType.ValueType: RenderableNodeValue,
+//    G.EdgeType.ValueType: RenderableEdgeValue {
+//
+//    public typealias HolderType = BasicGraphHolder<G>
+//
+//    public var graphHolder: BasicGraphHolder<G>
+//
+//    public var dispatchQueue: DispatchQueue
+//
+//    public init(_ graph: G, _ dispatchQueue: DispatchQueue) {
+//        self.graphHolder = BasicGraphHolder(graph)
+//        self.dispatchQueue = dispatchQueue
+//    }
+//}
 
-class BallDemo : ObservableObject, Demo {
+class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
 
     var type: DemoType = .ball
 
     var name: String = DemoType.ball.rawValue
 
-    var graphController: BallController? = nil
+    var dispatchQueue: DispatchQueue
+
+    var graph: BallGraph
 
     var povController: POVController? = nil
 
@@ -92,15 +108,22 @@ class BallDemo : ObservableObject, Demo {
 
     private var stepIsScheduled: Bool = false
 
+    init() {
+        self.graph = BallGraph()
+        self.dispatchQueue = DispatchQueue(label: "BallDemo", qos: .userInitiated)
+    }
+
     func setup() {
-        self.graphController = BallController(
-            BaseGraph<BallNodeValue, BallEdgeValue>(),
-            DispatchQueue(label: "RandomGrowthDemo", qos: .userInitiated))
+//        self.graphController = BallController(
+//            BaseGraph<BallNodeValue, BallEdgeValue>(),
+//            DispatchQueue(label: "BallDemo", qos: .userInitiated))
         self.povController = POVController()
     }
 
     func teardown() {
-        self.graphController = nil
+        // TODO graph
+        // TODO queue
+        // self.graphController = nil
         self.povController = nil
     }
 
@@ -109,29 +132,39 @@ class BallDemo : ObservableObject, Demo {
             self.stepIsScheduled = true
             let stepDelay =  stepTimeInterval - Date().timeIntervalSince(lastStepTimestamp)
             if (stepDelay > 0) {
-                graphController?.schedule(step, stepDelay, self.stepCompleted)
+                dispatchQueue.asyncAfter(deadline: .now() + stepDelay) { [self] in
+                    let result = step()
+                    DispatchQueue.main.sync {
+                        stepCompleted(result)
+                    }
+                }
             }
             else {
-                graphController?.exec(step, self.stepCompleted)
+                dispatchQueue.async { [self] in
+                    let result = step()
+                    DispatchQueue.main.sync {
+                        stepCompleted(result)
+                    }
+                }
             }
         }
     }
 
-    func step(_ graphHolder: BasicGraphHolder<BallGraph>) -> StepResult {
+    func step() -> StepResult {
         let now = Date()
         var nodeAdded = false
         if now.timeIntervalSince(_lastNewNodeTimestamp) >= newNodeTimeInterval {
-            addNode(graphHolder.graph)
-            graphHolder.registerTopologyChange()
+            addNode(graph)
+            fireGraphChange(RenderableGraphChange.ALL)
             _lastNewNodeTimestamp = now
             nodeAdded = true
         }
         else {
-            graphHolder.registerColorChange()
+            fireGraphChange(RenderableGraphChange(nodeColors: true))
         }
         return StepResult(nodeAdded: nodeAdded,
-                          nodeCount: graphHolder.graph.nodes.count,
-                          edgeCount: graphHolder.graph.edges.count)
+                          nodeCount: graph.nodes.count,
+                          edgeCount: graph.edges.count)
     }
 
     func addNode(_ graph: BallGraph) {

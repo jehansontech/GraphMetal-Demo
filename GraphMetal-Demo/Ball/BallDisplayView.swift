@@ -12,11 +12,11 @@ struct BallDisplayView : View {
 
     @ObservedObject var demo: BallDemo
 
-    @State var renderSettings = RenderSettings(nodeSize: 20,
+    @State var rendererSettings = RendererSettings(nodeSize: 20,
                                                nodeSizeAutomatic: false)
 
     var body: some View {
-        RendererView($renderSettings, demo.graphController!, demo.povController!)
+        GraphView($rendererSettings, demo, demo.povController!)
             .navigationTitle("\(demo.name)")
             .navigationBarTitleDisplayMode(.inline)
     }
