@@ -8,7 +8,7 @@
 import SwiftUI
 import GenericGraph
 import GraphMetal
-
+import Wacoma
 
 struct BallNodeValue: RenderableNodeValue {
 
@@ -114,9 +114,9 @@ class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
     }
 
     func setup() {
-//        self.graphController = BallController(
-//            BaseGraph<BallNodeValue, BallEdgeValue>(),
-//            DispatchQueue(label: "BallDemo", qos: .userInitiated))
+        //        self.graphController = BallController(
+        //            BaseGraph<BallNodeValue, BallEdgeValue>(),
+        //            DispatchQueue(label: "BallDemo", qos: .userInitiated))
         self.povController = POVController()
     }
 
@@ -151,17 +151,19 @@ class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
     }
 
     func step() -> StepResult {
+        debug("BallDemo", "step: started")
         let now = Date()
         var nodeAdded = false
         if now.timeIntervalSince(_lastNewNodeTimestamp) >= newNodeTimeInterval {
             addNode(graph)
-            fireGraphChange(RenderableGraphChange.ALL)
             _lastNewNodeTimestamp = now
             nodeAdded = true
+            fireGraphChange(RenderableGraphChange.ALL)
         }
         else {
             fireGraphChange(RenderableGraphChange(nodeColors: true))
         }
+        debug("BallDemo", "step: done")
         return StepResult(nodeAdded: nodeAdded,
                           nodeCount: graph.nodes.count,
                           edgeCount: graph.edges.count)
@@ -192,7 +194,7 @@ class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
         let r: Float = 1
         let theta: Float = Float.random(in: 0..<Float.pi)
         let phi: Float = Float.random(in: 0..<Float.twoPi)
-        return sphericalToCartesian(rtp: SIMD3<Float>(r, theta, phi))
+        return SIMD3<Float>.sphericalToCartesian(rtp: SIMD3<Float>(r, theta, phi))
     }
 }
 

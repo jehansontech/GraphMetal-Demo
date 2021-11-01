@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		387DCB782662AA35005F9B47 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 387DCB772662AA35005F9B47 /* GraphMetal */; };
-		387DCB7A2662AA35005F9B47 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 387DCB792662AA35005F9B47 /* Shaders */; };
 		3880970A26382D43002F9F67 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880970926382D43002F9F67 /* GraphMetal_DemoApp.swift */; };
 		3880970C26382D43002F9F67 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880970B26382D43002F9F67 /* ContentView.swift */; };
 		3880970E26382D43002F9F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3880970D26382D43002F9F67 /* Assets.xcassets */; };
@@ -22,6 +20,8 @@
 		38CBC98D2649E30100B4694C /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98C2649E30100B4694C /* BallDemo.swift */; };
 		38CBC98F2649E31700B4694C /* BallSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98E2649E31700B4694C /* BallSettingsView.swift */; };
 		38CBC9912649E32700B4694C /* BallDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC9902649E32700B4694C /* BallDisplayView.swift */; };
+		38E0907D273058AA007DEB5D /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38E0907C273058AA007DEB5D /* GraphMetal */; };
+		38E0907F273058AA007DEB5D /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38E0907E273058AA007DEB5D /* Shaders */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				387DCB782662AA35005F9B47 /* GraphMetal in Frameworks */,
-				387DCB7A2662AA35005F9B47 /* Shaders in Frameworks */,
+				38E0907D273058AA007DEB5D /* GraphMetal in Frameworks */,
+				38E0907F273058AA007DEB5D /* Shaders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +135,8 @@
 			);
 			name = "GraphMetal-Demo";
 			packageProductDependencies = (
-				387DCB772662AA35005F9B47 /* GraphMetal */,
-				387DCB792662AA35005F9B47 /* Shaders */,
+				38E0907C273058AA007DEB5D /* GraphMetal */,
+				38E0907E273058AA007DEB5D /* Shaders */,
 			);
 			productName = "GraphMetal-Demo";
 			productReference = 3880970626382D43002F9F67 /* GraphMetal-Demo.app */;
@@ -166,7 +166,7 @@
 			);
 			mainGroup = 388096FD26382D43002F9F67;
 			packageReferences = (
-				387DCB762662AA35005F9B47 /* XCRemoteSwiftPackageReference "GraphMetal" */,
+				38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */,
 			);
 			productRefGroup = 3880970726382D43002F9F67 /* Products */;
 			projectDirPath = "";
@@ -401,9 +401,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		387DCB762662AA35005F9B47 /* XCRemoteSwiftPackageReference "GraphMetal" */ = {
+		38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Users/jim/Projects/GraphMetal/GraphMetal";
+			repositoryURL = "https://github.com/jehansontech/GraphMetal";
 			requirement = {
 				branch = dev;
 				kind = branch;
@@ -412,14 +412,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		387DCB772662AA35005F9B47 /* GraphMetal */ = {
+		38E0907C273058AA007DEB5D /* GraphMetal */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 387DCB762662AA35005F9B47 /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			package = 38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = GraphMetal;
 		};
-		387DCB792662AA35005F9B47 /* Shaders */ = {
+		38E0907E273058AA007DEB5D /* Shaders */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 387DCB762662AA35005F9B47 /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			package = 38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = Shaders;
 		};
 /* End XCSwiftPackageProductDependency section */
