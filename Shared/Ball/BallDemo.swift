@@ -194,7 +194,7 @@ class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
         let r: Float = 1
         let theta: Float = Float.random(in: 0..<Float.pi)
         let phi: Float = Float.random(in: 0..<Float.twoPi)
-        return SIMD3<Float>.sphericalToCartesian(rtp: SIMD3<Float>(r, theta, phi))
+        return sphericalToCartesian(rtp: SIMD3<Float>(r, theta, phi))
     }
 }
 

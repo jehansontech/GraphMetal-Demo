@@ -3,221 +3,300 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3880970A26382D43002F9F67 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880970926382D43002F9F67 /* GraphMetal_DemoApp.swift */; };
-		3880970C26382D43002F9F67 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880970B26382D43002F9F67 /* ContentView.swift */; };
-		3880970E26382D43002F9F67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3880970D26382D43002F9F67 /* Assets.xcassets */; };
-		3880971126382D43002F9F67 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3880971026382D43002F9F67 /* Preview Assets.xcassets */; };
-		388097212638314F002F9F67 /* DemoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388097202638314F002F9F67 /* DemoSelectorView.swift */; };
-		388097292638364A002F9F67 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388097282638364A002F9F67 /* DemoRegistry.swift */; };
-		3880973326383910002F9F67 /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3880973226383910002F9F67 /* CubeDemo.swift */; };
-		38B574E9263847EF00E7A37A /* CubeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B574E8263847EF00E7A37A /* CubeSettingsView.swift */; };
-		38B574F12638528D00E7A37A /* CubeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B574F02638528D00E7A37A /* CubeDisplayView.swift */; };
-		38B574F72638740C00E7A37A /* DemoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B574F62638740C00E7A37A /* DemoDisplayView.swift */; };
-		38CBC98D2649E30100B4694C /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98C2649E30100B4694C /* BallDemo.swift */; };
-		38CBC98F2649E31700B4694C /* BallSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC98E2649E31700B4694C /* BallSettingsView.swift */; };
-		38CBC9912649E32700B4694C /* BallDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CBC9902649E32700B4694C /* BallDisplayView.swift */; };
-		38E0907D273058AA007DEB5D /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38E0907C273058AA007DEB5D /* GraphMetal */; };
-		38E0907F273058AA007DEB5D /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38E0907E273058AA007DEB5D /* Shaders */; };
+		38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
+		38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
+		38187E78274D5E3D00244D04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E67274D5E3C00244D04 /* ContentView.swift */; };
+		38187E79274D5E3D00244D04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E67274D5E3C00244D04 /* ContentView.swift */; };
+		38187E7A274D5E3D00244D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38187E68274D5E3D00244D04 /* Assets.xcassets */; };
+		38187E7B274D5E3D00244D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38187E68274D5E3D00244D04 /* Assets.xcassets */; };
+		38187E87274D5EBC00244D04 /* DemoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E84274D5EBC00244D04 /* DemoDisplayView.swift */; };
+		38187E88274D5EBC00244D04 /* DemoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E84274D5EBC00244D04 /* DemoDisplayView.swift */; };
+		38187E89274D5EBC00244D04 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E85274D5EBC00244D04 /* DemoRegistry.swift */; };
+		38187E8A274D5EBC00244D04 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E85274D5EBC00244D04 /* DemoRegistry.swift */; };
+		38187E8B274D5EBC00244D04 /* DemoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E86274D5EBC00244D04 /* DemoSelectorView.swift */; };
+		38187E8C274D5EBC00244D04 /* DemoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E86274D5EBC00244D04 /* DemoSelectorView.swift */; };
+		38187E8F274D5ED800244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E8E274D5ED800244D04 /* GraphMetal */; };
+		38187E91274D5ED800244D04 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E90274D5ED800244D04 /* Shaders */; };
+		38187E94274D5EE900244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E93274D5EE900244D04 /* GraphMetal */; };
+		38187E96274D5EE900244D04 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E95274D5EE900244D04 /* Shaders */; };
+		38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E99274D5F1F00244D04 /* BallDemo.swift */; };
+		38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E99274D5F1F00244D04 /* BallDemo.swift */; };
+		38187E9E274D5F1F00244D04 /* BallDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9A274D5F1F00244D04 /* BallDisplayView.swift */; };
+		38187E9F274D5F1F00244D04 /* BallDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9A274D5F1F00244D04 /* BallDisplayView.swift */; };
+		38187EA0274D5F1F00244D04 /* BallSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9B274D5F1F00244D04 /* BallSettingsView.swift */; };
+		38187EA1274D5F1F00244D04 /* BallSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9B274D5F1F00244D04 /* BallSettingsView.swift */; };
+		38187EA5274D5F3900244D04 /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA2274D5F3900244D04 /* CubeDemo.swift */; };
+		38187EA6274D5F3900244D04 /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA2274D5F3900244D04 /* CubeDemo.swift */; };
+		38187EA7274D5F3900244D04 /* CubeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA3274D5F3900244D04 /* CubeDisplayView.swift */; };
+		38187EA8274D5F3900244D04 /* CubeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA3274D5F3900244D04 /* CubeDisplayView.swift */; };
+		38187EA9274D5F3900244D04 /* CubeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA4274D5F3900244D04 /* CubeSettingsView.swift */; };
+		38187EAA274D5F3900244D04 /* CubeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA4274D5F3900244D04 /* CubeSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3880970626382D43002F9F67 /* GraphMetal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphMetal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3880970926382D43002F9F67 /* GraphMetal_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMetal_DemoApp.swift; sourceTree = "<group>"; };
-		3880970B26382D43002F9F67 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		3880970D26382D43002F9F67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3880971026382D43002F9F67 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		3880971226382D43002F9F67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3880971926382D57002F9F67 /* GraphMetal-Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GraphMetal-Demo.entitlements"; sourceTree = "<group>"; };
-		388097202638314F002F9F67 /* DemoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoSelectorView.swift; sourceTree = "<group>"; };
-		388097282638364A002F9F67 /* DemoRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoRegistry.swift; sourceTree = "<group>"; };
-		3880973226383910002F9F67 /* CubeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
-		38B574E8263847EF00E7A37A /* CubeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeSettingsView.swift; sourceTree = "<group>"; };
-		38B574F02638528D00E7A37A /* CubeDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDisplayView.swift; sourceTree = "<group>"; };
-		38B574F62638740C00E7A37A /* DemoDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDisplayView.swift; sourceTree = "<group>"; };
-		38CBC98C2649E30100B4694C /* BallDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemo.swift; sourceTree = "<group>"; };
-		38CBC98E2649E31700B4694C /* BallSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallSettingsView.swift; sourceTree = "<group>"; };
-		38CBC9902649E32700B4694C /* BallDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDisplayView.swift; sourceTree = "<group>"; };
+		38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMetal_DemoApp.swift; sourceTree = "<group>"; };
+		38187E67274D5E3C00244D04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		38187E68274D5E3D00244D04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38187E6D274D5E3D00244D04 /* GraphMetal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphMetal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38187E73274D5E3D00244D04 /* GraphMetal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphMetal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38187E75274D5E3D00244D04 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		38187E84274D5EBC00244D04 /* DemoDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDisplayView.swift; sourceTree = "<group>"; };
+		38187E85274D5EBC00244D04 /* DemoRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoRegistry.swift; sourceTree = "<group>"; };
+		38187E86274D5EBC00244D04 /* DemoSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSelectorView.swift; sourceTree = "<group>"; };
+		38187E99274D5F1F00244D04 /* BallDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallDemo.swift; sourceTree = "<group>"; };
+		38187E9A274D5F1F00244D04 /* BallDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallDisplayView.swift; sourceTree = "<group>"; };
+		38187E9B274D5F1F00244D04 /* BallSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallSettingsView.swift; sourceTree = "<group>"; };
+		38187EA2274D5F3900244D04 /* CubeDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
+		38187EA3274D5F3900244D04 /* CubeDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeDisplayView.swift; sourceTree = "<group>"; };
+		38187EA4274D5F3900244D04 /* CubeSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3880970326382D43002F9F67 /* Frameworks */ = {
+		38187E6A274D5E3D00244D04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38E0907D273058AA007DEB5D /* GraphMetal in Frameworks */,
-				38E0907F273058AA007DEB5D /* Shaders in Frameworks */,
+				38187E8F274D5ED800244D04 /* GraphMetal in Frameworks */,
+				38187E91274D5ED800244D04 /* Shaders in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38187E70274D5E3D00244D04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38187E94274D5EE900244D04 /* GraphMetal in Frameworks */,
+				38187E96274D5EE900244D04 /* Shaders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		388096FD26382D43002F9F67 = {
+		38187E60274D5E3B00244D04 = {
 			isa = PBXGroup;
 			children = (
-				3880970826382D43002F9F67 /* GraphMetal-Demo */,
-				3880970726382D43002F9F67 /* Products */,
+				38187E65274D5E3C00244D04 /* Shared */,
+				38187E74274D5E3D00244D04 /* macOS */,
+				38187E6E274D5E3D00244D04 /* Products */,
+				38187E92274D5EE900244D04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		3880970726382D43002F9F67 /* Products */ = {
+		38187E65274D5E3C00244D04 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				3880970626382D43002F9F67 /* GraphMetal-Demo.app */,
+				38187E97274D5EF400244D04 /* Ball */,
+				38187E98274D5EFC00244D04 /* Cube */,
+				38187E84274D5EBC00244D04 /* DemoDisplayView.swift */,
+				38187E85274D5EBC00244D04 /* DemoRegistry.swift */,
+				38187E86274D5EBC00244D04 /* DemoSelectorView.swift */,
+				38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */,
+				38187E67274D5E3C00244D04 /* ContentView.swift */,
+				38187E68274D5E3D00244D04 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		38187E6E274D5E3D00244D04 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				38187E6D274D5E3D00244D04 /* GraphMetal-Demo.app */,
+				38187E73274D5E3D00244D04 /* GraphMetal-Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3880970826382D43002F9F67 /* GraphMetal-Demo */ = {
+		38187E74274D5E3D00244D04 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				38CBC98B2649E2E500B4694C /* Ball */,
-				3880970D26382D43002F9F67 /* Assets.xcassets */,
-				3880970B26382D43002F9F67 /* ContentView.swift */,
-				3880972D26383827002F9F67 /* Cube */,
-				38B574F62638740C00E7A37A /* DemoDisplayView.swift */,
-				388097282638364A002F9F67 /* DemoRegistry.swift */,
-				388097202638314F002F9F67 /* DemoSelectorView.swift */,
-				3880970926382D43002F9F67 /* GraphMetal_DemoApp.swift */,
-				3880971926382D57002F9F67 /* GraphMetal-Demo.entitlements */,
-				3880971226382D43002F9F67 /* Info.plist */,
-				3880970F26382D43002F9F67 /* Preview Content */,
+				38187E75274D5E3D00244D04 /* macOS.entitlements */,
 			);
-			path = "GraphMetal-Demo";
+			path = macOS;
 			sourceTree = "<group>";
 		};
-		3880970F26382D43002F9F67 /* Preview Content */ = {
+		38187E92274D5EE900244D04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3880971026382D43002F9F67 /* Preview Assets.xcassets */,
 			);
-			path = "Preview Content";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3880972D26383827002F9F67 /* Cube */ = {
+		38187E97274D5EF400244D04 /* Ball */ = {
 			isa = PBXGroup;
 			children = (
-				3880973226383910002F9F67 /* CubeDemo.swift */,
-				38B574E8263847EF00E7A37A /* CubeSettingsView.swift */,
-				38B574F02638528D00E7A37A /* CubeDisplayView.swift */,
-			);
-			path = Cube;
-			sourceTree = "<group>";
-		};
-		38CBC98B2649E2E500B4694C /* Ball */ = {
-			isa = PBXGroup;
-			children = (
-				38CBC98C2649E30100B4694C /* BallDemo.swift */,
-				38CBC98E2649E31700B4694C /* BallSettingsView.swift */,
-				38CBC9902649E32700B4694C /* BallDisplayView.swift */,
+				38187E99274D5F1F00244D04 /* BallDemo.swift */,
+				38187E9A274D5F1F00244D04 /* BallDisplayView.swift */,
+				38187E9B274D5F1F00244D04 /* BallSettingsView.swift */,
 			);
 			path = Ball;
+			sourceTree = "<group>";
+		};
+		38187E98274D5EFC00244D04 /* Cube */ = {
+			isa = PBXGroup;
+			children = (
+				38187EA2274D5F3900244D04 /* CubeDemo.swift */,
+				38187EA3274D5F3900244D04 /* CubeDisplayView.swift */,
+				38187EA4274D5F3900244D04 /* CubeSettingsView.swift */,
+			);
+			path = Cube;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3880970526382D43002F9F67 /* GraphMetal-Demo */ = {
+		38187E6C274D5E3D00244D04 /* GraphMetal-Demo (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3880971526382D43002F9F67 /* Build configuration list for PBXNativeTarget "GraphMetal-Demo" */;
+			buildConfigurationList = 38187E7E274D5E3D00244D04 /* Build configuration list for PBXNativeTarget "GraphMetal-Demo (iOS)" */;
 			buildPhases = (
-				3880970226382D43002F9F67 /* Sources */,
-				3880970326382D43002F9F67 /* Frameworks */,
-				3880970426382D43002F9F67 /* Resources */,
+				38187E69274D5E3D00244D04 /* Sources */,
+				38187E6A274D5E3D00244D04 /* Frameworks */,
+				38187E6B274D5E3D00244D04 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "GraphMetal-Demo";
+			name = "GraphMetal-Demo (iOS)";
 			packageProductDependencies = (
-				38E0907C273058AA007DEB5D /* GraphMetal */,
-				38E0907E273058AA007DEB5D /* Shaders */,
+				38187E8E274D5ED800244D04 /* GraphMetal */,
+				38187E90274D5ED800244D04 /* Shaders */,
 			);
-			productName = "GraphMetal-Demo";
-			productReference = 3880970626382D43002F9F67 /* GraphMetal-Demo.app */;
+			productName = "GraphMetal-Demo (iOS)";
+			productReference = 38187E6D274D5E3D00244D04 /* GraphMetal-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		38187E72274D5E3D00244D04 /* GraphMetal-Demo (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38187E81274D5E3D00244D04 /* Build configuration list for PBXNativeTarget "GraphMetal-Demo (macOS)" */;
+			buildPhases = (
+				38187E6F274D5E3D00244D04 /* Sources */,
+				38187E70274D5E3D00244D04 /* Frameworks */,
+				38187E71274D5E3D00244D04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GraphMetal-Demo (macOS)";
+			packageProductDependencies = (
+				38187E93274D5EE900244D04 /* GraphMetal */,
+				38187E95274D5EE900244D04 /* Shaders */,
+			);
+			productName = "GraphMetal-Demo (macOS)";
+			productReference = 38187E73274D5E3D00244D04 /* GraphMetal-Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		388096FE26382D43002F9F67 /* Project object */ = {
+		38187E61274D5E3B00244D04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
 				TargetAttributes = {
-					3880970526382D43002F9F67 = {
-						CreatedOnToolsVersion = 12.4;
+					38187E6C274D5E3D00244D04 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					38187E72274D5E3D00244D04 = {
+						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
-			buildConfigurationList = 3880970126382D43002F9F67 /* Build configuration list for PBXProject "GraphMetal-Demo" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 38187E64274D5E3B00244D04 /* Build configuration list for PBXProject "GraphMetal-Demo" */;
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 388096FD26382D43002F9F67;
+			mainGroup = 38187E60274D5E3B00244D04;
 			packageReferences = (
-				38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */,
+				38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */,
 			);
-			productRefGroup = 3880970726382D43002F9F67 /* Products */;
+			productRefGroup = 38187E6E274D5E3D00244D04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3880970526382D43002F9F67 /* GraphMetal-Demo */,
+				38187E6C274D5E3D00244D04 /* GraphMetal-Demo (iOS) */,
+				38187E72274D5E3D00244D04 /* GraphMetal-Demo (macOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3880970426382D43002F9F67 /* Resources */ = {
+		38187E6B274D5E3D00244D04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3880971126382D43002F9F67 /* Preview Assets.xcassets in Resources */,
-				3880970E26382D43002F9F67 /* Assets.xcassets in Resources */,
+				38187E7A274D5E3D00244D04 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38187E71274D5E3D00244D04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38187E7B274D5E3D00244D04 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3880970226382D43002F9F67 /* Sources */ = {
+		38187E69274D5E3D00244D04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3880970C26382D43002F9F67 /* ContentView.swift in Sources */,
-				38CBC98F2649E31700B4694C /* BallSettingsView.swift in Sources */,
-				3880973326383910002F9F67 /* CubeDemo.swift in Sources */,
-				38CBC98D2649E30100B4694C /* BallDemo.swift in Sources */,
-				388097292638364A002F9F67 /* DemoRegistry.swift in Sources */,
-				388097212638314F002F9F67 /* DemoSelectorView.swift in Sources */,
-				38B574E9263847EF00E7A37A /* CubeSettingsView.swift in Sources */,
-				38CBC9912649E32700B4694C /* BallDisplayView.swift in Sources */,
-				3880970A26382D43002F9F67 /* GraphMetal_DemoApp.swift in Sources */,
-				38B574F12638528D00E7A37A /* CubeDisplayView.swift in Sources */,
-				38B574F72638740C00E7A37A /* DemoDisplayView.swift in Sources */,
+				38187EA0274D5F1F00244D04 /* BallSettingsView.swift in Sources */,
+				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
+				38187E9E274D5F1F00244D04 /* BallDisplayView.swift in Sources */,
+				38187EA9274D5F3900244D04 /* CubeSettingsView.swift in Sources */,
+				38187EA5274D5F3900244D04 /* CubeDemo.swift in Sources */,
+				38187E8B274D5EBC00244D04 /* DemoSelectorView.swift in Sources */,
+				38187E87274D5EBC00244D04 /* DemoDisplayView.swift in Sources */,
+				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
+				38187E89274D5EBC00244D04 /* DemoRegistry.swift in Sources */,
+				38187EA7274D5F3900244D04 /* CubeDisplayView.swift in Sources */,
+				38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38187E6F274D5E3D00244D04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38187EA1274D5F1F00244D04 /* BallSettingsView.swift in Sources */,
+				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
+				38187E9F274D5F1F00244D04 /* BallDisplayView.swift in Sources */,
+				38187EAA274D5F3900244D04 /* CubeSettingsView.swift in Sources */,
+				38187EA6274D5F3900244D04 /* CubeDemo.swift in Sources */,
+				38187E8C274D5EBC00244D04 /* DemoSelectorView.swift in Sources */,
+				38187E88274D5EBC00244D04 /* DemoDisplayView.swift in Sources */,
+				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
+				38187E8A274D5EBC00244D04 /* DemoRegistry.swift in Sources */,
+				38187EA8274D5F3900244D04 /* CubeDisplayView.swift in Sources */,
+				38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		3880971326382D43002F9F67 /* Debug */ = {
+		38187E7C274D5E3D00244D04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -262,23 +341,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		3880971426382D43002F9F67 /* Release */ = {
+		38187E7D274D5E3D00244D04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -317,83 +394,156 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		3880971626382D43002F9F67 /* Debug */ = {
+		38187E7F274D5E3D00244D04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "GraphMetal-Demo/GraphMetal-Demo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GraphMetal-Demo/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VV92S3CB9G;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "GraphMetal-Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jehanson.GraphMetal-Demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				PRODUCT_NAME = "GraphMetal-Demo";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		3880971726382D43002F9F67 /* Release */ = {
+		38187E80274D5E3D00244D04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "GraphMetal-Demo/GraphMetal-Demo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GraphMetal-Demo/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VV92S3CB9G;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "GraphMetal-Demo/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jehanson.GraphMetal-Demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				PRODUCT_NAME = "GraphMetal-Demo";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		38187E82274D5E3D00244D04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VV92S3CB9G;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jehanson.GraphMetal-Demo";
+				PRODUCT_NAME = "GraphMetal-Demo";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		38187E83274D5E3D00244D04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VV92S3CB9G;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jehanson.GraphMetal-Demo";
+				PRODUCT_NAME = "GraphMetal-Demo";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3880970126382D43002F9F67 /* Build configuration list for PBXProject "GraphMetal-Demo" */ = {
+		38187E64274D5E3B00244D04 /* Build configuration list for PBXProject "GraphMetal-Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3880971326382D43002F9F67 /* Debug */,
-				3880971426382D43002F9F67 /* Release */,
+				38187E7C274D5E3D00244D04 /* Debug */,
+				38187E7D274D5E3D00244D04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3880971526382D43002F9F67 /* Build configuration list for PBXNativeTarget "GraphMetal-Demo" */ = {
+		38187E7E274D5E3D00244D04 /* Build configuration list for PBXNativeTarget "GraphMetal-Demo (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3880971626382D43002F9F67 /* Debug */,
-				3880971726382D43002F9F67 /* Release */,
+				38187E7F274D5E3D00244D04 /* Debug */,
+				38187E80274D5E3D00244D04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38187E81274D5E3D00244D04 /* Build configuration list for PBXNativeTarget "GraphMetal-Demo (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38187E82274D5E3D00244D04 /* Debug */,
+				38187E83274D5E3D00244D04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -401,7 +551,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */ = {
+		38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jehansontech/GraphMetal";
 			requirement = {
@@ -412,17 +562,27 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		38E0907C273058AA007DEB5D /* GraphMetal */ = {
+		38187E8E274D5ED800244D04 /* GraphMetal */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = GraphMetal;
 		};
-		38E0907E273058AA007DEB5D /* Shaders */ = {
+		38187E90274D5ED800244D04 /* Shaders */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 38E0907B273058AA007DEB5D /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			productName = Shaders;
+		};
+		38187E93274D5EE900244D04 /* GraphMetal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
+			productName = GraphMetal;
+		};
+		38187E95274D5EE900244D04 /* Shaders */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = Shaders;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 388096FE26382D43002F9F67 /* Project object */;
+	rootObject = 38187E61274D5E3B00244D04 /* Project object */;
 }

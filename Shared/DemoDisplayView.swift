@@ -19,7 +19,7 @@ struct DemoDisplayView: View {
             .foregroundColor(UIConstants.offWhite)
             .background(UIConstants.offBlack)
             .navigationTitle("\(demoRegistry.selectionName)")
-            .navigationBarTitleDisplayMode(.inline)
+            //.navigationBarTitleDisplayMode(.inline)
 
     }
 }

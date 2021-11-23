@@ -121,6 +121,6 @@ struct EmptyDisplayView: View {
         .foregroundColor(UIConstants.offWhite)
         .background(UIConstants.offBlack)
         .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
+        //.navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -30,6 +30,6 @@ struct DemoSelectorView: View {
         .background(UIConstants.offBlack)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationTitle("Demos")
-        .navigationBarTitleDisplayMode(.inline)
+        //.navigationBarTitleDisplayMode(.inline)
     }
 }

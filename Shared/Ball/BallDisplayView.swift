@@ -18,7 +18,7 @@ struct BallDisplayView : View {
     var body: some View {
         GraphView($rendererSettings, demo, demo.povController!)
             .navigationTitle("\(demo.name)")
-            .navigationBarTitleDisplayMode(.inline)
+            //.navigationBarTitleDisplayMode(.inline)
     }
 
     init(_ demo: BallDemo) {
