@@ -62,7 +62,6 @@
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD7274E7C9000D29C5A /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		38F29D15274D63FC0045B74F /* GraphMetal */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GraphMetal; path = ../GraphMetal; sourceTree = "<group>"; };
 		38F29D17274D69A60045B74F /* DimmingDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingDemo.swift; sourceTree = "<group>"; };
 		38F29D19274D6A860045B74F /* DimmingDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingDisplayView.swift; sourceTree = "<group>"; };
 		38F29D1D274D6AA30045B74F /* DimmingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingSettingsView.swift; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 		38F29D14274D63FC0045B74F /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				38F29D15274D63FC0045B74F /* GraphMetal */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
