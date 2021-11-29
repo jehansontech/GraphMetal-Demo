@@ -6,21 +6,20 @@
 //
 
 import SwiftUI
-import WacomaUI
 import GraphMetal
 import Combine
 
 struct CubeDisplayView: View {
 
-    @ObservedObject var cube: CubeDemo
+    @ObservedObject var demo: CubeDemo
 
     var body: some View {
-        GraphView($cube.rendererSettings, cube, cube.povController)
-            .navigationTitle("\(cube.name)")
+        GraphView($demo.rendererSettings, demo, demo.povController)
+            .navigationTitle("\(demo.name)")
             // .navigationBarTitleDisplayMode(.inline)
     }
 
     init(_ cube: CubeDemo) {
-        self.cube = cube
+        self.demo = cube
     }
 }

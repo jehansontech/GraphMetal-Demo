@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-import WacomaUI
 
 struct DemoSelectorView: View {
 
     @EnvironmentObject var demoRegistry: DemoRegistry
 
-    @State var group = TwistieGroup().headerStyle(.fill)
+    // @State var group = TwistieGroup().headerStyle(.fill)
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             Spacer().frame(height: 0) // shift top button down by spacing
             ForEach(demoRegistry.demoNames, id: \.self) { name in
-                TwistieSection(name, $group) {
+                DisclosureGroup(name) { // TwistieSection(name, $group) {
                     demoRegistry.settingsView(name)
                         .onAppear(perform: { demoRegistry.select(name) })
                 }
@@ -26,8 +25,8 @@ struct DemoSelectorView: View {
             Spacer()
         }
         .animation(.easeInOut)
-        .foregroundColor(UIConstants.offWhite)
-        .background(UIConstants.offBlack)
+        // .foregroundColor(UIConstants.offWhite)
+        // .background(UIConstants.offBlack)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationTitle("Demos")
         //.navigationBarTitleDisplayMode(.inline)

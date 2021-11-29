@@ -8,7 +8,6 @@
 import Foundation
 
 import SwiftUI
-import WacomaUI
 
 struct DemoDisplayView: View {
 
@@ -16,8 +15,8 @@ struct DemoDisplayView: View {
 
     var body: some View {
         demoRegistry.displayView(demoRegistry.selectionName)
-            .foregroundColor(UIConstants.offWhite)
-            .background(UIConstants.offBlack)
+            // .foregroundColor(UIConstants.offWhite)
+            // .background(UIConstants.offBlack)
             .navigationTitle("\(demoRegistry.selectionName)")
             //.navigationBarTitleDisplayMode(.inline)
 

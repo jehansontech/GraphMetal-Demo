@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import WacomaUI
 
 struct BallSettingsView : View {
 
     @ObservedObject var demo: BallDemo
 
-    @State var group = SettingsGroup().itemStyle(.narrow)
+    // @State var group = SettingsGroup().itemStyle(.narrow)
 
     var body: some View {
         VStack(alignment: .center) {
@@ -21,14 +20,14 @@ struct BallSettingsView : View {
                 Button(action: { demo.growing = true }) {
                     Text("Start")
                 }
-                .foregroundColor(UIConstants.controlColor)
-                .modifier(SymbolButtonStyle())
+                // .foregroundColor(UIConstants.controlColor)
+                // .modifier(SymbolButtonStyle())
 
                 Button(action: { demo.growing = false }) {
                     Text("Stop")
                 }
-                .foregroundColor(UIConstants.controlColor)
-                .modifier(SymbolButtonStyle())
+                // .foregroundColor(UIConstants.controlColor)
+                // .modifier(SymbolButtonStyle())
             }
 
             Text("#nodes: \(demo.nodeCount)")

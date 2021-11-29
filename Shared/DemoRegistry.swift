@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
-import WacomaUI
 
 enum DemoType: String, CaseIterable {
     case cube = "Cube"
     case ball = "Ball"
+    case dimming = "Dimming"
 }
 
 protocol Demo {
@@ -27,12 +27,14 @@ protocol Demo {
 
 class DemoRegistry: ObservableObject {
 
+    var ball = BallDemo()
+
     var cube = CubeDemo()
 
-    var randomGrowth = BallDemo()
+    var dimming = DimmingDemo()
 
     var demoNames: [String] {
-        return [cube.name, randomGrowth.name]
+        return [ball.name, cube.name, dimming.name]
     }
 
     @Published var selectionName: String = ""
@@ -48,10 +50,12 @@ class DemoRegistry: ObservableObject {
 
     func setup(_ name: String) {
         switch name {
+        case ball.name:
+            ball.setup()
         case cube.name:
             cube.setup()
-        case randomGrowth.name:
-            randomGrowth.setup()
+        case dimming.name:
+            dimming.setup()
         default:
             break;
         }
@@ -59,10 +63,12 @@ class DemoRegistry: ObservableObject {
 
     func teardown(_ name: String) {
         switch name {
+        case ball.name:
+            ball.teardown()
         case cube.name:
             cube.teardown()
-        case randomGrowth.name:
-            randomGrowth.teardown()
+        case dimming.name:
+            dimming.teardown()
         default:
             break;
         }
@@ -71,10 +77,12 @@ class DemoRegistry: ObservableObject {
     func settingsView(_ name: String) -> some View {
         Group {
             switch name {
+            case self.ball.name:
+                self.ball.settingsView
             case self.cube.name:
                 self.cube.settingsView
-            case self.randomGrowth.name:
-                self.randomGrowth.settingsView
+            case self.dimming.name:
+                self.dimming.settingsView
             default:
                 EmptySettingsView()
             }
@@ -84,10 +92,12 @@ class DemoRegistry: ObservableObject {
     func displayView(_ name: String) -> some View {
         Group {
             switch name {
+            case self.ball.name:
+                self.ball.displayView
             case self.cube.name:
                 self.cube.displayView
-            case self.randomGrowth.name:
-                self.randomGrowth.displayView
+            case self.dimming.name:
+                self.dimming.displayView
             default:
                 EmptyDisplayView()
             }
@@ -104,8 +114,8 @@ struct EmptySettingsView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .foregroundColor(UIConstants.offWhite)
-        .background(UIConstants.offBlack)
+        // .foregroundColor(UIConstants.offWhite)
+        // .background(UIConstants.offBlack)
     }
 }
 
@@ -118,8 +128,8 @@ struct EmptyDisplayView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .foregroundColor(UIConstants.offWhite)
-        .background(UIConstants.offBlack)
+        // .foregroundColor(UIConstants.offWhite)
+        // .background(UIConstants.offBlack)
         .navigationTitle("")
         //.navigationBarTitleDisplayMode(.inline)
     }
