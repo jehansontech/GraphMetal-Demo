@@ -11,13 +11,12 @@ import Wacoma
 @main
 struct GraphMetal_DemoApp: App {
 
-    @StateObject var demoRegistry = DemoRegistry()
+    @StateObject var appModel = AppModel()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(demoRegistry)
-                .preferredColorScheme(.dark)
+                .environmentObject(appModel)
         }
     }
 

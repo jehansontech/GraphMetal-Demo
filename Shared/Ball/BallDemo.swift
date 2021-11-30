@@ -10,72 +10,15 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-struct BallNodeValue: RenderableNodeValue {
-
-    let colorFadeTime: TimeInterval = 5
-
-    var hidden: Bool { return false }
-
-    var color: SIMD4<Float>? {
-        let f: Float = Float(Date().timeIntervalSince(creationTime) / colorFadeTime)
-        return SIMD4<Float>(0,
-                            (1 - f).clamp(0, 1),
-                            0,
-                            1)
-    }
-
-    var location: SIMD3<Float>
-
-    let creationTime: Date
-
-    init(_ location: SIMD3<Float>) {
-        self.location = location
-        self.creationTime = Date()
-    }
-}
-
-struct BallEdgeValue: RenderableEdgeValue {
-
-    var hidden: Bool { return false }
-}
-
-typealias BallGraph = BaseGraph<BallNodeValue, BallEdgeValue>
-
-//public struct BallController<G: Graph>: RenderableGraphController where
-//    G.NodeType.ValueType: RenderableNodeValue,
-//    G.EdgeType.ValueType: RenderableEdgeValue {
-//
-//    public typealias HolderType = BasicGraphHolder<G>
-//
-//    public var graphHolder: BasicGraphHolder<G>
-//
-//    public var dispatchQueue: DispatchQueue
-//
-//    public init(_ graph: G, _ dispatchQueue: DispatchQueue) {
-//        self.graphHolder = BasicGraphHolder(graph)
-//        self.dispatchQueue = dispatchQueue
-//    }
-//}
-
-class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
-
-    var type: DemoType = .ball
-
-    var name: String = DemoType.ball.rawValue
+class BallDemo: ObservableObject, RenderableGraphHolder {
 
     var dispatchQueue: DispatchQueue
 
     var graph: BallGraph
 
-    var povController: POVController? = nil
+    var povController: POVController
 
-    var settingsView: some View {
-        BallSettingsView(self)
-    }
-
-    var displayView: some View {
-        BallDisplayView(self)
-    }
+    @Published var rendererSettings = RendererSettings(nodeSizeAutomatic: false)
 
     @Published var growing: Bool = true {
         didSet {
@@ -110,6 +53,7 @@ class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
 
     init() {
         self.graph = BallGraph()
+        self.povController = POVController()
         self.dispatchQueue = DispatchQueue(label: "BallDemo", qos: .userInitiated)
     }
 
@@ -117,14 +61,14 @@ class BallDemo : ObservableObject, Demo, RenderableGraphHolder {
         //        self.graphController = BallController(
         //            BaseGraph<BallNodeValue, BallEdgeValue>(),
         //            DispatchQueue(label: "BallDemo", qos: .userInitiated))
-        self.povController = POVController()
+        //self.povController = POVController()
     }
 
     func teardown() {
         // TODO graph
         // TODO queue
         // self.graphController = nil
-        self.povController = nil
+            // self.povController = nil
     }
 
     func possiblyScheduleNextStep() {
@@ -203,3 +147,36 @@ struct StepResult {
     var nodeCount: Int
     var edgeCount: Int
 }
+
+struct BallNodeValue: RenderableNodeValue {
+
+    let colorFadeTime: TimeInterval = 5
+
+    var hidden: Bool { return false }
+
+    var color: SIMD4<Float>? {
+        let f: Float = Float(Date().timeIntervalSince(creationTime) / colorFadeTime)
+        return SIMD4<Float>(0,
+                            (1 - f).clamp(0, 1),
+                            0,
+                            1)
+    }
+
+    var location: SIMD3<Float>
+
+    let creationTime: Date
+
+    init(_ location: SIMD3<Float>) {
+        self.location = location
+        self.creationTime = Date()
+    }
+}
+
+struct BallEdgeValue: RenderableEdgeValue {
+
+    var hidden: Bool { return false }
+}
+
+typealias BallGraph = BaseGraph<BallNodeValue, BallEdgeValue>
+
+

@@ -11,44 +11,11 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-struct CubeDemoNodeValue: RenderableNodeValue {
-
-    var hidden: Bool { return false }
-
-    var location: SIMD3<Float>
-
-    var group: Int
-
-    weak var cube: CubeDemo!
-
-    var color: SIMD4<Float>? {
-        return cube.groupColor(group)
-    }
-
-    init(_ location: SIMD3<Float>, _ group: Int, _ cube: CubeDemo) {
-        self.location = location
-        self.group = group
-        self.cube = cube
-    }
-
-}
-
-struct CubeDemoEdgeValue: RenderableEdgeValue {
-
-    var hidden: Bool { return false }
-}
-
-typealias CubeDemoGraph = BaseGraph<CubeDemoNodeValue, CubeDemoEdgeValue>
-
-// typealias CubeDemoController = BasicGraphController<CubeDemoGraph>
-
-class CubeDemo: ObservableObject, Demo, RenderableGraphHolder {
+class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     typealias GraphType = CubeDemoGraph
 
-    let type: DemoType = .cube
-
-    var name: String
+    var built: Bool = false
 
     var graph: CubeDemoGraph
 
@@ -74,23 +41,17 @@ class CubeDemo: ObservableObject, Demo, RenderableGraphHolder {
         }
     }
 
-    var settingsView: some View {
-        CubeSettingsView(self)
-    }
-
-    var displayView: some View {
-        CubeDisplayView(self)
-    }
-
     init() {
-        self.name = type.rawValue
         self.graph = CubeDemoGraph()
         self.povController = POVController()
     }
 
     func setup() {
-        buildCube()
-        afterBuild()
+        if !built {
+            built = true
+            buildCube()
+            afterBuild()
+        }
     }
 
     func teardown() {
@@ -171,5 +132,34 @@ class CubeDemo: ObservableObject, Demo, RenderableGraphHolder {
         fireGraphChange(RenderableGraphChange(nodeColors: true))
     }
 }
+
+struct CubeDemoNodeValue: RenderableNodeValue {
+
+    var hidden: Bool { return false }
+
+    var location: SIMD3<Float>
+
+    var group: Int
+
+    weak var cube: CubeDemo!
+
+    var color: SIMD4<Float>? {
+        return cube.groupColor(group)
+    }
+
+    init(_ location: SIMD3<Float>, _ group: Int, _ cube: CubeDemo) {
+        self.location = location
+        self.group = group
+        self.cube = cube
+    }
+
+}
+
+struct CubeDemoEdgeValue: RenderableEdgeValue {
+
+    var hidden: Bool { return false }
+}
+
+typealias CubeDemoGraph = BaseGraph<CubeDemoNodeValue, CubeDemoEdgeValue>
 
 

@@ -7,64 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3807A39F2755626B006C8AB9 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A39E2755626B006C8AB9 /* AppModel.swift */; };
+		3807A3A02755626B006C8AB9 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A39E2755626B006C8AB9 /* AppModel.swift */; };
+		3807A3A22755958B006C8AB9 /* BallDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoView.swift */; };
+		3807A3A32755958B006C8AB9 /* BallDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoView.swift */; };
+		3807A3A5275595D7006C8AB9 /* CubeDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A4275595D7006C8AB9 /* CubeDemoView.swift */; };
+		3807A3A6275595D7006C8AB9 /* CubeDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A4275595D7006C8AB9 /* CubeDemoView.swift */; };
+		3807A3A82755961A006C8AB9 /* DimmingDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* DimmingDemoView.swift */; };
+		3807A3A92755961A006C8AB9 /* DimmingDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* DimmingDemoView.swift */; };
 		38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
 		38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
 		38187E78274D5E3D00244D04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E67274D5E3C00244D04 /* ContentView.swift */; };
 		38187E79274D5E3D00244D04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E67274D5E3C00244D04 /* ContentView.swift */; };
 		38187E7A274D5E3D00244D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38187E68274D5E3D00244D04 /* Assets.xcassets */; };
 		38187E7B274D5E3D00244D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38187E68274D5E3D00244D04 /* Assets.xcassets */; };
-		38187E87274D5EBC00244D04 /* DemoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E84274D5EBC00244D04 /* DemoDisplayView.swift */; };
-		38187E88274D5EBC00244D04 /* DemoDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E84274D5EBC00244D04 /* DemoDisplayView.swift */; };
-		38187E89274D5EBC00244D04 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E85274D5EBC00244D04 /* DemoRegistry.swift */; };
-		38187E8A274D5EBC00244D04 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E85274D5EBC00244D04 /* DemoRegistry.swift */; };
-		38187E8B274D5EBC00244D04 /* DemoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E86274D5EBC00244D04 /* DemoSelectorView.swift */; };
-		38187E8C274D5EBC00244D04 /* DemoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E86274D5EBC00244D04 /* DemoSelectorView.swift */; };
 		38187E8F274D5ED800244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E8E274D5ED800244D04 /* GraphMetal */; };
 		38187E91274D5ED800244D04 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E90274D5ED800244D04 /* Shaders */; };
 		38187E94274D5EE900244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E93274D5EE900244D04 /* GraphMetal */; };
 		38187E96274D5EE900244D04 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E95274D5EE900244D04 /* Shaders */; };
 		38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E99274D5F1F00244D04 /* BallDemo.swift */; };
 		38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E99274D5F1F00244D04 /* BallDemo.swift */; };
-		38187E9E274D5F1F00244D04 /* BallDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9A274D5F1F00244D04 /* BallDisplayView.swift */; };
-		38187E9F274D5F1F00244D04 /* BallDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9A274D5F1F00244D04 /* BallDisplayView.swift */; };
-		38187EA0274D5F1F00244D04 /* BallSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9B274D5F1F00244D04 /* BallSettingsView.swift */; };
-		38187EA1274D5F1F00244D04 /* BallSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E9B274D5F1F00244D04 /* BallSettingsView.swift */; };
 		38187EA5274D5F3900244D04 /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA2274D5F3900244D04 /* CubeDemo.swift */; };
 		38187EA6274D5F3900244D04 /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA2274D5F3900244D04 /* CubeDemo.swift */; };
-		38187EA7274D5F3900244D04 /* CubeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA3274D5F3900244D04 /* CubeDisplayView.swift */; };
-		38187EA8274D5F3900244D04 /* CubeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA3274D5F3900244D04 /* CubeDisplayView.swift */; };
-		38187EA9274D5F3900244D04 /* CubeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA4274D5F3900244D04 /* CubeSettingsView.swift */; };
-		38187EAA274D5F3900244D04 /* CubeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA4274D5F3900244D04 /* CubeSettingsView.swift */; };
 		38F29D18274D69A60045B74F /* DimmingDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* DimmingDemo.swift */; };
-		38F29D1A274D6A860045B74F /* DimmingDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D19274D6A860045B74F /* DimmingDisplayView.swift */; };
-		38F29D1B274D6A870045B74F /* DimmingDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D19274D6A860045B74F /* DimmingDisplayView.swift */; };
 		38F29D1C274D6A8B0045B74F /* DimmingDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* DimmingDemo.swift */; };
-		38F29D1E274D6AA30045B74F /* DimmingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D1D274D6AA30045B74F /* DimmingSettingsView.swift */; };
-		38F29D1F274D6AA30045B74F /* DimmingSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D1D274D6AA30045B74F /* DimmingSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3807A39E2755626B006C8AB9 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		3807A3A12755958B006C8AB9 /* BallDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoView.swift; sourceTree = "<group>"; };
+		3807A3A4275595D7006C8AB9 /* CubeDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoView.swift; sourceTree = "<group>"; };
+		3807A3A72755961A006C8AB9 /* DimmingDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingDemoView.swift; sourceTree = "<group>"; };
 		38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMetal_DemoApp.swift; sourceTree = "<group>"; };
 		38187E67274D5E3C00244D04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		38187E68274D5E3D00244D04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38187E6D274D5E3D00244D04 /* GraphMetal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphMetal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38187E73274D5E3D00244D04 /* GraphMetal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphMetal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38187E75274D5E3D00244D04 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		38187E84274D5EBC00244D04 /* DemoDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoDisplayView.swift; sourceTree = "<group>"; };
-		38187E85274D5EBC00244D04 /* DemoRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoRegistry.swift; sourceTree = "<group>"; };
-		38187E86274D5EBC00244D04 /* DemoSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSelectorView.swift; sourceTree = "<group>"; };
 		38187E99274D5F1F00244D04 /* BallDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallDemo.swift; sourceTree = "<group>"; };
-		38187E9A274D5F1F00244D04 /* BallDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallDisplayView.swift; sourceTree = "<group>"; };
-		38187E9B274D5F1F00244D04 /* BallSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallSettingsView.swift; sourceTree = "<group>"; };
 		38187EA2274D5F3900244D04 /* CubeDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
-		38187EA3274D5F3900244D04 /* CubeDisplayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeDisplayView.swift; sourceTree = "<group>"; };
-		38187EA4274D5F3900244D04 /* CubeSettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeSettingsView.swift; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD7274E7C9000D29C5A /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		38F29D17274D69A60045B74F /* DimmingDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingDemo.swift; sourceTree = "<group>"; };
-		38F29D19274D6A860045B74F /* DimmingDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingDisplayView.swift; sourceTree = "<group>"; };
-		38F29D1D274D6AA30045B74F /* DimmingSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,27 +79,24 @@
 			children = (
 				38B1AAD9274E7C9B00D29C5A /* README.md */,
 				38B1AAD6274E7C9000D29C5A /* Notes */,
+				38187E65274D5E3C00244D04 /* Shared */,
 				38B1AAD4274E7C8800D29C5A /* LICENSE */,
 				38187E92274D5EE900244D04 /* Frameworks */,
 				38187E74274D5E3D00244D04 /* macOS */,
 				38187E6E274D5E3D00244D04 /* Products */,
-				38187E65274D5E3C00244D04 /* Shared */,
-				38F29D14274D63FC0045B74F /* Packages */,
 			);
 			sourceTree = "<group>";
 		};
 		38187E65274D5E3C00244D04 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3807A39E2755626B006C8AB9 /* AppModel.swift */,
+				38187E67274D5E3C00244D04 /* ContentView.swift */,
+				38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */,
+				38187E68274D5E3D00244D04 /* Assets.xcassets */,
 				38187E97274D5EF400244D04 /* Ball */,
 				38187E98274D5EFC00244D04 /* Cube */,
 				38F29D16274D69890045B74F /* Dimming */,
-				38187E84274D5EBC00244D04 /* DemoDisplayView.swift */,
-				38187E85274D5EBC00244D04 /* DemoRegistry.swift */,
-				38187E86274D5EBC00244D04 /* DemoSelectorView.swift */,
-				38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */,
-				38187E67274D5E3C00244D04 /* ContentView.swift */,
-				38187E68274D5E3D00244D04 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -147,8 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				38187E99274D5F1F00244D04 /* BallDemo.swift */,
-				38187E9A274D5F1F00244D04 /* BallDisplayView.swift */,
-				38187E9B274D5F1F00244D04 /* BallSettingsView.swift */,
+				3807A3A12755958B006C8AB9 /* BallDemoView.swift */,
 			);
 			path = Ball;
 			sourceTree = "<group>";
@@ -157,8 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				38187EA2274D5F3900244D04 /* CubeDemo.swift */,
-				38187EA3274D5F3900244D04 /* CubeDisplayView.swift */,
-				38187EA4274D5F3900244D04 /* CubeSettingsView.swift */,
+				3807A3A4275595D7006C8AB9 /* CubeDemoView.swift */,
 			);
 			path = Cube;
 			sourceTree = "<group>";
@@ -171,19 +151,11 @@
 			path = Notes;
 			sourceTree = "<group>";
 		};
-		38F29D14274D63FC0045B74F /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		38F29D16274D69890045B74F /* Dimming */ = {
 			isa = PBXGroup;
 			children = (
 				38F29D17274D69A60045B74F /* DimmingDemo.swift */,
-				38F29D19274D6A860045B74F /* DimmingDisplayView.swift */,
-				38F29D1D274D6AA30045B74F /* DimmingSettingsView.swift */,
+				3807A3A72755961A006C8AB9 /* DimmingDemoView.swift */,
 			);
 			path = Dimming;
 			sourceTree = "<group>";
@@ -297,19 +269,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38187EA0274D5F1F00244D04 /* BallSettingsView.swift in Sources */,
 				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
+				3807A3A5275595D7006C8AB9 /* CubeDemoView.swift in Sources */,
+				3807A3A82755961A006C8AB9 /* DimmingDemoView.swift in Sources */,
 				38F29D18274D69A60045B74F /* DimmingDemo.swift in Sources */,
-				38187E9E274D5F1F00244D04 /* BallDisplayView.swift in Sources */,
-				38187EA9274D5F3900244D04 /* CubeSettingsView.swift in Sources */,
 				38187EA5274D5F3900244D04 /* CubeDemo.swift in Sources */,
-				38187E8B274D5EBC00244D04 /* DemoSelectorView.swift in Sources */,
-				38187E87274D5EBC00244D04 /* DemoDisplayView.swift in Sources */,
-				38F29D1A274D6A860045B74F /* DimmingDisplayView.swift in Sources */,
+				3807A3A22755958B006C8AB9 /* BallDemoView.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
-				38187E89274D5EBC00244D04 /* DemoRegistry.swift in Sources */,
-				38F29D1E274D6AA30045B74F /* DimmingSettingsView.swift in Sources */,
-				38187EA7274D5F3900244D04 /* CubeDisplayView.swift in Sources */,
+				3807A39F2755626B006C8AB9 /* AppModel.swift in Sources */,
 				38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,19 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38187EA1274D5F1F00244D04 /* BallSettingsView.swift in Sources */,
 				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
-				38187E9F274D5F1F00244D04 /* BallDisplayView.swift in Sources */,
-				38187EAA274D5F3900244D04 /* CubeSettingsView.swift in Sources */,
+				3807A3A6275595D7006C8AB9 /* CubeDemoView.swift in Sources */,
+				3807A3A92755961A006C8AB9 /* DimmingDemoView.swift in Sources */,
 				38187EA6274D5F3900244D04 /* CubeDemo.swift in Sources */,
-				38187E8C274D5EBC00244D04 /* DemoSelectorView.swift in Sources */,
-				38187E88274D5EBC00244D04 /* DemoDisplayView.swift in Sources */,
 				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
-				38187E8A274D5EBC00244D04 /* DemoRegistry.swift in Sources */,
-				38F29D1B274D6A870045B74F /* DimmingDisplayView.swift in Sources */,
-				38187EA8274D5F3900244D04 /* CubeDisplayView.swift in Sources */,
-				38F29D1F274D6AA30045B74F /* DimmingSettingsView.swift in Sources */,
+				3807A3A32755958B006C8AB9 /* BallDemoView.swift in Sources */,
 				38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */,
+				3807A3A02755626B006C8AB9 /* AppModel.swift in Sources */,
 				38F29D1C274D6A8B0045B74F /* DimmingDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

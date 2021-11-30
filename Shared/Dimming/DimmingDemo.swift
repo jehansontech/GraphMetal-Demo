@@ -9,36 +9,9 @@ import SwiftUI
 import GenericGraph
 import GraphMetal
 
-struct DimmingDemoNodeValue: RenderableNodeValue {
-
-    static let white = SIMD4<Float>(1, 1, 1, 1)
-
-    var hidden: Bool { return false }
-
-    var color: SIMD4<Float>? { return DimmingDemoNodeValue.white }
-
-    var location: SIMD3<Float>
-
-    init(_ location: SIMD3<Float>) {
-        self.location = location
-    }
-}
-
-struct DimmingDemoEdgeValue: RenderableEdgeValue {
-
-    var hidden: Bool { return false }
-
-}
-
-typealias DimmingDemoGraph = BaseGraph<DimmingDemoNodeValue, DimmingDemoEdgeValue>
-
-class DimmingDemo: ObservableObject, Demo, RenderableGraphHolder {
+class DimmingDemo: ObservableObject, RenderableGraphHolder {
 
     typealias GraphType = DimmingDemoGraph
-
-    let type: DemoType = .dimming
-
-    var name: String
 
     var graph: DimmingDemoGraph
 
@@ -47,16 +20,7 @@ class DimmingDemo: ObservableObject, Demo, RenderableGraphHolder {
     @Published var rendererSettings = RendererSettings(nodeSize: 5,
                                                        nodeSizeAutomatic: false)
 
-    var settingsView: some View {
-        DimmingSettingsView(self)
-    }
-
-    var displayView: some View {
-        DimmingDisplayView(self)
-    }
-
     init() {
-        self.name = type.rawValue
         self.graph = DimmingDemoGraph()
         self.povController = POVController()
         povController.pov = makeInitialPOV()
@@ -67,6 +31,7 @@ class DimmingDemo: ObservableObject, Demo, RenderableGraphHolder {
     }
 
     func teardown() {
+        graph = DimmingDemoGraph()
     }
 
 
@@ -100,3 +65,27 @@ class DimmingDemo: ObservableObject, Demo, RenderableGraphHolder {
         }
     }
 }
+
+struct DimmingDemoNodeValue: RenderableNodeValue {
+
+    static let white = SIMD4<Float>(1, 1, 1, 1)
+
+    var hidden: Bool { return false }
+
+    var color: SIMD4<Float>? { return DimmingDemoNodeValue.white }
+
+    var location: SIMD3<Float>
+
+    init(_ location: SIMD3<Float>) {
+        self.location = location
+    }
+}
+
+struct DimmingDemoEdgeValue: RenderableEdgeValue {
+
+    var hidden: Bool { return false }
+
+}
+
+typealias DimmingDemoGraph = BaseGraph<DimmingDemoNodeValue, DimmingDemoEdgeValue>
+
