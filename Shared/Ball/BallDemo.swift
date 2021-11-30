@@ -71,6 +71,10 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
             // self.povController = nil
     }
 
+    func reset() {
+        self.graph = BallGraph()
+    }
+    
     func possiblyScheduleNextStep() {
         if !(self.stopIsRequested || self.stepIsScheduled) {
             self.stepIsScheduled = true

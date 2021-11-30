@@ -11,16 +11,18 @@ import Wacoma
 @main
 struct GraphMetal_DemoApp: App {
 
-    @StateObject var appModel = AppModel()
+    @StateObject var displayState = DisplayState()
+    @StateObject var demoRegistry = DemoRegistry()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(appModel)
+                .environmentObject(displayState)
+                .environmentObject(demoRegistry)
         }
     }
 
     init() {
-        setDebug(enabled: true)
+        setDebug(enabled: false)
     }
 }

@@ -82,7 +82,7 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     func buildCube() {
 
-        print("CubeDemo: building graph")
+        debug("CubeDemo", "building graph")
 
         let n0 = graph.addNode(CubeDemoNodeValue(SIMD3<Float>(-1, -1, -1), 1, self))
         let n1 = graph.addNode(CubeDemoNodeValue(SIMD3<Float>(-1, -1,  1), 2, self))

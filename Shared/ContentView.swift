@@ -8,63 +8,67 @@
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
+        VStack(spacing: 0) {
             DisplayControls()
-                .padding()
-            PageView()
-                .padding()
+                .frame(maxWidth: .infinity)
+            Divider().frame(maxWidth: .infinity)
+            DemoView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-}
-
-struct NavigationBarStyle: ViewModifier {
-
-    @EnvironmentObject var model: AppModel
-
-    func body(content: Content) -> some View {
-        content
-            .foregroundColor(Color.red)// navigationBarTitle("sdfsdfs")
+        }
     }
 }
 
 struct DisplayControls: View {
 
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject private var displayState: DisplayState
+
+    private let insets = EdgeInsets(top: 1, leading: 10, bottom: 0, trailing: 0)
 
     var body: some View {
         HStack(alignment: .center, spacing: 10) {
 
             Button(action: {
-                model.toggleColorScheme()
+                displayState.toggleSidebar()
+            }) {
+                Image(systemName: "sidebar.leading")
+            }
+
+            Button(action: {
+                displayState.toggleColorScheme()
             }) {
                 Image(systemName: "sun.max.fill")
             }
 
-            Picker("", selection: $model.currentPage) {
-                ForEach(Page.allCases, id: \.self) { p in
+            Picker("", selection: $displayState.demo) {
+                ForEach(DemoType.allCases, id: \.self) { p in
                     Text(p.rawValue).tag(p)
                 }
             }
             .pickerStyle(.segmented)
 
-            Spacer()
         }
-        .preferredColorScheme(model.colorScheme) // put it here for convenience
+        .padding(insets)
+        .preferredColorScheme(displayState.colorScheme)
     }
 }
 
-struct PageView : View {
+struct DemoView : View {
 
-    @EnvironmentObject var appModel: AppModel
+    @EnvironmentObject private var displayState: DisplayState
+
+    @EnvironmentObject private var demoRegistry: DemoRegistry
 
     var body: some View {
-        switch appModel.currentPage {
-        case .ball:
-            BallDemoView(appModel.ball)
-        case .cube:
-            CubeDemoView(appModel.cube)
-        case .dimming:
-            DimmingDemoView(appModel.dimming)
+        HStack(spacing: 0) {
+            if displayState.sidebarVisible {
+                demoRegistry.settingsView(displayState.demo)
+                    .padding()
+                    .frame(maxWidth: UIConstants.settingsViewWidth, maxHeight: .infinity)
+            }
+            demoRegistry.displayView(displayState.demo)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
