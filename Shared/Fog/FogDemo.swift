@@ -22,6 +22,8 @@ class FogDemo: ObservableObject, RenderableGraphHolder {
     @Published var rendererSettings = RendererSettings(nodeSize: 8,
                                                        nodeSizeAutomatic: false)
 
+    @Published var visibilityLimitMax: Float = 1000
+
     init() {
         self.graph = FogDemoGraph()
         self.povController = POVController()

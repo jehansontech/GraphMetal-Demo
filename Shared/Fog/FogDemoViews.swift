@@ -16,15 +16,37 @@ struct FogSettingsView: View {
 
     let zFormatter: NumberFormatter
 
+    var onsetSliderRange: ClosedRange<Float> {
+        return 0...(0.999 * fog.visibilityLimitMax)
+    }
+
+    var limitSliderRange: ClosedRange<Float> {
+        return fog.rendererSettings.fadeoutOnset...fog.visibilityLimitMax
+    }
+
     var body: some View {
 
         VStack(alignment: .leading) {
-            DisclosureGroup("Visibility", isExpanded: $visibilityExpanded) {
-                VStack {
-                Slider(value: $fog.rendererSettings.zFar, in: 1...1000)
-                TextField("", value: $fog.rendererSettings.zFar, formatter: zFormatter)
+            VStack {
+                HStack {
+                    Text("Fadeout Onset")
+                    TextField("", value: $fog.rendererSettings.fadeoutOnset, formatter: zFormatter)
                 }
                 .settingControl()
+
+                Slider(value: $fog.rendererSettings.fadeoutOnset, in: onsetSliderRange)
+                    .settingControl()
+
+                Spacer().frame(height: 10)
+
+                HStack {
+                    Text("Visibility Limit")
+                    TextField("", value: $fog.rendererSettings.visibilityLimit, formatter: zFormatter)
+                }
+                .settingControl()
+
+                Slider(value: $fog.rendererSettings.visibilityLimit, in: limitSliderRange)
+                    .settingControl()
             }
 
             Spacer()
