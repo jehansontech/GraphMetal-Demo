@@ -53,7 +53,6 @@
 		3832225727565AAE00B91665 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
 		3832225A2756724D00B91665 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		38B1AAD7274E7C9000D29C5A /* ToDo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ToDo.txt; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		38F29D17274D69A60045B74F /* FogDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogDemo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				38B1AAD9274E7C9B00D29C5A /* README.md */,
-				38B1AAD6274E7C9000D29C5A /* Notes */,
 				38187E65274D5E3C00244D04 /* Shared */,
 				38B1AAD4274E7C8800D29C5A /* LICENSE */,
 				38187E92274D5EE900244D04 /* Frameworks */,
@@ -149,14 +147,6 @@
 				3807A3A4275595D7006C8AB9 /* CubeDemoViews.swift */,
 			);
 			path = Cube;
-			sourceTree = "<group>";
-		};
-		38B1AAD6274E7C9000D29C5A /* Notes */ = {
-			isa = PBXGroup;
-			children = (
-				38B1AAD7274E7C9000D29C5A /* ToDo.txt */,
-			);
-			path = Notes;
 			sourceTree = "<group>";
 		};
 		38F29D16274D69890045B74F /* Fog */ = {
