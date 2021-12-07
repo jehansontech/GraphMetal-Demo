@@ -52,6 +52,7 @@
 		38187EA2274D5F3900244D04 /* CubeDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
 		3832225727565AAE00B91665 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
 		3832225A2756724D00B91665 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
+		38404C3C275EAC3800A7486A /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		38F29D17274D69A60045B74F /* FogDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogDemo.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 				38187E65274D5E3C00244D04 /* Shared */,
 				38B1AAD4274E7C8800D29C5A /* LICENSE */,
 				38187E92274D5EE900244D04 /* Frameworks */,
+				3858DC48275FAC8000C2D31E /* iOS */,
 				38187E74274D5E3D00244D04 /* macOS */,
 				38187E6E274D5E3D00244D04 /* Products */,
 			);
@@ -147,6 +149,14 @@
 				3807A3A4275595D7006C8AB9 /* CubeDemoViews.swift */,
 			);
 			path = Cube;
+			sourceTree = "<group>";
+		};
+		3858DC48275FAC8000C2D31E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				38404C3C275EAC3800A7486A /* iOS.entitlements */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		38F29D16274D69890045B74F /* Fog */ = {
@@ -418,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VV92S3CB9G;
@@ -437,9 +448,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jehanson.GraphMetal-Demo";
 				PRODUCT_NAME = "GraphMetal-Demo";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -448,6 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = VV92S3CB9G;
@@ -467,9 +480,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jehanson.GraphMetal-Demo";
 				PRODUCT_NAME = "GraphMetal-Demo";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

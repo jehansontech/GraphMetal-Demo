@@ -58,6 +58,14 @@ struct CubeSettingsView: View {
                     .settingControl()
             }
 
+            DisclosureGroup("Orbit") {
+                VStack {
+                    Toggle("Enabled", isOn: $demo.rendererSettings.orbitEnabled)
+                    Slider(value: $demo.rendererSettings.orbitSpeed, in: -1...1)
+                        .settingControl()
+                }
+            }
+
             Spacer()
         }
     }

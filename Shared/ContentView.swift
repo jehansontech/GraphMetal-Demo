@@ -33,12 +33,14 @@ struct DisplayControls: View {
                 displayState.toggleSidebar()
             }) {
                 Image(systemName: "sidebar.leading")
+                    .imageScale(.large)
             }
 
             Button(action: {
                 displayState.toggleColorScheme()
             }) {
                 Image(systemName: "sun.max.fill")
+                    .imageScale(.large)
             }
 
             Picker("", selection: $displayState.demo) {
