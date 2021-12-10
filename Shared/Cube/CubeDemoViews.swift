@@ -45,7 +45,7 @@ struct CubeSettingsView: View {
             DisclosureGroup("Edges") {
                 Slider(value: $edges, in: 0...1)
                     .onChange(of: edges) { value in
-                            demo.rendererSettings.edgeColorDefault = SIMD4<Double>(value, value, value, 1)
+                            demo.rendererSettings.edgeColor = SIMD4<Double>(value, value, value, 1)
                     }
                     .settingControl()
             }

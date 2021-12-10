@@ -19,10 +19,8 @@ class FogDemo: ObservableObject, RenderableGraphHolder {
 
     var built = false
 
-    @Published var rendererSettings = RendererSettings(nodeSize: 8,
+    @Published var rendererSettings = RendererSettings(nodeSize: 10,
                                                        nodeSizeAutomatic: false)
-
-    @Published var visibilityLimitMax: Float = 1000
 
     init() {
         self.graph = FogDemoGraph()

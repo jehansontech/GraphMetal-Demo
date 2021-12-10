@@ -17,11 +17,11 @@ struct FogSettingsView: View {
     let zFormatter: NumberFormatter
 
     var onsetSliderRange: ClosedRange<Float> {
-        return 0...(0.999 * fog.visibilityLimitMax)
+        return fog.rendererSettings.zNear...fog.rendererSettings.fadeoutOnset
     }
 
     var limitSliderRange: ClosedRange<Float> {
-        return fog.rendererSettings.fadeoutOnset...fog.visibilityLimitMax
+        return fog.rendererSettings.fadeoutOnset...fog.rendererSettings.zFar
     }
 
     var body: some View {
