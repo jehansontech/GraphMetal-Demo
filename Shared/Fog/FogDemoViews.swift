@@ -17,11 +17,11 @@ struct FogSettingsView: View {
     let zFormatter: NumberFormatter
 
     var onsetSliderRange: ClosedRange<Float> {
-        return fog.rendererSettings.zNear...fog.rendererSettings.fadeoutOnset
+        return fog.rendererSettings.zNear...fog.rendererSettings.zFar
     }
 
-    var limitSliderRange: ClosedRange<Float> {
-        return fog.rendererSettings.fadeoutOnset...fog.rendererSettings.zFar
+    var distanceSliderRange: ClosedRange<Float> {
+        return 0...fog.rendererSettings.zFar
     }
 
     var body: some View {
@@ -40,12 +40,12 @@ struct FogSettingsView: View {
                 Spacer().frame(height: 10)
 
                 HStack {
-                    Text("Visibility Limit")
-                    TextField("", value: $fog.rendererSettings.visibilityLimit, formatter: zFormatter)
+                    Text("Fadeout Distance")
+                    TextField("", value: $fog.rendererSettings.fadeoutDistance, formatter: zFormatter)
                 }
                 .settingControl()
 
-                Slider(value: $fog.rendererSettings.visibilityLimit, in: limitSliderRange)
+                Slider(value: $fog.rendererSettings.fadeoutDistance, in: distanceSliderRange)
                     .settingControl()
             }
 
