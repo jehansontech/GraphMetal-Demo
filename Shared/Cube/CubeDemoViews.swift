@@ -43,23 +43,13 @@ struct CubeSettingsView: View {
                 .settingControl()
             }
 
-//            DisclosureGroup("Edges") {
-//                Slider(value: $edges, in: 0...1)
-//                    .onChange(of: edges) { value in
-//                            demo.wireframeSettings.edgeColor = SIMD4<Double>(value, value, value, 1)
-//                    }
-//                    .settingControl()
-//            }
-//
-//            DisclosureGroup("Background") {
-//                Slider(value: $background, in: 0...1)
-//                    .onChange(of: background) { value in
-//                        let newBG = SIMD4<Double>(value, value, value, 1)
-//                        debug("CubeSettingsView", "setting background to \(newBG.prettyString)")
-//                        demo.graphRendererSettings.backgroundColor = newBG
-//                    }
-//                    .settingControl()
-//            }
+            DisclosureGroup("Edges") {
+                Slider(value: $edges, in: 0...1)
+                    .onChange(of: edges) { value in
+                            demo.wireframeSettings.edgeColor = SIMD4<Double>(value, value, value, 1)
+                    }
+                    .settingControl()
+            }
 
             DisclosureGroup("Orbit") {
                 VStack {
@@ -84,8 +74,8 @@ struct CubeDisplayView: View {
 
     var body: some View {
         GraphView(cube,
+                  renderController: cube.renderController,
                   povController: cube.povController,
-                  rendererSettings: cube.graphRendererSettings,
                   wireframeSettings: cube.wireframeSettings)
             .onAppear {
                 cube.setup()

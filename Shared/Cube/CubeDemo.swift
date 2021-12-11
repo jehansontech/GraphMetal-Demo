@@ -23,9 +23,7 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     var wireframeSettings: GraphWireFrameSettings
 
-    var graphRendererSettings: RenderController
-
-    // @Published var rendererSettings = RendererSettings()
+    var renderController: RenderController
 
     @Published var red: Double = 0 {
         didSet {
@@ -47,7 +45,7 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     init() {
         self.povController = POVController()
-        self.graphRendererSettings = RenderController()
+        self.renderController = RenderController()
         self.wireframeSettings = GraphWireFrameSettings(nodeSizeAutomatic: false)
         self.graph = CubeDemoGraph()
     }

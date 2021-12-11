@@ -30,22 +30,22 @@ struct FogSettingsView: View {
             VStack {
                 HStack {
                     Text("Fadeout Onset")
-                    TextField("", value: $fog.rendererSettings.fadeoutOnset, formatter: zFormatter)
+                    TextField("", value: $fog.renderController.fadeoutOnset, formatter: zFormatter)
                 }
                 .settingControl()
 
-                Slider(value: $fog.rendererSettings.fadeoutOnset, in: onsetSliderRange)
+                Slider(value: $fog.renderController.fadeoutOnset, in: onsetSliderRange)
                     .settingControl()
 
                 Spacer().frame(height: 10)
 
                 HStack {
                     Text("Fadeout Distance")
-                    TextField("", value: $fog.rendererSettings.fadeoutDistance, formatter: zFormatter)
+                    TextField("", value: $fog.renderController.fadeoutDistance, formatter: zFormatter)
                 }
                 .settingControl()
 
-                Slider(value: $fog.rendererSettings.fadeoutDistance, in: distanceSliderRange)
+                Slider(value: $fog.renderController.fadeoutDistance, in: distanceSliderRange)
                     .settingControl()
             }
 
@@ -67,8 +67,8 @@ struct FogDisplayView: View {
 
     var body: some View {
         GraphView(fog,
-                  povController: fog.povController,
-                  rendererSettings: fog.rendererSettings)
+                  renderController: fog.renderController,
+                  povController: fog.povController)
             .onAppear {
                 fog.setup()
             }
