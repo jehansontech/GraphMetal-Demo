@@ -77,7 +77,7 @@ struct BallDisplayView: View {
 
     var body: some View {
         GraphView(ball,
-                  ball.povController,
+                  povController: ball.povController,
                   wireframeSettings: ball.wireframeSettings)
             .onAppear {
                 ball.setup()

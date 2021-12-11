@@ -67,7 +67,7 @@ struct FogDisplayView: View {
 
     var body: some View {
         GraphView(fog,
-                  fog.povController,
+                  povController: fog.povController,
                   rendererSettings: fog.rendererSettings)
             .onAppear {
                 fog.setup()

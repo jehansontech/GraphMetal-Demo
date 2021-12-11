@@ -84,7 +84,7 @@ struct CubeDisplayView: View {
 
     var body: some View {
         GraphView(cube,
-                  cube.povController,
+                  povController: cube.povController,
                   rendererSettings: cube.graphRendererSettings,
                   wireframeSettings: cube.wireframeSettings)
             .onAppear {
