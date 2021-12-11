@@ -20,7 +20,7 @@ struct CubeSettingsView: View {
         VStack(alignment: .leading) {
 
             DisclosureGroup("Node size") {
-                Slider(value: $demo.rendererSettings.nodeSize, in: 1...200)
+                Slider(value: $demo.wireframeSettings.nodeSize, in: 1...200)
                     .settingControl()
             }
 
@@ -45,7 +45,7 @@ struct CubeSettingsView: View {
             DisclosureGroup("Edges") {
                 Slider(value: $edges, in: 0...1)
                     .onChange(of: edges) { value in
-                            demo.rendererSettings.edgeColor = SIMD4<Double>(value, value, value, 1)
+                            demo.wireframeSettings.edgeColor = SIMD4<Double>(value, value, value, 1)
                     }
                     .settingControl()
             }
@@ -60,8 +60,8 @@ struct CubeSettingsView: View {
 
             DisclosureGroup("Orbit") {
                 VStack {
-                    Toggle("Enabled", isOn: $demo.rendererSettings.orbitEnabled)
-                    Slider(value: $demo.rendererSettings.orbitSpeed, in: -1...1)
+                    Toggle("Enabled", isOn: $demo.povController.orbitEnabled)
+                    Slider(value: $demo.povController.orbitSpeed, in: -1...1)
                         .settingControl()
                 }
             }
@@ -82,7 +82,8 @@ struct CubeDisplayView: View {
     var body: some View {
         GraphView($cube.rendererSettings,
                   cube,
-                  cube.povController)
+                  cube.povController,
+                  wireframeSettings: cube.wireframeSettings)
             .onAppear {
                 cube.setup()
             }
