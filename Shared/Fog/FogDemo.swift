@@ -21,7 +21,7 @@ class FogDemo: ObservableObject, RenderableGraphHolder {
 
     var built = false
 
-    var rendererSettings = GraphRendererSettings()
+    var rendererSettings = RenderController()
 
     init() {
         self.graph = FogDemoGraph()
