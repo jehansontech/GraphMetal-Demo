@@ -17,11 +17,11 @@ struct FogSettingsView: View {
     let zFormatter: NumberFormatter
 
     var onsetSliderRange: ClosedRange<Float> {
-        return fog.rendererSettings.zNear...fog.rendererSettings.zFar
+        return 0...1000
     }
 
     var distanceSliderRange: ClosedRange<Float> {
-        return 0...fog.rendererSettings.zFar
+        return 0...1000
     }
 
     var body: some View {
@@ -66,9 +66,9 @@ struct FogDisplayView: View {
     @ObservedObject var fog: FogDemo
 
     var body: some View {
-        GraphView($fog.rendererSettings,
-                  fog,
-                  fog.povController)
+        GraphView(fog,
+                  fog.povController,
+                  rendererSettings: fog.rendererSettings)
             .onAppear {
                 fog.setup()
             }

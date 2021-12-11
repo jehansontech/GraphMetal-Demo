@@ -83,8 +83,7 @@ struct CubeDisplayView: View {
     @ObservedObject var cube: CubeDemo
 
     var body: some View {
-        GraphView($cube.rendererSettings,
-                  cube,
+        GraphView(cube,
                   cube.povController,
                   rendererSettings: cube.graphRendererSettings,
                   wireframeSettings: cube.wireframeSettings)

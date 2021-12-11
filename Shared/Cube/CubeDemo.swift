@@ -25,7 +25,7 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     var graphRendererSettings: GraphRendererSettings
 
-    @Published var rendererSettings = RendererSettings()
+    // @Published var rendererSettings = RendererSettings()
 
     @Published var red: Double = 0 {
         didSet {

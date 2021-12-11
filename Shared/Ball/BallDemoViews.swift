@@ -76,8 +76,7 @@ struct BallDisplayView: View {
     @ObservedObject var ball: BallDemo
 
     var body: some View {
-        GraphView($ball.rendererSettings,
-                  ball,
+        GraphView(ball,
                   ball.povController,
                   wireframeSettings: ball.wireframeSettings)
             .onAppear {

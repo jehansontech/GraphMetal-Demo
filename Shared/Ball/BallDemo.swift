@@ -20,7 +20,7 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
 
     var wireframeSettings = GraphWireFrameSettings(nodeSize: 10, nodeSizeAutomatic: false)
 
-    @Published var rendererSettings = RendererSettings()
+    // @Published var rendererSettings = RendererSettings()
 
     @Published var growing: Bool = true {
         didSet {
