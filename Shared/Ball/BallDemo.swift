@@ -18,7 +18,7 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
 
     var povController: POVController
 
-    var wireframeSettings: GraphWireFrameSettings
+//    var wireframeSettings: GraphWireFrameSettings
 
     @Published var rendererSettings = RendererSettings()
 
@@ -56,8 +56,8 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
     init() {
         self.graph = BallGraph()
         self.povController = POVController()
-        self.wireframeSettings = GraphWireFrameSettings(nodeSize: 10,
-                                                        nodeSizeAutomatic: false)
+//        self.wireframeSettings = GraphWireFrameSettings(nodeSize: 10,
+//                                                        nodeSizeAutomatic: false)
         self.dispatchQueue = DispatchQueue(label: "BallDemo", qos: .userInitiated)
     }
 

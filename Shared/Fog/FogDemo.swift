@@ -17,7 +17,7 @@ class FogDemo: ObservableObject, RenderableGraphHolder {
 
     var povController: POVController
 
-    var wireframeSettings: GraphWireFrameSettings
+    // var wireframeSettings: GraphWireFrameSettings
 
     var built = false
 
@@ -26,8 +26,6 @@ class FogDemo: ObservableObject, RenderableGraphHolder {
     init() {
         self.graph = FogDemoGraph()
         self.povController = POVController()
-        self.wireframeSettings = GraphWireFrameSettings(nodeSize: 10,
-                                                        nodeSizeAutomatic: false)
         povController.pov = makeInitialPOV()
     }
 

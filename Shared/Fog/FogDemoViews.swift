@@ -65,11 +65,14 @@ struct FogDisplayView: View {
 
     @ObservedObject var fog: FogDemo
 
+    // var wireframeSettings = GraphWireFrameSettings(nodeSize: 10, nodeSizeAutomatic: false)
+    var wireframeSettings: GraphWireFrameSettings? = nil
+
     var body: some View {
         GraphView($fog.rendererSettings,
                   fog,
                   fog.povController,
-                  wireframeSettings: fog.wireframeSettings)
+                  wireframeSettings: wireframeSettings)
             .onAppear {
                 fog.setup()
             }
