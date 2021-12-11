@@ -75,13 +75,11 @@ struct BallDisplayView: View {
 
     @ObservedObject var ball: BallDemo
 
-    var wireframeSettings = GraphWireFrameSettings(nodeSize: 10, nodeSizeAutomatic: false)
-
     var body: some View {
         GraphView($ball.rendererSettings,
                   ball,
                   ball.povController,
-                  wireframeSettings: wireframeSettings)
+                  wireframeSettings: ball.wireframeSettings)
             .onAppear {
                 ball.setup()
             }

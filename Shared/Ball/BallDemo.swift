@@ -16,9 +16,9 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
 
     var graph: BallGraph
 
-    var povController: POVController
+    var povController = POVController()
 
-//    var wireframeSettings: GraphWireFrameSettings
+    var wireframeSettings = GraphWireFrameSettings(nodeSize: 10, nodeSizeAutomatic: false)
 
     @Published var rendererSettings = RendererSettings()
 
@@ -55,24 +55,13 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
 
     init() {
         self.graph = BallGraph()
-        self.povController = POVController()
-//        self.wireframeSettings = GraphWireFrameSettings(nodeSize: 10,
-//                                                        nodeSizeAutomatic: false)
         self.dispatchQueue = DispatchQueue(label: "BallDemo", qos: .userInitiated)
     }
 
     func setup() {
-        //        self.graphController = BallController(
-        //            BaseGraph<BallNodeValue, BallEdgeValue>(),
-        //            DispatchQueue(label: "BallDemo", qos: .userInitiated))
-        //self.povController = POVController()
     }
 
     func teardown() {
-        // TODO graph
-        // TODO queue
-        // self.graphController = nil
-            // self.povController = nil
     }
 
     func reset() {
