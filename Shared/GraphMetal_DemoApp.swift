@@ -23,6 +23,6 @@ struct GraphMetal_DemoApp: App {
     }
 
     init() {
-        setDebug(enabled: false)
+        setDebug(enabled: true)
     }
 }
