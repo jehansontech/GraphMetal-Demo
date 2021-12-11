@@ -23,7 +23,7 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     var wireframeSettings: GraphWireFrameSettings
 
-    @Published var rendererSettings = RendererSettings(nodeSizeAutomatic: false)
+    @Published var rendererSettings = RendererSettings()
 
     @Published var red: Double = 0 {
         didSet {

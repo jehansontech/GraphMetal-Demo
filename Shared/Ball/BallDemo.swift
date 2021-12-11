@@ -18,7 +18,9 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
 
     var povController: POVController
 
-    @Published var rendererSettings = RendererSettings(nodeSizeAutomatic: false)
+    var wireframeSettings: GraphWireFrameSettings
+
+    @Published var rendererSettings = RendererSettings()
 
     @Published var growing: Bool = true {
         didSet {
@@ -54,6 +56,8 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
     init() {
         self.graph = BallGraph()
         self.povController = POVController()
+        self.wireframeSettings = GraphWireFrameSettings(nodeSize: 10,
+                                                        nodeSizeAutomatic: false)
         self.dispatchQueue = DispatchQueue(label: "BallDemo", qos: .userInitiated)
     }
 

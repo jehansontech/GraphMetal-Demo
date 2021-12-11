@@ -68,7 +68,8 @@ struct FogDisplayView: View {
     var body: some View {
         GraphView($fog.rendererSettings,
                   fog,
-                  fog.povController)
+                  fog.povController,
+                  wireframeSettings: fog.wireframeSettings)
             .onAppear {
                 fog.setup()
             }
