@@ -13,10 +13,6 @@ struct CubeSettingsView: View {
 
     @ObservedObject var demo: CubeDemo
 
-    @State private var edges: Double = 0
-
-    @State private var background: Double = 0
-
     var body: some View {
         VStack(alignment: .leading) {
 
@@ -25,7 +21,7 @@ struct CubeSettingsView: View {
                     .settingControl()
             }
 
-            DisclosureGroup("Node colors") {
+            DisclosureGroup("Nodegroup colors") {
                 VStack {
                     HStack {
                         Text("R")
@@ -43,13 +39,7 @@ struct CubeSettingsView: View {
                 .settingControl()
             }
 
-            DisclosureGroup("Edges") {
-                Slider(value: $edges, in: 0...1)
-                    .onChange(of: edges) { value in
-                            demo.wireframeSettings.edgeColor = SIMD4<Double>(value, value, value, 1)
-                    }
-                    .settingControl()
-            }
+            // ColorPicker("Edge color", selection: $demo.wireframeSettings.edgeColor)
 
             DisclosureGroup("Orbit") {
                 VStack {
