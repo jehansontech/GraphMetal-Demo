@@ -11,10 +11,8 @@
 		3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A39E2755626B006C8AB9 /* DemoRegistry.swift */; };
 		3807A3A22755958B006C8AB9 /* BallDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoViews.swift */; };
 		3807A3A32755958B006C8AB9 /* BallDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoViews.swift */; };
-		3807A3A5275595D7006C8AB9 /* CubeDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A4275595D7006C8AB9 /* CubeDemoViews.swift */; };
-		3807A3A6275595D7006C8AB9 /* CubeDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A4275595D7006C8AB9 /* CubeDemoViews.swift */; };
-		3807A3A82755961A006C8AB9 /* FogDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* FogDemoViews.swift */; };
-		3807A3A92755961A006C8AB9 /* FogDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* FogDemoViews.swift */; };
+		3807A3A82755961A006C8AB9 /* CubeDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */; };
+		3807A3A92755961A006C8AB9 /* CubeDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */; };
 		38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
 		38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
 		38187E78274D5E3D00244D04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E67274D5E3C00244D04 /* ContentView.swift */; };
@@ -27,8 +25,6 @@
 		38187E96274D5EE900244D04 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E95274D5EE900244D04 /* Shaders */; };
 		38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E99274D5F1F00244D04 /* BallDemo.swift */; };
 		38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E99274D5F1F00244D04 /* BallDemo.swift */; };
-		38187EA5274D5F3900244D04 /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA2274D5F3900244D04 /* CubeDemo.swift */; };
-		38187EA6274D5F3900244D04 /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187EA2274D5F3900244D04 /* CubeDemo.swift */; };
 		3832225827565AAE00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
 		3832225927565AAF00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
 		3832225B2756724D00B91665 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225A2756724D00B91665 /* UIStyle.swift */; };
@@ -43,15 +39,18 @@
 		3850A7A027674097004452C6 /* WireframeDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A79E27674097004452C6 /* WireframeDemoFigure.swift */; };
 		3850A7A2276771F1004452C6 /* WireframeDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A7A1276771F1004452C6 /* WireframeDemoGraph.swift */; };
 		3850A7A3276771F1004452C6 /* WireframeDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A7A1276771F1004452C6 /* WireframeDemoGraph.swift */; };
-		38F29D18274D69A60045B74F /* FogDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* FogDemo.swift */; };
-		38F29D1C274D6A8B0045B74F /* FogDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* FogDemo.swift */; };
+		385550962767BF4F0041104B /* CubeDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550952767BF4F0041104B /* CubeDemoGraph.swift */; };
+		385550972767BF4F0041104B /* CubeDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550952767BF4F0041104B /* CubeDemoGraph.swift */; };
+		385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550982767C17D0041104B /* CubeDemoFigure.swift */; };
+		3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550982767C17D0041104B /* CubeDemoFigure.swift */; };
+		38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
+		38F29D1C274D6A8B0045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3807A39E2755626B006C8AB9 /* DemoRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoRegistry.swift; sourceTree = "<group>"; };
 		3807A3A12755958B006C8AB9 /* BallDemoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoViews.swift; sourceTree = "<group>"; };
-		3807A3A4275595D7006C8AB9 /* CubeDemoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoViews.swift; sourceTree = "<group>"; };
-		3807A3A72755961A006C8AB9 /* FogDemoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogDemoViews.swift; sourceTree = "<group>"; };
+		3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoControls.swift; sourceTree = "<group>"; };
 		38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMetal_DemoApp.swift; sourceTree = "<group>"; };
 		38187E67274D5E3C00244D04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		38187E68274D5E3D00244D04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 		38187E73274D5E3D00244D04 /* GraphMetal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphMetal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38187E75274D5E3D00244D04 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		38187E99274D5F1F00244D04 /* BallDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallDemo.swift; sourceTree = "<group>"; };
-		38187EA2274D5F3900244D04 /* CubeDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
 		3832225727565AAE00B91665 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
 		3832225A2756724D00B91665 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
 		38404C3C275EAC3800A7486A /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
@@ -68,9 +66,11 @@
 		3850A79B2767401C004452C6 /* WireframeDemoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeDemoControls.swift; sourceTree = "<group>"; };
 		3850A79E27674097004452C6 /* WireframeDemoFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeDemoFigure.swift; sourceTree = "<group>"; };
 		3850A7A1276771F1004452C6 /* WireframeDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeDemoGraph.swift; sourceTree = "<group>"; };
+		385550952767BF4F0041104B /* CubeDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoGraph.swift; sourceTree = "<group>"; };
+		385550982767C17D0041104B /* CubeDemoFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoFigure.swift; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		38F29D17274D69A60045B74F /* FogDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FogDemo.swift; sourceTree = "<group>"; };
+		38F29D17274D69A60045B74F /* CubeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,17 +111,16 @@
 		38187E65274D5E3C00244D04 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				3850A79727673FC4004452C6 /* Wireframe */,
+				38187E67274D5E3C00244D04 /* ContentView.swift */,
 				3850A78D27673303004452C6 /* CubeBuilder.swift */,
 				3807A39E2755626B006C8AB9 /* DemoRegistry.swift */,
-				38187E67274D5E3C00244D04 /* ContentView.swift */,
 				3832225727565AAE00B91665 /* DisplayState.swift */,
 				38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */,
 				3832225A2756724D00B91665 /* UIStyle.swift */,
 				38187E68274D5E3D00244D04 /* Assets.xcassets */,
 				38187E97274D5EF400244D04 /* Ball */,
 				38187E98274D5EFC00244D04 /* Cube */,
-				38F29D16274D69890045B74F /* Fog */,
+				3850A79727673FC4004452C6 /* Wireframe */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -162,8 +161,10 @@
 		38187E98274D5EFC00244D04 /* Cube */ = {
 			isa = PBXGroup;
 			children = (
-				38187EA2274D5F3900244D04 /* CubeDemo.swift */,
-				3807A3A4275595D7006C8AB9 /* CubeDemoViews.swift */,
+				38F29D17274D69A60045B74F /* CubeDemo.swift */,
+				3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */,
+				385550952767BF4F0041104B /* CubeDemoGraph.swift */,
+				385550982767C17D0041104B /* CubeDemoFigure.swift */,
 			);
 			path = Cube;
 			sourceTree = "<group>";
@@ -185,15 +186,6 @@
 				38404C3C275EAC3800A7486A /* iOS.entitlements */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		38F29D16274D69890045B74F /* Fog */ = {
-			isa = PBXGroup;
-			children = (
-				38F29D17274D69A60045B74F /* FogDemo.swift */,
-				3807A3A72755961A006C8AB9 /* FogDemoViews.swift */,
-			);
-			path = Fog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,13 +298,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
-				3807A3A5275595D7006C8AB9 /* CubeDemoViews.swift in Sources */,
 				3850A79C2767401C004452C6 /* WireframeDemoControls.swift in Sources */,
 				3832225827565AAE00B91665 /* DisplayState.swift in Sources */,
-				3807A3A82755961A006C8AB9 /* FogDemoViews.swift in Sources */,
+				3807A3A82755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
+				385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A79F27674097004452C6 /* WireframeDemoFigure.swift in Sources */,
-				38F29D18274D69A60045B74F /* FogDemo.swift in Sources */,
-				38187EA5274D5F3900244D04 /* CubeDemo.swift in Sources */,
+				38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */,
 				3807A3A22755958B006C8AB9 /* BallDemoViews.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
 				3850A78E27673303004452C6 /* CubeBuilder.swift in Sources */,
@@ -321,6 +312,7 @@
 				3807A39F2755626B006C8AB9 /* DemoRegistry.swift in Sources */,
 				38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */,
 				3850A7992767400B004452C6 /* WireframeDemo.swift in Sources */,
+				385550962767BF4F0041104B /* CubeDemoGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,12 +321,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
-				3807A3A6275595D7006C8AB9 /* CubeDemoViews.swift in Sources */,
 				3850A79D2767401C004452C6 /* WireframeDemoControls.swift in Sources */,
 				3832225927565AAF00B91665 /* DisplayState.swift in Sources */,
-				3807A3A92755961A006C8AB9 /* FogDemoViews.swift in Sources */,
+				3807A3A92755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
+				3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A7A027674097004452C6 /* WireframeDemoFigure.swift in Sources */,
-				38187EA6274D5F3900244D04 /* CubeDemo.swift in Sources */,
 				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
 				3807A3A32755958B006C8AB9 /* BallDemoViews.swift in Sources */,
 				38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */,
@@ -342,8 +333,9 @@
 				3832225C2756724D00B91665 /* UIStyle.swift in Sources */,
 				3850A7A3276771F1004452C6 /* WireframeDemoGraph.swift in Sources */,
 				3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */,
-				38F29D1C274D6A8B0045B74F /* FogDemo.swift in Sources */,
+				38F29D1C274D6A8B0045B74F /* CubeDemo.swift in Sources */,
 				3850A79A2767400B004452C6 /* WireframeDemo.swift in Sources */,
+				385550972767BF4F0041104B /* CubeDemoGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

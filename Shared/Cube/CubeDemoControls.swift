@@ -1,0 +1,91 @@
+//
+//  VisibilityDemoViews.swift
+//  GraphMetal-Demo
+//
+//  Created by Jim Hanson on 11/29/21.
+//
+
+import SwiftUI
+import GraphMetal
+
+struct CubeDemoControls: View {
+    
+    static var labelWidth: CGFloat = 80
+
+    @ObservedObject var demo: CubeDemo
+    
+    var body: some View {
+        
+        VStack(alignment: .leading) {
+            Text("Fadeout")
+            FadeoutControls(demo: demo)
+                .padding(.leading, 10)
+                .frame(maxWidth: .infinity)
+            Text("Orbit")
+            OrbitControls(demo: demo)
+                .padding(.leading, 10)
+                .frame(maxWidth: .infinity)
+        }
+    }
+}
+
+struct FadeoutControls: View {
+    
+    @ObservedObject var demo: CubeDemo
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Onset")
+                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $demo.renderController.fadeoutOnset, in: 1...100) {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("1")
+                } maximumValueLabel: {
+                    Text("100")
+                }
+            }
+            HStack {
+                Text("Distance")
+                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $demo.renderController.fadeoutDistance, in: 1...100) {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("1")
+                } maximumValueLabel: {
+                    Text("100")
+                }
+            }
+        }
+    }
+}
+
+struct OrbitControls: View {
+    
+    @ObservedObject var demo: CubeDemo
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+            Text("Enabled")
+                .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+            Toggle("", isOn: $demo.povController.orbitEnabled)
+                .toggleStyle(.switch)
+                .frame(maxWidth: .infinity)
+            }
+            HStack {
+                Text("Speed")
+                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $demo.povController.orbitSpeed, in: -1...1) {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("-1")
+                } maximumValueLabel: {
+                    Text("+1")
+                }
+            }
+            
+        }
+    }
+}

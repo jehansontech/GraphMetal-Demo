@@ -8,10 +8,9 @@
 import SwiftUI
 
 enum DemoType: String, CaseIterable {
-    case wireframe = "Wireframe Settings"
     case cube = "Cube"
     case ball = "Ball"
-    case fog = "Fog"
+    case wireframe = "Wireframe Settings"
 }
 
 class DemoRegistry: ObservableObject {
@@ -20,8 +19,6 @@ class DemoRegistry: ObservableObject {
 
     var cube = CubeDemo()
 
-    var fog = FogDemo()
-
     var wireframe = WireframeDemo()
 
     func controlsView(_ demo: DemoType) -> some View {
@@ -29,10 +26,8 @@ class DemoRegistry: ObservableObject {
             switch demo {
 //            case .ball:
 //                BallSettingsView(ball)
-//            case .cube:
-//                CubeSettingsView(cube)
-//            case .fog:
-//                FogSettingsView(fog)
+            case .cube:
+                CubeDemoControls(demo: cube)
             case .wireframe:
                 WireframeDemoControls(demo: wireframe)
             default:
@@ -46,10 +41,8 @@ class DemoRegistry: ObservableObject {
             switch demo {
 //            case .ball:
 //                BallDisplayView(ball)
-//            case .cube:
-//                CubeDisplayView(cube)
-//            case .fog:
-//                FogDisplayView(fog)
+            case .cube:
+                CubeDemoFigure(demo: cube)
             case .wireframe:
                 WireframeDemoFigure(demo: wireframe)
             default:
