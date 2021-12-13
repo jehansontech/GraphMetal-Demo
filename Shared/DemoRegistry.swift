@@ -24,14 +24,12 @@ class DemoRegistry: ObservableObject {
     func controlsView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
-//            case .ball:
-//                BallSettingsView(ball)
+            case .ball:
+                BallDemoControls(demo: ball)
             case .cube:
                 CubeDemoControls(demo: cube)
             case .wireframe:
                 WireframeDemoControls(demo: wireframe)
-            default:
-                Text(demo.rawValue)
             }
         }
     }
@@ -39,14 +37,12 @@ class DemoRegistry: ObservableObject {
     func figureView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
-//            case .ball:
-//                BallDisplayView(ball)
+            case .ball:
+                BallDemoFigure(demo: ball)
             case .cube:
                 CubeDemoFigure(demo: cube)
             case .wireframe:
                 WireframeDemoFigure(demo: wireframe)
-            default:
-                Text(demo.rawValue)
             }
         }
     }

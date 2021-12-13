@@ -8,17 +8,9 @@
 import SwiftUI
 import GraphMetal
 
-struct BallSettingsView: View {
+struct BallDemoControls: View {
 
-    @ObservedObject var ball: BallDemo
-
-    var nodeCount: Int {
-        return ball.graph.nodes.count
-    }
-
-    var edgeCount: Int {
-        return ball.graph.edges.count
-    }
+    @ObservedObject var demo: BallDemo
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
@@ -26,68 +18,48 @@ struct BallSettingsView: View {
             VStack(alignment: .leading, spacing: 10) {
                 HStack(spacing: 5) {
                     Text("# nodes:")
-                    Text("\(nodeCount)")
+                    Text("\(demo.nodeCount)")
                     Spacer()
                 }
 
                 HStack(spacing: 5) {
                     Text("# edges:")
-                    Text("\(edgeCount)")
+                    Text("\(demo.edgeCount)")
                     Spacer()
                 }
             }
             .frame(maxWidth: .infinity)
 
-            HStack(spacing: 25) {
+            HStack(spacing: 30) {
                 Button {
-                    ball.growing = true
+                    demo.growing = true
                 } label: {
                     Image(systemName: "play.fill")
                 }
+                .buttonStyle(.bordered)
+                .imageScale(.large)
                 .help("Start")
 
                 Button {
-                    ball.growing = false
+                    demo.growing = false
                 } label: {
                     Image(systemName: "pause.fill")
                 }
+                .buttonStyle(.bordered)
+                .imageScale(.large)
                 .help("Stop")
 
                 Button {
-                    ball.reset()
+                    demo.reset()
                 } label: {
                     Image(systemName: "arrow.counterclockwise")
                 }
+                .buttonStyle(.bordered)
+                .imageScale(.large)
                 .help("Reset")
             }
             .frame(maxWidth: .infinity)
-
-            Spacer()
         }
     }
-
-    init(_ ball: BallDemo) {
-        self.ball = ball
-    }
 }
 
-struct BallDisplayView: View {
-
-    @ObservedObject var ball: BallDemo
-
-    var body: some View {
-        GraphView(ball,
-                  povController: ball.povController,
-                  wireframeSettings: ball.wireframeSettings)
-            .onAppear {
-                ball.setup()
-            }
-            .onDisappear {
-                ball.teardown()
-            }
-    }
-
-    init(_ ball: BallDemo) {
-        self.ball = ball
-    }
-}

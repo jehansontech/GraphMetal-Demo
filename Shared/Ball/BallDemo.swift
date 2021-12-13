@@ -14,9 +14,9 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
 
     var dispatchQueue: DispatchQueue
 
-    var graph: BallGraph
+    var graph: BallDemoGraph
 
-    var povController = POVController()
+    var povController = POVController(pov: POV(location: SIMD3<Float>(0, 0, 5)))
 
     var wireframeSettings = GraphWireframeSettings()
 
@@ -52,18 +52,13 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
     private var stepIsScheduled: Bool = false
 
     init() {
-        self.graph = BallGraph()
+        self.graph = BallDemoGraph()
         self.dispatchQueue = DispatchQueue(label: "BallDemo", qos: .userInitiated)
     }
 
-    func setup() {
-    }
-
-    func teardown() {
-    }
-
     func reset() {
-        self.graph = BallGraph()
+        self.graph = BallDemoGraph()
+        fireGraphChange(.ALL)
     }
     
     func possiblyScheduleNextStep() {
@@ -108,16 +103,16 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
                           edgeCount: graph.edges.count)
     }
 
-    func addNode(_ graph: BallGraph) {
+    func addNode(_ graph: BallDemoGraph) {
         let outDegree = min(graph.nodes.count, self.newNodeOutDegree)
         var targetIDs = [NodeID]()
         for node in graph.nodes.shuffled().prefix(outDegree) {
             targetIDs.append(node.id)
         }
 
-        let newNode = graph.addNode(BallNodeValue(randomLocation()))
+        let newNode = graph.addNode(BallDemoNodeValue(randomLocation()))
         for targetID in targetIDs {
-            try!graph.addEdge(newNode.id, targetID, BallEdgeValue())
+            try!graph.addEdge(newNode.id, targetID, BallDemoEdgeValue())
         }
     }
 
@@ -142,36 +137,4 @@ struct StepResult {
     var nodeCount: Int
     var edgeCount: Int
 }
-
-struct BallNodeValue: RenderableNodeValue {
-
-    let colorFadeTime: TimeInterval = 5
-
-    var hidden: Bool { return false }
-
-    var color: SIMD4<Float>? {
-        let f: Float = Float(Date().timeIntervalSince(creationTime) / colorFadeTime)
-        return SIMD4<Float>(0,
-                            (1 - f).clamp(0, 1),
-                            (1 - f).clamp(0, 1),
-                            1)
-    }
-
-    var location: SIMD3<Float>
-
-    let creationTime: Date
-
-    init(_ location: SIMD3<Float>) {
-        self.location = location
-        self.creationTime = Date()
-    }
-}
-
-struct BallEdgeValue: RenderableEdgeValue {
-
-    var hidden: Bool { return false }
-}
-
-typealias BallGraph = BaseGraph<BallNodeValue, BallEdgeValue>
-
 

@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		3807A39F2755626B006C8AB9 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A39E2755626B006C8AB9 /* DemoRegistry.swift */; };
 		3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A39E2755626B006C8AB9 /* DemoRegistry.swift */; };
-		3807A3A22755958B006C8AB9 /* BallDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoViews.swift */; };
-		3807A3A32755958B006C8AB9 /* BallDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoViews.swift */; };
+		3807A3A22755958B006C8AB9 /* BallDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoControls.swift */; };
+		3807A3A32755958B006C8AB9 /* BallDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A12755958B006C8AB9 /* BallDemoControls.swift */; };
 		3807A3A82755961A006C8AB9 /* CubeDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */; };
 		3807A3A92755961A006C8AB9 /* CubeDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */; };
 		38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
@@ -43,13 +43,17 @@
 		385550972767BF4F0041104B /* CubeDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550952767BF4F0041104B /* CubeDemoGraph.swift */; };
 		385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550982767C17D0041104B /* CubeDemoFigure.swift */; };
 		3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550982767C17D0041104B /* CubeDemoFigure.swift */; };
+		385550A22767E9970041104B /* BallDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550A12767E9970041104B /* BallDemoGraph.swift */; };
+		385550A32767E9970041104B /* BallDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550A12767E9970041104B /* BallDemoGraph.swift */; };
+		385550A52767EA410041104B /* BallDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550A42767EA410041104B /* BallDemoFigure.swift */; };
+		385550A62767EA410041104B /* BallDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550A42767EA410041104B /* BallDemoFigure.swift */; };
 		38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
 		38F29D1C274D6A8B0045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3807A39E2755626B006C8AB9 /* DemoRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoRegistry.swift; sourceTree = "<group>"; };
-		3807A3A12755958B006C8AB9 /* BallDemoViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoViews.swift; sourceTree = "<group>"; };
+		3807A3A12755958B006C8AB9 /* BallDemoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoControls.swift; sourceTree = "<group>"; };
 		3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoControls.swift; sourceTree = "<group>"; };
 		38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMetal_DemoApp.swift; sourceTree = "<group>"; };
 		38187E67274D5E3C00244D04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 		3850A7A1276771F1004452C6 /* WireframeDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeDemoGraph.swift; sourceTree = "<group>"; };
 		385550952767BF4F0041104B /* CubeDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoGraph.swift; sourceTree = "<group>"; };
 		385550982767C17D0041104B /* CubeDemoFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoFigure.swift; sourceTree = "<group>"; };
+		385550A12767E9970041104B /* BallDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoGraph.swift; sourceTree = "<group>"; };
+		385550A42767EA410041104B /* BallDemoFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoFigure.swift; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		38F29D17274D69A60045B74F /* CubeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
@@ -153,7 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				38187E99274D5F1F00244D04 /* BallDemo.swift */,
-				3807A3A12755958B006C8AB9 /* BallDemoViews.swift */,
+				3807A3A12755958B006C8AB9 /* BallDemoControls.swift */,
+				385550A12767E9970041104B /* BallDemoGraph.swift */,
+				385550A42767EA410041104B /* BallDemoFigure.swift */,
 			);
 			path = Ball;
 			sourceTree = "<group>";
@@ -304,10 +312,12 @@
 				385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A79F27674097004452C6 /* WireframeDemoFigure.swift in Sources */,
 				38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */,
-				3807A3A22755958B006C8AB9 /* BallDemoViews.swift in Sources */,
+				385550A52767EA410041104B /* BallDemoFigure.swift in Sources */,
+				3807A3A22755958B006C8AB9 /* BallDemoControls.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
 				3850A78E27673303004452C6 /* CubeBuilder.swift in Sources */,
 				3832225B2756724D00B91665 /* UIStyle.swift in Sources */,
+				385550A22767E9970041104B /* BallDemoGraph.swift in Sources */,
 				3850A7A2276771F1004452C6 /* WireframeDemoGraph.swift in Sources */,
 				3807A39F2755626B006C8AB9 /* DemoRegistry.swift in Sources */,
 				38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */,
@@ -327,10 +337,12 @@
 				3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A7A027674097004452C6 /* WireframeDemoFigure.swift in Sources */,
 				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
-				3807A3A32755958B006C8AB9 /* BallDemoViews.swift in Sources */,
+				385550A62767EA410041104B /* BallDemoFigure.swift in Sources */,
+				3807A3A32755958B006C8AB9 /* BallDemoControls.swift in Sources */,
 				38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */,
 				3850A78F27673303004452C6 /* CubeBuilder.swift in Sources */,
 				3832225C2756724D00B91665 /* UIStyle.swift in Sources */,
+				385550A32767E9970041104B /* BallDemoGraph.swift in Sources */,
 				3850A7A3276771F1004452C6 /* WireframeDemoGraph.swift in Sources */,
 				3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */,
 				38F29D1C274D6A8B0045B74F /* CubeDemo.swift in Sources */,
