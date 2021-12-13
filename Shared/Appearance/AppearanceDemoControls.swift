@@ -1,5 +1,5 @@
 //
-//  WireframeDemoControls.swift
+//  AppearanceDemoControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -8,11 +8,11 @@
 import SwiftUI
 import Wacoma
 
-struct WireframeDemoControls: View {
+struct AppearanceDemoControls: View {
 
     static var labelWidth: CGFloat = 80
 
-    var demo: WireframeDemo
+    @ObservedObject var demo: AppearanceDemo
 
     @State var nodeSizeIsExpanded = false
     @State var nodeColorDefaultIsExpanded = false
@@ -58,8 +58,6 @@ struct WireframeDemoControls: View {
                 }
                 .padding(.top, 5)
                 .frame(maxWidth: .infinity)
-
-                Spacer()
             }
         }
     }
@@ -68,7 +66,7 @@ struct WireframeDemoControls: View {
 
 struct NodeSizeControls: View {
 
-    var demo: WireframeDemo
+    var demo: AppearanceDemo
 
     @State var isAdjustedText: String = ""
 
@@ -83,8 +81,8 @@ struct NodeSizeControls: View {
         VStack(alignment: .leading, spacing: 0) {
 
             HStack {
-                Text("Adjusted")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                Text("Auto-adjusted")
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Button {
                     demo.wireframeSettings.nodeSizeIsAdjusted.toggle()
@@ -100,7 +98,7 @@ struct NodeSizeControls: View {
 
             HStack {
                 Text("Default")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $nodeSizeDefault, in: 1...200) {
                     Text("")
@@ -121,7 +119,7 @@ struct NodeSizeControls: View {
 
             HStack {
                 Text("Minimum")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $nodeSizeMinimum, in: 1...200) {
                     Text("")
@@ -142,7 +140,7 @@ struct NodeSizeControls: View {
 
             HStack {
                 Text("Maximum")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $nodeSizeMaximum, in: 1...200) {
                     Text("")
@@ -175,7 +173,7 @@ struct NodeSizeControls: View {
 
 struct NodeColorDefaultControls: View {
 
-    var demo: WireframeDemo
+    var demo: AppearanceDemo
 
     @State var red: Float = 0.5
     @State var green: Float = 0.5
@@ -186,7 +184,7 @@ struct NodeColorDefaultControls: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Red")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $red, in: 0...1) {
                     Text("")
@@ -206,7 +204,7 @@ struct NodeColorDefaultControls: View {
             }
             HStack {
                 Text("Green")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $green, in: 0...1) {
                     Text("")
@@ -227,7 +225,7 @@ struct NodeColorDefaultControls: View {
 
             HStack {
                 Text("Blue")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $blue, in: 0...1) {
                     Text("")
@@ -247,7 +245,7 @@ struct NodeColorDefaultControls: View {
 
             HStack {
                 Text("Opacity")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $alpha, in: 0...1) {
                     Text("")
@@ -271,7 +269,7 @@ struct NodeColorDefaultControls: View {
 
 struct EdgeColorControls: View {
 
-    var demo: WireframeDemo
+    var demo: AppearanceDemo
 
     @State var red: Float = 0.5
     @State var green: Float = 0.5
@@ -282,7 +280,7 @@ struct EdgeColorControls: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Red")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $red, in: 0...1) {
                     Text("")
@@ -302,7 +300,7 @@ struct EdgeColorControls: View {
             }
             HStack {
                 Text("Green")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $green, in: 0...1) {
                     Text("")
@@ -323,7 +321,7 @@ struct EdgeColorControls: View {
 
             HStack {
                 Text("Blue")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $blue, in: 0...1) {
                     Text("")
@@ -344,7 +342,7 @@ struct EdgeColorControls: View {
 
             HStack {
                 Text("Opacity")
-                    .frame(minWidth: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(minWidth: AppearanceDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $alpha, in: 0...1) {
                     Text("")

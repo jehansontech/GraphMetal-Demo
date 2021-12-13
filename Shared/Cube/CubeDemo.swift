@@ -44,9 +44,11 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     func present() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
-            povController.goToDefaultPOV()
-            // If we do this, it won't fly
-            // povController.orbitEnabled = true
+            povController.flyTo(Self.presentationPOV) {
+                print("CubeDemo.present", "flight is complete!")
+                povController.orbitEnabled = true
+                needsPresentation = false
+            }
         }
     }
 }

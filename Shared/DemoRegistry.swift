@@ -10,7 +10,14 @@ import SwiftUI
 enum DemoType: String, CaseIterable {
     case cube = "Cube"
     case ball = "Ball"
-    case wireframe = "Wireframe Settings"
+    case wireframe = "Appearance"
+}
+
+protocol Demo: AnyObject {
+
+    var type: DemoType { get }
+
+    var info: String { get }
 }
 
 class DemoRegistry: ObservableObject {
@@ -19,7 +26,7 @@ class DemoRegistry: ObservableObject {
 
     lazy var cube = CubeDemo()
 
-    lazy var wireframe = WireframeDemo()
+    lazy var wireframe = AppearanceDemo()
 
     func controlsView(_ demo: DemoType) -> some View {
         Group {
@@ -29,7 +36,7 @@ class DemoRegistry: ObservableObject {
             case .cube:
                 CubeDemoControls(demo: cube)
             case .wireframe:
-                WireframeDemoControls(demo: wireframe)
+                AppearanceDemoControls(demo: wireframe)
             }
         }
     }
@@ -42,7 +49,7 @@ class DemoRegistry: ObservableObject {
             case .cube:
                 CubeDemoFigure(demo: cube)
             case .wireframe:
-                WireframeDemoFigure(demo: wireframe)
+                AppearanceDemoFigure(demo: wireframe)
             }
         }
     }

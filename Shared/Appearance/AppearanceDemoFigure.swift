@@ -8,9 +8,9 @@
 import SwiftUI
 import GraphMetal
 
-struct WireframeDemoFigure: View {
+struct AppearanceDemoFigure: View {
 
-    var demo: WireframeDemo
+    @ObservedObject var demo: AppearanceDemo
 
     var body: some View {
         GraphView(demo,

@@ -18,7 +18,8 @@ struct CubeDemoControls: View {
         if demo.needsPresentation {
             Button {
                 withAnimation {
-                    demo.needsPresentation.toggle()
+                    demo.present()
+                    // demo.needsPresentation.toggle()
                 }
             } label: {
                 Text("CLICK ME")
@@ -36,9 +37,9 @@ struct CubeDemoControls: View {
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
             }
-            .onAppear {
-                demo.present()
-            }
+//            .onAppear {
+//                demo.present()
+//            }
         }
     }
 }
@@ -51,7 +52,7 @@ struct FadeoutControls: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Onset")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderController.fadeoutOnset, in: 1...100) {
                     Text("")
                 } minimumValueLabel: {
@@ -62,7 +63,7 @@ struct FadeoutControls: View {
             }
             HStack {
                 Text("Distance")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderController.fadeoutDistance, in: 1...100) {
                     Text("")
                 } minimumValueLabel: {
@@ -83,14 +84,14 @@ struct OrbitControls: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Enabled")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
                 Toggle("", isOn: $demo.povController.orbitEnabled)
                     .toggleStyle(.switch)
                     .frame(maxWidth: .infinity)
             }
             HStack {
                 Text("Speed")
-                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.povController.orbitSpeed, in: -1...1) {
                     Text("")
                 } minimumValueLabel: {

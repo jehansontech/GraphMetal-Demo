@@ -1,5 +1,5 @@
 //
-//  WireframeDemo.swift
+//  AppearanceDemo.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -10,7 +10,7 @@ import Wacoma
 import GenericGraph
 import GraphMetal
 
-class WireframeDemo: RenderableGraphHolder {
+class AppearanceDemo: ObservableObject, RenderableGraphHolder {
 
     var graph: WireframeDemoGraph
 
@@ -21,7 +21,7 @@ class WireframeDemo: RenderableGraphHolder {
     init() {
         self.graph = WireframeDemoGraph()
         self.povController = POVController(pov: POV(location: SIMD3<Float>(2, 0, 3)))
-        self.wireframeSettings = GraphWireframeSettings()
+        self.wireframeSettings = GraphWireframeSettings(nodeColorDefault: SIMD4<Float>(0,0,0,0))
 
         CubeBuilder(nodeValueFactory: WireframeDemoNodeValue.init,
                     edgeValueFactory: WireframeDemoEdgeValue.init)
