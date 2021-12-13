@@ -17,29 +17,29 @@
 //        ScrollView {
 //            VStack(alignment: .leading, spacing: 0) {
 //
-////                DisclosureGroup("Node size") {
-////                    HStack {
-////                        Divider()
-////                        NodeSizeControls(demo: demo)
-////                    }
-////                    .padding(.leading, 2)
-////                }
-////
-////                DisclosureGroup("Node color default") {
-////                    HStack {
-////                        Divider()
-////                        NodeColorDefaultControls(demo: demo)
-////                    }
-////                    .padding(.leading, 2)
-////                }
-////
-////                DisclosureGroup("Edge color") {
-////                    HStack {
-////                        Divider()
-////                        EdgeColorControls(color: $demo.wireframeSettings.edgeColor)
-////                    }
-////                    .padding(.leading, 2)
-////                }
+//                DisclosureGroup("Node size") {
+//                    HStack {
+//                        Divider()
+//                        NodeSizeControls(demo: demo)
+//                    }
+//                    .padding(.leading, 2)
+//                }
+//
+//                DisclosureGroup("Node color default") {
+//                    HStack {
+//                        Divider()
+//                        NodeColorDefaultControls(demo: demo)
+//                    }
+//                    .padding(.leading, 2)
+//                }
+//
+//                DisclosureGroup("Edge color") {
+//                    HStack {
+//                        Divider()
+//                        EdgeColorControls(color: $demo.wireframeSettings.edgeColor)
+//                    }
+//                    .padding(.leading, 2)
+//                }
 //
 //                DisclosureGroup("Orbit") {
 //                    HStack {

@@ -15,11 +15,11 @@ enum DemoType: String, CaseIterable {
 
 class DemoRegistry: ObservableObject {
 
-    var ball = BallDemo()
+    lazy var ball = BallDemo()
 
-    var cube = CubeDemo()
+    lazy var cube = CubeDemo()
 
-    var wireframe = WireframeDemo()
+    lazy var wireframe = WireframeDemo()
 
     func controlsView(_ demo: DemoType) -> some View {
         Group {

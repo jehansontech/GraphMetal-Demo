@@ -11,8 +11,12 @@ import GraphMetal
 
 class CubeDemo: ObservableObject, RenderableGraphHolder {
 
-    static var graphColor = SIMD4<Float>(1,0,1,1)
-    
+    static var graphColor = SIMD4<Float>(1,0,0.5,1)
+
+    static var initialPOV = POV(location: SIMD3<Float>(80, 40, 120))
+
+    static var presentationPOV = POV(location: SIMD3<Float>(40, 20, 60))
+
     var graph: CubeDemoGraph
 
     var povController: POVController
@@ -21,13 +25,13 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     var wireframeSettings: GraphWireframeSettings
 
-    var built = false
+    @Published var needsPresentation = true
 
     init() {
         self.graph = CubeDemoGraph()
-        self.povController = POVController(pov: POV(location: SIMD3<Float>(40, 20, 60)),
-                                           orbitEnabled: true)
-        self.renderController = RenderController(fadeoutOnset: 40,
+        self.povController = POVController(pov: Self.initialPOV,
+                                           povDefault: Self.presentationPOV)
+        self.renderController = RenderController(fadeoutOnset: 100,
                                                  fadeoutDistance: 50)
         self.wireframeSettings = GraphWireframeSettings(edgeColor: Self.graphColor)
 
@@ -36,5 +40,10 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
             .addCube(to: graph)
     }
 
+
+    func present() {
+            povController.goToDefaultPOV()
+            povController.orbitEnabled = true
+    }
 }
 

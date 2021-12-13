@@ -15,16 +15,29 @@ struct CubeDemoControls: View {
     @ObservedObject var demo: CubeDemo
     
     var body: some View {
-        
-        VStack(alignment: .leading) {
-            Text("Fadeout")
-            FadeoutControls(demo: demo)
-                .padding(.leading, 10)
-                .frame(maxWidth: .infinity)
-            Text("Orbit")
-            OrbitControls(demo: demo)
-                .padding(.leading, 10)
-                .frame(maxWidth: .infinity)
+        if demo.needsPresentation {
+            Button {
+                withAnimation {
+                    demo.needsPresentation.toggle()
+                }
+            } label: {
+                Text("CLICK ME")
+            }
+        }
+        else {
+            VStack(alignment: .leading) {
+                Text("Fadeout")
+                FadeoutControls(demo: demo)
+                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity)
+                Text("Orbit")
+                OrbitControls(demo: demo)
+                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity)
+            }
+            .onAppear {
+                demo.present()
+            }
         }
     }
 }
@@ -68,11 +81,11 @@ struct OrbitControls: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-            Text("Enabled")
-                .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
-            Toggle("", isOn: $demo.povController.orbitEnabled)
-                .toggleStyle(.switch)
-                .frame(maxWidth: .infinity)
+                Text("Enabled")
+                    .frame(width: WireframeDemoControls.labelWidth, alignment: .trailing)
+                Toggle("", isOn: $demo.povController.orbitEnabled)
+                    .toggleStyle(.switch)
+                    .frame(maxWidth: .infinity)
             }
             HStack {
                 Text("Speed")
