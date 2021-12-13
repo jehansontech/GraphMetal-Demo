@@ -14,42 +14,43 @@ struct CubeSettingsView: View {
     @ObservedObject var demo: CubeDemo
 
     var body: some View {
-        VStack(alignment: .leading) {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
 
-            DisclosureGroup("Node size") {
-                Slider(value: $demo.wireframeSettings.nodeSize, in: 1...200)
-                    .settingControl()
-            }
+//                DisclosureGroup("Node size") {
+//                    HStack {
+//                        Divider()
+//                        NodeSizeControls(demo: demo)
+//                    }
+//                    .padding(.leading, 2)
+//                }
+//
+//                DisclosureGroup("Node color default") {
+//                    HStack {
+//                        Divider()
+//                        NodeColorDefaultControls(demo: demo)
+//                    }
+//                    .padding(.leading, 2)
+//                }
+//
+//                DisclosureGroup("Edge color") {
+//                    HStack {
+//                        Divider()
+//                        EdgeColorControls(color: $demo.wireframeSettings.edgeColor)
+//                    }
+//                    .padding(.leading, 2)
+//                }
 
-            DisclosureGroup("Nodegroup colors") {
-                VStack {
+                DisclosureGroup("Orbit") {
                     HStack {
-                        Text("R")
-                        Slider(value: $demo.red, in: 0...1)
+                        Divider()
+                        OrbitControls(demo: demo)
                     }
-                    HStack {
-                        Text("G")
-                        Slider(value: $demo.green, in: 0...1)
-                    }
-                    HStack {
-                        Text("B")
-                        Slider(value: $demo.blue, in: 0...1)
-                    }
+                    .padding(.leading, 2)
                 }
-                .settingControl()
+
+                Spacer()
             }
-
-            // ColorPicker("Edge color", selection: $demo.wireframeSettings.edgeColor)
-
-            DisclosureGroup("Orbit") {
-                VStack {
-                    Toggle("Enabled", isOn: $demo.povController.orbitEnabled)
-                    Slider(value: $demo.povController.orbitSpeed, in: -1...1)
-                        .settingControl()
-                }
-            }
-
-            Spacer()
         }
     }
 
@@ -65,17 +66,78 @@ struct CubeDisplayView: View {
     var body: some View {
         GraphView(cube,
                   renderController: cube.renderController,
-                  povController: cube.povController,
-                  wireframeSettings: cube.wireframeSettings)
+                  povController: cube.povController)
             .onAppear {
                 cube.setup()
-            }
-            .onDisappear {
-                cube.teardown()
             }
     }
 
     init(_ cube: CubeDemo) {
         self.cube = cube
+    }
+}
+
+
+//struct NodeColorControls: View {
+//
+//    @ObservedObject var demo: CubeDemo
+//
+//    var body: some View {
+//        VStack {
+//        }
+//        VStack {
+//            HStack {
+//                Text("R")
+//                Slider(value: $demo.red, in: 0...1) {
+//                    Text("")
+//                } minimumValueLabel: {
+//                    Text("0")
+//                } maximumValueLabel: {
+//                    Text("1")
+//                }
+//            }
+//            HStack {
+//                Text("G")
+//                Slider(value: $demo.green, in: 0...1) {
+//                    Text("")
+//                } minimumValueLabel: {
+//                    Text("0")
+//                } maximumValueLabel: {
+//                    Text("1")
+//                }
+//            }
+//            HStack {
+//                Text("B")
+//                Slider(value: $demo.blue, in: 0...1) {
+//                    Text("")
+//                } minimumValueLabel: {
+//                    Text("0")
+//                } maximumValueLabel: {
+//                    Text("1")
+//                }
+//            }
+//        }
+//    }
+//}
+
+struct OrbitControls: View {
+
+    @ObservedObject var demo: CubeDemo
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Toggle("Enabled", isOn: $demo.povController.orbitEnabled)
+                .toggleStyle(.switch)
+            HStack {
+                Text("Speed")
+                Slider(value: $demo.povController.orbitSpeed, in: -1...1)  {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("-1")
+                } maximumValueLabel: {
+                    Text("1")
+                }
+            }
+        }
     }
 }

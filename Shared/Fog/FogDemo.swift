@@ -17,7 +17,7 @@ class FogDemo: ObservableObject, RenderableGraphHolder {
 
     var povController: POVController
 
-    // var wireframeSettings: GraphWireFrameSettings
+    // var wireframeSettings: GraphWireframeSettings
 
     var built = false
 

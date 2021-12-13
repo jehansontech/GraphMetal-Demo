@@ -18,7 +18,7 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
 
     var povController = POVController()
 
-    var wireframeSettings = GraphWireFrameSettings(nodeSize: 10, nodeSizeAutomatic: false)
+    var wireframeSettings = GraphWireframeSettings()
 
     @Published var growing: Bool = true {
         didSet {
@@ -151,10 +151,10 @@ struct BallNodeValue: RenderableNodeValue {
 
     var color: SIMD4<Float>? {
         let f: Float = Float(Date().timeIntervalSince(creationTime) / colorFadeTime)
-        return SIMD4<Float>((1 - f).clamp(0, 1),
-                            1,
-                            0,
-                            (1 - f).clamp(0, 1))
+        return SIMD4<Float>(0,
+                            (1 - f).clamp(0, 1),
+                            (1 - f).clamp(0, 1),
+                            1)
     }
 
     var location: SIMD3<Float>

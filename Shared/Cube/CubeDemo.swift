@@ -15,50 +15,49 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     typealias GraphType = CubeDemoGraph
 
+    let levels: Int = 4
+
     var built: Bool = false
 
     var graph: CubeDemoGraph
 
     var povController: POVController
 
-    var wireframeSettings: GraphWireFrameSettings
+    var wireframeSettings: GraphWireframeSettings
 
     var renderController: RenderController
 
     @Published var red: Double = 0 {
         didSet {
-            updateColors()
+            updateNodeColors()
         }
     }
 
     @Published var green: Double = 0 {
         didSet {
-            updateColors()
+            updateNodeColors()
         }
     }
 
     @Published var blue: Double = 0 {
         didSet {
-            updateColors()
+            updateNodeColors()
         }
     }
 
     init() {
         self.povController = POVController()
         self.renderController = RenderController()
-        self.wireframeSettings = GraphWireFrameSettings(nodeSizeAutomatic: false)
+        self.wireframeSettings = GraphWireframeSettings(nodeColorDefault: SIMD4<Float>(1,0,0,1))
         self.graph = CubeDemoGraph()
     }
 
     func setup() {
         if !built {
             built = true
-            buildCube()
+            buildGraph()
             afterBuild()
         }
-    }
-
-    func teardown() {
     }
 
     func groupColor(_ group: Int) -> SIMD4<Float>? {
@@ -84,9 +83,15 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
         }
     }
 
-    func buildCube() {
+    func buildGraph() {
+        buildCube()
+        for _ in 0..<levels {
+            splitEdges()
+        }
+        fireGraphChange(RenderableGraphChange.ALL)
+    }
 
-        debug("CubeDemo", "building graph")
+    func buildCube() {
 
         let n0 = graph.addNode(CubeDemoNodeValue(SIMD3<Float>(-1, -1, -1), 1, self))
         let n1 = graph.addNode(CubeDemoNodeValue(SIMD3<Float>(-1, -1,  1), 2, self))
@@ -111,8 +116,23 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
         try! graph.addEdge(n1.id, n5.id, CubeDemoEdgeValue())
         try! graph.addEdge(n2.id, n6.id, CubeDemoEdgeValue())
         try! graph.addEdge(n3.id, n7.id, CubeDemoEdgeValue())
+    }
 
-        fireGraphChange(RenderableGraphChange.ALL)
+    func splitEdges() {
+        var edgesToRemove = [EdgeID]()
+        for edge in graph.edges {
+            edgesToRemove.append(edge.id)
+            let source = edge.source
+            let target = edge.target
+            let group = edge.source.value!.group
+            let midpoint = 0.5 * (source.value!.location + target.value!.location)
+            let newNode = graph.addNode(CubeDemoNodeValue(midpoint, group, self))
+            try! graph.addEdge(source.id, newNode.id, CubeDemoEdgeValue())
+            try! graph.addEdge(newNode.id, target.id, CubeDemoEdgeValue())
+        }
+        for edgeID in edgesToRemove {
+            graph.removeEdge(edgeID)
+        }
     }
 
     func afterBuild() {
@@ -132,7 +152,7 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
         }
     }
 
-    private func updateColors() {
+    func updateNodeColors() {
         fireGraphChange(RenderableGraphChange(nodeColors: true))
     }
 }
@@ -148,7 +168,8 @@ struct CubeDemoNodeValue: RenderableNodeValue {
     weak var cube: CubeDemo!
 
     var color: SIMD4<Float>? {
-        return cube.groupColor(group)
+        return nil
+        // return cube.groupColor(group)
     }
 
     init(_ location: SIMD3<Float>, _ group: Int, _ cube: CubeDemo) {

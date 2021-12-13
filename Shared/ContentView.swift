@@ -65,11 +65,11 @@ struct DemoView : View {
     var body: some View {
         HStack(spacing: 0) {
             if displayState.sidebarVisible {
-                demoRegistry.settingsView(displayState.demo)
+                demoRegistry.controlsView(displayState.demo)
                     .padding()
                     .frame(maxWidth: UIConstants.settingsViewWidth, maxHeight: .infinity)
             }
-            demoRegistry.displayView(displayState.demo)
+            demoRegistry.figureView(displayState.demo)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }

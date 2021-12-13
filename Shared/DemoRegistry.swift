@@ -8,6 +8,7 @@
 import SwiftUI
 
 enum DemoType: String, CaseIterable {
+    case wireframe = "Wireframe Settings"
     case cube = "Cube"
     case ball = "Ball"
     case fog = "Fog"
@@ -21,28 +22,38 @@ class DemoRegistry: ObservableObject {
 
     var fog = FogDemo()
 
-    func settingsView(_ demo: DemoType) -> some View {
+    var wireframe = WireframeDemo()
+
+    func controlsView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
-            case .ball:
-                BallSettingsView(ball)
-            case .cube:
-                CubeSettingsView(cube)
-            case .fog:
-                FogSettingsView(fog)
+//            case .ball:
+//                BallSettingsView(ball)
+//            case .cube:
+//                CubeSettingsView(cube)
+//            case .fog:
+//                FogSettingsView(fog)
+            case .wireframe:
+                WireframeDemoControls(demo: wireframe)
+            default:
+                Text(demo.rawValue)
             }
         }
     }
 
-    func displayView(_ demo: DemoType) -> some View {
+    func figureView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
-            case .ball:
-                BallDisplayView(ball)
-            case .cube:
-                CubeDisplayView(cube)
-            case .fog:
-                FogDisplayView(fog)
+//            case .ball:
+//                BallDisplayView(ball)
+//            case .cube:
+//                CubeDisplayView(cube)
+//            case .fog:
+//                FogDisplayView(fog)
+            case .wireframe:
+                WireframeDemoFigure(demo: wireframe)
+            default:
+                Text(demo.rawValue)
             }
         }
     }
