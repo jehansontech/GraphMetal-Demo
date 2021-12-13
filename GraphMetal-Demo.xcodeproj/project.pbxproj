@@ -43,10 +43,6 @@
 		385550972767BF4F0041104B /* CubeDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550952767BF4F0041104B /* CubeDemoGraph.swift */; };
 		385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550982767C17D0041104B /* CubeDemoFigure.swift */; };
 		3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550982767C17D0041104B /* CubeDemoFigure.swift */; };
-		3855509D2767CBCA0041104B /* OldCubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855509B2767CBCA0041104B /* OldCubeDemo.swift */; };
-		3855509E2767CBCA0041104B /* OldCubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855509B2767CBCA0041104B /* OldCubeDemo.swift */; };
-		3855509F2767CBCA0041104B /* OldCubeDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855509C2767CBCA0041104B /* OldCubeDemoViews.swift */; };
-		385550A02767CBCA0041104B /* OldCubeDemoViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3855509C2767CBCA0041104B /* OldCubeDemoViews.swift */; };
 		38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
 		38F29D1C274D6A8B0045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
 /* End PBXBuildFile section */
@@ -72,8 +68,6 @@
 		3850A7A1276771F1004452C6 /* WireframeDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireframeDemoGraph.swift; sourceTree = "<group>"; };
 		385550952767BF4F0041104B /* CubeDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoGraph.swift; sourceTree = "<group>"; };
 		385550982767C17D0041104B /* CubeDemoFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoFigure.swift; sourceTree = "<group>"; };
-		3855509B2767CBCA0041104B /* OldCubeDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldCubeDemo.swift; sourceTree = "<group>"; };
-		3855509C2767CBCA0041104B /* OldCubeDemoViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldCubeDemoViews.swift; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		38F29D17274D69A60045B74F /* CubeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
@@ -168,8 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				38F29D17274D69A60045B74F /* CubeDemo.swift */,
-				3855509B2767CBCA0041104B /* OldCubeDemo.swift */,
-				3855509C2767CBCA0041104B /* OldCubeDemoViews.swift */,
 				3807A3A72755961A006C8AB9 /* CubeDemoControls.swift */,
 				385550952767BF4F0041104B /* CubeDemoGraph.swift */,
 				385550982767C17D0041104B /* CubeDemoFigure.swift */,
@@ -311,9 +303,7 @@
 				3807A3A82755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
 				385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A79F27674097004452C6 /* WireframeDemoFigure.swift in Sources */,
-				3855509F2767CBCA0041104B /* OldCubeDemoViews.swift in Sources */,
 				38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */,
-				3855509D2767CBCA0041104B /* OldCubeDemo.swift in Sources */,
 				3807A3A22755958B006C8AB9 /* BallDemoViews.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
 				3850A78E27673303004452C6 /* CubeBuilder.swift in Sources */,
@@ -336,9 +326,7 @@
 				3807A3A92755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
 				3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A7A027674097004452C6 /* WireframeDemoFigure.swift in Sources */,
-				385550A02767CBCA0041104B /* OldCubeDemoViews.swift in Sources */,
 				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
-				3855509E2767CBCA0041104B /* OldCubeDemo.swift in Sources */,
 				3807A3A32755958B006C8AB9 /* BallDemoViews.swift in Sources */,
 				38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */,
 				3850A78F27673303004452C6 /* CubeBuilder.swift in Sources */,

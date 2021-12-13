@@ -22,16 +22,17 @@ struct CubeDemoControls: View {
                 }
             } label: {
                 Text("CLICK ME")
+                    .font(.headline.smallCaps())
             }
         }
         else {
-            VStack(alignment: .leading) {
-                Text("Fadeout")
-                FadeoutControls(demo: demo)
-                    .padding(.leading, 10)
-                    .frame(maxWidth: .infinity)
+            VStack(alignment: .leading, spacing: 10) {
                 Text("Orbit")
                 OrbitControls(demo: demo)
+                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity)
+                Text("Fadeout")
+                FadeoutControls(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
             }
