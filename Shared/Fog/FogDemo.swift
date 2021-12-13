@@ -79,7 +79,7 @@ struct FogDemoNodeValue: RenderableNodeValue {
 
     var hidden: Bool { return false }
 
-    var color: SIMD4<Float>? { return FogDemoNodeValue.white }
+    var color: SIMD4<Float>? { return Self.white }
 
     var location: SIMD3<Float>
 
