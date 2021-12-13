@@ -30,8 +30,9 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
     init() {
         self.graph = CubeDemoGraph()
         self.povController = POVController(pov: Self.initialPOV,
-                                           povDefault: Self.presentationPOV)
-        self.renderController = RenderController(fadeoutOnset: 100,
+                                           povDefault: Self.presentationPOV,
+                                           orbitEnabled: false)
+        self.renderController = RenderController(fadeoutOnset: 50,
                                                  fadeoutDistance: 50)
         self.wireframeSettings = GraphWireframeSettings(edgeColor: Self.graphColor)
 
@@ -42,8 +43,11 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
 
     func present() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
             povController.goToDefaultPOV()
-            povController.orbitEnabled = true
+            // If we do this, it won't fly
+            // povController.orbitEnabled = true
+        }
     }
 }
 
