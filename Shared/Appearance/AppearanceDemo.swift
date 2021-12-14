@@ -10,7 +10,7 @@ import Wacoma
 import GenericGraph
 import GraphMetal
 
-class AppearanceDemo: ObservableObject, RenderableGraphHolder, Demo {
+class AppearanceDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     static var initialGraphColor = SIMD4<Float>(0.2, 0.2, 0.2, 1)
 

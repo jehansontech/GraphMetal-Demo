@@ -9,7 +9,7 @@ import SwiftUI
 import GenericGraph
 import GraphMetal
 
-class CubeDemo: ObservableObject, RenderableGraphHolder, Demo {
+class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     static var graphColor = SIMD4<Float>(1,0,0.5,1)
 

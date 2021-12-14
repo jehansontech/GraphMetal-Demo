@@ -10,7 +10,7 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class BallDemo: ObservableObject, RenderableGraphHolder, Demo {
+class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var dispatchQueue: DispatchQueue
 
