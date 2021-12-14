@@ -10,21 +10,30 @@ import Wacoma
 import GenericGraph
 import GraphMetal
 
-class AppearanceDemo: ObservableObject, RenderableGraphHolder {
+class AppearanceDemo: ObservableObject, RenderableGraphHolder, Demo {
 
-    var graph: WireframeDemoGraph
+    static var initialGraphColor = SIMD4<Float>(0.2, 0.2, 0.2, 1)
+
+    var graph: AppearanceDemoGraph
+
+    var renderController: RenderController
 
     var povController: POVController
 
     var wireframeSettings: GraphWireframeSettings
 
-    init() {
-        self.graph = WireframeDemoGraph()
-        self.povController = POVController(pov: POV(location: SIMD3<Float>(2, 0, 3)))
-        self.wireframeSettings = GraphWireframeSettings(nodeColorDefault: SIMD4<Float>(0,0,0,0))
+    var type: DemoType { return .appearance }
 
-        CubeBuilder(nodeValueFactory: WireframeDemoNodeValue.init,
-                    edgeValueFactory: WireframeDemoEdgeValue.init)
+    var info: String { return "Illustrates configuration parameters governing the graph's appearance. These are not usually changed by the user." }
+    init() {
+        self.graph = AppearanceDemoGraph()
+        self.renderController = RenderController()
+        self.povController = POVController(pov: POV(location: SIMD3<Float>(2, 0, 3)))
+        self.wireframeSettings = GraphWireframeSettings(nodeColorDefault: Self.initialGraphColor,
+                                                        edgeColor: Self.initialGraphColor)
+
+        CubeBuilder(nodeValueFactory: AppearanceDemoNodeValue.init,
+                    edgeValueFactory: AppearanceDemoEdgeValue.init)
             .addCube(to: graph)
     }
 

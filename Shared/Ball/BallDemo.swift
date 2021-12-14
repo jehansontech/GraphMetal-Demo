@@ -10,7 +10,7 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class BallDemo: ObservableObject, RenderableGraphHolder {
+class BallDemo: ObservableObject, RenderableGraphHolder, Demo {
 
     var dispatchQueue: DispatchQueue
 
@@ -19,6 +19,10 @@ class BallDemo: ObservableObject, RenderableGraphHolder {
     var povController = POVController(pov: POV(location: SIMD3<Float>(0, 0, 5)))
 
     var wireframeSettings = GraphWireframeSettings()
+
+    var type: DemoType { return .ball }
+
+    var info: String { return "Demonstrates dynamic topology and node color" }
 
     @Published var growing: Bool = true {
         didSet {

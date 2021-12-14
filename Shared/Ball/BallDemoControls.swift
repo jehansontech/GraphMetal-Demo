@@ -15,20 +15,6 @@ struct BallDemoControls: View {
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
 
-            VStack(alignment: .leading, spacing: 10) {
-                HStack(spacing: 5) {
-                    Text("# nodes:")
-                    Text("\(demo.nodeCount)")
-                    Spacer()
-                }
-
-                HStack(spacing: 5) {
-                    Text("# edges:")
-                    Text("\(demo.edgeCount)")
-                    Spacer()
-                }
-            }
-            .frame(maxWidth: .infinity)
 
             HStack(spacing: 30) {
                 Button {
@@ -59,6 +45,23 @@ struct BallDemoControls: View {
                 .help("Reset")
             }
             .frame(maxWidth: .infinity)
+
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack(spacing: 5) {
+                        Text("# nodes:")
+                        Text("\(demo.nodeCount)")
+                        // Spacer()
+                    }
+
+                    HStack(spacing: 5) {
+                        Text("# edges:")
+                        Text("\(demo.edgeCount)")
+                        // Spacer()
+                    }
+                }
+                .frame(maxWidth: .infinity)
+            }
         }
     }
 }

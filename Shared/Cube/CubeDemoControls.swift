@@ -28,7 +28,7 @@ struct CubeDemoControls: View {
         }
         else {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Orbit")
+                Text("Rotation")
                 OrbitControls(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
@@ -37,9 +37,6 @@ struct CubeDemoControls: View {
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
             }
-//            .onAppear {
-//                demo.present()
-//            }
         }
     }
 }

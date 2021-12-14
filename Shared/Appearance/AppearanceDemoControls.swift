@@ -10,13 +10,17 @@ import Wacoma
 
 struct AppearanceDemoControls: View {
 
-    static var labelWidth: CGFloat = 80
+    static var labelWidth: CGFloat = 90
 
     @ObservedObject var demo: AppearanceDemo
 
     @State var nodeSizeIsExpanded = false
+
     @State var nodeColorDefaultIsExpanded = false
+
     @State var edgeColorIsExpanded = false
+
+    @State var projectionIsExpanded = false
 
     var body: some View {
         ScrollView {
@@ -46,18 +50,27 @@ struct AppearanceDemoControls: View {
                     .padding(.leading, 2)
                 }
 
-                HStack {
-                    Button {
-                        nodeSizeIsExpanded = false
-                        nodeColorDefaultIsExpanded = false
-                        edgeColorIsExpanded = false
-                        demo.wireframeSettings.reset()
-                    } label: {
-                        Text("Reset all")
-                    }
-                }
-                .padding(.top, 5)
-                .frame(maxWidth: .infinity)
+//                DisclosureGroup("Field of view", isExpanded: $projectionIsExpanded) {
+//                    HStack {
+//                        Divider()
+//                        ProjectionControls(demo: demo)
+//                    }
+//                    .padding(.leading, 2)
+//                }
+//
+//                HStack {
+//                    Button {
+//                        nodeSizeIsExpanded = false
+//                        nodeColorDefaultIsExpanded = false
+//                        edgeColorIsExpanded = false
+//                        demo.wireframeSettings.reset()
+//                        demo.renderController.resetFOV()
+//                    } label: {
+//                        Text("Reset all")
+//                    }
+//                }
+//                .padding(.top, 5)
+//                .frame(maxWidth: .infinity)
             }
         }
     }
@@ -89,11 +102,11 @@ struct NodeSizeControls: View {
                     updateIsAdjustedText()
                 } label: {
                     Text(isAdjustedText)
-                        .frame(maxWidth: .infinity)
                 }
                 .onAppear {
                     updateIsAdjustedText()
                 }
+                .frame(maxWidth: .infinity, alignment: .center)
             }
 
             HStack {
@@ -175,9 +188,9 @@ struct NodeColorDefaultControls: View {
 
     var demo: AppearanceDemo
 
-    @State var red: Float = 0.5
-    @State var green: Float = 0.5
-    @State var blue: Float = 0.5
+    @State var red: Float = 0
+    @State var green: Float = 0
+    @State var blue: Float = 0
     @State var alpha: Float = 1
 
     var body: some View {
@@ -271,9 +284,12 @@ struct EdgeColorControls: View {
 
     var demo: AppearanceDemo
 
-    @State var red: Float = 0.5
-    @State var green: Float = 0.5
-    @State var blue: Float = 0.5
+    @State var red: Float = 0
+
+    @State var green: Float = 0
+
+    @State var blue: Float = 0
+
     @State var alpha: Float = 1
 
     var body: some View {
@@ -364,4 +380,77 @@ struct EdgeColorControls: View {
     }
 }
 
+struct ProjectionControls: View {
 
+    @ObservedObject var demo: AppearanceDemo
+
+    @State var yFOV: Float = 0
+
+    @State var zNear: Float = 0
+
+    @State var zFar: Float = 0
+
+    var yFOVMin: Float = 0.01
+    var yFOVMax: Float = 0.01 * floor(99 * Float.twoPi)
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("zNear")
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $zNear, in: 0.01...100) {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("0.01")
+                } maximumValueLabel: {
+                    Text("100")
+                } onEditingChanged: { editing in
+                    if !editing {
+                        demo.renderController.zNear = zNear
+                    }
+                }
+                .onAppear {
+                    zNear = demo.renderController.zNear
+                }
+            }
+
+            HStack {
+                Text("zFar")
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $zFar, in: 100...1000) {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("100")
+                } maximumValueLabel: {
+                    Text("1000")
+                } onEditingChanged: { editing in
+                    if !editing {
+                        demo.renderController.zFar = zFar
+                    }
+                }
+                .onAppear {
+                    zFar = demo.renderController.zFar
+                }
+            }
+
+            HStack {
+                Text("yFOV")
+                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $yFOV, in: yFOVMin...yFOVMax, step: 0.01) {
+                    Text("")
+                } minimumValueLabel: {
+                    Text("\(yFOVMin)")
+                } maximumValueLabel: {
+                    Text("\(yFOVMax)")
+                } onEditingChanged: { editing in
+                    if !editing {
+                        demo.renderController.yFOV = yFOV
+                    }
+                }
+                .onAppear {
+                    yFOV = demo.renderController.yFOV
+                }
+            }
+        }
+    }
+}

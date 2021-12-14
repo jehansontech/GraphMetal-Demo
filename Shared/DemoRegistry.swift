@@ -7,26 +7,25 @@
 
 import SwiftUI
 
-enum DemoType: String, CaseIterable {
-    case cube = "Cube"
-    case ball = "Ball"
-    case wireframe = "Appearance"
-}
-
-protocol Demo: AnyObject {
-
-    var type: DemoType { get }
-
-    var info: String { get }
-}
-
 class DemoRegistry: ObservableObject {
 
     lazy var ball = BallDemo()
 
     lazy var cube = CubeDemo()
 
-    lazy var wireframe = AppearanceDemo()
+    lazy var appearance = AppearanceDemo()
+
+    func info(_ demo: DemoType) -> String {
+        switch demo {
+        case .ball:
+            return ball.info
+        case .cube:
+            return cube.info
+        case .appearance:
+            return appearance.info
+        }
+
+    }
 
     func controlsView(_ demo: DemoType) -> some View {
         Group {
@@ -35,8 +34,8 @@ class DemoRegistry: ObservableObject {
                 BallDemoControls(demo: ball)
             case .cube:
                 CubeDemoControls(demo: cube)
-            case .wireframe:
-                AppearanceDemoControls(demo: wireframe)
+            case .appearance:
+                AppearanceDemoControls(demo: appearance)
             }
         }
     }
@@ -48,8 +47,8 @@ class DemoRegistry: ObservableObject {
                 BallDemoFigure(demo: ball)
             case .cube:
                 CubeDemoFigure(demo: cube)
-            case .wireframe:
-                AppearanceDemoFigure(demo: wireframe)
+            case .appearance:
+                AppearanceDemoFigure(demo: appearance)
             }
         }
     }

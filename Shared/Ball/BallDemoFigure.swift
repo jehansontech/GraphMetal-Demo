@@ -16,5 +16,8 @@ struct BallDemoFigure: View {
         GraphView(demo,
                   povController: demo.povController,
                   wireframeSettings: demo.wireframeSettings)
+            .onDisappear {
+                demo.growing = false
+            }
     }
 }

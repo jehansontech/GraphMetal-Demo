@@ -9,7 +9,7 @@ import SwiftUI
 import GenericGraph
 import GraphMetal
 
-class CubeDemo: ObservableObject, RenderableGraphHolder {
+class CubeDemo: ObservableObject, RenderableGraphHolder, Demo {
 
     static var graphColor = SIMD4<Float>(1,0,0.5,1)
 
@@ -25,6 +25,10 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
 
     var wireframeSettings: GraphWireframeSettings
 
+    var type: DemoType { return .cube }
+
+    var info: String { return "Demonstrates rotation and fadeout" }
+    
     @Published var needsPresentation = true
 
     init() {
@@ -46,8 +50,10 @@ class CubeDemo: ObservableObject, RenderableGraphHolder {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
             povController.flyTo(Self.presentationPOV) {
                 print("CubeDemo.present", "flight is complete!")
-                povController.orbitEnabled = true
-                needsPresentation = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
+                    povController.orbitEnabled = true
+                    needsPresentation = false
+                }
             }
         }
     }
