@@ -16,9 +16,9 @@ class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var graph: BallDemoGraph
 
-    var povController = POVController(pov: POV(location: SIMD3<Float>(0, 0, 5)))
+    var renderController = RenderController()
 
-    var wireframeSettings = GraphWireframeSettings()
+    var povController = POVController(pov: POV(location: SIMD3<Float>(0, 0, 5)))
 
     var type: DemoType { return .ball }
 

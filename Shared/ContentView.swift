@@ -57,29 +57,28 @@ struct DisplayControls: View {
 }
 
 struct DemoView : View {
-    
+
+    static let sidebarWidth: CGFloat = 300
+
     @EnvironmentObject private var displayState: DisplayState
     
     @EnvironmentObject private var demoRegistry: DemoRegistry
     
     var controlsInsets = EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10)
+
     var body: some View {
         HStack(spacing: 0) {
             if displayState.sidebarVisible {
                 VStack {
                     DemoDescriptionView(registry: demoRegistry,
                                         demoType: $displayState.demo)
-                    ScrollView {
-                        demoRegistry.controlsView(displayState.demo)
-                    }
+                    demoRegistry.controlsView(displayState.demo)
                     .padding(controlsInsets)
-                    .frame(maxHeight: .infinity)
-                    // Spacer()
+                    Spacer()
                 }
-                .frame(maxWidth: UIConstants.settingsViewWidth)
+                .frame(maxWidth: Self.sidebarWidth)
             }
             demoRegistry.figureView(displayState.demo)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }

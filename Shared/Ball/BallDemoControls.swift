@@ -51,17 +51,25 @@ struct BallDemoControls: View {
                     HStack(spacing: 5) {
                         Text("# nodes:")
                         Text("\(demo.nodeCount)")
-                        // Spacer()
                     }
 
                     HStack(spacing: 5) {
                         Text("# edges:")
                         Text("\(demo.edgeCount)")
-                        // Spacer()
                     }
                 }
                 .frame(maxWidth: .infinity)
             }
+
+            Button {
+                demo.renderController.requestSnapshot()
+            } label:  {
+                Image(systemName: "camera.on.rectangle")
+            }
+            .buttonStyle(.bordered)
+            .imageScale(.large)
+            .help("Take a snapshot of the figure")
+
         }
     }
 }
