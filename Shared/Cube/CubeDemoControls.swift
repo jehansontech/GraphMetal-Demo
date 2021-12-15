@@ -33,7 +33,7 @@ struct CubeDemoControls: View {
                 FadeoutControls(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
-                Text("Controlling the point of view")
+                Text("Moving around")
                 POVControllerUsage(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)

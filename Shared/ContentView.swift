@@ -64,7 +64,7 @@ struct DemoView : View {
     
     @EnvironmentObject private var demoRegistry: DemoRegistry
     
-    var controlsInsets = EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10)
+    var controlsInsets = EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 5)
 
     var body: some View {
         HStack(spacing: 0) {

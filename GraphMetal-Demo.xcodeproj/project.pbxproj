@@ -49,6 +49,8 @@
 		385550A62767EA410041104B /* BallDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550A42767EA410041104B /* BallDemoFigure.swift */; };
 		385550A827680FCA0041104B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550A727680FCA0041104B /* Demo.swift */; };
 		385550A927680FCA0041104B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550A727680FCA0041104B /* Demo.swift */; };
+		38E383AF276A169A0066E304 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E383AE276A169A0066E304 /* Overlay.swift */; };
+		38E383B0276A169A0066E304 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E383AE276A169A0066E304 /* Overlay.swift */; };
 		38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
 		38F29D1C274D6A8B0045B74F /* CubeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F29D17274D69A60045B74F /* CubeDemo.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,7 @@
 		385550A727680FCA0041104B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		38E383AE276A169A0066E304 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		38F29D17274D69A60045B74F /* CubeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +134,7 @@
 				3850A79727673FC4004452C6 /* Appearance */,
 				38187E97274D5EF400244D04 /* Ball */,
 				38187E98274D5EFC00244D04 /* Cube */,
+				38E383AE276A169A0066E304 /* Overlay.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -311,6 +315,7 @@
 			files = (
 				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
 				3850A79C2767401C004452C6 /* AppearanceDemoControls.swift in Sources */,
+				38E383AF276A169A0066E304 /* Overlay.swift in Sources */,
 				3832225827565AAE00B91665 /* DisplayState.swift in Sources */,
 				3807A3A82755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
 				385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */,
@@ -337,6 +342,7 @@
 			files = (
 				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
 				3850A79D2767401C004452C6 /* AppearanceDemoControls.swift in Sources */,
+				38E383B0276A169A0066E304 /* Overlay.swift in Sources */,
 				3832225927565AAF00B91665 /* DisplayState.swift in Sources */,
 				3807A3A92755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
 				3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */,

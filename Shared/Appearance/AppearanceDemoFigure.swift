@@ -9,12 +9,16 @@ import SwiftUI
 import GraphMetal
 
 struct AppearanceDemoFigure: View {
-
+    
     @ObservedObject var demo: AppearanceDemo
-
+    
     var body: some View {
-        GraphView(demo,
-                  povController: demo.povController,
-                  wireframeSettings: demo.wireframeSettings)
+        ZStack {
+            GraphView(demo,
+                      renderController: demo.renderController,
+                      povController: demo.povController,
+                      wireframeSettings: demo.wireframeSettings)
+            Overlay(demo.renderController)
+        }
     }
 }

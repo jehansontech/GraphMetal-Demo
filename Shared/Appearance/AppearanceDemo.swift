@@ -24,7 +24,7 @@ class AppearanceDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var type: DemoType { return .appearance }
 
-    var info: String { return "Illustrates configuration settings governing the graph's appearance. These are not usually changed by the user." }
+    var info: String { return "Previews configuration settings affecting the graph's appearance." }
     init() {
         self.graph = AppearanceDemoGraph()
         self.renderController = RenderController()

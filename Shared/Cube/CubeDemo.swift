@@ -27,11 +27,11 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var type: DemoType { return .cube }
 
-    var info: String { return "Demonstrates rotation, fadeout, and controlling movement" }
+    var info: String { return "Demonstrates rotation, fadeout, and moving around" }
 
     var povControllerUsage: [(String, String)] = [
         ("Drag", "Rotates the figure in the direction you drag"),
-        ("Pinch", "Moves the figure in or out"),
+        ("Pinch", "Zooms in or out"),
         ("Rotate", "Rotates the figure in the plane of the screen")
     ]
 

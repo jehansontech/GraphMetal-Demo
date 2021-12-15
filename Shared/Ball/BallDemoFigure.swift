@@ -13,11 +13,14 @@ struct BallDemoFigure: View {
     @ObservedObject var demo: BallDemo
 
     var body: some View {
-        GraphView(demo,
-                  renderController: demo.renderController,
-                  povController: demo.povController)
-            .onDisappear {
-                demo.growing = false
-            }
+        ZStack {
+            GraphView(demo,
+                      renderController: demo.renderController,
+                      povController: demo.povController)
+                .onDisappear {
+                    demo.growing = false
+                }
+            Overlay(demo.renderController)
+        }
     }
 }

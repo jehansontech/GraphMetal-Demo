@@ -22,7 +22,7 @@ class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var type: DemoType { return .ball }
 
-    var info: String { return "Demonstrates dynamic topology and node color" }
+    var info: String { return "Shows a graph that changes over time" }
 
     @Published var growing: Bool = true {
         didSet {
