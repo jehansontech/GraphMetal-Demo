@@ -9,8 +9,6 @@ import SwiftUI
 import GraphMetal
 
 struct CubeDemoControls: View {
-    
-    static var labelWidth: CGFloat = 80
 
     @ObservedObject var demo: CubeDemo
     
@@ -19,7 +17,6 @@ struct CubeDemoControls: View {
             Button {
                 withAnimation {
                     demo.present()
-                    // demo.needsPresentation.toggle()
                 }
             } label: {
                 Text("CLICK ME")
@@ -36,6 +33,10 @@ struct CubeDemoControls: View {
                 FadeoutControls(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
+                Text("Controlling the point of view")
+                POVControllerUsage(demo: demo)
+                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity)
             }
         }
     }
@@ -49,25 +50,13 @@ struct FadeoutControls: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Onset")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.fadeoutOnset, in: 1...100) {
-                    Text("")
-                } minimumValueLabel: {
-                    Text("1")
-                } maximumValueLabel: {
-                    Text("100")
-                }
+                    .frame(width: demo.labelWidth, alignment: .trailing)
+                Slider(value: $demo.renderController.fadeoutOnset, in: 1...100)
             }
             HStack {
                 Text("Distance")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.fadeoutDistance, in: 1...100) {
-                    Text("")
-                } minimumValueLabel: {
-                    Text("1")
-                } maximumValueLabel: {
-                    Text("100")
-                }
+                    .frame(width: demo.labelWidth, alignment: .trailing)
+                Slider(value: $demo.renderController.fadeoutDistance, in: 1...100)
             }
         }
     }
@@ -81,23 +70,34 @@ struct OrbitControls: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Enabled")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: demo.labelWidth, alignment: .trailing)
                 Toggle("", isOn: $demo.povController.orbitEnabled)
                     .toggleStyle(.switch)
                     .frame(maxWidth: .infinity)
             }
             HStack {
                 Text("Speed")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.povController.orbitSpeed, in: -1...1) {
-                    Text("")
-                } minimumValueLabel: {
-                    Text("-1")
-                } maximumValueLabel: {
-                    Text("+1")
+                    .frame(width: demo.labelWidth, alignment: .trailing)
+                Slider(value: $demo.povController.orbitSpeed, in: -1...1)
+            }
+        }
+    }
+}
+
+struct POVControllerUsage: View {
+
+    @ObservedObject var demo: CubeDemo
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            ForEach(demo.povControllerUsage.indices, id: \.self) { idx in
+                HStack(alignment: .top) {
+                    Text(demo.povControllerUsage[idx].0)
+                        .font(.body.smallCaps())
+                        .frame(width: demo.labelWidth, alignment: .trailing)
+                    Text(demo.povControllerUsage[idx].1)
                 }
             }
-            
         }
     }
 }

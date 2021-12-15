@@ -27,7 +27,15 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var type: DemoType { return .cube }
 
-    var info: String { return "Demonstrates rotation and fadeout" }
+    var info: String { return "Demonstrates rotation, fadeout, and controlling the point of view" }
+
+    var povControllerUsage: [(String, String)] = [
+        ("Drag", "Moves the figure around, keeping it centered on the same point"),
+        ("Pinch", "Moves the toward or away from the center point"),
+        ("Rotate", "Changes the 'up' direction")
+    ]
+
+    var labelWidth: CGFloat = 80
     
     @Published var needsPresentation = true
 
