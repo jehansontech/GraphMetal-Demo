@@ -10,7 +10,8 @@ import Foundation
 enum DemoType: String, CaseIterable {
     case cube = "Cube"
     case ball = "Ball"
-    case appearance = "Appearance"
+    case editing = "Editing"
+    case appearance = "Settings"
 }
 
 protocol Demo: AnyObject {

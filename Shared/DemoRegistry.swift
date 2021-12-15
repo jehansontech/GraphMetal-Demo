@@ -13,6 +13,8 @@ class DemoRegistry: ObservableObject {
 
     lazy var cube = CubeDemo()
 
+    lazy var picking = PickingDemo()
+
     lazy var appearance = AppearanceDemo()
 
     func info(_ demo: DemoType) -> String {
@@ -21,6 +23,8 @@ class DemoRegistry: ObservableObject {
             return ball.info
         case .cube:
             return cube.info
+        case .editing:
+            return picking.info
         case .appearance:
             return appearance.info
         }
@@ -34,6 +38,8 @@ class DemoRegistry: ObservableObject {
                 BallDemoControls(demo: ball)
             case .cube:
                 CubeDemoControls(demo: cube)
+            case .editing:
+                PickingDemoControls(demo: picking)
             case .appearance:
                 AppearanceDemoControls(demo: appearance)
             }
@@ -47,6 +53,8 @@ class DemoRegistry: ObservableObject {
                 BallDemoFigure(demo: ball)
             case .cube:
                 CubeDemoFigure(demo: cube)
+            case .editing:
+                PickingDemoFigure(demo: picking)
             case .appearance:
                 AppearanceDemoFigure(demo: appearance)
             }

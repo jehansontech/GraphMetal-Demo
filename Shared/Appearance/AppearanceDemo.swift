@@ -26,15 +26,12 @@ class AppearanceDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var info: String { return "Previews configuration settings affecting the graph's appearance" }
     init() {
-        self.graph = AppearanceDemoGraph()
+        self.graph = GraphBuilder(AppearanceDemoNodeValue.init, AppearanceDemoEdgeValue.init)
+            .simpleCube()
         self.renderController = RenderController()
-        self.povController = POVController(pov: POV(location: SIMD3<Float>(2, 0, 3)))
+        self.povController = POVController(pov: POV(location: SIMD3<Float>(4, 0, 6)))
         self.wireframeSettings = GraphWireframeSettings(nodeColorDefault: Self.initialGraphColor,
                                                         edgeColor: Self.initialGraphColor)
-
-        GraphBuilder(nodeValueFactory: AppearanceDemoNodeValue.init,
-                    edgeValueFactory: AppearanceDemoEdgeValue.init)
-            .addCube(to: graph)
     }
 
     func updateGraph() {

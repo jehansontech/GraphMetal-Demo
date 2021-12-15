@@ -9,38 +9,45 @@ import Foundation
 import GenericGraph
 import GraphMetal
 
-enum BuilderShape {
-    // case tetrahedron
-    case cube
-    // case octahedron
-    // case icosahedron
-}
-
 struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
 
     typealias NodeValueFactory = (SIMD3<Float>) -> N?
     typealias EdgeValueFactory = () -> E?
 
-    // var shape: BuilderShape
-
     var center: SIMD3<Float> = .zero
 
-    var divisions: Int = 0
+    var nodeValueFactory: NodeValueFactory?
 
-    var nodeValueFactory: NodeValueFactory? = nil
+    var edgeValueFactory: EdgeValueFactory?
 
-    var edgeValueFactory: EdgeValueFactory? = nil
-
-    func addCube(to graph: BaseGraph<N, E>) {
-        var edges = startCube(graph)
-        for _ in 0..<divisions {
-            edges = divideEdges(graph, edges)
-        }
+    init(_ nodeValueFactory: NodeValueFactory? = nil, _ edgeValueFactory: EdgeValueFactory? = nil) {
+        self.nodeValueFactory = nodeValueFactory
+        self.edgeValueFactory = edgeValueFactory
     }
 
-    private func startCube(_ graph: BaseGraph<N, E>) -> [EdgeID] {
+    func simpleCube() -> BaseGraph<N, E> {
+        let graph = BaseGraph<N, E>()
+        _ = startCube(graph)
+        return graph
+    }
+
+    func fancyCube(divisions: Int) -> BaseGraph<N, E> {
+        let graph = BaseGraph<N, E>()
+        var edgeIDs = startCube(graph, pow(2, Float(divisions-1)))
+        for _ in 0..<divisions {
+            edgeIDs = divideEdges(graph, edgeIDs)
+        }
+        return graph
+    }
+
+    func simpleOctahedron() -> BaseGraph<N, E> {
+        let graph = BaseGraph<N, E>()
+        _ = startOctahedron(graph)
+        return graph
+    }
+
+    @discardableResult private func startCube(_ graph: BaseGraph<N, E>, _ a: Float = 1) -> [EdgeID] {
         var newEdges = [EdgeID]()
-        let a: Float = pow(2, Float(divisions-1))
 
         let n0 = makeNode(graph, SIMD3<Float>(-a, -a, -a))
         let n1 = makeNode(graph, SIMD3<Float>(-a, -a,  a))
@@ -63,6 +70,36 @@ struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
         newEdges.append(makeEdge(graph, n1, n5))
         newEdges.append(makeEdge(graph, n2, n6))
         newEdges.append(makeEdge(graph, n3, n7))
+
+        return newEdges
+    }
+
+    @discardableResult private func startOctahedron(_ graph: BaseGraph<N, E>, _ a: Float = 1) -> [EdgeID] {
+        var newEdges = [EdgeID]()
+
+
+
+        let n0 = makeNode(graph, SIMD3<Float>( 0,  0, -a))
+        let n1 = makeNode(graph, SIMD3<Float>(-a,  0,  0))
+        let n2 = makeNode(graph, SIMD3<Float>( 0,  a,  0))
+        let n3 = makeNode(graph, SIMD3<Float>( a,  0,  0))
+        let n4 = makeNode(graph, SIMD3<Float>( 0, -a,  0))
+        let n5 = makeNode(graph, SIMD3<Float>( 0,  0,  a))
+
+        newEdges.append(makeEdge(graph, n0, n1))
+        newEdges.append(makeEdge(graph, n0, n2))
+        newEdges.append(makeEdge(graph, n0, n3))
+        newEdges.append(makeEdge(graph, n0, n4))
+
+        newEdges.append(makeEdge(graph, n1, n2))
+        newEdges.append(makeEdge(graph, n2, n3))
+        newEdges.append(makeEdge(graph, n3, n4))
+        newEdges.append(makeEdge(graph, n4, n1))
+
+        newEdges.append(makeEdge(graph, n1, n5))
+        newEdges.append(makeEdge(graph, n2, n5))
+        newEdges.append(makeEdge(graph, n3, n5))
+        newEdges.append(makeEdge(graph, n4, n5))
 
         return newEdges
     }

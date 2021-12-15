@@ -1,5 +1,5 @@
 //
-//  VisibilityDemo.swift
+//  CubeDemo.swift
 //  GraphMetal-Demo (iOS)
 //
 //  Created by Jim Hanson on 11/23/21.
@@ -29,18 +29,11 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var info: String { return "Demonstrates rotation, fadeout, and moving around" }
 
-    var povControllerUsage: [(String, String)] = [
-        ("Drag", "Rotates the figure in the direction you drag"),
-        ("Pinch", "Zooms in or out"),
-        ("Rotate", "Rotates the figure in the plane of the screen")
-    ]
-
-    var labelWidth: CGFloat = 80
-    
     @Published var needsPresentation = true
 
     init() {
-        self.graph = CubeDemoGraph()
+        self.graph = GraphBuilder(CubeDemoNodeValue.init, CubeDemoEdgeValue.init)
+            .fancyCube(divisions: 5)
         self.povController = POVController(pov: Self.initialPOV,
                                            povDefault: Self.presentationPOV,
                                            orbitEnabled: false)
@@ -48,9 +41,6 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
                                                  fadeoutDistance: 50)
         self.wireframeSettings = GraphWireframeSettings(edgeColor: Self.graphColor)
 
-        GraphBuilder(divisions: 5, nodeValueFactory: CubeDemoNodeValue.init,
-                    edgeValueFactory: CubeDemoEdgeValue.init)
-            .addCube(to: graph)
     }
 
 
