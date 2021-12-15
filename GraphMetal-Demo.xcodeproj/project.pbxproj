@@ -29,8 +29,16 @@
 		3832225927565AAF00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
 		3832225B2756724D00B91665 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225A2756724D00B91665 /* UIStyle.swift */; };
 		3832225C2756724D00B91665 /* UIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225A2756724D00B91665 /* UIStyle.swift */; };
-		3850A78E27673303004452C6 /* CubeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* CubeBuilder.swift */; };
-		3850A78F27673303004452C6 /* CubeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* CubeBuilder.swift */; };
+		3838EE002769851900D57AD6 /* MotionDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFC2769851900D57AD6 /* MotionDemoControls.swift */; };
+		3838EE012769851900D57AD6 /* MotionDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFC2769851900D57AD6 /* MotionDemoControls.swift */; };
+		3838EE022769851900D57AD6 /* MotionDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFD2769851900D57AD6 /* MotionDemoGraph.swift */; };
+		3838EE032769851900D57AD6 /* MotionDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFD2769851900D57AD6 /* MotionDemoGraph.swift */; };
+		3838EE042769851900D57AD6 /* MotionDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFE2769851900D57AD6 /* MotionDemoFigure.swift */; };
+		3838EE052769851900D57AD6 /* MotionDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFE2769851900D57AD6 /* MotionDemoFigure.swift */; };
+		3838EE062769851900D57AD6 /* MotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFF2769851900D57AD6 /* MotionDemo.swift */; };
+		3838EE072769851900D57AD6 /* MotionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3838EDFF2769851900D57AD6 /* MotionDemo.swift */; };
+		3850A78E27673303004452C6 /* GraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* GraphBuilder.swift */; };
+		3850A78F27673303004452C6 /* GraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* GraphBuilder.swift */; };
 		3850A7992767400B004452C6 /* AppearanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A7982767400B004452C6 /* AppearanceDemo.swift */; };
 		3850A79A2767400B004452C6 /* AppearanceDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A7982767400B004452C6 /* AppearanceDemo.swift */; };
 		3850A79C2767401C004452C6 /* AppearanceDemoControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A79B2767401C004452C6 /* AppearanceDemoControls.swift */; };
@@ -66,8 +74,12 @@
 		38187E99274D5F1F00244D04 /* BallDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallDemo.swift; sourceTree = "<group>"; };
 		3832225727565AAE00B91665 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
 		3832225A2756724D00B91665 /* UIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyle.swift; sourceTree = "<group>"; };
+		3838EDFC2769851900D57AD6 /* MotionDemoControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDemoControls.swift; sourceTree = "<group>"; };
+		3838EDFD2769851900D57AD6 /* MotionDemoGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDemoGraph.swift; sourceTree = "<group>"; };
+		3838EDFE2769851900D57AD6 /* MotionDemoFigure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDemoFigure.swift; sourceTree = "<group>"; };
+		3838EDFF2769851900D57AD6 /* MotionDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionDemo.swift; sourceTree = "<group>"; };
 		38404C3C275EAC3800A7486A /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
-		3850A78D27673303004452C6 /* CubeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeBuilder.swift; sourceTree = "<group>"; };
+		3850A78D27673303004452C6 /* GraphBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBuilder.swift; sourceTree = "<group>"; };
 		3850A7982767400B004452C6 /* AppearanceDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceDemo.swift; sourceTree = "<group>"; };
 		3850A79B2767401C004452C6 /* AppearanceDemoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceDemoControls.swift; sourceTree = "<group>"; };
 		3850A79E27674097004452C6 /* AppearanceDemoFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceDemoFigure.swift; sourceTree = "<group>"; };
@@ -120,17 +132,18 @@
 		38187E65274D5E3C00244D04 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3838EDFB276984F300D57AD6 /* Motion */,
 				38187E67274D5E3C00244D04 /* ContentView.swift */,
+				3850A78D27673303004452C6 /* GraphBuilder.swift */,
 				385550A727680FCA0041104B /* Demo.swift */,
-				3850A78D27673303004452C6 /* CubeBuilder.swift */,
 				3807A39E2755626B006C8AB9 /* DemoRegistry.swift */,
 				3832225727565AAE00B91665 /* DisplayState.swift */,
 				38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */,
 				3832225A2756724D00B91665 /* UIStyle.swift */,
 				38187E68274D5E3D00244D04 /* Assets.xcassets */,
+				3850A79727673FC4004452C6 /* Appearance */,
 				38187E97274D5EF400244D04 /* Ball */,
 				38187E98274D5EFC00244D04 /* Cube */,
-				3850A79727673FC4004452C6 /* Appearance */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -179,6 +192,17 @@
 				385550982767C17D0041104B /* CubeDemoFigure.swift */,
 			);
 			path = Cube;
+			sourceTree = "<group>";
+		};
+		3838EDFB276984F300D57AD6 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				3838EDFF2769851900D57AD6 /* MotionDemo.swift */,
+				3838EDFC2769851900D57AD6 /* MotionDemoControls.swift */,
+				3838EDFE2769851900D57AD6 /* MotionDemoFigure.swift */,
+				3838EDFD2769851900D57AD6 /* MotionDemoGraph.swift */,
+			);
+			path = Motion;
 			sourceTree = "<group>";
 		};
 		3850A79727673FC4004452C6 /* Appearance */ = {
@@ -311,22 +335,26 @@
 			files = (
 				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
 				3850A79C2767401C004452C6 /* AppearanceDemoControls.swift in Sources */,
+				3838EE062769851900D57AD6 /* MotionDemo.swift in Sources */,
 				3832225827565AAE00B91665 /* DisplayState.swift in Sources */,
 				3807A3A82755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
 				385550992767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A79F27674097004452C6 /* AppearanceDemoFigure.swift in Sources */,
+				3838EE022769851900D57AD6 /* MotionDemoGraph.swift in Sources */,
 				38F29D18274D69A60045B74F /* CubeDemo.swift in Sources */,
 				385550A52767EA410041104B /* BallDemoFigure.swift in Sources */,
 				3807A3A22755958B006C8AB9 /* BallDemoControls.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
-				3850A78E27673303004452C6 /* CubeBuilder.swift in Sources */,
+				3850A78E27673303004452C6 /* GraphBuilder.swift in Sources */,
 				3832225B2756724D00B91665 /* UIStyle.swift in Sources */,
 				385550A22767E9970041104B /* BallDemoGraph.swift in Sources */,
 				385550A827680FCA0041104B /* Demo.swift in Sources */,
 				3850A7A2276771F1004452C6 /* AppearanceDemoGraph.swift in Sources */,
 				3807A39F2755626B006C8AB9 /* DemoRegistry.swift in Sources */,
 				38187E9C274D5F1F00244D04 /* BallDemo.swift in Sources */,
+				3838EE042769851900D57AD6 /* MotionDemoFigure.swift in Sources */,
 				3850A7992767400B004452C6 /* AppearanceDemo.swift in Sources */,
+				3838EE002769851900D57AD6 /* MotionDemoControls.swift in Sources */,
 				385550962767BF4F0041104B /* CubeDemoGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,22 +365,26 @@
 			files = (
 				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
 				3850A79D2767401C004452C6 /* AppearanceDemoControls.swift in Sources */,
+				3838EE072769851900D57AD6 /* MotionDemo.swift in Sources */,
 				3832225927565AAF00B91665 /* DisplayState.swift in Sources */,
 				3807A3A92755961A006C8AB9 /* CubeDemoControls.swift in Sources */,
 				3855509A2767C17D0041104B /* CubeDemoFigure.swift in Sources */,
 				3850A7A027674097004452C6 /* AppearanceDemoFigure.swift in Sources */,
+				3838EE032769851900D57AD6 /* MotionDemoGraph.swift in Sources */,
 				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
 				385550A62767EA410041104B /* BallDemoFigure.swift in Sources */,
 				3807A3A32755958B006C8AB9 /* BallDemoControls.swift in Sources */,
 				38187E9D274D5F1F00244D04 /* BallDemo.swift in Sources */,
-				3850A78F27673303004452C6 /* CubeBuilder.swift in Sources */,
+				3850A78F27673303004452C6 /* GraphBuilder.swift in Sources */,
 				3832225C2756724D00B91665 /* UIStyle.swift in Sources */,
 				385550A32767E9970041104B /* BallDemoGraph.swift in Sources */,
 				385550A927680FCA0041104B /* Demo.swift in Sources */,
 				3850A7A3276771F1004452C6 /* AppearanceDemoGraph.swift in Sources */,
 				3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */,
 				38F29D1C274D6A8B0045B74F /* CubeDemo.swift in Sources */,
+				3838EE052769851900D57AD6 /* MotionDemoFigure.swift in Sources */,
 				3850A79A2767400B004452C6 /* AppearanceDemo.swift in Sources */,
+				3838EE012769851900D57AD6 /* MotionDemoControls.swift in Sources */,
 				385550972767BF4F0041104B /* CubeDemoGraph.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

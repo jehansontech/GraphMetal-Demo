@@ -32,7 +32,7 @@ class AppearanceDemo: ObservableObject, RenderableGraphContainer, Demo {
         self.wireframeSettings = GraphWireframeSettings(nodeColorDefault: Self.initialGraphColor,
                                                         edgeColor: Self.initialGraphColor)
 
-        CubeBuilder(nodeValueFactory: AppearanceDemoNodeValue.init,
+        GraphBuilder(nodeValueFactory: AppearanceDemoNodeValue.init,
                     edgeValueFactory: AppearanceDemoEdgeValue.init)
             .addCube(to: graph)
     }

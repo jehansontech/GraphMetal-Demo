@@ -40,7 +40,7 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
                                                  fadeoutDistance: 50)
         self.wireframeSettings = GraphWireframeSettings(edgeColor: Self.graphColor)
 
-        CubeBuilder(divisions: 5, nodeValueFactory: CubeDemoNodeValue.init,
+        GraphBuilder(divisions: 5, nodeValueFactory: CubeDemoNodeValue.init,
                     edgeValueFactory: CubeDemoEdgeValue.init)
             .addCube(to: graph)
     }

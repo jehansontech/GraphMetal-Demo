@@ -8,6 +8,7 @@
 import Foundation
 
 enum DemoType: String, CaseIterable {
+    case motion = "Motion"
     case cube = "Cube"
     case ball = "Ball"
     case appearance = "Appearance"

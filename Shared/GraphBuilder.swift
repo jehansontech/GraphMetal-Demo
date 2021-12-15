@@ -1,5 +1,5 @@
 //
-//  CubeBuilder.swift
+//  GraphBuilder.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -9,10 +9,19 @@ import Foundation
 import GenericGraph
 import GraphMetal
 
-struct CubeBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
+enum BuilderShape {
+    // case tetrahedron
+    case cube
+    // case octahedron
+    // case icosahedron
+}
+
+struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
 
     typealias NodeValueFactory = (SIMD3<Float>) -> N?
     typealias EdgeValueFactory = () -> E?
+
+    // var shape: BuilderShape
 
     var center: SIMD3<Float> = .zero
 
@@ -31,7 +40,6 @@ struct CubeBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
 
     private func startCube(_ graph: BaseGraph<N, E>) -> [EdgeID] {
         var newEdges = [EdgeID]()
-
         let a: Float = pow(2, Float(divisions-1))
 
         let n0 = makeNode(graph, SIMD3<Float>(-a, -a, -a))
@@ -59,6 +67,22 @@ struct CubeBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
         return newEdges
     }
 
+    private func divideEdges(_ graph: BaseGraph<N, E>, _ oldEdges: [EdgeID]) -> [EdgeID] {
+        var newEdges = [EdgeID]()
+        for edgeID in oldEdges {
+            if let edge = graph.edges[edgeID] {
+                let source = edge.source
+                let target = edge.target
+                let midpoint = 0.5 * (source.value!.location + target.value!.location)
+                let newNodeID = makeNode(graph, midpoint)
+                newEdges.append(makeEdge(graph, source.id, newNodeID))
+                newEdges.append(makeEdge(graph, newNodeID, target.id))
+            }
+            graph.removeEdge(edgeID)
+        }
+        return newEdges
+    }
+
     private func makeNode(_ graph: BaseGraph<N, E>, _ location: SIMD3<Float>) -> NodeID {
         var newValue: N? = nil
         if let factory = nodeValueFactory {
@@ -77,19 +101,5 @@ struct CubeBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
         return newEdge.id
     }
 
-    private func divideEdges(_ graph: BaseGraph<N, E>, _ oldEdges: [EdgeID]) -> [EdgeID] {
-        var newEdges = [EdgeID]()
-        for edgeID in oldEdges {
-            if let edge = graph.edges[edgeID] {
-                let source = edge.source
-                let target = edge.target
-                let midpoint = 0.5 * (source.value!.location + target.value!.location)
-                let newNodeID = makeNode(graph, midpoint)
-                newEdges.append(makeEdge(graph, source.id, newNodeID))
-                newEdges.append(makeEdge(graph, newNodeID, target.id))
-            }
-            graph.removeEdge(edgeID)
-        }
-        return newEdges
-    }
+
 }

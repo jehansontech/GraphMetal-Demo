@@ -9,6 +9,8 @@ import SwiftUI
 
 class DemoRegistry: ObservableObject {
 
+    lazy var motion = MotionDemo()
+    
     lazy var ball = BallDemo()
 
     lazy var cube = CubeDemo()
@@ -17,6 +19,8 @@ class DemoRegistry: ObservableObject {
 
     func info(_ demo: DemoType) -> String {
         switch demo {
+        case .motion:
+            return motion.info
         case .ball:
             return ball.info
         case .cube:
@@ -30,6 +34,8 @@ class DemoRegistry: ObservableObject {
     func controlsView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
+            case .motion:
+                MotionDemoControls(demo: motion)
             case .ball:
                 BallDemoControls(demo: ball)
             case .cube:
@@ -43,6 +49,8 @@ class DemoRegistry: ObservableObject {
     func figureView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
+            case .motion:
+                MotionDemoFigure(demo: motion)
             case .ball:
                 BallDemoFigure(demo: ball)
             case .cube:
