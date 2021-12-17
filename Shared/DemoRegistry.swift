@@ -15,7 +15,7 @@ class DemoRegistry: ObservableObject {
 
     lazy var picking = PickingDemo()
 
-    lazy var appearance = AppearanceDemo()
+    lazy var appearance = SettingsDemo()
 
     func info(_ demo: DemoType) -> String {
         switch demo {
@@ -23,7 +23,7 @@ class DemoRegistry: ObservableObject {
             return ball.info
         case .cube:
             return cube.info
-        case .editing:
+        case .picking:
             return picking.info
         case .appearance:
             return appearance.info
@@ -38,10 +38,10 @@ class DemoRegistry: ObservableObject {
                 BallDemoControls(demo: ball)
             case .cube:
                 CubeDemoControls(demo: cube)
-            case .editing:
+            case .picking:
                 PickingDemoControls(demo: picking)
             case .appearance:
-                AppearanceDemoControls(demo: appearance)
+                SettingsDemoControls(demo: appearance)
             }
         }
     }
@@ -53,10 +53,10 @@ class DemoRegistry: ObservableObject {
                 BallDemoFigure(demo: ball)
             case .cube:
                 CubeDemoFigure(demo: cube)
-            case .editing:
+            case .picking:
                 PickingDemoFigure(demo: picking)
             case .appearance:
-                AppearanceDemoFigure(demo: appearance)
+                SettingsDemoFigure(demo: appearance)
             }
         }
     }

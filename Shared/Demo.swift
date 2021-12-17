@@ -10,7 +10,7 @@ import Foundation
 enum DemoType: String, CaseIterable {
     case cube = "Cube"
     case ball = "Ball"
-    case editing = "Editing"
+    case picking = "Picking"
     case appearance = "Settings"
 }
 

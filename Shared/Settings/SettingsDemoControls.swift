@@ -1,5 +1,5 @@
 //
-//  AppearanceDemoControls.swift
+//  SettingsDemoControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -8,11 +8,11 @@
 import SwiftUI
 import Wacoma
 
-struct AppearanceDemoControls: View {
+struct SettingsDemoControls: View {
     
     static var labelWidth: CGFloat = 90
     
-    @ObservedObject var demo: AppearanceDemo
+    @ObservedObject var demo: SettingsDemo
     
     @State var nodeSizeIsExpanded = false
     
@@ -99,7 +99,7 @@ struct AppearanceDemoControls: View {
 
 struct NodeSizeControls: View {
     
-    var demo: AppearanceDemo
+    var demo: SettingsDemo
     
     @State var isAdjustedText: String = ""
     
@@ -118,7 +118,7 @@ struct NodeSizeControls: View {
 
             HStack {
                 Text("Automatic")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Button {
                     demo.wireframeSettings.nodeSizeIsAdjusted.toggle()
@@ -134,7 +134,7 @@ struct NodeSizeControls: View {
             
             HStack {
                 Text("Minimum")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $nodeSizeMinimum, in: 1...200) {
                     Text("")
@@ -151,7 +151,7 @@ struct NodeSizeControls: View {
             
             HStack {
                 Text("Maximum")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $nodeSizeMaximum, in: 1...200) {
                     Text("")
@@ -168,7 +168,7 @@ struct NodeSizeControls: View {
             
             HStack {
                 Text("Manual")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $nodeSizeDefault, in: 1...200) {
                     Text("")
@@ -198,7 +198,7 @@ struct NodeSizeControls: View {
 
 struct NodeColorDefaultControls: View {
     
-    var demo: AppearanceDemo
+    var demo: SettingsDemo
     
     @State var red: Float = 0
     @State var green: Float = 0
@@ -213,7 +213,7 @@ struct NodeColorDefaultControls: View {
 
             HStack {
                 Text("Red")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $red, in: 0...1) {
                     Text("")
@@ -229,7 +229,7 @@ struct NodeColorDefaultControls: View {
             }
             HStack {
                 Text("Green")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $green, in: 0...1) {
                     Text("")
@@ -246,7 +246,7 @@ struct NodeColorDefaultControls: View {
             
             HStack {
                 Text("Blue")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $blue, in: 0...1) {
                     Text("")
@@ -262,7 +262,7 @@ struct NodeColorDefaultControls: View {
             
             HStack {
                 Text("Opacity")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $alpha, in: 0...1) {
                     Text("")
@@ -282,7 +282,7 @@ struct NodeColorDefaultControls: View {
 
 struct EdgeColorControls: View {
     
-    var demo: AppearanceDemo
+    var demo: SettingsDemo
     
     @State var red: Float = 0
     
@@ -300,7 +300,7 @@ struct EdgeColorControls: View {
 
             HStack {
                 Text("Red")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $red, in: 0...1) {
                     Text("")
@@ -316,7 +316,7 @@ struct EdgeColorControls: View {
             }
             HStack {
                 Text("Green")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $green, in: 0...1) {
                     Text("")
@@ -333,7 +333,7 @@ struct EdgeColorControls: View {
             
             HStack {
                 Text("Blue")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $blue, in: 0...1) {
                     Text("")
@@ -350,7 +350,7 @@ struct EdgeColorControls: View {
             
             HStack {
                 Text("Opacity")
-                    .frame(minWidth: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(minWidth: SettingsDemoControls.labelWidth, alignment: .trailing)
                 
                 Slider(value: $alpha, in: 0...1) {
                     Text("")
@@ -370,7 +370,7 @@ struct EdgeColorControls: View {
 
 struct ProjectionControls: View {
     
-    @ObservedObject var demo: AppearanceDemo
+    @ObservedObject var demo: SettingsDemo
     
     @State var yFOV: Float = 0
     
@@ -385,7 +385,7 @@ struct ProjectionControls: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("zNear")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $zNear, in: 0.01...100) {
                     Text("")
                 } minimumValueLabel: {
@@ -404,7 +404,7 @@ struct ProjectionControls: View {
             
             HStack {
                 Text("zFar")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $zFar, in: 100...1000) {
                     Text("")
                 } minimumValueLabel: {
@@ -423,7 +423,7 @@ struct ProjectionControls: View {
             
             HStack {
                 Text("yFOV")
-                    .frame(width: AppearanceDemoControls.labelWidth, alignment: .trailing)
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $yFOV, in: yFOVMin...yFOVMax, step: 0.01) {
                     Text("")
                 } minimumValueLabel: {

@@ -1,5 +1,5 @@
 //
-//  WireframeDemoFigure.swift
+//  SettingsDemoFigure.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -8,9 +8,9 @@
 import SwiftUI
 import GraphMetal
 
-struct AppearanceDemoFigure: View {
+struct SettingsDemoFigure: View {
     
-    @ObservedObject var demo: AppearanceDemo
+    @ObservedObject var demo: SettingsDemo
     
     var body: some View {
         ZStack {

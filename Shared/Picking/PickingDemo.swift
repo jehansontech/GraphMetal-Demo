@@ -23,7 +23,7 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
 
     var wireframeSettings: GraphWireframeSettings
 
-    var type: DemoType { return .editing }
+    var type: DemoType { return .picking }
 
     var info: String { return "Demonstrates node selection and editing" }
 

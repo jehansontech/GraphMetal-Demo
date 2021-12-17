@@ -1,5 +1,5 @@
 //
-//  AppearanceDemo.swift
+//  SettingsDemo.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -10,11 +10,11 @@ import Wacoma
 import GenericGraph
 import GraphMetal
 
-class AppearanceDemo: ObservableObject, RenderableGraphContainer, Demo {
+class SettingsDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     static var initialGraphColor = SIMD4<Float>(0.2, 0.2, 0.2, 1)
 
-    var graph: AppearanceDemoGraph
+    var graph: SettingsDemoGraph
 
     var renderController: RenderController
 
@@ -26,7 +26,7 @@ class AppearanceDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var info: String { return "Previews configuration settings affecting the graph's appearance" }
     init() {
-        self.graph = GraphBuilder(AppearanceDemoNodeValue.init, AppearanceDemoEdgeValue.init)
+        self.graph = GraphBuilder(SettingsDemoNodeValue.init, SettingsDemoEdgeValue.init)
             .simpleCube()
         self.renderController = RenderController()
         self.povController = POVController(pov: POV(location: SIMD3<Float>(4, 0, 6)))

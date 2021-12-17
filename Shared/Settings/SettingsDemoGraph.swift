@@ -1,5 +1,5 @@
 //
-//  AppearanceDemoGraph.swift
+//  SettingsDemoGraph.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -8,7 +8,7 @@
 import GenericGraph
 import GraphMetal
 
-struct AppearanceDemoNodeValue: RenderableNodeValue {
+struct SettingsDemoNodeValue: RenderableNodeValue {
 
     var hidden: Bool { return false }
 
@@ -21,9 +21,9 @@ struct AppearanceDemoNodeValue: RenderableNodeValue {
     }
 }
 
-struct AppearanceDemoEdgeValue: RenderableEdgeValue {
+struct SettingsDemoEdgeValue: RenderableEdgeValue {
 
     var hidden: Bool { return false }
 }
 
-typealias AppearanceDemoGraph = BaseGraph<AppearanceDemoNodeValue, AppearanceDemoEdgeValue>
+typealias SettingsDemoGraph = BaseGraph<SettingsDemoNodeValue, SettingsDemoEdgeValue>
