@@ -62,7 +62,7 @@ class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     func reset() {
         self.graph = BallDemoGraph()
-        fireGraphChange(.ALL)
+        fireGraphChange(.all)
     }
     
     func possiblyScheduleNextStep() {
@@ -96,7 +96,7 @@ class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
             addNode(graph)
             _lastNewNodeTimestamp = now
             nodeAdded = true
-            fireGraphChange(RenderableGraphChange.ALL)
+            fireGraphChange(RenderableGraphChange.all)
         }
         else {
             fireGraphChange(RenderableGraphChange(nodeColors: true))
