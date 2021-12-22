@@ -40,7 +40,6 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
         self.renderController = RenderController(fadeoutOnset: 50,
                                                  fadeoutDistance: 50)
         self.wireframeSettings = GraphWireframeSettings(edgeColor: Self.graphColor)
-
     }
 
 

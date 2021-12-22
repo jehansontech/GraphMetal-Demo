@@ -16,8 +16,6 @@ struct PickingDemoNodeValue: RenderableNodeValue {
         SIMD4<Float>(1, 1, 0, 1)
     ]
 
-    var hidden: Bool { return false }
-
     var color: SIMD4<Float>? {
         return Self.groupColors[_group]
     }

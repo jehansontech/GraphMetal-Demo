@@ -11,8 +11,6 @@ import GraphMetal
 
 struct BallDemoNodeValue: RenderableNodeValue {
 
-    var hidden: Bool { return false }
-
     var color: SIMD4<Float>? {
         let h = fmod(Float(Date().timeIntervalSince(creationTime)), 60)
         let x = 1 - abs(fmod(h, 2) - 1)

@@ -10,8 +10,6 @@ import GraphMetal
 
 struct SettingsDemoNodeValue: RenderableNodeValue {
 
-    var hidden: Bool { return false }
-
     var color: SIMD4<Float>? { return nil }
 
     var location: SIMD3<Float>
