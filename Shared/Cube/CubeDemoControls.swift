@@ -22,21 +22,26 @@ struct CubeDemoControls: View {
                     demo.present()
                 }
             } label: {
-                Text("CLICK ME")
+                Text("Click me")
                     .font(.headline.smallCaps())
             }
         }
         else {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Orbit")
+                    .font(.headline.smallCaps())
                 OrbitControls(povController: demo.povController)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
+                Divider()
                 Text("Fadeout")
+                    .font(.headline.smallCaps())
                 FadeoutControls(fovController: demo.fovController)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
+                Divider()
                 Text("Changing the point of view")
+                    .font(.headline.smallCaps())
                 POVControllerUsage(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
@@ -102,6 +107,7 @@ struct POVControllerUsage: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(blurb)
+
             ForEach(gestureHints.indices, id: \.self) { idx in
                 HStack(alignment: .top, spacing: 10) {
                     Text(gestureHints[idx].0)
@@ -113,7 +119,7 @@ struct POVControllerUsage: View {
 
             HStack {
                 Button {
-                    demo.reset()
+                    demo.povController.flyToDefault()
                 } label: {
                     Text("Reset")
                 }

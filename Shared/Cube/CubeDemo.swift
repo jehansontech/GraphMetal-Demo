@@ -22,9 +22,9 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     static var graphColor = SIMD4<Float>(1, 0, 0.5, 1)
 
-    static var initialPOV = CenteredPOV(location: SIMD3<Float>(0, 0, -120))
+    static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
 
-    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(0, 0, -48))
+    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -48))
 
     var graph: CubeDemoGraph
 
@@ -75,14 +75,6 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
                 needsPresentation = false
             }
         }
-    }
-
-    func reset() {
-        povController.jumpTo(pov: povController.defaultPOV)
-        povController.orbitEnabled = CubeDemo.defaultOrbitEnabled
-        povController.orbitSpeed = CubeDemo.defaultOrbitSpeed
-        fovController.fadeoutOnset = CubeDemo.defaultFadeoutOnset
-        fovController.fadeoutDistance = CubeDemo.defaultFadeoutDistance
     }
 }
 
