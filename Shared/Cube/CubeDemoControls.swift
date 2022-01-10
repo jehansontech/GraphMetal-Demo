@@ -1,5 +1,5 @@
 //
-//  VisibilityDemoViews.swift
+//  CubeDemoControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 11/29/21.
@@ -7,13 +7,14 @@
 
 import SwiftUI
 import GraphMetal
+import Wacoma
 
 struct CubeDemoControls: View {
-    
+
     static var labelWidth: CGFloat = 80
-    
+
     @ObservedObject var demo: CubeDemo
-    
+
     var body: some View {
         if demo.needsPresentation {
             Button {
@@ -27,15 +28,15 @@ struct CubeDemoControls: View {
         }
         else {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Rotation")
-                OrbitControls(demo: demo)
+                Text("Orbit")
+                OrbitControls(povController: demo.povController)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
                 Text("Fadeout")
-                FadeoutControls(demo: demo)
+                FadeoutControls(fovController: demo.fovController)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
-                Text("Moving around")
+                Text("Changing the point of view")
                 POVControllerUsage(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
@@ -45,65 +46,62 @@ struct CubeDemoControls: View {
 }
 
 struct FadeoutControls: View {
-    
-    @ObservedObject var demo: CubeDemo
-    
+
+    @ObservedObject var fovController: PerspectiveFOVController
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Onset")
                     .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.fadeoutOnset, in: 1...100)
+                Slider(value: $fovController.fadeoutOnset, in: 1...100)
             }
             HStack {
                 Text("Distance")
                     .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.fadeoutDistance, in: 1...100)
+                Slider(value: $fovController.fadeoutDistance, in: 1...100)
             }
         }
     }
 }
 
 struct OrbitControls: View {
-    
-    @ObservedObject var demo: CubeDemo
-    
+
+    @ObservedObject var povController: OrbitingPOVController
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Enabled")
                     .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Toggle("", isOn: $demo.povController.orbitEnabled)
+                Toggle("", isOn: $povController.orbitEnabled)
                     .toggleStyle(.switch)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             HStack {
                 Text("Speed")
                     .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.povController.orbitSpeed, in: -1...1)
+                Slider(value: $povController.orbitSpeed, in: -1...1)
             }
         }
     }
 }
 
 struct POVControllerUsage: View {
-    
-    let hint = "Use gestures to change your point of view"
-    
+
+    var blurb = "Use gestures to move around"
+
     var gestureHints: [(String, String)] = [
-        ("Drag", "Appears to rotate the figure in the direction you drag"),
-        ("Pinch", "Zooms in or out"),
-        ("Rotate", "Rotates the POV in the plane of the screen")
+        ("Drag", "Turns the figure"),
+        ("Pinch", "Moves in or out"),
+        ("Rotate", "Rolls the POV")
     ]
-    
-    
+
     @ObservedObject var demo: CubeDemo
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            
-            Text(hint)
-            
+            Text(blurb)
             ForEach(gestureHints.indices, id: \.self) { idx in
                 HStack(alignment: .top, spacing: 10) {
                     Text(gestureHints[idx].0)
@@ -112,17 +110,22 @@ struct POVControllerUsage: View {
                     Text(gestureHints[idx].1)
                 }
             }
-            
+
             HStack {
                 Button {
-                    demo.povController.goToDefaultPOV()
+                    demo.reset()
                 } label: {
-                    Text("Reset POV")
+                    Text("Reset")
                 }
             }
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
-            
+
         }
     }
+
+    init(demo: CubeDemo) {
+        self.demo = demo
+    }
 }
+

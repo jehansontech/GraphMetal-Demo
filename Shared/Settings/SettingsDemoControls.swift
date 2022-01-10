@@ -1,5 +1,5 @@
 //
-//  SettingsDemoControls.swift
+//  Settings2DemoControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 12/13/21.
@@ -9,23 +9,23 @@ import SwiftUI
 import Wacoma
 
 struct SettingsDemoControls: View {
-    
+
     static var labelWidth: CGFloat = 90
-    
+
     @ObservedObject var demo: SettingsDemo
-    
+
     @State var nodeSizeIsExpanded = false
-    
+
     @State var nodeColorDefaultIsExpanded = false
-    
+
     @State var edgeColorIsExpanded = false
-    
+
     @State var projectionIsExpanded = false
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                
+
                 DisclosureGroup("Node size", isExpanded: $nodeSizeIsExpanded) {
                     HStack {
                         Divider()
@@ -38,7 +38,7 @@ struct SettingsDemoControls: View {
                     }
                     .padding(.leading, 2)
                 }
-                
+
                 DisclosureGroup("Node color default",  isExpanded: $nodeColorDefaultIsExpanded) {
                     HStack {
                         Divider()
@@ -51,7 +51,7 @@ struct SettingsDemoControls: View {
                     }
                     .padding(.leading, 2)
                 }
-                
+
                 DisclosureGroup("Edge color", isExpanded: $edgeColorIsExpanded) {
                     HStack {
                         Divider()
@@ -64,33 +64,19 @@ struct SettingsDemoControls: View {
                     }
                     .padding(.leading, 2)
                 }
-                
-                //                DisclosureGroup("Field of view", isExpanded: $projectionIsExpanded) {
-                //                    HStack {
-                //                        Divider()
-                //                        ProjectionControls(demo: demo)
-                //                    }
-                //                    .onAppear {
-                //                        nodeSizeIsExpanded = false
-                //                        edgeColorIsExpanded = false
-                //                        nodeColorDefaultIsExpanded = false
-                //                    }
-                //                    .padding(.leading, 2)
-                //                }
-                
-                //                HStack {
-                //                    Button {
-                //                        nodeSizeIsExpanded = false
-                //                        nodeColorDefaultIsExpanded = false
-                //                        edgeColorIsExpanded = false
-                //                        demo.wireframeSettings.reset()
-                //                        demo.renderController.resetFOV()
-                //                    } label: {
-                //                        Text("Reset all")
-                //                    }
-                //                }
-                //                .padding(.top, 5)
-                //                .frame(maxWidth: .infinity)
+
+                DisclosureGroup("Field of view", isExpanded: $projectionIsExpanded) {
+                    HStack {
+                        Divider()
+                        ProjectionControls(demo: demo)
+                    }
+                    .onAppear {
+                        nodeSizeIsExpanded = false
+                        edgeColorIsExpanded = false
+                        nodeColorDefaultIsExpanded = false
+                    }
+                    .padding(.leading, 2)
+                }
             }
         }
     }
@@ -98,182 +84,172 @@ struct SettingsDemoControls: View {
 
 
 struct NodeSizeControls: View {
-    
+
     var demo: SettingsDemo
-    
-    @State var isAdjustedText: String = ""
-    
+
+    @State var nodeSizeIsAdjusted: Bool = true
+
     @State var nodeSizeDefault: Double = 1
-    
+
     @State var nodeSizeMinimum: Double = 1
-    
+
     @State var nodeSizeMaximum: Double = 1
-    
-    
+
+    var isAdjustedText: String {
+        return nodeSizeIsAdjusted ? "Yes" : "No"
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            
+
             Text("Node size can change automatically as you zoom in or out, or you can set it manually")
                 .padding(.bottom, 10)
 
             HStack {
-                Text("Automatic")
+                Text("Automatically adjusted")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Button {
-                    demo.wireframeSettings.nodeSizeIsAdjusted.toggle()
-                    updateIsAdjustedText()
+                    nodeSizeIsAdjusted.toggle()
+                    demo.wireframe.settings.nodeSizeIsAdjusted = nodeSizeIsAdjusted
                 } label: {
                     Text(isAdjustedText)
                 }
                 .onAppear {
-                    updateIsAdjustedText()
+                    self.nodeSizeIsAdjusted = demo.wireframe.settings.nodeSizeIsAdjusted
                 }
                 .frame(maxWidth: .infinity, alignment: .center)
             }
-            
+
             HStack {
                 Text("Minimum")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $nodeSizeMinimum, in: 1...200) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.nodeSizeMinimum = nodeSizeMinimum
-                        demo.updateGraph()
+                        demo.wireframe.settings.nodeSizeMinimum = nodeSizeMinimum
                     }
                 }
                 .onAppear {
-                    nodeSizeMinimum = demo.wireframeSettings.nodeSizeMinimum
+                    nodeSizeMinimum = demo.wireframe.settings.nodeSizeMinimum
                 }
             }
-            
+
             HStack {
                 Text("Maximum")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $nodeSizeMaximum, in: 1...200) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.nodeSizeMaximum = nodeSizeMaximum
-                        demo.updateGraph()
+                        demo.wireframe.settings.nodeSizeMaximum = nodeSizeMaximum
                     }
                 }
                 .onAppear {
-                    nodeSizeMaximum = demo.wireframeSettings.nodeSizeMaximum
+                    nodeSizeMaximum = demo.wireframe.settings.nodeSizeMaximum
                 }
             }
-            
+
             HStack {
-                Text("Manual")
+                Text("Manual setting")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $nodeSizeDefault, in: 1...200) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.nodeSizeDefault = nodeSizeDefault
-                        demo.updateGraph()
+                        demo.wireframe.settings.nodeSizeDefault = nodeSizeDefault
                     }
                 }
                 .onAppear {
-                    nodeSizeDefault = demo.wireframeSettings.nodeSizeDefault
+                    nodeSizeDefault = demo.wireframe.settings.nodeSizeDefault
                 }
             }
-            
-        }
-    }
-    
-    func updateIsAdjustedText() {
-        if demo.wireframeSettings.nodeSizeIsAdjusted {
-            isAdjustedText = "Yes"
-        }
-        else {
-            isAdjustedText = "No"
         }
     }
 }
 
 struct NodeColorDefaultControls: View {
-    
+
     var demo: SettingsDemo
-    
+
     @State var red: Float = 0
     @State var green: Float = 0
     @State var blue: Float = 0
     @State var alpha: Float = 1
-    
+
     var body: some View {
         VStack(alignment: .leading) {
-            
-            Text("Node default color is used when a node's own color is not set")
+
+            Text("Node color default is used when a node's own color is not set (as in this case)")
                 .padding(.bottom, 10)
 
             HStack {
                 Text("Red")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $red, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.nodeColorDefault.x = red
+                        demo.wireframe.settings.nodeColorDefault.x = red
                         demo.updateGraph()
                     }
                 }
                 .onAppear {
-                    red = demo.wireframeSettings.nodeColorDefault.x
+                    red = demo.wireframe.settings.nodeColorDefault.x
                 }
             }
             HStack {
                 Text("Green")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $green, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.nodeColorDefault.y = green
+                        demo.wireframe.settings.nodeColorDefault.y = green
                         demo.updateGraph()
                     }
                 }
                 .onAppear {
-                    green = demo.wireframeSettings.nodeColorDefault.y
+                    green = demo.wireframe.settings.nodeColorDefault.y
                 }
             }
-            
+
             HStack {
                 Text("Blue")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $blue, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.nodeColorDefault.z = blue
+                        demo.wireframe.settings.nodeColorDefault.z = blue
                         demo.updateGraph()
                     }                }
                 .onAppear {
-                    blue = demo.wireframeSettings.nodeColorDefault.z
+                    blue = demo.wireframe.settings.nodeColorDefault.z
                 }
             }
-            
+
             HStack {
                 Text("Opacity")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $alpha, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.nodeColorDefault.w = alpha
+                        demo.wireframe.settings.nodeColorDefault.w = alpha
                         demo.updateGraph()
                     }
                 }
                 .onAppear {
-                    alpha = demo.wireframeSettings.nodeColorDefault.w
+                    alpha = demo.wireframe.settings.nodeColorDefault.w
                 }
             }
         }
@@ -281,17 +257,17 @@ struct NodeColorDefaultControls: View {
 }
 
 struct EdgeColorControls: View {
-    
+
     var demo: SettingsDemo
-    
+
     @State var red: Float = 0
-    
+
     @State var green: Float = 0
-    
+
     @State var blue: Float = 0
-    
+
     @State var alpha: Float = 1
-    
+
     var body: some View {
         VStack(alignment: .leading) {
 
@@ -301,67 +277,67 @@ struct EdgeColorControls: View {
             HStack {
                 Text("Red")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $red, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.edgeColor.x = red
+                        demo.wireframe.settings.edgeColor.x = red
                         demo.updateGraph()
                     }
                 }
                 .onAppear {
-                    red = demo.wireframeSettings.edgeColor.x
+                    red = demo.wireframe.settings.edgeColor.x
                 }
             }
             HStack {
                 Text("Green")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $green, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.edgeColor.y = green
+                        demo.wireframe.settings.edgeColor.y = green
                         demo.updateGraph()
                     }
                 }
                 .onAppear {
-                    green = demo.wireframeSettings.edgeColor.y
+                    green = demo.wireframe.settings.edgeColor.y
                 }
             }
-            
+
             HStack {
                 Text("Blue")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $blue, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.edgeColor.z = blue
+                        demo.wireframe.settings.edgeColor.z = blue
                         demo.updateGraph()
                     }
                 }
                 .onAppear {
-                    blue = demo.wireframeSettings.edgeColor.z
+                    blue = demo.wireframe.settings.edgeColor.z
                 }
             }
-            
+
             HStack {
                 Text("Opacity")
                     .frame(minWidth: SettingsDemoControls.labelWidth, alignment: .trailing)
-                
+
                 Slider(value: $alpha, in: 0...1) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframeSettings.edgeColor.w = alpha
+                        demo.wireframe.settings.edgeColor.w = alpha
                         demo.updateGraph()
                     }
                 }
                 .onAppear {
-                    alpha = demo.wireframeSettings.edgeColor.w
+                    alpha = demo.wireframe.settings.edgeColor.w
                 }
             }
         }
@@ -369,74 +345,62 @@ struct EdgeColorControls: View {
 }
 
 struct ProjectionControls: View {
-    
+
     @ObservedObject var demo: SettingsDemo
-    
+
     @State var yFOV: Float = 0
-    
+
     @State var zNear: Float = 0
-    
+
     @State var zFar: Float = 0
-    
+
     var yFOVMin: Float = 0.01
-    var yFOVMax: Float = 0.01 * floor(99 * Float.twoPi)
-    
+    var yFOVMax: Float = 0.99 * Float.pi
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("zNear")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $zNear, in: 0.01...100) {
+                Slider(value: $zNear, in: 0.01...99.99) {
                     Text("")
-                } minimumValueLabel: {
-                    Text("0.01")
-                } maximumValueLabel: {
-                    Text("100")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.renderController.zNear = zNear
+                        demo.fovController.zNear = zNear
                     }
                 }
                 .onAppear {
-                    zNear = demo.renderController.zNear
+                    zNear = demo.fovController.zNear
                 }
             }
-            
+
             HStack {
                 Text("zFar")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $zFar, in: 100...1000) {
                     Text("")
-                } minimumValueLabel: {
-                    Text("100")
-                } maximumValueLabel: {
-                    Text("1000")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.renderController.zFar = zFar
+                        demo.fovController.zFar = zFar
                     }
                 }
                 .onAppear {
-                    zFar = demo.renderController.zFar
+                    zFar = demo.fovController.zFar
                 }
             }
-            
+
             HStack {
                 Text("yFOV")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $yFOV, in: yFOVMin...yFOVMax, step: 0.01) {
+                Slider(value: $yFOV, in: yFOVMin...yFOVMax) {
                     Text("")
-                } minimumValueLabel: {
-                    Text("\(yFOVMin)")
-                } maximumValueLabel: {
-                    Text("\(yFOVMax)")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.renderController.yFOV = yFOV
+                        demo.fovController.yFOV = yFOV
                     }
                 }
                 .onAppear {
-                    yFOV = demo.renderController.yFOV
+                    yFOV = demo.fovController.yFOV
                 }
             }
         }

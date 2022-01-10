@@ -16,9 +16,11 @@ class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var graph: BallDemoGraph
 
-    var renderController = RenderController()
+    var renderController: RenderController
 
-    var povController = POVController(pov: POV(location: SIMD3<Float>(0, 0, 5)))
+    var povController = OrbitingPOVController(pov: CenteredPOV(location: SIMD3<Float>(0, 0, -2)), orbitEnabled: false)
+
+    var fovController = PerspectiveFOVController()
 
     var type: DemoType { return .ball }
 
@@ -56,15 +58,17 @@ class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
     private var stepIsScheduled: Bool = false
 
     init() {
-        self.graph = BallDemoGraph()
         self.dispatchQueue = DispatchQueue(label: "BallDemo", qos: .userInitiated)
+        self.graph = BallDemoGraph()
+        self.renderController = RenderController(povController, PerspectiveFOVController())
+        self.renderController.renderables.append(Wireframe(self))
     }
 
     func reset() {
         self.graph = BallDemoGraph()
         fireGraphChange(.all)
     }
-    
+
     func possiblyScheduleNextStep() {
         if !(self.stopIsRequested || self.stepIsScheduled) {
             self.stepIsScheduled = true

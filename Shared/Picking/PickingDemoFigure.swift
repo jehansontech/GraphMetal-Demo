@@ -7,17 +7,19 @@
 
 import SwiftUI
 import GraphMetal
+import Wacoma
 
 struct PickingDemoFigure: View {
-
+    
     @ObservedObject var demo: PickingDemo
-
+    
     var body: some View {
         ZStack {
-            GraphView(demo,
-                      renderController: demo.renderController,
-                      povController: demo.povController,
-                      tapHandler: demo)
+            RendererView(demo.renderController,
+                         GestureHandlers(tapHandler: demo,
+                                         dragHandler: demo.povController,
+                                         pinchHandler: demo.povController,
+                                         rotationHandler: demo.povController))
             Overlay(demo.renderController)
         }
     }

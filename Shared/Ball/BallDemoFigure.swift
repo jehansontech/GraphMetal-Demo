@@ -7,6 +7,7 @@
 
 import SwiftUI
 import GraphMetal
+import Wacoma
 
 struct BallDemoFigure: View {
 
@@ -14,9 +15,10 @@ struct BallDemoFigure: View {
 
     var body: some View {
         ZStack {
-            GraphView(demo,
-                      renderController: demo.renderController,
-                      povController: demo.povController)
+            RendererView(demo.renderController,
+                         GestureHandlers(dragHandler: demo.povController,
+                                         pinchHandler: demo.povController,
+                                         rotationHandler: demo.povController))
                 .onDisappear {
                     demo.growing = false
                 }

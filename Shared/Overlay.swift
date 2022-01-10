@@ -7,11 +7,12 @@
 
 import SwiftUI
 import GraphMetal
+import Wacoma
 
 struct Overlay: View {
 
-    @ObservedObject var renderController: RenderController
-    
+    var renderController: RenderController
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .top) {

@@ -1,6 +1,6 @@
 //
 //  CubeDemo.swift
-//  GraphMetal-Demo (iOS)
+//  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 11/23/21.
 //
@@ -8,51 +8,81 @@
 import SwiftUI
 import GenericGraph
 import GraphMetal
+import Wacoma
 
 class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
 
-    static var graphColor = SIMD4<Float>(1,0,0.5,1)
+    static var defaultOrbitEnabled: Bool = true
+    
+    static var defaultOrbitSpeed: Float = .pi/30
 
-    static var initialPOV = POV(location: SIMD3<Float>(80, 40, 120))
+    static var defaultFadeoutOnset: Float = 40
 
-    static var presentationPOV = POV(location: SIMD3<Float>(40, 20, 60))
+    static var defaultFadeoutDistance: Float = 40
+
+    static var graphColor = SIMD4<Float>(1, 0, 0.5, 1)
+
+    static var initialPOV = CenteredPOV(location: SIMD3<Float>(0, 0, -120))
+
+    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(0, 0, -48))
 
     var graph: CubeDemoGraph
 
-    var povController: POVController
+    var povController: OrbitingPOVController
+
+    var fovController: PerspectiveFOVController
 
     var renderController: RenderController
 
-    var wireframeSettings: GraphWireframeSettings
+    // var wireframeSettings: WireframeSettings
+
+    var wireframe: Wireframe<CubeDemo>!
 
     var type: DemoType { return .cube }
 
-    var info: String { return "Demonstrates rotation, fadeout, and moving around" }
+    var info: String { return "Demonstrates orbit, fadeout, and changing the point of view" }
 
     @Published var needsPresentation = true
 
     init() {
         self.graph = GraphBuilder(CubeDemoNodeValue.init, CubeDemoEdgeValue.init)
             .fancyCube(divisions: 5)
-        self.povController = POVController(pov: Self.initialPOV,
-                                           povDefault: Self.presentationPOV,
-                                           orbitEnabled: false)
-        self.renderController = RenderController(fadeoutOnset: 50,
-                                                 fadeoutDistance: 50)
-        self.wireframeSettings = GraphWireframeSettings(edgeColor: Self.graphColor)
+
+        let povController = OrbitingPOVController(pov: Self.defaultPOV,
+                                                   orbitEnabled: false,
+                                                   orbitSpeed: Self.defaultOrbitSpeed)
+        povController.jumpTo(pov: Self.initialPOV)
+        // To avoid threading issue, make all mods BEFORE setting self.povController
+        self.povController = povController
+
+        self.fovController = PerspectiveFOVController(fadeoutOnset: Self.defaultFadeoutOnset,
+                                                      fadeoutDistance: Self.defaultFadeoutDistance)
+
+        self.renderController = RenderController(povController, fovController)
+
+        self.wireframe = Wireframe(self)
+        self.wireframe.settings.edgeColor = Self.graphColor
+        self.renderController.renderables.append(wireframe)
     }
 
 
     func present() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
-            povController.flyTo(Self.presentationPOV) {
-                print("CubeDemo.present", "flight is complete!")
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
-                    povController.orbitEnabled = true
-                    needsPresentation = false
-                }
+            // print("CubeDemo.present", "flight is starting! pov: \(povController.pov), center: \(povController.center.prettyString)")
+            povController.flyToDefault() {
+                // print("CubeDemo.present", "flight is complete! pov: \(povController.pov), center: \(povController.center.prettyString)")
+                povController.orbitEnabled = Self.defaultOrbitEnabled
+                needsPresentation = false
             }
         }
+    }
+
+    func reset() {
+        povController.jumpTo(pov: povController.defaultPOV)
+        povController.orbitEnabled = CubeDemo.defaultOrbitEnabled
+        povController.orbitSpeed = CubeDemo.defaultOrbitSpeed
+        fovController.fadeoutOnset = CubeDemo.defaultFadeoutOnset
+        fovController.fadeoutDistance = CubeDemo.defaultFadeoutDistance
     }
 }
 

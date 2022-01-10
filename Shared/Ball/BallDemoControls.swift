@@ -1,5 +1,5 @@
 //
-//  BallDemoView.swift
+//  BallDemoControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 11/29/21.

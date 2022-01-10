@@ -21,30 +21,30 @@ struct PickingDemoControls: View {
                 Text("(tap or click on a node)")
             }
             else {
-                SelectedNodeValueControls(demo: demo)
+                SelectedNodeValueControls2(demo: demo)
             }
         }
     }
 
-    // NOT USED
-    func centerOnSelection() {
-        if let nodeID = demo.selection.id,
-           let nodeValue = demo.graph.nodes[nodeID]?.value {
-            demo.povController.centerOn(nodeValue.location)
-        }
-    }
+//    // NOT USED
+//    func centerOnSelection() {
+//        if let nodeID = demo.selection.id,
+//           let nodeValue = demo.graph.nodes[nodeID]?.value {
+//            demo.povController.turnToward(nodeValue.location)
+//        }
+//    }
 
-    // NOT USED
-    func deleteSelectedNode() {
-        if let nodeID = demo.selection.id {
-            demo.selection.clear()
-            demo.graph.removeNode(nodeID)
-            demo.fireGraphChange(RenderableGraphChange(nodes: true, edges: true))
-        }
-    }
+//    // NOT USED
+//    func deleteSelectedNode() {
+//        if let nodeID = demo.selection.id {
+//            demo.selection.clear()
+//            demo.graph.removeNode(nodeID)
+//            demo.fireGraphChange(RenderableGraphChange(nodes: true, edges: true))
+//        }
+//    }
 }
 
-struct SelectedNodeValueControls: View {
+struct SelectedNodeValueControls2: View {
 
     @ObservedObject var demo: PickingDemo
 

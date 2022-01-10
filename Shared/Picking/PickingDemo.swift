@@ -8,20 +8,23 @@
 import SwiftUI
 import GenericGraph
 import GraphMetal
+import Wacoma
 
 class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler {
 
     static var nodeColorDefault = SIMD4<Float>(0, 0, 0, 1)
 
-    static var povDefault = POV(location: SIMD3<Float>(1, 0.2, 3))
+    static var locationDefault = SIMD3<Float>(1, 0.2, 3)
 
     var graph: PickingDemoGraph
 
-    var povController: POVController
+    var povController: OrbitingPOVController
+
+    var fovController: PerspectiveFOVController
 
     var renderController: RenderController
 
-    var wireframeSettings: GraphWireframeSettings
+    var wireframe: Wireframe<PickingDemo>!
 
     var type: DemoType { return .picking }
 
@@ -30,13 +33,13 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
     @Published var selection = SelectionProperties()
 
     init() {
-        self.graph = GraphBuilder(PickingDemoNodeValue.init, PickingDemoEdgeValue.init)
-            .simpleOctahedron()
-        self.renderController = RenderController()
-        self.povController = POVController(pov: Self.povDefault,
-                                           povDefault: Self.povDefault,
-                                           orbitEnabled: false)
-        self.wireframeSettings = GraphWireframeSettings(nodeColorDefault: Self.nodeColorDefault)
+        self.graph = GraphBuilder(PickingDemoNodeValue.init, PickingDemoEdgeValue.init).simpleOctahedron()
+        self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), orbitEnabled: false)
+        self.fovController = PerspectiveFOVController()
+        self.renderController = RenderController(povController, fovController)
+        self.wireframe = Wireframe(self) //, WireframeSettings(nodeColorDefault: Self.nodeColorDefault))
+
+        renderController.renderables.append(wireframe)
     }
 
     func resetGraph() {
@@ -48,7 +51,9 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
 
     func tap(at location: SIMD2<Float>, mode: GestureMode) {
         print("Tap at \(location.prettyString)")
-        if let nodeID = renderController.findNearestNode(location) {
+        if let nodeID = wireframe.findNearestNode(location,
+                                                  self.povController,
+                                                  self.fovController) {
             selection.copyFrom(graph.nodes[nodeID])
         }
     }
