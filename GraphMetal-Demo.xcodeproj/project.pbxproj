@@ -16,9 +16,7 @@
 		38187E7A274D5E3D00244D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38187E68274D5E3D00244D04 /* Assets.xcassets */; };
 		38187E7B274D5E3D00244D04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38187E68274D5E3D00244D04 /* Assets.xcassets */; };
 		38187E8F274D5ED800244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E8E274D5ED800244D04 /* GraphMetal */; };
-		38187E91274D5ED800244D04 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E90274D5ED800244D04 /* Shaders */; };
 		38187E94274D5EE900244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E93274D5EE900244D04 /* GraphMetal */; };
-		38187E96274D5EE900244D04 /* Shaders in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E95274D5EE900244D04 /* Shaders */; };
 		3832225827565AAE00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
 		3832225927565AAF00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
 		3850A78E27673303004452C6 /* GraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* GraphBuilder.swift */; };
@@ -100,7 +98,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				38187E8F274D5ED800244D04 /* GraphMetal in Frameworks */,
-				38187E91274D5ED800244D04 /* Shaders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +106,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				38187E94274D5EE900244D04 /* GraphMetal in Frameworks */,
-				38187E96274D5EE900244D04 /* Shaders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +238,6 @@
 			name = "GraphMetal-Demo (iOS)";
 			packageProductDependencies = (
 				38187E8E274D5ED800244D04 /* GraphMetal */,
-				38187E90274D5ED800244D04 /* Shaders */,
 			);
 			productName = "GraphMetal-Demo (iOS)";
 			productReference = 38187E6D274D5E3D00244D04 /* GraphMetal-Demo.app */;
@@ -263,7 +258,6 @@
 			name = "GraphMetal-Demo (macOS)";
 			packageProductDependencies = (
 				38187E93274D5EE900244D04 /* GraphMetal */,
-				38187E95274D5EE900244D04 /* Shaders */,
 			);
 			productName = "GraphMetal-Demo (macOS)";
 			productReference = 38187E73274D5E3D00244D04 /* GraphMetal-Demo.app */;
@@ -677,20 +671,10 @@
 			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = GraphMetal;
 		};
-		38187E90274D5ED800244D04 /* Shaders */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
-			productName = Shaders;
-		};
 		38187E93274D5EE900244D04 /* GraphMetal */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
 			productName = GraphMetal;
-		};
-		38187E95274D5EE900244D04 /* Shaders */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 38187E8D274D5ED800244D04 /* XCRemoteSwiftPackageReference "GraphMetal" */;
-			productName = Shaders;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
