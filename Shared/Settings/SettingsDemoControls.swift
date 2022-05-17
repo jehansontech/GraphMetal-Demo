@@ -89,7 +89,7 @@ struct NodeSizeControls: View {
 
     @State var nodeSizeIsAdjusted: Bool = true
 
-    @State var nodeSizeDefault: Double = 1
+    @State var nodeSize: Double = 1
 
     @State var nodeSizeMinimum: Double = 1
 
@@ -154,18 +154,18 @@ struct NodeSizeControls: View {
             }
 
             HStack {
-                Text("Manual setting")
+                Text("Size/scale")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
 
-                Slider(value: $nodeSizeDefault, in: 1...200) {
+                Slider(value: $nodeSize, in: 1...200) {
                     Text("")
                 } onEditingChanged: { editing in
                     if !editing {
-                        demo.wireframe.settings.nodeSizeDefault = nodeSizeDefault
+                        demo.wireframe.settings.nodeSize = nodeSize
                     }
                 }
                 .onAppear {
-                    nodeSizeDefault = demo.wireframe.settings.nodeSizeDefault
+                    nodeSize = demo.wireframe.settings.nodeSize
                 }
             }
         }

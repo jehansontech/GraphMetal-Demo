@@ -71,8 +71,8 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
             // print("CubeDemo.present", "flight is starting! pov: \(povController.pov), center: \(povController.center.prettyString)")
             povController.flyToDefault() {
                 // print("CubeDemo.present", "flight is complete! pov: \(povController.pov), center: \(povController.center.prettyString)")
-                povController.orbitEnabled = Self.defaultOrbitEnabled
-                needsPresentation = false
+                self.povController.orbitEnabled = Self.defaultOrbitEnabled
+                self.needsPresentation = false
             }
         }
     }
