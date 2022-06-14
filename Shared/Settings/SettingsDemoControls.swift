@@ -20,6 +20,8 @@ struct SettingsDemoControls: View {
 
     @State var edgeColorIsExpanded = false
 
+    @State var backgroundColorIsExpanded = false
+
     @State var projectionIsExpanded = false
 
     var body: some View {
@@ -34,6 +36,7 @@ struct SettingsDemoControls: View {
                     .onAppear {
                         nodeColorDefaultIsExpanded = false
                         edgeColorIsExpanded = false
+                        backgroundColorIsExpanded = false
                         projectionIsExpanded = false
                     }
                     .padding(.leading, 2)
@@ -47,6 +50,7 @@ struct SettingsDemoControls: View {
                     .onAppear {
                         nodeSizeIsExpanded = false
                         edgeColorIsExpanded = false
+                        backgroundColorIsExpanded = false
                         projectionIsExpanded = false
                     }
                     .padding(.leading, 2)
@@ -59,6 +63,21 @@ struct SettingsDemoControls: View {
                     }
                     .onAppear {
                         nodeSizeIsExpanded = false
+                        nodeColorDefaultIsExpanded = false
+                        backgroundColorIsExpanded = false
+                        projectionIsExpanded = false
+                    }
+                    .padding(.leading, 2)
+                }
+
+                DisclosureGroup("Background Color", isExpanded: $backgroundColorIsExpanded) {
+                    HStack {
+                        Divider()
+                        BackgroundColorControls(demo: demo)
+                    }
+                    .onAppear {
+                        nodeSizeIsExpanded = false
+                        edgeColorIsExpanded = false
                         nodeColorDefaultIsExpanded = false
                         projectionIsExpanded = false
                     }
@@ -97,6 +116,10 @@ struct NodeSizeControls: View {
 
     var isAdjustedText: String {
         return nodeSizeIsAdjusted ? "Yes" : "No"
+    }
+
+    var sizeScaleButtonText: String {
+        return nodeSizeIsAdjusted ? "Scale" : "Size"
     }
 
     var body: some View {
@@ -154,7 +177,7 @@ struct NodeSizeControls: View {
             }
 
             HStack {
-                Text("Size/Scale")
+                Text(sizeScaleButtonText)
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $nodeSize, in: 1...200) {
@@ -237,7 +260,7 @@ struct NodeColorDefaultControls: View {
             }
 
             HStack {
-                Text("Opacity")
+                Text("Alpha")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $alpha, in: 0...1) {
@@ -325,7 +348,7 @@ struct EdgeColorControls: View {
             }
 
             HStack {
-                Text("Opacity")
+                Text("Alpha")
                     .frame(minWidth: SettingsDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $alpha, in: 0...1) {
@@ -338,6 +361,52 @@ struct EdgeColorControls: View {
                 }
                 .onAppear {
                     alpha = demo.wireframe.settings.edgeColor.w
+                }
+            }
+        }
+    }
+}
+
+struct BackgroundColorControls: View {
+
+    @ObservedObject var demo: SettingsDemo
+
+    var body: some View {
+        VStack(alignment: .leading) {
+
+            HStack {
+                Text("Red")
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
+
+                Slider(value: $demo.renderController.backgroundColor.x, in: 0...1) {
+                    Text("")
+                }
+            }
+
+            HStack {
+                Text("Green")
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
+
+                Slider(value: $demo.renderController.backgroundColor.y, in: 0...1) {
+                    Text("")
+                }
+            }
+
+            HStack {
+                Text("Blue")
+                    .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
+
+                Slider(value: $demo.renderController.backgroundColor.z, in: 0...1) {
+                    Text("")
+                }
+            }
+
+            HStack {
+                Text("Alpha")
+                    .frame(minWidth: SettingsDemoControls.labelWidth, alignment: .trailing)
+
+                Slider(value: $demo.renderController.backgroundColor.w, in: 0...1) {
+                    Text("")
                 }
             }
         }

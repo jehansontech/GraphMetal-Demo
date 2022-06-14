@@ -57,6 +57,20 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
             selection.copyFrom(graph.nodes[nodeID])
         }
     }
+
+    func setColorScheme(_ colorScheme: ColorScheme) {
+        switch colorScheme {
+        case .dark:
+            renderController.backgroundColor = RenderController.defaultDarkBackground
+            break
+        case .light:
+            renderController.backgroundColor = RenderController.defaultLightBackground
+            break
+        @unknown default:
+            break
+        }
+    }
+
 }
 
 struct SelectionProperties {

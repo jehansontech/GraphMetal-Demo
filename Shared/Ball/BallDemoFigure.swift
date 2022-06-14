@@ -11,6 +11,8 @@ import Wacoma
 
 struct BallDemoFigure: View {
 
+    @Environment(\.colorScheme) private var colorScheme
+
     @ObservedObject var demo: BallDemo
 
     var body: some View {
@@ -23,6 +25,9 @@ struct BallDemoFigure: View {
                     demo.growing = false
                 }
             Overlay(demo.renderController)
+        }
+        .onChange(of: colorScheme) { newValue in
+            demo.setColorScheme(newValue)
         }
     }
 }

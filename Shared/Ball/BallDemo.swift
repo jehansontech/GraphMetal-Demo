@@ -64,6 +64,19 @@ class BallDemo: ObservableObject, RenderableGraphContainer, Demo {
         self.renderController.renderables.append(Wireframe(self))
     }
 
+    func setColorScheme(_ colorScheme: ColorScheme) {
+        switch colorScheme {
+        case .dark:
+            renderController.backgroundColor = RenderController.defaultDarkBackground
+            break
+        case .light:
+            renderController.backgroundColor = RenderController.defaultLightBackground
+            break
+        @unknown default:
+            break
+        }
+    }
+    
     func reset() {
         self.graph = BallDemoGraph()
         fireGraphChange(.all)

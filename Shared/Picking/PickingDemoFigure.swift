@@ -11,6 +11,8 @@ import Wacoma
 
 struct PickingDemoFigure: View {
     
+    @Environment(\.colorScheme) private var colorScheme
+
     @ObservedObject var demo: PickingDemo
     
     var body: some View {
@@ -22,5 +24,9 @@ struct PickingDemoFigure: View {
                                          rotationHandler: demo.povController))
             Overlay(demo.renderController)
         }
+        .onChange(of: colorScheme) { newValue in
+            demo.setColorScheme(newValue)
+        }
+
     }
 }

@@ -11,6 +11,8 @@ import Wacoma
 
 struct CubeDemoFigure: View {
 
+    @Environment(\.colorScheme) private var colorScheme
+
     @ObservedObject var demo: CubeDemo
 
     var body: some View {
@@ -20,6 +22,9 @@ struct CubeDemoFigure: View {
                                          pinchHandler: demo.povController,
                                          rotationHandler: demo.povController))
             Overlay(demo.renderController)
+        }
+        .onChange(of: colorScheme) { newValue in
+            demo.setColorScheme(newValue)
         }
     }
 }
