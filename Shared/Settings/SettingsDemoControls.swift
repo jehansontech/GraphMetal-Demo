@@ -154,7 +154,7 @@ struct NodeSizeControls: View {
             }
 
             HStack {
-                Text("Size/scale")
+                Text("Size/Scale")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
 
                 Slider(value: $nodeSize, in: 1...200) {
