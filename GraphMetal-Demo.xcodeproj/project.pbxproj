@@ -115,6 +115,7 @@
 		38187E60274D5E3B00244D04 = {
 			isa = PBXGroup;
 			children = (
+				382BDAB4285920E4009770ED /* _Notes */,
 				38B1AAD9274E7C9B00D29C5A /* README.md */,
 				38187E65274D5E3C00244D04 /* Shared */,
 				38B1AAD4274E7C8800D29C5A /* LICENSE */,
@@ -188,6 +189,13 @@
 				385550952767BF4F0041104B /* CubeDemoGraph.swift */,
 			);
 			path = Cube;
+			sourceTree = "<group>";
+		};
+		382BDAB4285920E4009770ED /* _Notes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = _Notes;
 			sourceTree = "<group>";
 		};
 		3850A79727673FC4004452C6 /* Settings */ = {
