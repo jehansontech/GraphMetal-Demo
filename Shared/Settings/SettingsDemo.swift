@@ -31,7 +31,9 @@ class SettingsDemo: ObservableObject, RenderableGraphContainer, Demo {
     var fovController: PerspectiveFOVController
 
     // var wireframeSettings: WireframeSettings
+
     var wireframe: Wireframe<SettingsDemo>!
+
     var type: DemoType { return .appearance }
 
     var info: String { return "Previews configuration settings affecting the graph's appearance" }
@@ -42,10 +44,9 @@ class SettingsDemo: ObservableObject, RenderableGraphContainer, Demo {
         self.fovController = PerspectiveFOVController(zNear: Self.initialZNear, zFar: Self.initialZFar, yFOV: Self.initialYFOV)
         self.renderController = RenderController(povController, fovController)
 
-        self.wireframe = Wireframe(self)
-        self.wireframe.settings.nodeSizeIsAdjusted = false
-        self.wireframe.settings.nodeColorDefault = Self.initialGraphColor
-        self.wireframe.settings.edgeColor = Self.initialGraphColor
+        self.wireframe = Wireframe(self, WireframeSettings(nodeSizeIsAdjusted: false,
+                                                           nodeColorDefault: Self.initialGraphColor,
+                                                           edgeColor: Self.initialGraphColor))
         renderController.renderables.append(wireframe)
     }
 
