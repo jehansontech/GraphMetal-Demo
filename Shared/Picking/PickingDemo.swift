@@ -51,10 +51,14 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
         fireGraphChange(RenderableGraphChange(nodes: true, edges: true))
     }
 
-    func tap(at location: SIMD2<Float>) {
-        print("Tap at \(location.prettyString)")
-        if let nodeID = wireframe.findNearestNode(location,
-                                                  self.tapRadius,
+    func tap(at touchLocation: SIMD2<Float>) {
+        print("Tap at \(touchLocation.prettyString)")
+
+        // FIXME: calculate this for real
+        let touchBounds = CGSize()
+        
+        if let nodeID = wireframe.findNearestNode(touchLocation,
+                                                  touchBounds,
                                                   self.povController,
                                                   self.fovController) {
             selection.copyFrom(graph.nodes[nodeID])
