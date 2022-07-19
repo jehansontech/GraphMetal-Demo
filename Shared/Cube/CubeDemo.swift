@@ -16,7 +16,7 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
     
     static var defaultOrbitSpeed: Float = .pi/30
 
-    static var defaultFadeoutOnset: Float = 40
+    static var defaultFadeoutMidpoint: Float = 40
 
     static var defaultFadeoutDistance: Float = 40
 
@@ -55,7 +55,7 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
         // To avoid threading issue, make all mods BEFORE setting self.povController
         self.povController = povController
 
-        self.fovController = PerspectiveFOVController(fadeoutOnset: Self.defaultFadeoutOnset,
+        self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
         self.renderController = RenderController(povController, fovController)

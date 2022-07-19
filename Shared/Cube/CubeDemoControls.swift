@@ -57,9 +57,9 @@ struct FadeoutControls: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Onset")
+                Text("Midpoint")
                     .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $fovController.fadeoutOnset, in: 1...100)
+                Slider(value: $fovController.fadeoutMidpoint, in: 1...100)
             }
             HStack {
                 Text("Distance")
