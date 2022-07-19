@@ -16,6 +16,8 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
 
     static var locationDefault = SIMD3<Float>(1, 0.2, 3)
 
+    var tapRadius: Float = 0.05
+
     var graph: PickingDemoGraph
 
     var povController: OrbitingPOVController
@@ -49,9 +51,10 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
         fireGraphChange(RenderableGraphChange(nodes: true, edges: true))
     }
 
-    func tap(at location: SIMD2<Float>, mode: GestureMode) {
+    func tap(at location: SIMD2<Float>) {
         print("Tap at \(location.prettyString)")
         if let nodeID = wireframe.findNearestNode(location,
+                                                  self.tapRadius,
                                                   self.povController,
                                                   self.fovController) {
             selection.copyFrom(graph.nodes[nodeID])
