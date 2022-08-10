@@ -19,6 +19,8 @@
 		38187E94274D5EE900244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E93274D5EE900244D04 /* GraphMetal */; };
 		3832225827565AAE00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
 		3832225927565AAF00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
+		3833DCEF2890231C00AA79EE /* ActorDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3833DCEE2890231C00AA79EE /* ActorDemoGraph.swift */; };
+		3833DCF02890231C00AA79EE /* ActorDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3833DCEE2890231C00AA79EE /* ActorDemoGraph.swift */; };
 		3850A78E27673303004452C6 /* GraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* GraphBuilder.swift */; };
 		3850A78F27673303004452C6 /* GraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* GraphBuilder.swift */; };
 		3850A7A2276771F1004452C6 /* SettingsDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A7A1276771F1004452C6 /* SettingsDemoGraph.swift */; };
@@ -68,6 +70,7 @@
 		38187E73274D5E3D00244D04 /* GraphMetal-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphMetal-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38187E75274D5E3D00244D04 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		3832225727565AAE00B91665 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
+		3833DCEE2890231C00AA79EE /* ActorDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorDemoGraph.swift; sourceTree = "<group>"; };
 		38404C3C275EAC3800A7486A /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		3850A78D27673303004452C6 /* GraphBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBuilder.swift; sourceTree = "<group>"; };
 		3850A7A1276771F1004452C6 /* SettingsDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDemoGraph.swift; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 				38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */,
 				38E383AE276A169A0066E304 /* Overlay.swift */,
 				38187E68274D5E3D00244D04 /* Assets.xcassets */,
+				3833DCED2890230400AA79EE /* Actor */,
 				38187E97274D5EF400244D04 /* Ball */,
 				38187E98274D5EFC00244D04 /* Cube */,
 				38E383B1276A25340066E304 /* Picking */,
@@ -188,6 +192,14 @@
 				385550952767BF4F0041104B /* CubeDemoGraph.swift */,
 			);
 			path = Cube;
+			sourceTree = "<group>";
+		};
+		3833DCED2890230400AA79EE /* Actor */ = {
+			isa = PBXGroup;
+			children = (
+				3833DCEE2890231C00AA79EE /* ActorDemoGraph.swift */,
+			);
+			path = Actor;
 			sourceTree = "<group>";
 		};
 		3850A79727673FC4004452C6 /* Settings */ = {
@@ -335,6 +347,7 @@
 				38E38EF4278703C400AEF89F /* CubeDemoFigure.swift in Sources */,
 				38E38EF02787028200AEF89F /* CubeDemoControls.swift in Sources */,
 				38E38EFB278A179200AEF89F /* BallDemoFigure.swift in Sources */,
+				3833DCEF2890231C00AA79EE /* ActorDemoGraph.swift in Sources */,
 				38E38F01278A1C4D00AEF89F /* PickingDemo.swift in Sources */,
 				38E38F0D278A292300AEF89F /* SettingsDemoFigure.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
@@ -365,6 +378,7 @@
 				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
 				38E38EF5278703C400AEF89F /* CubeDemoFigure.swift in Sources */,
 				38E383BD276A25850066E304 /* PickingDemoGraph.swift in Sources */,
+				3833DCF02890231C00AA79EE /* ActorDemoGraph.swift in Sources */,
 				38E38F02278A1C4D00AEF89F /* PickingDemo.swift in Sources */,
 				38E38F0E278A292300AEF89F /* SettingsDemoFigure.swift in Sources */,
 				38E38EFC278A179200AEF89F /* BallDemoFigure.swift in Sources */,
