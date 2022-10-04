@@ -51,8 +51,16 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
         fireGraphChange(RenderableGraphChange(nodes: true, edges: true))
     }
 
-    func tap(at touchLocation: SIMD2<Float>) {
-        print("Tap at \(touchLocation.prettyString)")
+    func tap1(at touchLocation: SIMD2<Float>) {
+        anyTap(at: touchLocation)
+    }
+
+    func tap2(at touchLocation: SIMD2<Float>) {
+        anyTap(at: touchLocation)
+    }
+
+    private func anyTap(at touchLocation: SIMD2<Float>) {
+        print("tap at \(touchLocation.prettyString)")
 
         // FIXME: calculate this for real
         let touchBounds = CGSize()
