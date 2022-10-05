@@ -10,15 +10,13 @@ import GraphMetal
 
 struct BallDemoControls: View {
 
-    @ObservedObject var demo: BallDemo
+    @ObservedObject var viewModel: BallDemoViewModel
 
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
-
-
             HStack(spacing: 30) {
                 Button {
-                    demo.growing = true
+                    viewModel.start()
                 } label: {
                     Image(systemName: "play.fill")
                 }
@@ -27,16 +25,16 @@ struct BallDemoControls: View {
                 .help("Start")
 
                 Button {
-                    demo.growing = false
+                    viewModel.stop()
                 } label: {
-                    Image(systemName: "pause.fill")
+                    Image(systemName: "stop.fill")
                 }
                 .buttonStyle(.bordered)
                 .imageScale(.large)
                 .help("Stop")
 
                 Button {
-                    demo.reset()
+                    viewModel.reset()
                 } label: {
                     Image(systemName: "arrow.counterclockwise")
                 }
@@ -50,17 +48,21 @@ struct BallDemoControls: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 5) {
                         Text("# nodes:")
-                        Text("\(demo.nodeCount)")
+                        Text("\(viewModel.nodeCount)")
                     }
 
                     HStack(spacing: 5) {
                         Text("# edges:")
-                        Text("\(demo.edgeCount)")
+                        Text("\(viewModel.edgeCount)")
                     }
                 }
                 .frame(maxWidth: .infinity)
             }
         }
+    }
+
+    init(_ viewModel: BallDemoViewModel) {
+        self.viewModel = viewModel
     }
 }
 

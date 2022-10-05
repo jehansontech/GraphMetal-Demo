@@ -13,21 +13,25 @@ struct BallDemoFigure: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
-    @ObservedObject var demo: BallDemo
+    @ObservedObject var viewModel: BallDemoViewModel
 
     var body: some View {
         ZStack {
-            RendererView(demo.renderController,
-                         GestureHandlers(dragHandler: demo.povController,
-                                         pinchHandler: demo.povController,
-                                         rotationHandler: demo.povController))
-                .onDisappear {
-                    demo.growing = false
-                }
-            Overlay(demo.renderController)
+            RendererView(viewModel.renderController,
+                         GestureHandlers(dragHandler: viewModel.povController,
+                                         pinchHandler: viewModel.povController,
+                                         rotationHandler: viewModel.povController))
+            .onDisappear {
+                viewModel.stop()
+            }
+            Overlay(viewModel.renderController)
         }
         .onChange(of: colorScheme) { newValue in
-            demo.setColorScheme(newValue)
+            viewModel.setColorScheme(newValue)
         }
+    }
+
+    init(_ viewModel: BallDemoViewModel) {
+        self.viewModel = viewModel
     }
 }

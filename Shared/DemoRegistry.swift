@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 class DemoRegistry: ObservableObject {
 
     lazy var ball = BallDemo()
@@ -31,11 +32,12 @@ class DemoRegistry: ObservableObject {
 
     }
 
+    @MainActor
     func controlsView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
             case .ball:
-                BallDemoControls(demo: ball)
+                ball.controlsView
             case .cube:
                 CubeDemoControls(demo: cube)
             case .picking:
@@ -46,11 +48,12 @@ class DemoRegistry: ObservableObject {
         }
     }
 
+    @MainActor
     func figureView(_ demo: DemoType) -> some View {
         Group {
             switch demo {
             case .ball:
-                BallDemoFigure(demo: ball)
+                ball.figureView
             case .cube:
                 CubeDemoFigure(demo: cube)
             case .picking:
