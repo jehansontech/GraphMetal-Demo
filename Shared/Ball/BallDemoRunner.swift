@@ -153,56 +153,6 @@ actor BallDemoRunner {
         let phi: Float = Float.random(in: 0..<Float.twoPi)
         return sphericalToCartesian(rtp: SIMD3<Float>(r, theta, phi))
     }
-
-//    func possiblyScheduleNextStep() {
-//        if !(self.stopIsRequested || self.stepIsScheduled) {
-//            self.stepIsScheduled = true
-//            let stepDelay =  stepTimeInterval - Date().timeIntervalSince(lastStepTimestamp)
-//            if (stepDelay > 0) {
-//                dispatchQueue.asyncAfter(deadline: .now() + stepDelay) { [self] in
-//                    let result = step()
-//                    DispatchQueue.main.sync {
-//                        stepCompleted(result)
-//                    }
-//                }
-//            }
-//            else {
-//                dispatchQueue.async { [self] in
-//                    let result = step()
-//                    DispatchQueue.main.sync {
-//                        stepCompleted(result)
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//    func step0() -> StepResult {
-//        debug("BallDemo", "step: started")
-//        let now = Date()
-//        var nodeAdded = false
-//        if now.timeIntervalSince(_lastNewNodeTimestamp) >= newNodeTimeInterval {
-//            addNode(graph)
-//            _lastNewNodeTimestamp = now
-//            nodeAdded = true
-//            fireGraphChange(RenderableGraphChange.all)
-//        }
-//        else {
-//            fireGraphChange(RenderableGraphChange(nodeColors: true))
-//        }
-//        debug("BallDemo", "step: done")
-//        return StepResult(nodeAdded: nodeAdded,
-//                          nodeCount: graph.nodes.count,
-//                          edgeCount: graph.edges.count)
-//    }
-//
-//    func stepCompleted(_ result: StepResult) {
-//        self.stepIsScheduled = false
-//        self.lastStepTimestamp = Date()
-//        self.nodeCount = result.nodeCount
-//        self.edgeCount = result.edgeCount
-//        possiblyScheduleNextStep()
-//    }
 }
 
 struct StepResult: Sendable {

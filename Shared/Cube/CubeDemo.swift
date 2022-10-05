@@ -10,21 +10,36 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
+@MainActor
+class CubeDemo: ObservableObject, Demo {
 
     static var defaultOrbitEnabled: Bool = true
-    
+
     static var defaultOrbitSpeed: Float = .pi/30
 
     static var defaultFadeoutMidpoint: Float = 40
 
     static var defaultFadeoutDistance: Float = 40
 
-    static var graphColor = SIMD4<Float>(1, 0, 0.5, 1)
+    static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
 
     static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
 
     static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -48))
+
+    nonisolated var type: DemoType { return .cube }
+
+    nonisolated var info: String { return "Demonstrates orbit, fadeout, and changing the point of view" }
+
+    @Published var needsPresentation = true
+
+    var controlsView: some View {
+        CubeDemoControls(demo: self)
+    }
+
+    var figureView: some View {
+        CubeDemoFigure(demo: self)
+    }
 
     var graph: CubeDemoGraph
 
@@ -34,45 +49,33 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var renderController: RenderController
 
-    // var wireframeSettings: WireframeSettings
-
-    var wireframe: Wireframe<CubeDemo>!
-
-    var type: DemoType { return .cube }
-
-    var info: String { return "Demonstrates orbit, fadeout, and changing the point of view" }
-
-    @Published var needsPresentation = true
+    var wireframe: Wireframe2
 
     init() {
         self.graph = GraphBuilder(CubeDemoNodeValue.init, CubeDemoEdgeValue.init)
             .fancyCube(divisions: 5)
 
-        let povController = OrbitingPOVController(pov: Self.defaultPOV,
+        self.povController = OrbitingPOVController(pov: Self.defaultPOV,
                                                    orbitEnabled: false,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
-        povController.jumpTo(pov: Self.initialPOV)
-        // To avoid threading issue, make all mods BEFORE setting self.povController
-        self.povController = povController
-
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
-
         self.renderController = RenderController(povController, fovController)
+        self.wireframe = Wireframe2()
 
-        self.wireframe = Wireframe(self)
-        self.wireframe.settings.edgeColor = Self.graphColor
-        self.renderController.renderables.append(wireframe)
+        CubeDemoNodeValue.nodeColor = Self.graphColor
+        wireframe.addBufferUpdate(Self.makeBufferUpdate(self.graph))
+        wireframe.settings.edgeColor = Self.graphColor
+        renderController.renderables.append(wireframe)
+        povController.jumpTo(pov: Self.initialPOV)
     }
 
 
     func present() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [self] in
-            // print("CubeDemo.present", "flight is starting! pov: \(povController.pov), center: \(povController.center.prettyString)")
+        if needsPresentation {
+            needsPresentation = false
             povController.flyToDefault() {
-                // print("CubeDemo.present", "flight is complete! pov: \(povController.pov), center: \(povController.center.prettyString)")
                 self.povController.orbitEnabled = Self.defaultOrbitEnabled
-                self.needsPresentation = false
             }
         }
     }
@@ -90,5 +93,9 @@ class CubeDemo: ObservableObject, RenderableGraphContainer, Demo {
         }
     }
 
+    private static func makeBufferUpdate(_ graph: CubeDemoGraph) -> WireframeUpdate2? {
+        var generator = WireframeUpdateGenerator2()
+        return generator.makeUpdate(graph, .all)
+    }
 }
 

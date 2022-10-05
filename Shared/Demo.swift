@@ -14,7 +14,7 @@ enum DemoType: String, CaseIterable {
     case appearance = "Settings"
 }
 
-protocol Demo: AnyObject {
+protocol Demo {
 
     var type: DemoType { get }
 

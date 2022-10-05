@@ -33,38 +33,22 @@ struct CubeDemoControls: View {
                 OrbitControls(povController: demo.povController)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
+
                 Divider()
+
                 Text("Fadeout")
                     .font(.headline.smallCaps())
                 FadeoutControls(fovController: demo.fovController)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
+
                 Divider()
+
                 Text("Changing the point of view")
                     .font(.headline.smallCaps())
                 POVControllerUsage(demo: demo)
                     .padding(.leading, 10)
                     .frame(maxWidth: .infinity)
-            }
-        }
-    }
-}
-
-struct FadeoutControls: View {
-
-    @ObservedObject var fovController: PerspectiveFOVController
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("Midpoint")
-                    .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $fovController.fadeoutMidpoint, in: 1...100)
-            }
-            HStack {
-                Text("Distance")
-                    .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $fovController.fadeoutDistance, in: 1...100)
             }
         }
     }
@@ -87,6 +71,26 @@ struct OrbitControls: View {
                 Text("Speed")
                     .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $povController.orbitSpeed, in: -1...1)
+            }
+        }
+    }
+}
+
+struct FadeoutControls: View {
+
+    @ObservedObject var fovController: PerspectiveFOVController
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Midpoint")
+                    .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $fovController.fadeoutMidpoint, in: 1...100)
+            }
+            HStack {
+                Text("Distance")
+                    .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
+                Slider(value: $fovController.fadeoutDistance, in: 1...100)
             }
         }
     }
@@ -121,7 +125,7 @@ struct POVControllerUsage: View {
                 Button {
                     demo.povController.flyToDefault()
                 } label: {
-                    Text("Reset")
+                    Text("Reset POV")
                 }
             }
             .padding(.top, 10)
