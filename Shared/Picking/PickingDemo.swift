@@ -77,9 +77,6 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
     private func anyTap(at touchLocation: SIMD2<Float>) {
         print("tap at \(touchLocation.prettyString)")
 
-        // FIXME: calculate this for real
-        let touchBounds = CGSize()
-
         let (rayOrigin, rayDirection, zRange) = renderController.ray(at: touchLocation)
         if let node = graph.findNearestNode(rayOrigin: rayOrigin,
                                             rayDirection: rayDirection,
