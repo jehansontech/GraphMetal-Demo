@@ -214,16 +214,16 @@ struct NodeColorDefaultControls: View {
                 Text("Red")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
 
+
                 Slider(value: $red, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.nodeColorDefault.x = red
-                        demo.updateGraph()
-                    }
                 }
                 .onAppear {
                     red = demo.wireframe.settings.nodeColorDefault.x
+                }
+                .onChange(of: red) { newValue in
+                    demo.wireframe.settings.nodeColorDefault.x = Float(newValue)
+                    demo.updateGraph(.color)
                 }
             }
             HStack {
@@ -232,14 +232,13 @@ struct NodeColorDefaultControls: View {
 
                 Slider(value: $green, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.nodeColorDefault.y = green
-                        demo.updateGraph()
-                    }
                 }
                 .onAppear {
                     green = demo.wireframe.settings.nodeColorDefault.y
+                }
+                .onChange(of: green) { newValue in
+                    demo.wireframe.settings.nodeColorDefault.y = Float(newValue)
+                    demo.updateGraph(.color)
                 }
             }
 
@@ -249,13 +248,13 @@ struct NodeColorDefaultControls: View {
 
                 Slider(value: $blue, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.nodeColorDefault.z = blue
-                        demo.updateGraph()
-                    }                }
+                }
                 .onAppear {
                     blue = demo.wireframe.settings.nodeColorDefault.z
+                }
+                .onChange(of: blue) { newValue in
+                    demo.wireframe.settings.nodeColorDefault.z = Float(newValue)
+                    demo.updateGraph(.color)
                 }
             }
 
@@ -265,14 +264,13 @@ struct NodeColorDefaultControls: View {
 
                 Slider(value: $alpha, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.nodeColorDefault.w = alpha
-                        demo.updateGraph()
-                    }
                 }
                 .onAppear {
                     alpha = demo.wireframe.settings.nodeColorDefault.w
+                }
+                .onChange(of: alpha) { newValue in
+                    demo.wireframe.settings.nodeColorDefault.w = Float(newValue)
+                    demo.updateGraph(.color)
                 }
             }
         }
@@ -303,14 +301,12 @@ struct EdgeColorControls: View {
 
                 Slider(value: $red, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.edgeColor.x = red
-                        demo.updateGraph()
-                    }
                 }
                 .onAppear {
                     red = demo.wireframe.settings.edgeColor.x
+                }
+                .onChange(of: red) { newValue in
+                    demo.wireframe.settings.edgeColor.x = newValue
                 }
             }
             HStack {
@@ -319,14 +315,12 @@ struct EdgeColorControls: View {
 
                 Slider(value: $green, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.edgeColor.y = green
-                        demo.updateGraph()
-                    }
                 }
                 .onAppear {
                     green = demo.wireframe.settings.edgeColor.y
+                }
+                .onChange(of: green) { newValue in
+                    demo.wireframe.settings.edgeColor.y = newValue
                 }
             }
 
@@ -336,14 +330,12 @@ struct EdgeColorControls: View {
 
                 Slider(value: $blue, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.edgeColor.z = blue
-                        demo.updateGraph()
-                    }
                 }
                 .onAppear {
                     blue = demo.wireframe.settings.edgeColor.z
+                }
+                .onChange(of: blue) { newValue in
+                    demo.wireframe.settings.edgeColor.z = newValue
                 }
             }
 
@@ -353,14 +345,12 @@ struct EdgeColorControls: View {
 
                 Slider(value: $alpha, in: 0...1) {
                     Text("")
-                } onEditingChanged: { editing in
-                    if !editing {
-                        demo.wireframe.settings.edgeColor.w = alpha
-                        demo.updateGraph()
-                    }
                 }
                 .onAppear {
                     alpha = demo.wireframe.settings.edgeColor.w
+                }
+                .onChange(of: alpha) { newValue in
+                    demo.wireframe.settings.edgeColor.w = newValue
                 }
             }
         }

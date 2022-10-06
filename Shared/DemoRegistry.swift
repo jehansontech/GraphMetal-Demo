@@ -43,7 +43,7 @@ class DemoRegistry: ObservableObject {
             case .picking:
                 PickingDemoControls(demo: picking)
             case .appearance:
-                SettingsDemoControls(demo: appearance)
+                appearance.controlsView
             }
         }
     }
@@ -59,7 +59,7 @@ class DemoRegistry: ObservableObject {
             case .picking:
                 PickingDemoFigure(demo: picking)
             case .appearance:
-                SettingsDemoFigure(demo: appearance)
+                appearance.figureView
             }
         }
     }

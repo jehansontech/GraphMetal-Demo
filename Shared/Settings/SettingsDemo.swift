@@ -10,17 +10,30 @@ import Wacoma
 import GenericGraph
 import GraphMetal
 
-class SettingsDemo: ObservableObject, RenderableGraphContainer, Demo {
+@MainActor
+class SettingsDemo: ObservableObject, Demo {
 
-    static var initialPOV = CenteredPOV(location: SIMD3<Float>(2.5, 0, -4))
+    nonisolated static let initialPOV = CenteredPOV(location: SIMD3<Float>(2.5, 0, -4))
 
-    static var initialZNear: Float = 0.001
+    nonisolated static let initialZNear: Float = 0.001
 
-    static var initialZFar: Float = 1000
+    nonisolated static let initialZFar: Float = 1000
 
-    static var initialYFOV: Float = .piOverTwo
+    nonisolated static let initialYFOV: Float = .piOverTwo
 
-    static var initialGraphColor = SIMD4<Float>(0.2, 0.2, 0.2, 1)
+    nonisolated static let initialGraphColor = SIMD4<Float>(0.2, 0.2, 0.2, 1)
+
+    nonisolated var type: DemoType { return .appearance }
+
+    nonisolated var info: String { return "Previews configuration settings affecting the graph's appearance" }
+
+    var controlsView: some View {
+        SettingsDemoControls(demo: self)
+    }
+
+    var figureView: some View {
+        SettingsDemoFigure(demo: self)
+    }
 
     var graph: SettingsDemoGraph
 
@@ -30,13 +43,10 @@ class SettingsDemo: ObservableObject, RenderableGraphContainer, Demo {
 
     var fovController: PerspectiveFOVController
 
-    // var wireframeSettings: WireframeSettings
+    var wireframe: Wireframe2
 
-    var wireframe: Wireframe<SettingsDemo>!
+    var generator = WireframeUpdateGenerator2()
 
-    var type: DemoType { return .appearance }
-
-    var info: String { return "Previews configuration settings affecting the graph's appearance" }
     init() {
         self.graph = GraphBuilder(SettingsDemoNodeValue.init, SettingsDemoEdgeValue.init)
             .simpleCube()
@@ -44,10 +54,18 @@ class SettingsDemo: ObservableObject, RenderableGraphContainer, Demo {
         self.fovController = PerspectiveFOVController(zNear: Self.initialZNear, zFar: Self.initialZFar, yFOV: Self.initialYFOV)
         self.renderController = RenderController(povController, fovController)
 
-        self.wireframe = Wireframe(self, WireframeSettings(nodeSizeIsAdjusted: false,
-                                                           nodeColorDefault: Self.initialGraphColor,
-                                                           edgeColor: Self.initialGraphColor))
+        self.wireframe = Wireframe2(WireframeSettings(nodeSizeIsAdjusted: false,
+                                                      nodeColorDefault: Self.initialGraphColor,
+                                                      edgeColor: Self.initialGraphColor))
+
+        wireframe.addBufferUpdate(makeBufferUpdate(.all))
+
         renderController.renderables.append(wireframe)
+    }
+
+    func updateGraph(_ change: RenderableGraphChange) {
+        wireframe.addBufferUpdate(makeBufferUpdate(change))
+
     }
 
     func resetAll() {
@@ -56,7 +74,9 @@ class SettingsDemo: ObservableObject, RenderableGraphContainer, Demo {
         fovController.zFar = Self.initialZFar
         fovController.yFOV = Self.initialYFOV
     }
-    func updateGraph() {
-        fireGraphChange(RenderableGraphChange(nodeColors: true))
+
+    private func makeBufferUpdate(_ change: RenderableGraphChange) -> WireframeUpdate2? {
+        return generator.makeUpdate(graph, change)
     }
+
 }
