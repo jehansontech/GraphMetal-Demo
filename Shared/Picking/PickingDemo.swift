@@ -64,7 +64,8 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
 
         // FIXME: calculate this for real
         let touchBounds = CGSize()
-        
+
+        let (rayOrigin, rayDirection, zRange) = renderController.ray(at: touchLocation)
         if let nodeID = wireframe.findNearestNode(touchLocation,
                                                   touchBounds,
                                                   self.povController,
