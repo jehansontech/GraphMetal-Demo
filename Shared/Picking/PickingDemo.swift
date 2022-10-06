@@ -10,11 +10,25 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler {
+class PickingDemo: ObservableObject, Demo, TapHandler {
 
     static var nodeColorDefault = SIMD4<Float>(0, 0, 0, 1)
 
     static var locationDefault = SIMD3<Float>(1, 0.2, 3)
+
+    var type: DemoType { return .picking }
+
+    var info: String { return "Demonstrates node selection and editing" }
+
+    var controlsView: some View {
+        PickingDemoControls(demo: self)
+    }
+
+    var figureView: some View {
+        PickingDemoFigure(demo: self)
+    }
+
+    @Published var selection = SelectionProperties()
 
     var tapRadius: Float = 0.05
 
@@ -26,29 +40,30 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
 
     var renderController: RenderController
 
-    var wireframe: Wireframe<PickingDemo>!
+    var wireframe: Wireframe2
 
-    var type: DemoType { return .picking }
-
-    var info: String { return "Demonstrates node selection and editing" }
-
-    @Published var selection = SelectionProperties()
+    var generator = WireframeUpdateGenerator2()
 
     init() {
         self.graph = GraphBuilder(PickingDemoNodeValue.init, PickingDemoEdgeValue.init).simpleOctahedron()
         self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), orbitEnabled: false)
         self.fovController = PerspectiveFOVController()
         self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe(self) //, WireframeSettings(nodeColorDefault: Self.nodeColorDefault))
+        self.wireframe = Wireframe2(WireframeSettings(nodeColorDefault: Self.nodeColorDefault))
 
         renderController.renderables.append(wireframe)
+        updateFigure(.all)
     }
 
+    func updateFigure(_ change: RenderableGraphChange) {
+        wireframe.addBufferUpdate(generator.makeUpdate(graph, change))
+    }
+    
     func resetGraph() {
         selection.clear()
         graph = GraphBuilder(PickingDemoNodeValue.init, PickingDemoEdgeValue.init)
             .simpleOctahedron()
-        fireGraphChange(RenderableGraphChange(nodes: true, edges: true))
+        updateFigure(.all)
     }
 
     func tap1(at touchLocation: SIMD2<Float>) {
@@ -66,11 +81,10 @@ class PickingDemo: ObservableObject, RenderableGraphContainer, Demo, TapHandler 
         let touchBounds = CGSize()
 
         let (rayOrigin, rayDirection, zRange) = renderController.ray(at: touchLocation)
-        if let nodeID = wireframe.findNearestNode(touchLocation,
-                                                  touchBounds,
-                                                  self.povController,
-                                                  self.fovController) {
-            selection.copyFrom(graph.nodes[nodeID])
+        if let node = graph.findNearestNode(rayOrigin: rayOrigin,
+                                            rayDirection: rayDirection,
+                                            zRange: zRange) {
+            selection.copyFrom(node)
         }
     }
 
@@ -95,11 +109,7 @@ struct SelectionProperties {
 
     var group: Int = 0
 
-    var x: Float = 0
-
-    var y: Float = 0
-
-    var z: Float = 0
+    var location: SIMD3<Float> = .zero
 
     var name: String {
         if let nodeID = id {
@@ -108,10 +118,6 @@ struct SelectionProperties {
         else {
             return ""
         }
-    }
-
-    var location: SIMD3<Float> {
-        return SIMD3<Float>(x: x, y: y, z: z)
     }
 
     mutating func copyFrom(_ node: PickingDemoNode?) {
@@ -125,24 +131,18 @@ struct SelectionProperties {
 
         if let value = node.value {
             self.group = value.group
-            self.x = value.location.x
-            self.y = value.location.y
-            self.z = value.location.z
+            self.location = value.location
         }
         else {
             self.group = 0
-            self.x = 0
-            self.y = 0
-            self.z = 0
+            self.location = .zero
         }
     }
 
     mutating func clear() {
         self.id = nil
         self.group = 0
-        self.x = 0
-        self.y = 0
-        self.z = 0
+        self.location = .zero
     }
 }
 

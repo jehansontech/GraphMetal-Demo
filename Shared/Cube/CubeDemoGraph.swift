@@ -10,9 +10,7 @@ import GraphMetal
 
 struct CubeDemoNodeValue: RenderableNodeValue {
 
-    public static var nodeColor: SIMD4<Float>? = nil
-    
-    var color: SIMD4<Float>? { return Self.nodeColor }
+    var color: SIMD4<Float>? { return CubeDemo.graphColor }
 
     var location: SIMD3<Float>
 

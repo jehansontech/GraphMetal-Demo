@@ -48,6 +48,8 @@ struct SelectedNodeValueControls2: View {
 
     @ObservedObject var demo: PickingDemo
 
+    @State var nodeLocation: SIMD3<Float> = .zero
+
     var groupRange: ClosedRange<Int> {
         return 0...(PickingDemoNodeValue.groupColors.count-1)
     }
@@ -74,29 +76,17 @@ struct SelectedNodeValueControls2: View {
             HStack {
                 Text("X")
                     .frame(width: PickingDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.selection.x, in: -1...1) { editing in
-                    if !editing {
-                        changeLocation()
-                    }
-                }
+                Slider(value: $nodeLocation.x, in: -1...1)
             }
             HStack {
                 Text("Y")
                     .frame(width: PickingDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.selection.y, in: -1...1) { editing in
-                    if !editing {
-                        changeLocation()
-                    }
-                }
+                Slider(value: $nodeLocation.y, in: -1...1)
             }
             HStack {
                 Text("Z")
                     .frame(width: PickingDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.selection.z, in: -1...1) { editing in
-                    if !editing {
-                        changeLocation()
-                    }
-                }
+                Slider(value: $nodeLocation.z, in: -1...1)
             }
 
             HStack {
@@ -109,13 +99,23 @@ struct SelectedNodeValueControls2: View {
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
         }
+        .onAppear {
+            self.nodeLocation = demo.selection.location
+        }
+        .onChange(of: demo.selection.id) { newValue in
+            self.nodeLocation = demo.selection.location
+        }
+        .onChange(of: nodeLocation) { newValue in
+            changeLocation()
+            demo.updateFigure(.geometry)
+        }
     }
 
     func changeGroup() {
         if let nodeID = demo.selection.id,
            let node = demo.graph.nodes[nodeID] {
             node.value?.group = demo.selection.group
-            demo.fireGraphChange(RenderableGraphChange(nodeColors: true))
+            demo.updateFigure(.color)
             demo.selection.copyFrom(node)
         }
     }
@@ -123,8 +123,8 @@ struct SelectedNodeValueControls2: View {
     func changeLocation() {
         if let nodeID = demo.selection.id,
            let node = demo.graph.nodes[nodeID] {
-            node.value?.location = demo.selection.location
-            demo.fireGraphChange(RenderableGraphChange(nodePositions: true))
+            node.value?.location = nodeLocation
+            demo.updateFigure(.geometry)
             demo.selection.copyFrom(node)
         }
     }

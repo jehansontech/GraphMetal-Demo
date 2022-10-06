@@ -41,7 +41,7 @@ class DemoRegistry: ObservableObject {
             case .cube:
                 cube.controlsView
             case .picking:
-                PickingDemoControls(demo: picking)
+                picking.controlsView
             case .appearance:
                 appearance.controlsView
             }
@@ -57,7 +57,7 @@ class DemoRegistry: ObservableObject {
             case .cube:
                 cube.figureView
             case .picking:
-                PickingDemoFigure(demo: picking)
+                picking.figureView
             case .appearance:
                 appearance.figureView
             }

@@ -10,7 +10,6 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-@MainActor
 class CubeDemo: ObservableObject, Demo {
 
     static var defaultOrbitEnabled: Bool = true
@@ -27,9 +26,9 @@ class CubeDemo: ObservableObject, Demo {
 
     static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -48))
 
-    nonisolated var type: DemoType { return .cube }
+    var type: DemoType { return .cube }
 
-    nonisolated var info: String { return "Demonstrates orbit, fadeout, and changing the point of view" }
+    var info: String { return "Demonstrates orbit, fadeout, and changing the point of view" }
 
     @Published var needsPresentation = true
 
@@ -61,13 +60,11 @@ class CubeDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
         self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe2()
+        self.wireframe = Wireframe2(WireframeSettings(edgeColor: Self.graphColor))
 
-        CubeDemoNodeValue.nodeColor = Self.graphColor
-        wireframe.addBufferUpdate(Self.makeBufferUpdate(self.graph))
-        wireframe.settings.edgeColor = Self.graphColor
         renderController.renderables.append(wireframe)
         povController.jumpTo(pov: Self.initialPOV)
+        wireframe.addBufferUpdate(Self.makeBufferUpdate(self.graph))
     }
 
 

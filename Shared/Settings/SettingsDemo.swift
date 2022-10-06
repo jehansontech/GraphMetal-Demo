@@ -10,7 +10,6 @@ import Wacoma
 import GenericGraph
 import GraphMetal
 
-@MainActor
 class SettingsDemo: ObservableObject, Demo {
 
     nonisolated static let initialPOV = CenteredPOV(location: SIMD3<Float>(2.5, 0, -4))
