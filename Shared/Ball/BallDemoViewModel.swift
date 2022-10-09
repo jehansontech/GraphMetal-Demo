@@ -72,8 +72,6 @@ class BallDemoViewModel: ObservableObject {
     func applyUpdate(_ update: StepResult) async {
         self.nodeCount = update.nodeCount
         self.edgeCount = update.edgeCount
-        if let wireframeUpdate = update.wireframeUpdate {
-            wireframe.addBufferUpdate(wireframeUpdate)
-        }
+        wireframe.addBufferUpdate(update.wireframeUpdate)
     }
 }
