@@ -77,10 +77,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
     private func anyTap(at touchLocation: SIMD2<Float>) {
         print("tap at \(touchLocation.prettyString)")
 
-        let (rayOrigin, rayDirection, zRange) = renderController.ray(at: touchLocation)
-        if let node = graph.findNearestNode(rayOrigin: rayOrigin,
-                                            rayDirection: rayDirection,
-                                            zRange: zRange) {
+        if let node = graph.findNearestNode(renderController.touchRay(at: touchLocation)) {
             selection.copyFrom(node)
         }
     }
