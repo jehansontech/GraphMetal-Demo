@@ -42,7 +42,7 @@ class SettingsDemo: ObservableObject, Demo {
 
     var fovController: PerspectiveFOVController
 
-    var wireframe: Wireframe2
+    var wireframe: Wireframe
 
     var generator = WireframeUpdateGenerator2()
 
@@ -53,7 +53,7 @@ class SettingsDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(zNear: Self.initialZNear, zFar: Self.initialZFar, yFOV: Self.initialYFOV)
         self.renderController = RenderController(povController, fovController)
 
-        self.wireframe = Wireframe2(WireframeSettings(nodeSizeIsAdjusted: false,
+        self.wireframe = Wireframe(WireframeSettings(nodeSizeIsAdjusted: false,
                                                       nodeColorDefault: Self.initialGraphColor,
                                                       edgeColor: Self.initialGraphColor))
 

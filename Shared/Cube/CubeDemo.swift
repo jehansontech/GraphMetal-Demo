@@ -48,7 +48,7 @@ class CubeDemo: ObservableObject, Demo {
 
     var renderController: RenderController
 
-    var wireframe: Wireframe2
+    var wireframe: Wireframe
 
     init() {
         self.graph = GraphBuilder(CubeDemoNodeValue.init, CubeDemoEdgeValue.init)
@@ -60,7 +60,7 @@ class CubeDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
         self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe2(WireframeSettings(edgeColor: Self.graphColor))
+        self.wireframe = Wireframe(WireframeSettings(edgeColor: Self.graphColor))
 
         renderController.renderables.append(wireframe)
         povController.jumpTo(pov: Self.initialPOV)

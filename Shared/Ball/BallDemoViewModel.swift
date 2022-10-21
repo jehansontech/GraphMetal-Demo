@@ -23,13 +23,13 @@ class BallDemoViewModel: ObservableObject {
 
     var fovController = PerspectiveFOVController()
 
-    private var wireframe: Wireframe2
+    private var wireframe: Wireframe
 
     private var runner: BallDemoRunner
 
     init() {
         self.renderController = RenderController(povController, PerspectiveFOVController())
-        self.wireframe = Wireframe2()
+        self.wireframe = Wireframe()
         self.runner = BallDemoRunner()
 
         self.renderController.renderables.append(wireframe)

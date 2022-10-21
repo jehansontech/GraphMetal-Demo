@@ -40,7 +40,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
     var renderController: RenderController
 
-    var wireframe: Wireframe2
+    var wireframe: Wireframe
 
     var generator = WireframeUpdateGenerator2()
 
@@ -49,7 +49,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), orbitEnabled: false)
         self.fovController = PerspectiveFOVController()
         self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe2(WireframeSettings(nodeColorDefault: Self.nodeColorDefault))
+        self.wireframe = Wireframe(WireframeSettings(nodeColorDefault: Self.nodeColorDefault))
 
         renderController.renderables.append(wireframe)
         updateFigure(.all)
