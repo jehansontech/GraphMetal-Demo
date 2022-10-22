@@ -98,7 +98,12 @@ actor BallDemoRunner {
         await self.demo.applyUpdate(doStep())
         let sleepTime = settings.stepTimeInterval - Date().timeIntervalSince(t0)
         if sleepTime > 0 {
-            try await Task.sleep(nanoseconds: UInt64(sleepTime * 1000000000))
+            do {
+                try await Task.sleep(nanoseconds: UInt64(1000000000 * sleepTime))
+            }
+            catch {
+                print("Error during sleep: \(error)")
+            }
         }
     }
 
