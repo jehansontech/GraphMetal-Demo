@@ -30,7 +30,7 @@ actor BallDemoRunner {
 
     var graph: BallDemoGraph
 
-    private var generator: WireframeUpdateGenerator2 = .init()
+    private var generator: WireframeUpdateGenerator = .init()
 
     private var lastNewNodeTimestamp: Date = .distantPast
 
@@ -164,6 +164,6 @@ struct StepResult: Sendable {
     var isRunning: Bool
     var nodeCount: Int
     var edgeCount: Int
-    var wireframeUpdate: WireframeUpdate2?
+    var wireframeUpdate: WireframeUpdate?
 }
 

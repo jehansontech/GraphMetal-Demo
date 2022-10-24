@@ -90,8 +90,8 @@ class CubeDemo: ObservableObject, Demo {
         }
     }
 
-    private static func makeBufferUpdate(_ graph: CubeDemoGraph) -> WireframeUpdate2? {
-        var generator = WireframeUpdateGenerator2()
+    private static func makeBufferUpdate(_ graph: CubeDemoGraph) -> WireframeUpdate? {
+        var generator = WireframeUpdateGenerator()
         return generator.makeUpdate(graph, .all)
     }
 }

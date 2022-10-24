@@ -18,7 +18,7 @@ struct BallDemoControls: View {
                 Button {
                     viewModel.start()
                 } label: {
-                    Image(systemName: "play.fill")
+                    Image(systemName: "play")
                 }
                 .buttonStyle(.bordered)
                 .imageScale(.large)
@@ -27,7 +27,7 @@ struct BallDemoControls: View {
                 Button {
                     viewModel.stop()
                 } label: {
-                    Image(systemName: "stop.fill")
+                    Image(systemName: "stop")
                 }
                 .buttonStyle(.bordered)
                 .imageScale(.large)

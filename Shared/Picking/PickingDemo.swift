@@ -42,7 +42,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
     var wireframe: Wireframe
 
-    var generator = WireframeUpdateGenerator2()
+    var generator = WireframeUpdateGenerator()
 
     init() {
         self.graph = GraphBuilder(PickingDemoNodeValue.init, PickingDemoEdgeValue.init).simpleOctahedron()

@@ -44,7 +44,7 @@ class SettingsDemo: ObservableObject, Demo {
 
     var wireframe: Wireframe
 
-    var generator = WireframeUpdateGenerator2()
+    var generator = WireframeUpdateGenerator()
 
     init() {
         self.graph = GraphBuilder(SettingsDemoNodeValue.init, SettingsDemoEdgeValue.init)
@@ -74,7 +74,7 @@ class SettingsDemo: ObservableObject, Demo {
         fovController.yFOV = Self.initialYFOV
     }
 
-    private func makeBufferUpdate(_ change: RenderableGraphChange) -> WireframeUpdate2? {
+    private func makeBufferUpdate(_ change: RenderableGraphChange) -> WireframeUpdate? {
         return generator.makeUpdate(graph, change)
     }
 
