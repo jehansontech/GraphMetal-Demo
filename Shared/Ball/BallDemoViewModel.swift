@@ -29,7 +29,8 @@ class BallDemoViewModel: ObservableObject {
 
     init() {
         self.renderController = RenderController(povController, PerspectiveFOVController())
-        self.wireframe = Wireframe()
+        self.wireframe = Wireframe(nodePositionBufferIndex: 1,
+                                   nodeColorBufferIndex: 2)
         self.runner = BallDemoRunner()
 
         self.renderController.renderables.append(wireframe)

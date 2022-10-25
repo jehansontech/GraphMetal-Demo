@@ -52,10 +52,12 @@ class SettingsDemo: ObservableObject, Demo {
         self.povController = OrbitingPOVController(pov: Self.initialPOV, orbitEnabled: false)
         self.fovController = PerspectiveFOVController(zNear: Self.initialZNear, zFar: Self.initialZFar, yFOV: Self.initialYFOV)
         self.renderController = RenderController(povController, fovController)
-
-        self.wireframe = Wireframe(WireframeSettings(nodeSizeIsAdjusted: false,
-                                                      nodeColorDefault: Self.initialGraphColor,
-                                                      edgeColor: Self.initialGraphColor))
+        
+        self.wireframe = Wireframe(settings: WireframeSettings(nodeSizeIsAdjusted: false,
+                                                               nodeColorDefault: Self.initialGraphColor,
+                                                               edgeColor: Self.initialGraphColor),
+                                   nodePositionBufferIndex: 1,
+                                   nodeColorBufferIndex: 2)
 
         wireframe.addBufferUpdate(makeBufferUpdate(.all))
 

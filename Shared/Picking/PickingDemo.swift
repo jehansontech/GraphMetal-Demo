@@ -49,7 +49,9 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), orbitEnabled: false)
         self.fovController = PerspectiveFOVController()
         self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe(WireframeSettings(nodeColorDefault: Self.nodeColorDefault))
+        self.wireframe = Wireframe(settings: WireframeSettings(nodeColorDefault: Self.nodeColorDefault),
+                                   nodePositionBufferIndex: 1,
+                                   nodeColorBufferIndex: 2)
 
         renderController.renderables.append(wireframe)
         updateFigure(.all)
