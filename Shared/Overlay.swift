@@ -18,7 +18,14 @@ struct Overlay: View {
             HStack(alignment: .top) {
 
                 Button {
-                    renderController.requestSnapshot()
+                    do {
+                        try renderController.requestSnapshot { response in
+                            print(response)
+                        }
+                    }
+                    catch {
+                        print("\(error)")
+                    }
                 } label:  {
                     Image(systemName: "camera.on.rectangle")
                 }
