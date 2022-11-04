@@ -68,11 +68,11 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         updateFigure(.all)
     }
 
-    func tap1(at touchLocation: SIMD2<Float>) {
+    func primaryTap(at touchLocation: SIMD2<Float>) {
         anyTap(at: touchLocation)
     }
 
-    func tap2(at touchLocation: SIMD2<Float>) {
+    func secondaryTap(at touchLocation: SIMD2<Float>) {
         anyTap(at: touchLocation)
     }
 
