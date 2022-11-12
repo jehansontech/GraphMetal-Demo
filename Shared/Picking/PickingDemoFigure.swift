@@ -21,7 +21,7 @@ struct PickingDemoFigure: View {
                          GestureHandlers(tapHandler: demo,
                                          dragHandler: demo.povController,
                                          pinchHandler: demo.povController,
-                                         rotationHandler: demo.povController))
+                                         rotationHandler: demo.renderController))
             Overlay(demo.renderController)
         }
         .onChange(of: colorScheme) { newValue in

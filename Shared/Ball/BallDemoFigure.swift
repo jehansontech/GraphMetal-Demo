@@ -20,7 +20,7 @@ struct BallDemoFigure: View {
             RendererView(viewModel.renderController,
                          GestureHandlers(dragHandler: viewModel.povController,
                                          pinchHandler: viewModel.povController,
-                                         rotationHandler: viewModel.povController))
+                                         rotationHandler: viewModel.renderController))
             .onDisappear {
                 viewModel.stop()
             }

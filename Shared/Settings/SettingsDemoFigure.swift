@@ -18,7 +18,7 @@ struct SettingsDemoFigure: View {
             RendererView(demo.renderController,
                          GestureHandlers(dragHandler: demo.povController,
                                          pinchHandler: demo.povController,
-                                         rotationHandler: demo.povController))
+                                         rotationHandler: demo.renderController))
             Overlay(demo.renderController)
         }
     }
