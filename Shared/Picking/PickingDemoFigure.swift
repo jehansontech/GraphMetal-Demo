@@ -20,7 +20,7 @@ struct PickingDemoFigure: View {
             RendererView(demo.renderController,
                          GestureHandlers(tapHandler: demo,
                                          dragHandler: demo.povController,
-                                         pinchHandler: demo.povController,
+                                         pinchHandler: demo.renderController,
                                          rotationHandler: demo.renderController))
             Overlay(demo.renderController)
         }
