@@ -19,7 +19,7 @@ struct PickingDemoFigure: View {
         ZStack {
             RendererView(demo.renderController,
                          GestureHandlers(tapHandler: demo,
-                                         dragHandler: demo.povController,
+                                         dragHandler: demo.renderController,
                                          pinchHandler: demo.renderController,
                                          rotationHandler: demo.renderController))
             Overlay(demo.renderController)

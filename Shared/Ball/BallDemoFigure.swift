@@ -18,7 +18,7 @@ struct BallDemoFigure: View {
     var body: some View {
         ZStack {
             RendererView(viewModel.renderController,
-                         GestureHandlers(dragHandler: viewModel.povController,
+                         GestureHandlers(dragHandler: viewModel.renderController,
                                          pinchHandler: viewModel.renderController,
                                          rotationHandler: viewModel.renderController))
             .onDisappear {

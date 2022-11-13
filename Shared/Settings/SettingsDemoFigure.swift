@@ -16,7 +16,7 @@ struct SettingsDemoFigure: View {
     var body: some View {
         ZStack {
             RendererView(demo.renderController,
-                         GestureHandlers(dragHandler: demo.povController,
+                         GestureHandlers(dragHandler: demo.renderController,
                                          pinchHandler: demo.renderController,
                                          rotationHandler: demo.renderController))
             Overlay(demo.renderController)
