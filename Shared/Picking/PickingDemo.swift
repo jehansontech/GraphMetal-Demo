@@ -77,13 +77,20 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
     }
 
     private func anyTap(at touchLocation: SIMD2<Float>) {
-        print("anyTap: tap at \(touchLocation.prettyString)")
+        print("PickingDemo.anyTap: tap at \(touchLocation.prettyString)")
 
-        let touchRadius: Float = Float(16 / renderController.fovController.viewSize.width)
-        print("anyTap:    touchRadius = \(touchRadius)")
+
+        let mysteriousFudgeFactor: Float = 10
+        let nodeSize = wireframe.settings.getNodeSize(forPOV: renderController.povController.pov,
+                                                      bbox: graph.makeBoundingBox())
+        let touchRadius: Float = mysteriousFudgeFactor * Float(nodeSize) / Float(renderController.fovController.viewSize.width)
+
+        print("PickingDemo.anyTap:    nodeSize = \(nodeSize)")
+        print("PickingDemo.anyTap:    viewSize = \(renderController.fovController.viewSize)")
+        print("PickingDemo.anyTap:    touchRadius = \(touchRadius)")
 
         let touchRay = renderController.touchRay(at: touchLocation, touchRadius: touchRadius)
-        print("anyTap:    touchRay: \(touchRay)")
+        print("PickingDemo.anyTap:    touchRay: \(touchRay)")
         if let node = graph.pickNode(touchRay) {
             selection.copyFrom(node)
         }
