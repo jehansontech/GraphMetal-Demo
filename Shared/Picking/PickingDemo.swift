@@ -79,21 +79,26 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
     private func anyTap(at touchLocation: SIMD2<Float>) {
         print("PickingDemo.anyTap: tap at \(touchLocation.prettyString)")
 
+        let nodeSize = Float(wireframe.settings.getNodeSize(forPOV: renderController.povController.pov,
+                                                      bbox: graph.makeBoundingBox()))
 
-        let mysteriousFudgeFactor: Float = 10
-        let nodeSize = wireframe.settings.getNodeSize(forPOV: renderController.povController.pov,
-                                                      bbox: graph.makeBoundingBox())
-        let touchRadius: Float = mysteriousFudgeFactor * Float(nodeSize) / Float(renderController.fovController.viewSize.width)
+        // How much to enlarge touch size by, so that we accept a near miss.
+        let fudgeFactor: Float = 1
 
-        print("PickingDemo.anyTap:    nodeSize = \(nodeSize)")
-        print("PickingDemo.anyTap:    viewSize = \(renderController.fovController.viewSize)")
-        print("PickingDemo.anyTap:    touchRadius = \(touchRadius)")
+        // The factor of 2 is b/c view size is 2 in clip space
+        let touchSize = SIMD2<Float>(
+            2 * fudgeFactor * nodeSize  / Float(renderController.fovController.viewSize.width),
+            2 * fudgeFactor * nodeSize / Float(renderController.fovController.viewSize.height))
 
-        let touchRay = renderController.touchRay(at: touchLocation, touchRadius: touchRadius)
-        print("PickingDemo.anyTap:    touchRay: \(touchRay)")
-        if let node = graph.pickNode(touchRay) {
-            selection.copyFrom(node)
-        }
+        //        print("PickingDemo.anyTap:    nodeSize = \(nodeSize)")
+        //        print("PickingDemo.anyTap:    viewSize = \(renderController.fovController.viewSize)")
+        //        print("PickingDemo.anyTap:    touchSize= \(touchSize.prettyString)")
+
+        let touchRay = renderController.touchRay(at: touchLocation, size: touchSize)
+
+        //        print("PickingDemo.anyTap:    touchRay: \(touchRay)")
+
+        selection.copyFrom(graph.pickNode(touchRay))
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
