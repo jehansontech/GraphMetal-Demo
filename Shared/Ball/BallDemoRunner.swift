@@ -141,14 +141,14 @@ actor BallDemoRunner {
 
     private func addNode(_ graph: BallDemoGraph) {
         let outDegree = min(graph.nodes.count, settings.newNodeOutDegree)
-        var targetIDs = [NodeID]()
+        var targetIDs = [Int]()
         for node in graph.nodes.shuffled().prefix(outDegree) {
-            targetIDs.append(node.id)
+            targetIDs.append(node.nodeNumber)
         }
 
         let newNode = graph.addNode(BallDemoNodeValue(randomLocation()))
         for targetID in targetIDs {
-            try! graph.addEdge(newNode.id, targetID, BallDemoEdgeValue())
+            try! graph.addEdge(newNode.nodeNumber, targetID, BallDemoEdgeValue())
         }
     }
 

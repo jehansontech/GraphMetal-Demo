@@ -33,9 +33,9 @@ struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
 
     func fancyCube(divisions: Int) -> BaseGraph<N, E> {
         let graph = BaseGraph<N, E>()
-        var edgeIDs = startCube(graph, pow(2, Float(divisions-1)))
+        var edgeNumbers = startCube(graph, pow(2, Float(divisions-1)))
         for _ in 0..<divisions {
-            edgeIDs = divideEdges(graph, edgeIDs)
+            edgeNumbers = divideEdges(graph, edgeNumbers)
         }
         return graph
     }
@@ -46,8 +46,8 @@ struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
         return graph
     }
 
-    @discardableResult private func startCube(_ graph: BaseGraph<N, E>, _ a: Float = 1) -> [EdgeID] {
-        var newEdges = [EdgeID]()
+    @discardableResult private func startCube(_ graph: BaseGraph<N, E>, _ a: Float = 1) -> [Int] {
+        var newEdges = [Int]()
 
         let n0 = makeNode(graph, SIMD3<Float>(-a, -a, -a))
         let n1 = makeNode(graph, SIMD3<Float>(-a, -a,  a))
@@ -74,8 +74,8 @@ struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
         return newEdges
     }
 
-    @discardableResult private func startOctahedron(_ graph: BaseGraph<N, E>, _ a: Float = 1) -> [EdgeID] {
-        var newEdges = [EdgeID]()
+    @discardableResult private func startOctahedron(_ graph: BaseGraph<N, E>, _ a: Float = 1) -> [Int] {
+        var newEdges = [Int]()
 
 
 
@@ -104,38 +104,38 @@ struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
         return newEdges
     }
 
-    private func divideEdges(_ graph: BaseGraph<N, E>, _ oldEdges: [EdgeID]) -> [EdgeID] {
-        var newEdges = [EdgeID]()
-        for edgeID in oldEdges {
-            if let edge = graph.edges[edgeID] {
+    private func divideEdges(_ graph: BaseGraph<N, E>, _ oldEdges: [Int]) -> [Int] {
+        var newEdges = [Int]()
+        for edgeNumber in oldEdges {
+            if let edge = graph.edges[edgeNumber] {
                 let source = edge.source
                 let target = edge.target
                 let midpoint = 0.5 * (source.value!.location + target.value!.location)
                 let newNodeID = makeNode(graph, midpoint)
-                newEdges.append(makeEdge(graph, source.id, newNodeID))
-                newEdges.append(makeEdge(graph, newNodeID, target.id))
+                newEdges.append(makeEdge(graph, source.nodeNumber, newNodeID))
+                newEdges.append(makeEdge(graph, newNodeID, target.nodeNumber))
             }
-            graph.removeEdge(edgeID)
+            graph.removeEdge(edgeNumber)
         }
         return newEdges
     }
 
-    private func makeNode(_ graph: BaseGraph<N, E>, _ location: SIMD3<Float>) -> NodeID {
+    private func makeNode(_ graph: BaseGraph<N, E>, _ location: SIMD3<Float>) -> Int {
         var newValue: N? = nil
         if let factory = nodeValueFactory {
             newValue = factory(location)
         }
         let newNode = graph.addNode(newValue)
-        return newNode.id
+        return newNode.nodeNumber
     }
 
-    private func makeEdge(_ graph: BaseGraph<N, E>, _ source: NodeID, _ target: NodeID) -> EdgeID {
+    private func makeEdge(_ graph: BaseGraph<N, E>, _ source: Int, _ target: Int) -> Int {
         var newValue: E? = nil
         if let factory = edgeValueFactory {
             newValue = factory()
         }
         let newEdge = try! graph.addEdge(source, target, newValue)
-        return newEdge.id
+        return newEdge.edgeNumber
     }
 
 

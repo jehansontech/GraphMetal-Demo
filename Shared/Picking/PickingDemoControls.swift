@@ -17,7 +17,7 @@ struct PickingDemoControls: View {
 
     var body: some View {
         Group {
-            if demo.selection.id == nil {
+            if demo.selection.nodeNumber == nil {
                 Text("(tap or click on a node)")
             }
             else {
@@ -28,17 +28,17 @@ struct PickingDemoControls: View {
 
 //    // NOT USED
 //    func centerOnSelection() {
-//        if let nodeID = demo.selection.id,
-//           let nodeValue = demo.graph.nodes[nodeID]?.value {
+//        if let nodeNumber = demo.selection.nodeNumber,
+//           let nodeValue = demo.graph.nodes[nodeNumber]?.value {
 //            demo.povController.turnToward(nodeValue.location)
 //        }
 //    }
 
 //    // NOT USED
 //    func deleteSelectedNode() {
-//        if let nodeID = demo.selection.id {
+//        if let nodeNumber = demo.selection.nodeNumber {
 //            demo.selection.clear()
-//            demo.graph.removeNode(nodeID)
+//            demo.graph.removeNode(nodeNumber)
 //            demo.fireGraphChange(RenderableGraphChange(nodes: true, edges: true))
 //        }
 //    }
@@ -102,7 +102,7 @@ struct SelectedNodeValueControls2: View {
         .onAppear {
             self.nodeLocation = demo.selection.location
         }
-        .onChange(of: demo.selection.id) { newValue in
+        .onChange(of: demo.selection.nodeNumber) { newValue in
             self.nodeLocation = demo.selection.location
         }
         .onChange(of: nodeLocation) { newValue in
@@ -112,8 +112,8 @@ struct SelectedNodeValueControls2: View {
     }
 
     func changeGroup() {
-        if let nodeID = demo.selection.id,
-           let node = demo.graph.nodes[nodeID] {
+        if let nodeNumber = demo.selection.nodeNumber,
+           let node = demo.graph.nodes[nodeNumber] {
             node.value?.group = demo.selection.group
             demo.updateFigure(.color)
             demo.selection.copyFrom(node)
@@ -121,8 +121,8 @@ struct SelectedNodeValueControls2: View {
     }
 
     func changeLocation() {
-        if let nodeID = demo.selection.id,
-           let node = demo.graph.nodes[nodeID] {
+        if let nodeNumber = demo.selection.nodeNumber,
+           let node = demo.graph.nodes[nodeNumber] {
             node.value?.location = nodeLocation
             demo.updateFigure(.geometry)
             demo.selection.copyFrom(node)

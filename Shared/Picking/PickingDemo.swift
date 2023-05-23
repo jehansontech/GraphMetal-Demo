@@ -118,15 +118,15 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
 struct SelectionProperties {
 
-    var id: NodeID? = nil
+    var nodeNumber: Int? = nil
 
     var group: Int = 0
 
     var location: SIMD3<Float> = .zero
 
     var name: String {
-        if let nodeID = id {
-            return "\(nodeID)"
+        if let nodeNumber {
+            return "\(nodeNumber)"
         }
         else {
             return ""
@@ -140,7 +140,7 @@ struct SelectionProperties {
             return
         }
 
-        self.id = node.id
+        self.nodeNumber = node.nodeNumber
 
         if let value = node.value {
             self.group = value.group
@@ -153,7 +153,7 @@ struct SelectionProperties {
     }
 
     mutating func clear() {
-        self.id = nil
+        self.nodeNumber = nil
         self.group = 0
         self.location = .zero
     }
