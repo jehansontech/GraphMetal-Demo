@@ -111,9 +111,9 @@ struct GraphBuilder<N, E> where N: RenderableNodeValue, E: RenderableEdgeValue {
                 let source = edge.source
                 let target = edge.target
                 let midpoint = 0.5 * (source.value!.location + target.value!.location)
-                let newNodeID = makeNode(graph, midpoint)
-                newEdges.append(makeEdge(graph, source.nodeNumber, newNodeID))
-                newEdges.append(makeEdge(graph, newNodeID, target.nodeNumber))
+                let newNodeNumber = makeNode(graph, midpoint)
+                newEdges.append(makeEdge(graph, source.nodeNumber, newNodeNumber))
+                newEdges.append(makeEdge(graph, newNodeNumber, target.nodeNumber))
             }
             graph.removeEdge(edgeNumber)
         }
