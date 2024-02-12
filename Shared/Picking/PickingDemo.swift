@@ -87,8 +87,8 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
         // The factor of 2 is b/c view size is 2 in clip space
         let touchSize = SIMD2<Float>(
-            2 * fudgeFactor * nodeSize  / Float(renderController.fovController.viewSize.width),
-            2 * fudgeFactor * nodeSize / Float(renderController.fovController.viewSize.height))
+            2 * fudgeFactor * nodeSize  / Float(renderController.fovController.drawableSize.width),
+            2 * fudgeFactor * nodeSize / Float(renderController.fovController.drawableSize.height))
 
         //        print("PickingDemo.anyTap:    nodeSize = \(nodeSize)")
         //        print("PickingDemo.anyTap:    viewSize = \(renderController.fovController.viewSize)")
