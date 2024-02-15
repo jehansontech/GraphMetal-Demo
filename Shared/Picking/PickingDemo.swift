@@ -68,16 +68,8 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         updateFigure(.all)
     }
 
-    func primaryTap(at touchLocation: SIMD2<Float>) {
-        anyTap(at: touchLocation)
-    }
-
-    func secondaryTap(at touchLocation: SIMD2<Float>) {
-        anyTap(at: touchLocation)
-    }
-
-    private func anyTap(at touchLocation: SIMD2<Float>) {
-        print("PickingDemo.anyTap: tap at \(touchLocation.prettyString)")
+    func tap(at touchLocation: SIMD2<Float>) {
+        print("PickingDemo.tap. location: \(touchLocation.prettyString)")
 
         let nodeSize = Float(wireframe.settings.getNodeSize(forPOV: renderController.povController.pov,
                                                       bbox: graph.makeBoundingBox()))
@@ -87,8 +79,8 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
         // The factor of 2 is b/c view size is 2 in clip space
         let touchSize = SIMD2<Float>(
-            2 * fudgeFactor * nodeSize  / Float(renderController.fovController.drawableSize.width),
-            2 * fudgeFactor * nodeSize / Float(renderController.fovController.drawableSize.height))
+            2 * fudgeFactor * nodeSize  / Float(renderController.viewBounds.width),
+            2 * fudgeFactor * nodeSize / Float(renderController.viewBounds.height))
 
         //        print("PickingDemo.anyTap:    nodeSize = \(nodeSize)")
         //        print("PickingDemo.anyTap:    viewSize = \(renderController.fovController.viewSize)")

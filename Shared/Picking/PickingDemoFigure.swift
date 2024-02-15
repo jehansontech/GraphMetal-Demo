@@ -18,10 +18,10 @@ struct PickingDemoFigure: View {
     var body: some View {
         ZStack {
             RendererView(demo.renderController,
-                         GestureHandlers(tapHandler: demo,
-                                         dragHandler: demo.renderController,
-                                         pinchHandler: demo.renderController,
-                                         rotationHandler: demo.renderController))
+                         GestureHandlers(primaryTap: demo,
+                                         primaryDrag: demo.renderController,
+                                         pinch: demo.renderController,
+                                         rotation: demo.renderController))
             Overlay(demo.renderController)
         }
         .onChange(of: colorScheme) { newValue in

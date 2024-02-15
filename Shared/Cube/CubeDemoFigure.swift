@@ -18,9 +18,9 @@ struct CubeDemoFigure: View {
     var body: some View {
         ZStack {
             RendererView(demo.renderController,
-                         GestureHandlers(dragHandler: demo.renderController,
-                                         pinchHandler: demo.renderController,
-                                         rotationHandler: demo.renderController))
+                         GestureHandlers(primaryDrag: demo.renderController,
+                                         pinch: demo.renderController,
+                                         rotation: demo.renderController))
             Overlay(demo.renderController)
         }
         .onChange(of: colorScheme) { newValue in
