@@ -124,7 +124,7 @@ actor BallDemoRunner {
                           nodeCount: graph.nodes.count,
                           edgeCount: graph.edges.count,
                           wireframeUpdate: generator.makeUpdate(graph,
-                                                                nodeAdded ? .topology : .color))
+                                                                nodeAdded ? .topology : .nodeColors))
     }
 
     private func makeTotalUpdate() -> StepResult {

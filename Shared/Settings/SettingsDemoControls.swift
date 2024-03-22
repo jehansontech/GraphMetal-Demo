@@ -214,7 +214,7 @@ struct NodeColorDefaultControls: View {
         }
         .onChange(of: self.nodeColorDefault) { newValue in
             demo.wireframe.settings.nodeColorDefault = newValue
-            demo.updateGraph(.color)
+            demo.updateGraph(.nodeColors)
         }
     }
 }

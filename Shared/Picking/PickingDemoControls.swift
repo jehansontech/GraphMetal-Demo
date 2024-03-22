@@ -115,7 +115,7 @@ struct SelectedNodeValueControls2: View {
         if let nodeNumber = demo.selection.nodeNumber,
            let node = demo.graph.nodes[nodeNumber] {
             node.value?.group = demo.selection.group
-            demo.updateFigure(.color)
+            demo.updateFigure(.nodeColors)
             demo.selection.copyFrom(node)
         }
     }
