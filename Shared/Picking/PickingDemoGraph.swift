@@ -8,7 +8,7 @@
 import GenericGraph
 import GraphMetal
 
-struct PickingDemoNodeValue: RenderableNodeValue {
+struct PickingDemoNodeValue: EmbeddedValue, ColoredValue {
 
     static let groupColors: [SIMD4<Float>] = [
         SIMD4<Float>(1, 0, 0, 1),
@@ -39,7 +39,7 @@ struct PickingDemoNodeValue: RenderableNodeValue {
     }
 }
 
-struct PickingDemoEdgeValue: RenderableEdgeValue {
+struct PickingDemoEdgeValue: HideableValue {
 
     var hidden: Bool { return false }
 

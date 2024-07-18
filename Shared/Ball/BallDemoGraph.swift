@@ -9,7 +9,7 @@ import Foundation
 import GenericGraph
 import GraphMetal
 
-struct BallDemoNodeValue: RenderableNodeValue {
+struct BallDemoNodeValue: ColoredValue, EmbeddedValue {
 
     var color: SIMD4<Float>? {
         let h = fmod(Float(Date().timeIntervalSince(creationTime)), 60)
@@ -44,7 +44,7 @@ struct BallDemoNodeValue: RenderableNodeValue {
     }
 }
 
-struct BallDemoEdgeValue: RenderableEdgeValue {
+struct BallDemoEdgeValue: HideableValue {
 
     var hidden: Bool { return false }
 }

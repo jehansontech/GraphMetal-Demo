@@ -18,6 +18,8 @@ class DemoRegistry: ObservableObject {
 
     lazy var appearance = SettingsDemo()
 
+    lazy var wireframe2 = Wireframe2Demo()
+    
     func info(_ demo: DemoType) -> String {
         switch demo {
         case .ball:
@@ -28,6 +30,8 @@ class DemoRegistry: ObservableObject {
             return picking.info
         case .appearance:
             return appearance.info
+        case .wireframe2:
+            return wireframe2.info
         }
 
     }
@@ -44,6 +48,8 @@ class DemoRegistry: ObservableObject {
                 picking.controlsView
             case .appearance:
                 appearance.controlsView
+            case .wireframe2:
+                wireframe2.controlsView
             }
         }
     }
@@ -60,6 +66,8 @@ class DemoRegistry: ObservableObject {
                 picking.figureView
             case .appearance:
                 appearance.figureView
+            case .wireframe2:
+                wireframe2.figureView
             }
         }
     }

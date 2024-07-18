@@ -65,7 +65,7 @@ class CubeDemo: ObservableObject, Demo {
                                    nodeColorBufferIndex: 2)
 
         renderController.renderables.append(wireframe)
-        povController.jumpTo(pov: Self.initialPOV)
+        povController.jump(to: Self.initialPOV)
         wireframe.addBufferUpdate(Self.makeBufferUpdate(self.graph))
     }
 
@@ -73,9 +73,8 @@ class CubeDemo: ObservableObject, Demo {
     func present() {
         if needsPresentation {
             needsPresentation = false
-            povController.flyToDefault() {
-                self.povController.orbitEnabled = Self.defaultOrbitEnabled
-            }
+            povController.fly(to: povController.defaultPOV)
+            self.povController.orbitEnabled = Self.defaultOrbitEnabled
         }
     }
 

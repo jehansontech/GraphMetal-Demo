@@ -12,6 +12,7 @@ enum DemoType: String, CaseIterable {
     case ball = "Ball"
     case picking = "Picking"
     case appearance = "Settings"
+    case wireframe2 = "Wireframe2"
 }
 
 protocol Demo {

@@ -8,7 +8,7 @@
 import GenericGraph
 import GraphMetal
 
-struct CubeDemoNodeValue: RenderableNodeValue {
+struct CubeDemoNodeValue: EmbeddedValue, ColoredValue {
 
     var color: SIMD4<Float>? { return CubeDemo.graphColor }
 
@@ -19,7 +19,7 @@ struct CubeDemoNodeValue: RenderableNodeValue {
     }
 }
 
-struct CubeDemoEdgeValue: RenderableEdgeValue {
+struct CubeDemoEdgeValue: HideableValue {
 
     var hidden: Bool { return false }
 
