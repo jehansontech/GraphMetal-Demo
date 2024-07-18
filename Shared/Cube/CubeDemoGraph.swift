@@ -19,9 +19,9 @@ struct CubeDemoNodeValue: EmbeddedValue, ColoredValue {
     }
 }
 
-struct CubeDemoEdgeValue: HideableValue {
+struct CubeDemoEdgeValue: ColoredValue {
 
-    var hidden: Bool { return false }
+    var color: SIMD4<Float>? { nil }
 
 }
 

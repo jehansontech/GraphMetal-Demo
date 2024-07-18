@@ -19,9 +19,9 @@ struct SettingsDemoNodeValue: EmbeddedValue & ColoredValue {
     }
 }
 
-struct SettingsDemoEdgeValue: HideableValue {
+struct SettingsDemoEdgeValue: ColoredValue {
 
-    var hidden: Bool { return false }
+    var color: SIMD4<Float>? { nil }
 }
 
 typealias SettingsDemoGraph = BaseGraph<SettingsDemoNodeValue, SettingsDemoEdgeValue>

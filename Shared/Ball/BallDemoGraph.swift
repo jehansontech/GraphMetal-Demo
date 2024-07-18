@@ -44,9 +44,9 @@ struct BallDemoNodeValue: ColoredValue, EmbeddedValue {
     }
 }
 
-struct BallDemoEdgeValue: HideableValue {
+struct BallDemoEdgeValue: ColoredValue {
 
-    var hidden: Bool { return false }
+    var color: SIMD4<Float>? { nil }
 }
 
 typealias BallDemoGraph = BaseGraph<BallDemoNodeValue, BallDemoEdgeValue>
