@@ -81,10 +81,10 @@ class CubeDemo: ObservableObject, Demo {
     func setColorScheme(_ colorScheme: ColorScheme) {
         switch colorScheme {
         case .dark:
-            renderController.backgroundColor = RenderController.defaultDarkBackground
+            renderController.backgroundColor = RenderConstants.defaultDarkBackground
             break
         case .light:
-            renderController.backgroundColor = RenderController.defaultLightBackground
+            renderController.backgroundColor = RenderConstants.defaultLightBackground
             break
         @unknown default:
             break
