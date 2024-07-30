@@ -19,7 +19,7 @@ class DemoRegistry: ObservableObject {
     lazy var appearance = SettingsDemo()
 
     lazy var wireframe2 = Wireframe2Demo()
-    
+
     func info(_ demo: DemoType) -> String {
         switch demo {
         case .ball:
