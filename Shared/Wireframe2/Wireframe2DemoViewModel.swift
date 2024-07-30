@@ -47,15 +47,6 @@ class Wireframe2DemoViewModel: ObservableObject {
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        switch colorScheme {
-        case .dark:
-            renderController.backgroundColor = RenderConstants.defaultDarkBackground
-            break
-        case .light:
-            renderController.backgroundColor = RenderConstants.defaultLightBackground
-            break
-        @unknown default:
-            break
-        }
+        renderController.settings.setColorScheme(colorScheme)
     }
 }

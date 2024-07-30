@@ -274,7 +274,7 @@ struct BackgroundColorControls: View {
             HStack {
                 Text("Red")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.backgroundColor.x, in: 0...1) {
+                Slider(value: $demo.renderController.settings.backgroundColor.x, in: 0...1) {
                     Text("")
                 }
             }
@@ -282,7 +282,7 @@ struct BackgroundColorControls: View {
             HStack {
                 Text("Green")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.backgroundColor.y, in: 0...1) {
+                Slider(value: $demo.renderController.settings.backgroundColor.y, in: 0...1) {
                     Text("")
                 }
             }
@@ -290,7 +290,7 @@ struct BackgroundColorControls: View {
             HStack {
                 Text("Blue")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.backgroundColor.z, in: 0...1) {
+                Slider(value: $demo.renderController.settings.backgroundColor.z, in: 0...1) {
                     Text("")
                 }
             }
@@ -298,7 +298,7 @@ struct BackgroundColorControls: View {
             HStack {
                 Text("Alpha")
                     .frame(minWidth: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderController.backgroundColor.w, in: 0...1) {
+                Slider(value: $demo.renderController.settings.backgroundColor.w, in: 0...1) {
                     Text("")
                 }
             }
