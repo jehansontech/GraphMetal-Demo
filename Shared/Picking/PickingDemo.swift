@@ -94,7 +94,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.settings.setColorScheme(colorScheme)
+        renderController.setColorScheme(colorScheme)
     }
 
 }

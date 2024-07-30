@@ -40,7 +40,7 @@ class BallDemoViewModel: ObservableObject {
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.settings.setColorScheme(colorScheme)
+        renderController.setColorScheme(colorScheme)
     }
 
     func start() {

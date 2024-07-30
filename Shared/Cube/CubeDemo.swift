@@ -79,7 +79,7 @@ class CubeDemo: ObservableObject, Demo {
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.settings.setColorScheme(colorScheme)
+        renderController.setColorScheme(colorScheme)
     }
 
     private static func makeBufferUpdate(_ graph: CubeDemoGraph) -> WireframeUpdate? {

@@ -210,7 +210,7 @@ struct NodeColorDefaultControls: View {
             }
         }
         .onAppear {
-            self.nodeColorDefault = demo.wireframe.settings.nodeColorDefault
+            self.nodeColorDefault = demo.renderController.settings.defaultNodeColor
         }
         .onChange(of: self.nodeColorDefault) { newValue in
             demo.wireframe.settings.nodeColorDefault = newValue
@@ -232,7 +232,7 @@ struct EdgeColorControls: View {
             HStack {
                 Text("Red")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.settings.edgeColor.x, in: 0...1) {
+                Slider(value: $demo.renderController.settings.defaultEdgeColor.x, in: 0...1) {
                     Text("")
                 }
             }
@@ -240,7 +240,7 @@ struct EdgeColorControls: View {
             HStack {
                 Text("Green")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.settings.edgeColor.y, in: 0...1) {
+                Slider(value: $demo.renderController.settings.defaultEdgeColor.y, in: 0...1) {
                     Text("")
                 }
             }
@@ -248,7 +248,7 @@ struct EdgeColorControls: View {
             HStack {
                 Text("Blue")
                     .frame(width: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.settings.edgeColor.z, in: 0...1) {
+                Slider(value: $demo.renderController.settings.defaultEdgeColor.z, in: 0...1) {
                     Text("")
                 }
             }
@@ -256,7 +256,7 @@ struct EdgeColorControls: View {
             HStack {
                 Text("Alpha")
                     .frame(minWidth: SettingsDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.settings.edgeColor.w, in: 0...1) {
+                Slider(value: $demo.renderController.settings.defaultEdgeColor.w, in: 0...1) {
                     Text("")
                 }
             }

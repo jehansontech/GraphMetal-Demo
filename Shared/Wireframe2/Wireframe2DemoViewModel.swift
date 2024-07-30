@@ -47,6 +47,6 @@ class Wireframe2DemoViewModel: ObservableObject {
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.settings.setColorScheme(colorScheme)
+        renderController.setColorScheme(colorScheme)
     }
 }
