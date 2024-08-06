@@ -18,7 +18,7 @@ class DemoRegistry: ObservableObject {
 
     lazy var appearance = SettingsDemo()
 
-    lazy var wireframe2 = Wireframe2Demo()
+    lazy var wireframe2 = ZWireframeDemo()
 
     func info(_ demo: DemoType) -> String {
         switch demo {

@@ -123,7 +123,7 @@ struct POVControllerUsage: View {
 
             HStack {
                 Button {
-                    demo.povController.fly(to: demo.povController.defaultPOV)
+                    demo.povController.jump(to: demo.povController.defaultPOV)
                 } label: {
                     Text("Reset POV")
                 }

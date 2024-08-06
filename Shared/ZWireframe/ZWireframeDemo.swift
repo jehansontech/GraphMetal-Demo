@@ -12,7 +12,7 @@ import Wacoma
 
 class ZWireframeDemo: ObservableObject, Demo {
 
-    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -48))
+    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
 
     static var defaultOrbitEnabled: Bool = true
 
@@ -27,11 +27,11 @@ class ZWireframeDemo: ObservableObject, Demo {
     var info: String { "New rendering engine" }
 
     var controlsView: some View {
-        Wireframe2Controls(demo: self)
+        ZWireframeControls(demo: self)
     }
 
     var figureView: some View {
-        Wireframe2Figure(demo: self)
+        ZWireframeFigure(demo: self)
     }
 
     var graph: ZWireframeGraph
@@ -40,7 +40,9 @@ class ZWireframeDemo: ObservableObject, Demo {
 
     var fovController: PerspectiveFOVController
 
-    var renderController: ZRenderer
+    var wireframe: MonochromeWireframe
+
+    var renderer: ZRenderer
 
     init() {
         self.graph = GraphBuilder(ZWireframeNodeValue.init, ZWireframeEdgeValue.init)
@@ -51,13 +53,15 @@ class ZWireframeDemo: ObservableObject, Demo {
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
-        self.renderController = ZRenderer(povController, fovController)
+        self.wireframe = MonochromeWireframe()
 
-        // renderController.wireframe.addBufferUpdate(ZWireframeUpdate.makeTotalUpdate(self.graph))
+        self.renderer = ZRenderer(povController, fovController, wireframe)
+
+        wireframe.addUpdate(.makeTotalUpdate(self.graph))
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.setColorScheme(colorScheme)
+        renderer.setColorScheme(colorScheme)
     }
 
 

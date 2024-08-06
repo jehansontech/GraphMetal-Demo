@@ -17,10 +17,10 @@ struct ZWireframeFigure: View {
 
     var body: some View {
         ZStack {
-            ZRendererView(demo.renderController,
-                         GestureHandlers(primaryDrag: demo.renderController,
-                                         pinch: demo.renderController,
-                                         rotation: demo.renderController))
+            ZRendererView(demo.renderer,
+                         GestureHandlers(primaryDrag: demo.renderer,
+                                         pinch: demo.renderer,
+                                         rotation: demo.renderer))
         }
         .onChange(of: colorScheme) { newValue in
             demo.setColorScheme(newValue)

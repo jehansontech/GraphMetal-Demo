@@ -64,9 +64,9 @@ class CubeDemo: ObservableObject, Demo {
                                    nodePositionBufferIndex: 1,
                                    nodeColorBufferIndex: 2)
 
-        renderController.renderables.append(wireframe)
         povController.jump(to: Self.initialPOV)
         wireframe.addBufferUpdate(Self.makeBufferUpdate(self.graph))
+        renderController.renderables.append(wireframe)
     }
 
 
