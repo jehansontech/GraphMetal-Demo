@@ -1,5 +1,5 @@
 //
-//  Wireframe2Graph.swift
+//  ZWireframeGraph.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 7/30/24.
@@ -8,7 +8,7 @@
 import GenericGraph
 import GraphMetal
 
-struct Wireframe2NodeValue: EmbeddedValue, ColoredValue {
+struct ZWireframeNodeValue: EmbeddedValue, ColoredValue {
 
     var color: SIMD4<Float>?  = nil
 
@@ -19,9 +19,9 @@ struct Wireframe2NodeValue: EmbeddedValue, ColoredValue {
     }
 }
 
-struct Wireframe2EdgeValue: ColoredValue {
+struct ZWireframeEdgeValue: ColoredValue {
 
     var color: SIMD4<Float>? = nil
 }
 
-typealias Wireframe2Graph = BaseGraph<Wireframe2NodeValue, Wireframe2EdgeValue>
+typealias ZWireframeGraph = BaseGraph<ZWireframeNodeValue, ZWireframeEdgeValue>

@@ -1,5 +1,5 @@
 //
-//  Wireframe2Controls.swift
+//  ZWireframeControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 7/30/24.
@@ -9,11 +9,11 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct Wireframe2Controls: View {
+struct ZWireframeControls: View {
 
-    @ObservedObject var demo: Wireframe2Demo
+    @ObservedObject var demo: ZWireframeDemo
 
     var body: some View {
-        Text("Wireframe2Controls")
+        Text("ZWireframe controls go here")
     }
 }

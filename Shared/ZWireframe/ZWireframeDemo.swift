@@ -1,5 +1,5 @@
 //
-//  Wireframe2Demo.swift
+//  ZWireframeDemo.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 7/30/24.
@@ -10,7 +10,7 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class Wireframe2Demo: ObservableObject, Demo {
+class ZWireframeDemo: ObservableObject, Demo {
 
     static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -48))
 
@@ -24,7 +24,7 @@ class Wireframe2Demo: ObservableObject, Demo {
 
     var type: DemoType { .wireframe2 }
 
-    var info: String { "Wireframe2" }
+    var info: String { "New rendering engine" }
 
     var controlsView: some View {
         Wireframe2Controls(demo: self)
@@ -34,19 +34,16 @@ class Wireframe2Demo: ObservableObject, Demo {
         Wireframe2Figure(demo: self)
     }
 
-    var graph: Wireframe2Graph
+    var graph: ZWireframeGraph
 
     var povController: OrbitingPOVController
 
     var fovController: PerspectiveFOVController
 
-    var renderController: RenderController
-
-    var wireframe: XWireframe
-
+    var renderController: ZRenderer
 
     init() {
-        self.graph = GraphBuilder(Wireframe2NodeValue.init, Wireframe2EdgeValue.init)
+        self.graph = GraphBuilder(ZWireframeNodeValue.init, ZWireframeEdgeValue.init)
             .fancyCube(divisions: 2)
 
         self.povController = OrbitingPOVController(pov: Self.defaultPOV,
@@ -54,11 +51,9 @@ class Wireframe2Demo: ObservableObject, Demo {
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
-        self.renderController = RenderController(povController, fovController)
+        self.renderController = ZRenderer(povController, fovController)
 
-        self.wireframe = XWireframe()
-
-        renderController.renderables.append(self.wireframe)
+        // renderController.wireframe.addBufferUpdate(ZWireframeUpdate.makeTotalUpdate(self.graph))
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {

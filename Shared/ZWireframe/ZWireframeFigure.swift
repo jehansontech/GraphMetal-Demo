@@ -1,5 +1,5 @@
 //
-//  Wireframe2Figure.swift
+//  ZWireframeFigure.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 7/30/24.
@@ -9,15 +9,15 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct Wireframe2Figure: View {
+struct ZWireframeFigure: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
-    @ObservedObject var demo: Wireframe2Demo
+    @ObservedObject var demo: ZWireframeDemo
 
     var body: some View {
         ZStack {
-            RendererView(demo.renderController,
+            ZRendererView(demo.renderController,
                          GestureHandlers(primaryDrag: demo.renderController,
                                          pinch: demo.renderController,
                                          rotation: demo.renderController))
