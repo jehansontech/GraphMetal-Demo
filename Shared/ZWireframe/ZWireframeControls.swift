@@ -15,6 +15,8 @@ struct ZWireframeControls: View {
 
     @ObservedObject var demo: ZWireframeDemo
 
+    @State var nodeSizeIsExpanded = false
+
     @State var graphColorIsExpanded = false
 
     @State var backgroundColorIsExpanded = false
@@ -23,6 +25,19 @@ struct ZWireframeControls: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
 
+                DisclosureGroup("Node Size", isExpanded: $nodeSizeIsExpanded) {
+                    HStack {
+                        Divider()
+                        ZWireframeNodeSizeControls(demo: demo)
+                    }
+                    .onAppear {
+                        // unexpand the others
+                        graphColorIsExpanded = false
+                        backgroundColorIsExpanded = false
+                    }
+                    .padding(.leading, 2)
+                }
+
                 DisclosureGroup("Graph Color", isExpanded: $graphColorIsExpanded) {
                     HStack {
                         Divider()
@@ -30,6 +45,7 @@ struct ZWireframeControls: View {
                     }
                     .onAppear {
                         // unexpand the others
+                        nodeSizeIsExpanded = false
                         backgroundColorIsExpanded = false
                     }
                     .padding(.leading, 2)
@@ -42,9 +58,29 @@ struct ZWireframeControls: View {
                     }
                     .onAppear {
                         // unexpand the others
+                        nodeSizeIsExpanded = false
                         graphColorIsExpanded = false
                     }
                     .padding(.leading, 2)
+                }
+            }
+        }
+    }
+}
+
+struct ZWireframeNodeSizeControls: View {
+
+    let pointSizeScale: ClosedRange<Float> = RenderConstants.pointSizeMinimum...RenderConstants.pointSizeMaximum
+
+    @ObservedObject var demo: ZWireframeDemo
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Point Size")
+                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                Slider(value: $demo.renderer.settings.pointSize, in: pointSizeScale) {
+                    Text("")
                 }
             }
         }
