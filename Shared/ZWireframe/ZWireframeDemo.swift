@@ -12,15 +12,19 @@ import Wacoma
 
 class ZWireframeDemo: ObservableObject, Demo {
 
-    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
-
     static var defaultOrbitEnabled: Bool = true
 
     static var defaultOrbitSpeed: Float = .pi/30
 
-    static var defaultFadeoutMidpoint: Float = 40
+    static var defaultFadeoutMidpoint: Float = 10
 
-    static var defaultFadeoutDistance: Float = 40
+    static var defaultFadeoutDistance: Float = 8
+
+    static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
+
+    static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
+
+    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
 
     var type: DemoType { .wireframe2 }
 
@@ -48,7 +52,7 @@ class ZWireframeDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(ZWireframeNodeValue.init, ZWireframeEdgeValue.init)
             .fancyCube(divisions: 2)
 
-        self.povController = OrbitingPOVController(pov: Self.defaultPOV,
+        self.povController = OrbitingPOVController(pov: Self.initialPOV,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
@@ -58,6 +62,7 @@ class ZWireframeDemo: ObservableObject, Demo {
         self.renderer = ZRenderer(povController, fovController, wireframe)
 
         wireframe.addUpdate(.makeTotalUpdate(self.graph))
+        povController.fly(to: Self.defaultPOV)
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
