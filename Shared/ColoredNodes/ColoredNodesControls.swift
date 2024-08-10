@@ -17,7 +17,7 @@ struct ColoredNodesControls: View {
 
     @State var nodeSizeIsExpanded = false
 
-    @State var graphColorIsExpanded = false
+    @State var edgeColorIsExpanded = false
 
     @State var backgroundColorIsExpanded = false
 
@@ -28,20 +28,20 @@ struct ColoredNodesControls: View {
                 DisclosureGroup("Node Size", isExpanded: $nodeSizeIsExpanded) {
                     HStack {
                         Divider()
-                        ZWireframeNodeSizeControls(demo: demo)
+                        ColoredNodesNodeSizeControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
-                        graphColorIsExpanded = false
+                        edgeColorIsExpanded = false
                         backgroundColorIsExpanded = false
                     }
                     .padding(.leading, 2)
                 }
 
-                DisclosureGroup("Graph Color", isExpanded: $graphColorIsExpanded) {
+                DisclosureGroup("Edge Color", isExpanded: $edgeColorIsExpanded) {
                     HStack {
                         Divider()
-                        ZWireframeGraphColorControls(demo: demo)
+                        ColoredNodesEdgeColorControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
@@ -54,12 +54,12 @@ struct ColoredNodesControls: View {
                 DisclosureGroup("Background Color", isExpanded: $backgroundColorIsExpanded) {
                     HStack {
                         Divider()
-                        ZWireframeBackgroundColorControls(demo: demo)
+                        ColoredNodesBackgroundColorControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
                         nodeSizeIsExpanded = false
-                        graphColorIsExpanded = false
+                        edgeColorIsExpanded = false
                     }
                     .padding(.leading, 2)
                 }
@@ -68,7 +68,7 @@ struct ColoredNodesControls: View {
     }
 }
 
-struct ZWireframeNodeSizeControls: View {
+struct ColoredNodesNodeSizeControls: View {
 
     private var nodeSizeRange: ClosedRange<Float> { ZWireframeConstants.pointSizeMinimum...ZWireframeConstants.pointSizeMaximum }
 
@@ -77,7 +77,7 @@ struct ZWireframeNodeSizeControls: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Point Size")
+                Text("Node Size")
                     .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.nodeSize, in: nodeSizeRange) {
                     Text("")
@@ -87,7 +87,7 @@ struct ZWireframeNodeSizeControls: View {
     }
 }
 
-struct ZWireframeGraphColorControls: View {
+struct ColoredNodesEdgeColorControls: View {
 
     @ObservedObject var demo: ColoredNodesDemo
 
@@ -128,7 +128,7 @@ struct ZWireframeGraphColorControls: View {
     }
 }
 
-struct ZWireframeBackgroundColorControls: View {
+struct ColoredNodesBackgroundColorControls: View {
 
     @ObservedObject var demo: ColoredNodesDemo
 

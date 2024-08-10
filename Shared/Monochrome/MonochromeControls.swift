@@ -28,7 +28,7 @@ struct MonochromeControls: View {
                 DisclosureGroup("Node Size", isExpanded: $nodeSizeIsExpanded) {
                     HStack {
                         Divider()
-                        MonochromeSettingsNodeSizeControls(demo: demo)
+                        MonochromeNodeSizeControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
@@ -41,7 +41,7 @@ struct MonochromeControls: View {
                 DisclosureGroup("Graph Color", isExpanded: $graphColorIsExpanded) {
                     HStack {
                         Divider()
-                        MonochromeSettingsGraphColorControls(demo: demo)
+                        MonochromeGraphColorControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
@@ -54,7 +54,7 @@ struct MonochromeControls: View {
                 DisclosureGroup("Background Color", isExpanded: $backgroundColorIsExpanded) {
                     HStack {
                         Divider()
-                        MonochromeSettingsBackgroundColorControls(demo: demo)
+                        MonochromeBackgroundColorControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
@@ -68,7 +68,7 @@ struct MonochromeControls: View {
     }
 }
 
-struct MonochromeSettingsNodeSizeControls: View {
+struct MonochromeNodeSizeControls: View {
 
     private var nodeSizeRange: ClosedRange<Float> { ZWireframeConstants.pointSizeMinimum...ZWireframeConstants.pointSizeMaximum }
 
@@ -77,7 +77,7 @@ struct MonochromeSettingsNodeSizeControls: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("Point Size")
+                Text("Node Size")
                     .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.nodeSize, in: nodeSizeRange) {
                     Text("")
@@ -87,7 +87,7 @@ struct MonochromeSettingsNodeSizeControls: View {
     }
 }
 
-struct MonochromeSettingsGraphColorControls: View {
+struct MonochromeGraphColorControls: View {
 
     @ObservedObject var demo: MonochromeDemo
 
@@ -128,7 +128,7 @@ struct MonochromeSettingsGraphColorControls: View {
     }
 }
 
-struct MonochromeSettingsBackgroundColorControls: View {
+struct MonochromeBackgroundColorControls: View {
 
     @ObservedObject var demo: MonochromeDemo
 

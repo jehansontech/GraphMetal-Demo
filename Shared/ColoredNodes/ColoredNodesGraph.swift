@@ -21,6 +21,14 @@ fileprivate func nextColor(_ count: Int) -> SIMD4<Float>? {
         }
 }
 
+fileprivate func colorAt(_ location: SIMD3<Float>) -> SIMD4<Float>? {
+    return SIMD4<Float>(
+        location.x > 0 ? 1 : 0,
+        location.y > 0 ? 1 : 0,
+        location.z > 0 ? 1 : 0,
+        1)
+}
+
 struct ColoredNodeValue: EmbeddedValue, ColoredValue {
 
     private static var createdCount: Int = 0
@@ -32,7 +40,7 @@ struct ColoredNodeValue: EmbeddedValue, ColoredValue {
     init(_ location: SIMD3<Float>) {
         Self.createdCount += 1
         self.location = location
-        self.color = nil // nextColor(Self.createdCount)
+        self.color = colorAt(location) // nextColor(Self.createdCount)
     }
 }
 

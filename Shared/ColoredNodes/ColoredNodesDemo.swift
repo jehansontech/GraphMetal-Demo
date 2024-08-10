@@ -22,15 +22,15 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     static var initialPointSize: Float  = ZWireframeConstants.pointSizeMinimum
 
-    static var defaultFadeoutMidpoint: Float = 10
+    static var defaultFadeoutMidpoint: Float = 4
 
     static var defaultFadeoutDistance: Float = 8
 
     static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
 
-    static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
+    static var initialPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
 
-    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
+    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(4, 0, -4))
 
     var type: DemoType { .coloredNodes }
 
@@ -56,7 +56,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     init() {
         self.graph = GraphBuilder(ColoredNodeValue.init, makeEdgeValue)
-            .fancyCube(divisions: 2)
+            .simpleCube()
 
         self.povController = OrbitingPOVController(pov: Self.initialPOV,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
