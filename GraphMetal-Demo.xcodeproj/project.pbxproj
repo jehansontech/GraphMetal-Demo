@@ -69,14 +69,14 @@
 		38E38F0B278A288300AEF89F /* SettingsDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E38F09278A288300AEF89F /* SettingsDemo.swift */; };
 		38E38F0D278A292300AEF89F /* SettingsDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E38F0C278A292300AEF89F /* SettingsDemoFigure.swift */; };
 		38E38F0E278A292300AEF89F /* SettingsDemoFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E38F0C278A292300AEF89F /* SettingsDemoFigure.swift */; };
-		38E62F2B2C595B46008C02AA /* ZWireframeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2A2C595B46008C02AA /* ZWireframeDemo.swift */; };
-		38E62F2C2C595B65008C02AA /* ZWireframeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2A2C595B46008C02AA /* ZWireframeDemo.swift */; };
-		38E62F2E2C595BD4008C02AA /* ZWireframeControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2D2C595BD4008C02AA /* ZWireframeControls.swift */; };
-		38E62F2F2C595BD8008C02AA /* ZWireframeControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2D2C595BD4008C02AA /* ZWireframeControls.swift */; };
-		38E62F312C595BEB008C02AA /* ZWireframeFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F302C595BEB008C02AA /* ZWireframeFigure.swift */; };
-		38E62F322C595BEB008C02AA /* ZWireframeFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F302C595BEB008C02AA /* ZWireframeFigure.swift */; };
-		38E62F342C595BFE008C02AA /* ZWireframeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F332C595BFE008C02AA /* ZWireframeGraph.swift */; };
-		38E62F352C595BFE008C02AA /* ZWireframeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F332C595BFE008C02AA /* ZWireframeGraph.swift */; };
+		38E62F2B2C595B46008C02AA /* ColoredNodesDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2A2C595B46008C02AA /* ColoredNodesDemo.swift */; };
+		38E62F2C2C595B65008C02AA /* ColoredNodesDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2A2C595B46008C02AA /* ColoredNodesDemo.swift */; };
+		38E62F2E2C595BD4008C02AA /* ColoredNodesControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2D2C595BD4008C02AA /* ColoredNodesControls.swift */; };
+		38E62F2F2C595BD8008C02AA /* ColoredNodesControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F2D2C595BD4008C02AA /* ColoredNodesControls.swift */; };
+		38E62F312C595BEB008C02AA /* ColoredNodesFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F302C595BEB008C02AA /* ColoredNodesFigure.swift */; };
+		38E62F322C595BEB008C02AA /* ColoredNodesFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F302C595BEB008C02AA /* ColoredNodesFigure.swift */; };
+		38E62F342C595BFE008C02AA /* ColoredNodesGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F332C595BFE008C02AA /* ColoredNodesGraph.swift */; };
+		38E62F352C595BFE008C02AA /* ColoredNodesGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E62F332C595BFE008C02AA /* ColoredNodesGraph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,10 +116,10 @@
 		38E38F06278A1E7800AEF89F /* PickingDemoControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickingDemoControls.swift; sourceTree = "<group>"; };
 		38E38F09278A288300AEF89F /* SettingsDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDemo.swift; sourceTree = "<group>"; };
 		38E38F0C278A292300AEF89F /* SettingsDemoFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDemoFigure.swift; sourceTree = "<group>"; };
-		38E62F2A2C595B46008C02AA /* ZWireframeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWireframeDemo.swift; sourceTree = "<group>"; };
-		38E62F2D2C595BD4008C02AA /* ZWireframeControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWireframeControls.swift; sourceTree = "<group>"; };
-		38E62F302C595BEB008C02AA /* ZWireframeFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWireframeFigure.swift; sourceTree = "<group>"; };
-		38E62F332C595BFE008C02AA /* ZWireframeGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZWireframeGraph.swift; sourceTree = "<group>"; };
+		38E62F2A2C595B46008C02AA /* ColoredNodesDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredNodesDemo.swift; sourceTree = "<group>"; };
+		38E62F2D2C595BD4008C02AA /* ColoredNodesControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredNodesControls.swift; sourceTree = "<group>"; };
+		38E62F302C595BEB008C02AA /* ColoredNodesFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredNodesFigure.swift; sourceTree = "<group>"; };
+		38E62F332C595BFE008C02AA /* ColoredNodesGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredNodesGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +182,7 @@
 				380AB4082C679BE900244DAE /* Monochrome */,
 				38E383B1276A25340066E304 /* Picking */,
 				3850A79727673FC4004452C6 /* Settings */,
-				38E62F292C595B25008C02AA /* ZWireframe */,
+				38E62F292C595B25008C02AA /* ColoredNodes */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -265,15 +265,15 @@
 			path = Picking;
 			sourceTree = "<group>";
 		};
-		38E62F292C595B25008C02AA /* ZWireframe */ = {
+		38E62F292C595B25008C02AA /* ColoredNodes */ = {
 			isa = PBXGroup;
 			children = (
-				38E62F2A2C595B46008C02AA /* ZWireframeDemo.swift */,
-				38E62F2D2C595BD4008C02AA /* ZWireframeControls.swift */,
-				38E62F302C595BEB008C02AA /* ZWireframeFigure.swift */,
-				38E62F332C595BFE008C02AA /* ZWireframeGraph.swift */,
+				38E62F2A2C595B46008C02AA /* ColoredNodesDemo.swift */,
+				38E62F2D2C595BD4008C02AA /* ColoredNodesControls.swift */,
+				38E62F302C595BEB008C02AA /* ColoredNodesFigure.swift */,
+				38E62F332C595BFE008C02AA /* ColoredNodesGraph.swift */,
 			);
-			path = ZWireframe;
+			path = ColoredNodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,14 +384,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				380AB4132C679D5300244DAE /* MonochromeGraph.swift in Sources */,
-				38E62F2B2C595B46008C02AA /* ZWireframeDemo.swift in Sources */,
+				38E62F2B2C595B46008C02AA /* ColoredNodesDemo.swift in Sources */,
 				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
 				38E383AF276A169A0066E304 /* Overlay.swift in Sources */,
 				380AB4102C679D2500244DAE /* MonochromeFigure.swift in Sources */,
-				38E62F312C595BEB008C02AA /* ZWireframeFigure.swift in Sources */,
+				38E62F312C595BEB008C02AA /* ColoredNodesFigure.swift in Sources */,
 				3832225827565AAE00B91665 /* DisplayState.swift in Sources */,
 				38E383BC276A25850066E304 /* PickingDemoGraph.swift in Sources */,
-				38E62F2E2C595BD4008C02AA /* ZWireframeControls.swift in Sources */,
+				38E62F2E2C595BD4008C02AA /* ColoredNodesControls.swift in Sources */,
 				38CBB223278A29D70037D724 /* SettingsDemoControls.swift in Sources */,
 				387BD24728EDE676003BA3B1 /* BallDemoRunner.swift in Sources */,
 				38E38EF4278703C400AEF89F /* CubeDemoFigure.swift in Sources */,
@@ -407,7 +407,7 @@
 				38E38F0A278A288300AEF89F /* SettingsDemo.swift in Sources */,
 				3850A7A2276771F1004452C6 /* SettingsDemoGraph.swift in Sources */,
 				387BD24D28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */,
-				38E62F342C595BFE008C02AA /* ZWireframeGraph.swift in Sources */,
+				38E62F342C595BFE008C02AA /* ColoredNodesGraph.swift in Sources */,
 				380AB40D2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F07278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,
 				38E38EFE278A180E00AEF89F /* BallDemoControls.swift in Sources */,
@@ -424,14 +424,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				380AB4142C679D5300244DAE /* MonochromeGraph.swift in Sources */,
-				38E62F2C2C595B65008C02AA /* ZWireframeDemo.swift in Sources */,
+				38E62F2C2C595B65008C02AA /* ColoredNodesDemo.swift in Sources */,
 				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
 				38E383B0276A169A0066E304 /* Overlay.swift in Sources */,
 				380AB4112C679D2500244DAE /* MonochromeFigure.swift in Sources */,
-				38E62F322C595BEB008C02AA /* ZWireframeFigure.swift in Sources */,
+				38E62F322C595BEB008C02AA /* ColoredNodesFigure.swift in Sources */,
 				3832225927565AAF00B91665 /* DisplayState.swift in Sources */,
 				38E38EF22787028D00AEF89F /* CubeDemo.swift in Sources */,
-				38E62F2F2C595BD8008C02AA /* ZWireframeControls.swift in Sources */,
+				38E62F2F2C595BD8008C02AA /* ColoredNodesControls.swift in Sources */,
 				38CBB224278A29D70037D724 /* SettingsDemoControls.swift in Sources */,
 				387BD24828EDE676003BA3B1 /* BallDemoRunner.swift in Sources */,
 				38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
@@ -447,7 +447,7 @@
 				38E38F0B278A288300AEF89F /* SettingsDemo.swift in Sources */,
 				38E38EFF278A180E00AEF89F /* BallDemoControls.swift in Sources */,
 				387BD24E28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */,
-				38E62F352C595BFE008C02AA /* ZWireframeGraph.swift in Sources */,
+				38E62F352C595BFE008C02AA /* ColoredNodesGraph.swift in Sources */,
 				380AB40E2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F08278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,
 				3850A7A3276771F1004452C6 /* SettingsDemoGraph.swift in Sources */,

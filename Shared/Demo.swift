@@ -12,8 +12,8 @@ enum DemoType: String, CaseIterable {
     case ball = "Ball"
     case picking = "Picking"
     case appearance = "Settings"
-    case coloredNodes = "Colored Nodes"
     case monochrome = "Monochrome"
+    case coloredNodes = "Colored Nodes"
 }
 
 protocol Demo {

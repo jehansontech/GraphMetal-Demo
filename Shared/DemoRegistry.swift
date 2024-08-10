@@ -18,7 +18,7 @@ class DemoRegistry: ObservableObject {
 
     lazy var appearance = SettingsDemo()
 
-    lazy var wireframe2 = ZWireframeDemo()
+    lazy var wireframe2 = ColoredNodesDemo()
 
     lazy var monochromeSettings = MonochromeDemo()
 

@@ -1,5 +1,5 @@
 //
-//  ZWireframeControls.swift
+//  ColoredNodesControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 7/30/24.
@@ -9,11 +9,11 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct ZWireframeControls: View {
+struct ColoredNodesControls: View {
 
     static var labelWidth: CGFloat = 90
 
-    @ObservedObject var demo: ZWireframeDemo
+    @ObservedObject var demo: ColoredNodesDemo
 
     @State var nodeSizeIsExpanded = false
 
@@ -72,13 +72,13 @@ struct ZWireframeNodeSizeControls: View {
 
     private var nodeSizeRange: ClosedRange<Float> { ZWireframeConstants.pointSizeMinimum...ZWireframeConstants.pointSizeMaximum }
 
-    @ObservedObject var demo: ZWireframeDemo
+    @ObservedObject var demo: ColoredNodesDemo
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Point Size")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.nodeSize, in: nodeSizeRange) {
                     Text("")
                 }
@@ -89,13 +89,13 @@ struct ZWireframeNodeSizeControls: View {
 
 struct ZWireframeGraphColorControls: View {
 
-    @ObservedObject var demo: ZWireframeDemo
+    @ObservedObject var demo: ColoredNodesDemo
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Red")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.x, in: 0...1) {
                     Text("")
                 }
@@ -103,7 +103,7 @@ struct ZWireframeGraphColorControls: View {
 
             HStack {
                 Text("Green")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.y, in: 0...1) {
                     Text("")
                 }
@@ -111,7 +111,7 @@ struct ZWireframeGraphColorControls: View {
 
             HStack {
                 Text("Blue")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.z, in: 0...1) {
                     Text("")
                 }
@@ -119,7 +119,7 @@ struct ZWireframeGraphColorControls: View {
 
             HStack {
                 Text("Alpha")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.w, in: 0...1) {
                     Text("")
                 }
@@ -130,13 +130,13 @@ struct ZWireframeGraphColorControls: View {
 
 struct ZWireframeBackgroundColorControls: View {
 
-    @ObservedObject var demo: ZWireframeDemo
+    @ObservedObject var demo: ColoredNodesDemo
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Red")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.x, in: 0...1) {
                     Text("")
                 }
@@ -144,7 +144,7 @@ struct ZWireframeBackgroundColorControls: View {
 
             HStack {
                 Text("Green")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.y, in: 0...1) {
                     Text("")
                 }
@@ -152,7 +152,7 @@ struct ZWireframeBackgroundColorControls: View {
 
             HStack {
                 Text("Blue")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.z, in: 0...1) {
                     Text("")
                 }
@@ -160,7 +160,7 @@ struct ZWireframeBackgroundColorControls: View {
 
             HStack {
                 Text("Alpha")
-                    .frame(width: ZWireframeControls.labelWidth, alignment: .trailing)
+                    .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.w, in: 0...1) {
                     Text("")
                 }

@@ -1,5 +1,5 @@
 //
-//  ZWireframeDemo.swift
+//  ColoredNodesDemo.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 7/30/24.
@@ -10,7 +10,11 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class ZWireframeDemo: ObservableObject, Demo {
+fileprivate func makeEdgeValue() -> Void? {
+    return nil
+}
+
+class ColoredNodesDemo: ObservableObject, Demo {
 
     static var defaultOrbitEnabled: Bool = true
 
@@ -33,14 +37,14 @@ class ZWireframeDemo: ObservableObject, Demo {
     var info: String { "Settings for Wireframe with colored nodes" }
 
     var controlsView: some View {
-        ZWireframeControls(demo: self)
+        ColoredNodesControls(demo: self)
     }
 
     var figureView: some View {
-        ZWireframeFigure(demo: self)
+        ColoredNodesFigure(demo: self)
     }
 
-    var graph: ZWireframeGraph
+    var graph: ColoredNodesGraph
 
     var povController: OrbitingPOVController
 
@@ -51,7 +55,7 @@ class ZWireframeDemo: ObservableObject, Demo {
     var renderer: ZRenderer
 
     init() {
-        self.graph = GraphBuilder(ZWireframeNodeValue.init, ZWireframeEdgeValue.init)
+        self.graph = GraphBuilder(ColoredNodeValue.init, makeEdgeValue)
             .fancyCube(divisions: 2)
 
         self.povController = OrbitingPOVController(pov: Self.initialPOV,
@@ -62,7 +66,7 @@ class ZWireframeDemo: ObservableObject, Demo {
 
         self.wireframe = ZWireframeWithColoredNodes(nodeShape: .disc)
 
-        self.wireframe.nodeSize = ZWireframeDemo.initialPointSize
+        self.wireframe.nodeSize = ColoredNodesDemo.initialPointSize
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 

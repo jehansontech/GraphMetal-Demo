@@ -50,7 +50,7 @@ class MonochromeDemo: ObservableObject, Demo {
 
     var fovController: PerspectiveFOVController
 
-    var wireframe: MonochromeWireframe
+    var wireframe: ZMonochromeWireframe
 
     var renderer: ZRenderer
 
@@ -64,7 +64,7 @@ class MonochromeDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
-        self.wireframe = MonochromeWireframe(nodeShape: .disc,
+        self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
                                              nodeSize: MonochromeDemo.initialPointSize)
 
         self.renderer = ZRenderer(povController, fovController, wireframe)

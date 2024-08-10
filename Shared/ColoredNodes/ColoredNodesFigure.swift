@@ -1,5 +1,5 @@
 //
-//  ZWireframeFigure.swift
+//  ColoredNodesFigure.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 7/30/24.
@@ -9,11 +9,11 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct ZWireframeFigure: View {
+struct ColoredNodesFigure: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
-    @ObservedObject var demo: ZWireframeDemo
+    @ObservedObject var demo: ColoredNodesDemo
 
     var body: some View {
         ZStack {
