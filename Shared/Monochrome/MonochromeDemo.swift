@@ -1,5 +1,5 @@
 //
-//  MonochromeSettingsDemo.swift
+//  MonochromeDemo.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 8/10/24.
@@ -14,7 +14,7 @@ fileprivate func makeEdgeValue() -> Void? {
     return nil
 }
 
-class MonochromeSettingsDemo: ObservableObject, Demo {
+class MonochromeDemo: ObservableObject, Demo {
 
     static var defaultOrbitEnabled: Bool = true
 
@@ -34,17 +34,17 @@ class MonochromeSettingsDemo: ObservableObject, Demo {
 
     var type: DemoType { .monochrome }
 
-    var info: String { "Settings for Monochrome Wirefames" }
+    var info: String { "Settings for monochrome graphs" }
 
     var controlsView: some View {
-        MonochromeSettingsControls(demo: self)
+        MonochromeControls(demo: self)
     }
 
     var figureView: some View {
-        MonochromeSettingsFigure(demo: self)
+        MonochromeFigure(demo: self)
     }
 
-    var graph: MonochromeSettingsGraph
+    var graph: MonochromeGraph
 
     var povController: OrbitingPOVController
 
@@ -55,7 +55,7 @@ class MonochromeSettingsDemo: ObservableObject, Demo {
     var renderer: ZRenderer
 
     init() {
-        self.graph = GraphBuilder(MonochromeSettingsNodeValue.init, makeEdgeValue)
+        self.graph = GraphBuilder(MonochromeNodeValue.init, makeEdgeValue)
             .fancyCube(divisions: 2)
 
         self.povController = OrbitingPOVController(pov: Self.initialPOV,
@@ -65,7 +65,7 @@ class MonochromeSettingsDemo: ObservableObject, Demo {
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
         self.wireframe = MonochromeWireframe(nodeShape: .disc,
-                                             nodeSize: MonochromeSettingsDemo.initialPointSize)
+                                             nodeSize: MonochromeDemo.initialPointSize)
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 

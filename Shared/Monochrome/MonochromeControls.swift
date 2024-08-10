@@ -1,5 +1,5 @@
 //
-//  MonochromeSettingsControls.swift
+//  MonochromeControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 8/10/24.
@@ -9,11 +9,11 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct MonochromeSettingsControls: View {
+struct MonochromeControls: View {
 
     static var labelWidth: CGFloat = 90
 
-    @ObservedObject var demo: MonochromeSettingsDemo
+    @ObservedObject var demo: MonochromeDemo
 
     @State var nodeSizeIsExpanded = false
 
@@ -72,13 +72,13 @@ struct MonochromeSettingsNodeSizeControls: View {
 
     private var nodeSizeRange: ClosedRange<Float> { ZWireframeConstants.pointSizeMinimum...ZWireframeConstants.pointSizeMaximum }
 
-    @ObservedObject var demo: MonochromeSettingsDemo
+    @ObservedObject var demo: MonochromeDemo
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Point Size")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.nodeSize, in: nodeSizeRange) {
                     Text("")
                 }
@@ -89,13 +89,13 @@ struct MonochromeSettingsNodeSizeControls: View {
 
 struct MonochromeSettingsGraphColorControls: View {
 
-    @ObservedObject var demo: MonochromeSettingsDemo
+    @ObservedObject var demo: MonochromeDemo
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Red")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.x, in: 0...1) {
                     Text("")
                 }
@@ -103,7 +103,7 @@ struct MonochromeSettingsGraphColorControls: View {
 
             HStack {
                 Text("Green")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.y, in: 0...1) {
                     Text("")
                 }
@@ -111,7 +111,7 @@ struct MonochromeSettingsGraphColorControls: View {
 
             HStack {
                 Text("Blue")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.z, in: 0...1) {
                     Text("")
                 }
@@ -119,7 +119,7 @@ struct MonochromeSettingsGraphColorControls: View {
 
             HStack {
                 Text("Alpha")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.wireframe.defaultElementColor.w, in: 0...1) {
                     Text("")
                 }
@@ -130,13 +130,13 @@ struct MonochromeSettingsGraphColorControls: View {
 
 struct MonochromeSettingsBackgroundColorControls: View {
 
-    @ObservedObject var demo: MonochromeSettingsDemo
+    @ObservedObject var demo: MonochromeDemo
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 Text("Red")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.x, in: 0...1) {
                     Text("")
                 }
@@ -144,7 +144,7 @@ struct MonochromeSettingsBackgroundColorControls: View {
 
             HStack {
                 Text("Green")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.y, in: 0...1) {
                     Text("")
                 }
@@ -152,7 +152,7 @@ struct MonochromeSettingsBackgroundColorControls: View {
 
             HStack {
                 Text("Blue")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.z, in: 0...1) {
                     Text("")
                 }
@@ -160,7 +160,7 @@ struct MonochromeSettingsBackgroundColorControls: View {
 
             HStack {
                 Text("Alpha")
-                    .frame(width: MonochromeSettingsControls.labelWidth, alignment: .trailing)
+                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
                 Slider(value: $demo.renderer.backgroundColor.w, in: 0...1) {
                     Text("")
                 }

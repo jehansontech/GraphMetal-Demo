@@ -20,7 +20,7 @@ class DemoRegistry: ObservableObject {
 
     lazy var wireframe2 = ZWireframeDemo()
 
-    lazy var monochromeSettings = MonochromeSettingsDemo()
+    lazy var monochromeSettings = MonochromeDemo()
 
     func info(_ demo: DemoType) -> String {
         switch demo {

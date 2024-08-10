@@ -1,5 +1,5 @@
 //
-//  MonochromeSettingsFigure.swift
+//  MonochromeFigure.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 8/10/24.
@@ -9,11 +9,11 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct MonochromeSettingsFigure: View {
+struct MonochromeFigure: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
-    @ObservedObject var demo: MonochromeSettingsDemo
+    @ObservedObject var demo: MonochromeDemo
 
     var body: some View {
         ZStack {

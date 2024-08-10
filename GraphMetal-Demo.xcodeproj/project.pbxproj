@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		3807A39F2755626B006C8AB9 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A39E2755626B006C8AB9 /* DemoRegistry.swift */; };
 		3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3807A39E2755626B006C8AB9 /* DemoRegistry.swift */; };
-		380AB40A2C679C2C00244DAE /* MonochromeSettingsDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4092C679C2C00244DAE /* MonochromeSettingsDemo.swift */; };
-		380AB40B2C679C4E00244DAE /* MonochromeSettingsDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4092C679C2C00244DAE /* MonochromeSettingsDemo.swift */; };
-		380AB40D2C679CE600244DAE /* MonochromeSettingsControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40C2C679CE600244DAE /* MonochromeSettingsControls.swift */; };
-		380AB40E2C679CE600244DAE /* MonochromeSettingsControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40C2C679CE600244DAE /* MonochromeSettingsControls.swift */; };
-		380AB4102C679D2500244DAE /* MonochromeSettingsFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40F2C679D2500244DAE /* MonochromeSettingsFigure.swift */; };
-		380AB4112C679D2500244DAE /* MonochromeSettingsFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40F2C679D2500244DAE /* MonochromeSettingsFigure.swift */; };
-		380AB4132C679D5300244DAE /* MonochromeSettingsGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4122C679D5300244DAE /* MonochromeSettingsGraph.swift */; };
-		380AB4142C679D5300244DAE /* MonochromeSettingsGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4122C679D5300244DAE /* MonochromeSettingsGraph.swift */; };
+		380AB40A2C679C2C00244DAE /* MonochromeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4092C679C2C00244DAE /* MonochromeDemo.swift */; };
+		380AB40B2C679C4E00244DAE /* MonochromeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4092C679C2C00244DAE /* MonochromeDemo.swift */; };
+		380AB40D2C679CE600244DAE /* MonochromeControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40C2C679CE600244DAE /* MonochromeControls.swift */; };
+		380AB40E2C679CE600244DAE /* MonochromeControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40C2C679CE600244DAE /* MonochromeControls.swift */; };
+		380AB4102C679D2500244DAE /* MonochromeFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40F2C679D2500244DAE /* MonochromeFigure.swift */; };
+		380AB4112C679D2500244DAE /* MonochromeFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB40F2C679D2500244DAE /* MonochromeFigure.swift */; };
+		380AB4132C679D5300244DAE /* MonochromeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4122C679D5300244DAE /* MonochromeGraph.swift */; };
+		380AB4142C679D5300244DAE /* MonochromeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380AB4122C679D5300244DAE /* MonochromeGraph.swift */; };
 		38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
 		38187E77274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */; };
 		38187E78274D5E3D00244D04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38187E67274D5E3C00244D04 /* ContentView.swift */; };
@@ -81,10 +81,10 @@
 
 /* Begin PBXFileReference section */
 		3807A39E2755626B006C8AB9 /* DemoRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoRegistry.swift; sourceTree = "<group>"; };
-		380AB4092C679C2C00244DAE /* MonochromeSettingsDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeSettingsDemo.swift; sourceTree = "<group>"; };
-		380AB40C2C679CE600244DAE /* MonochromeSettingsControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeSettingsControls.swift; sourceTree = "<group>"; };
-		380AB40F2C679D2500244DAE /* MonochromeSettingsFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeSettingsFigure.swift; sourceTree = "<group>"; };
-		380AB4122C679D5300244DAE /* MonochromeSettingsGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeSettingsGraph.swift; sourceTree = "<group>"; };
+		380AB4092C679C2C00244DAE /* MonochromeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeDemo.swift; sourceTree = "<group>"; };
+		380AB40C2C679CE600244DAE /* MonochromeControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeControls.swift; sourceTree = "<group>"; };
+		380AB40F2C679D2500244DAE /* MonochromeFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeFigure.swift; sourceTree = "<group>"; };
+		380AB4122C679D5300244DAE /* MonochromeGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonochromeGraph.swift; sourceTree = "<group>"; };
 		38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphMetal_DemoApp.swift; sourceTree = "<group>"; };
 		38187E67274D5E3C00244D04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		38187E68274D5E3D00244D04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,15 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		380AB4082C679BE900244DAE /* MonochromeSettings */ = {
+		380AB4082C679BE900244DAE /* Monochrome */ = {
 			isa = PBXGroup;
 			children = (
-				380AB4092C679C2C00244DAE /* MonochromeSettingsDemo.swift */,
-				380AB40C2C679CE600244DAE /* MonochromeSettingsControls.swift */,
-				380AB40F2C679D2500244DAE /* MonochromeSettingsFigure.swift */,
-				380AB4122C679D5300244DAE /* MonochromeSettingsGraph.swift */,
+				380AB4092C679C2C00244DAE /* MonochromeDemo.swift */,
+				380AB40C2C679CE600244DAE /* MonochromeControls.swift */,
+				380AB40F2C679D2500244DAE /* MonochromeFigure.swift */,
+				380AB4122C679D5300244DAE /* MonochromeGraph.swift */,
 			);
-			path = MonochromeSettings;
+			path = Monochrome;
 			sourceTree = "<group>";
 		};
 		38187E60274D5E3B00244D04 = {
@@ -179,7 +179,7 @@
 				38187E68274D5E3D00244D04 /* Assets.xcassets */,
 				38187E97274D5EF400244D04 /* Ball */,
 				38187E98274D5EFC00244D04 /* Cube */,
-				380AB4082C679BE900244DAE /* MonochromeSettings */,
+				380AB4082C679BE900244DAE /* Monochrome */,
 				38E383B1276A25340066E304 /* Picking */,
 				3850A79727673FC4004452C6 /* Settings */,
 				38E62F292C595B25008C02AA /* ZWireframe */,
@@ -383,11 +383,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				380AB4132C679D5300244DAE /* MonochromeSettingsGraph.swift in Sources */,
+				380AB4132C679D5300244DAE /* MonochromeGraph.swift in Sources */,
 				38E62F2B2C595B46008C02AA /* ZWireframeDemo.swift in Sources */,
 				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
 				38E383AF276A169A0066E304 /* Overlay.swift in Sources */,
-				380AB4102C679D2500244DAE /* MonochromeSettingsFigure.swift in Sources */,
+				380AB4102C679D2500244DAE /* MonochromeFigure.swift in Sources */,
 				38E62F312C595BEB008C02AA /* ZWireframeFigure.swift in Sources */,
 				3832225827565AAE00B91665 /* DisplayState.swift in Sources */,
 				38E383BC276A25850066E304 /* PickingDemoGraph.swift in Sources */,
@@ -399,7 +399,7 @@
 				38E38EFB278A179200AEF89F /* BallDemoFigure.swift in Sources */,
 				38E38F01278A1C4D00AEF89F /* PickingDemo.swift in Sources */,
 				38E38F0D278A292300AEF89F /* SettingsDemoFigure.swift in Sources */,
-				380AB40A2C679C2C00244DAE /* MonochromeSettingsDemo.swift in Sources */,
+				380AB40A2C679C2C00244DAE /* MonochromeDemo.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
 				3850A78E27673303004452C6 /* GraphBuilder.swift in Sources */,
 				385550A22767E9970041104B /* BallDemoGraph.swift in Sources */,
@@ -408,7 +408,7 @@
 				3850A7A2276771F1004452C6 /* SettingsDemoGraph.swift in Sources */,
 				387BD24D28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */,
 				38E62F342C595BFE008C02AA /* ZWireframeGraph.swift in Sources */,
-				380AB40D2C679CE600244DAE /* MonochromeSettingsControls.swift in Sources */,
+				380AB40D2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F07278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,
 				38E38EFE278A180E00AEF89F /* BallDemoControls.swift in Sources */,
 				38E38EEE2786FE0F00AEF89F /* CubeDemo.swift in Sources */,
@@ -423,11 +423,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				380AB4142C679D5300244DAE /* MonochromeSettingsGraph.swift in Sources */,
+				380AB4142C679D5300244DAE /* MonochromeGraph.swift in Sources */,
 				38E62F2C2C595B65008C02AA /* ZWireframeDemo.swift in Sources */,
 				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
 				38E383B0276A169A0066E304 /* Overlay.swift in Sources */,
-				380AB4112C679D2500244DAE /* MonochromeSettingsFigure.swift in Sources */,
+				380AB4112C679D2500244DAE /* MonochromeFigure.swift in Sources */,
 				38E62F322C595BEB008C02AA /* ZWireframeFigure.swift in Sources */,
 				3832225927565AAF00B91665 /* DisplayState.swift in Sources */,
 				38E38EF22787028D00AEF89F /* CubeDemo.swift in Sources */,
@@ -439,7 +439,7 @@
 				38E383BD276A25850066E304 /* PickingDemoGraph.swift in Sources */,
 				38E38F02278A1C4D00AEF89F /* PickingDemo.swift in Sources */,
 				38E38F0E278A292300AEF89F /* SettingsDemoFigure.swift in Sources */,
-				380AB40B2C679C4E00244DAE /* MonochromeSettingsDemo.swift in Sources */,
+				380AB40B2C679C4E00244DAE /* MonochromeDemo.swift in Sources */,
 				38E38EFC278A179200AEF89F /* BallDemoFigure.swift in Sources */,
 				3850A78F27673303004452C6 /* GraphBuilder.swift in Sources */,
 				385550A32767E9970041104B /* BallDemoGraph.swift in Sources */,
@@ -448,7 +448,7 @@
 				38E38EFF278A180E00AEF89F /* BallDemoControls.swift in Sources */,
 				387BD24E28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */,
 				38E62F352C595BFE008C02AA /* ZWireframeGraph.swift in Sources */,
-				380AB40E2C679CE600244DAE /* MonochromeSettingsControls.swift in Sources */,
+				380AB40E2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F08278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,
 				3850A7A3276771F1004452C6 /* SettingsDemoGraph.swift in Sources */,
 				3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */,

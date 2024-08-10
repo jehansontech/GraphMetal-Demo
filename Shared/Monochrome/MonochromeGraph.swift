@@ -1,5 +1,5 @@
 //
-//  MonochromeSettingsGraph.swift
+//  MonochromeGraph.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 8/10/24.
@@ -8,7 +8,7 @@
 import GenericGraph
 import GraphMetal
 
-struct MonochromeSettingsNodeValue: EmbeddedValue {
+struct MonochromeNodeValue: EmbeddedValue {
 
     var location: SIMD3<Float>
 
@@ -17,4 +17,4 @@ struct MonochromeSettingsNodeValue: EmbeddedValue {
     }
 }
 
-typealias MonochromeSettingsGraph = BaseGraph<MonochromeSettingsNodeValue, Void>
+typealias MonochromeGraph = BaseGraph<MonochromeNodeValue, Void>
