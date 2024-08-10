@@ -20,6 +20,8 @@ class DemoRegistry: ObservableObject {
 
     lazy var wireframe2 = ZWireframeDemo()
 
+    lazy var monochromeSettings = MonochromeSettingsDemo()
+
     func info(_ demo: DemoType) -> String {
         switch demo {
         case .ball:
@@ -30,8 +32,10 @@ class DemoRegistry: ObservableObject {
             return picking.info
         case .appearance:
             return appearance.info
-        case .wireframe2:
+        case .coloredNodes:
             return wireframe2.info
+        case .monochrome:
+            return monochromeSettings.info
         }
 
     }
@@ -48,8 +52,10 @@ class DemoRegistry: ObservableObject {
                 picking.controlsView
             case .appearance:
                 appearance.controlsView
-            case .wireframe2:
+            case .coloredNodes:
                 wireframe2.controlsView
+            case .monochrome:
+                monochromeSettings.controlsView
             }
         }
     }
@@ -66,8 +72,10 @@ class DemoRegistry: ObservableObject {
                 picking.figureView
             case .appearance:
                 appearance.figureView
-            case .wireframe2:
+            case .coloredNodes:
                 wireframe2.figureView
+            case .monochrome:
+                monochromeSettings.figureView
             }
         }
     }

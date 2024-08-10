@@ -1,8 +1,8 @@
 //
-//  ZWireframeDemo.swift
+//  MonochromeSettingsDemo.swift
 //  GraphMetal-Demo
 //
-//  Created by Jim Hanson on 7/30/24.
+//  Created by Jim Hanson on 8/10/24.
 //
 
 import SwiftUI
@@ -10,7 +10,11 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class ZWireframeDemo: ObservableObject, Demo {
+fileprivate func makeEdgeValue() -> Void? {
+    return nil
+}
+
+class MonochromeSettingsDemo: ObservableObject, Demo {
 
     static var defaultOrbitEnabled: Bool = true
 
@@ -24,34 +28,34 @@ class ZWireframeDemo: ObservableObject, Demo {
 
     static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
 
-    static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
+    static let initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
 
-    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
+    static let defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
 
-    var type: DemoType { .coloredNodes }
+    var type: DemoType { .monochrome }
 
-    var info: String { "Settings for Wireframe with colored nodes" }
+    var info: String { "Settings for Monochrome Wirefames" }
 
     var controlsView: some View {
-        ZWireframeControls(demo: self)
+        MonochromeSettingsControls(demo: self)
     }
 
     var figureView: some View {
-        ZWireframeFigure(demo: self)
+        MonochromeSettingsFigure(demo: self)
     }
 
-    var graph: ZWireframeGraph
+    var graph: MonochromeSettingsGraph
 
     var povController: OrbitingPOVController
 
     var fovController: PerspectiveFOVController
 
-    var wireframe: ZWireframeWithColoredNodes
+    var wireframe: MonochromeWireframe
 
     var renderer: ZRenderer
 
     init() {
-        self.graph = GraphBuilder(ZWireframeNodeValue.init, ZWireframeEdgeValue.init)
+        self.graph = GraphBuilder(MonochromeSettingsNodeValue.init, makeEdgeValue)
             .fancyCube(divisions: 2)
 
         self.povController = OrbitingPOVController(pov: Self.initialPOV,
@@ -60,9 +64,8 @@ class ZWireframeDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
-        self.wireframe = ZWireframeWithColoredNodes(nodeShape: .disc)
-
-        self.wireframe.nodeSize = ZWireframeDemo.initialPointSize
+        self.wireframe = MonochromeWireframe(nodeShape: .disc,
+                                             nodeSize: MonochromeSettingsDemo.initialPointSize)
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 

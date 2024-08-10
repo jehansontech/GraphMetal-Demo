@@ -12,7 +12,8 @@ enum DemoType: String, CaseIterable {
     case ball = "Ball"
     case picking = "Picking"
     case appearance = "Settings"
-    case wireframe2 = "ZWireframe"
+    case coloredNodes = "Colored Nodes"
+    case monochrome = "Monochrome"
 }
 
 protocol Demo {

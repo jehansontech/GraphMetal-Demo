@@ -9,7 +9,7 @@ import Foundation
 import GenericGraph
 import GraphMetal
 
-struct GraphBuilder<N, E> where N: ColoredValue & EmbeddedValue {
+struct GraphBuilder<N, E> where N: EmbeddedValue {
 
     typealias NodeValueFactory = (SIMD3<Float>) -> N?
     typealias EdgeValueFactory = () -> E?
