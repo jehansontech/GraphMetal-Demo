@@ -17,11 +17,11 @@ struct CubeDemoFigure: View {
 
     var body: some View {
         ZStack {
-            RendererView(demo.renderController,
-                         GestureHandlers(primaryDrag: demo.renderController,
-                                         pinch: demo.renderController,
-                                         rotation: demo.renderController))
-            Overlay(demo.renderController)
+            ZRendererView(demo.renderer,
+                         GestureHandlers(primaryDrag: demo.renderer,
+                                         pinch: demo.renderer,
+                                         rotation: demo.renderer))
+            ZOverlay(demo.renderer)
         }
         .onChange(of: colorScheme) { newValue in
             demo.setColorScheme(newValue)

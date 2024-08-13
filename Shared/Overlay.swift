@@ -45,3 +45,40 @@ struct Overlay: View {
         self.renderController = renderController
     }
 }
+
+struct ZOverlay: View {
+
+    var renderer: ZRenderer
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
+
+                Button {
+                    do {
+                        try renderer.requestSnapshot { response in
+                            print(response)
+                        }
+                    }
+                    catch {
+                        print("\(error)")
+                    }
+                } label:  {
+                    Image(systemName: "camera.on.rectangle")
+                }
+                .padding(4)
+                .background(Color.clear)
+                .imageScale(.large)
+                .help("Take a snapshot of the figure")
+
+                Spacer()
+            }
+
+            Spacer()
+        }
+    }
+
+    init(_ renderer: ZRenderer) {
+        self.renderer = renderer
+    }
+}

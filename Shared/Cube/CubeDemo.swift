@@ -46,9 +46,9 @@ class CubeDemo: ObservableObject, Demo {
 
     var fovController: PerspectiveFOVController
 
-    var renderController: RenderController
+    var wireframe: ZMonochromeWireframe
 
-    var wireframe: Wireframe
+    var renderer: ZRenderer
 
     init() {
         self.graph = GraphBuilder(CubeDemoNodeValue.init, CubeDemoEdgeValue.init)
@@ -59,14 +59,15 @@ class CubeDemo: ObservableObject, Demo {
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
-        self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe(settings: WireframeSettings(edgeColor: Self.graphColor),
-                                   nodePositionBufferIndex: 1,
-                                   nodeColorBufferIndex: 2)
+        
+        self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
+                                              defaultElementColor: Self.graphColor)
 
+        self.renderer = ZRenderer(povController, fovController, wireframe)
+
+        var updateGenerator = ZMonochromeWireframe.UpdateGenerator(graph: self.graph)
+        wireframe.addUpdate(updateGenerator.makeUpdate())
         povController.jump(to: Self.initialPOV)
-        wireframe.addBufferUpdate(Self.makeBufferUpdate(self.graph))
-        renderController.renderables.append(wireframe)
     }
 
 
@@ -79,7 +80,7 @@ class CubeDemo: ObservableObject, Demo {
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.setColorScheme(colorScheme)
+        renderer.setColorScheme(colorScheme)
     }
 
     private static func makeBufferUpdate(_ graph: CubeDemoGraph) -> WireframeUpdate? {
