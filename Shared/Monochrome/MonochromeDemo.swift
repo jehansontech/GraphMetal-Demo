@@ -69,7 +69,8 @@ class MonochromeDemo: ObservableObject, Demo {
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 
-        wireframe.addUpdate(.makeTotalUpdate(self.graph))
+        var updateGenerator = ZMonochromeWireframe.UpdateGenerator(graph: self.graph)
+        wireframe.addUpdate(updateGenerator.makeUpdate())
         povController.fly(to: Self.defaultPOV)
     }
 
