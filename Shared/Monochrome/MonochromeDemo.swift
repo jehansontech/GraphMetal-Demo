@@ -10,10 +10,6 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-fileprivate func makeEdgeValue() -> Void? {
-    return nil
-}
-
 class MonochromeDemo: ObservableObject, Demo {
 
     static var defaultOrbitEnabled: Bool = true
@@ -55,7 +51,7 @@ class MonochromeDemo: ObservableObject, Demo {
     var renderer: ZRenderer
 
     init() {
-        self.graph = GraphBuilder(MonochromeNodeValue.init, makeEdgeValue)
+        self.graph = GraphBuilder(MonochromeNodeValue.init)
             .fancyCube(divisions: 2)
 
         self.povController = OrbitingPOVController(pov: Self.initialPOV,

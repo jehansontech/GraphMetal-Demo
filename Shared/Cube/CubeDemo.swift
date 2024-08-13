@@ -22,6 +22,8 @@ class CubeDemo: ObservableObject, Demo {
 
     static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
 
+    static let nodeSize: Float = 4
+
     static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
 
     static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -48))
@@ -51,7 +53,7 @@ class CubeDemo: ObservableObject, Demo {
     var renderer: ZRenderer
 
     init() {
-        self.graph = GraphBuilder(CubeDemoNodeValue.init, CubeDemoEdgeValue.init)
+        self.graph = GraphBuilder(CubeDemoNodeValue.init)
             .fancyCube(divisions: 5)
 
         self.povController = OrbitingPOVController(pov: Self.defaultPOV,
@@ -61,6 +63,7 @@ class CubeDemo: ObservableObject, Demo {
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
         
         self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
+                                              nodeSize: Self.nodeSize,
                                               defaultElementColor: Self.graphColor)
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
@@ -81,11 +84,6 @@ class CubeDemo: ObservableObject, Demo {
 
     func setColorScheme(_ colorScheme: ColorScheme) {
         renderer.setColorScheme(colorScheme)
-    }
-
-    private static func makeBufferUpdate(_ graph: CubeDemoGraph) -> WireframeUpdate? {
-        var generator = WireframeUpdateGenerator()
-        return generator.makeUpdate(graph, .all)
     }
 }
 

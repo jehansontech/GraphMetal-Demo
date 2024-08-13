@@ -8,9 +8,7 @@
 import GenericGraph
 import GraphMetal
 
-struct CubeDemoNodeValue: EmbeddedValue, ColoredValue {
-
-    var color: SIMD4<Float>? { return CubeDemo.graphColor }
+struct CubeDemoNodeValue: EmbeddedValue {
 
     var location: SIMD3<Float>
 
@@ -19,11 +17,4 @@ struct CubeDemoNodeValue: EmbeddedValue, ColoredValue {
     }
 }
 
-struct CubeDemoEdgeValue: ColoredValue {
-
-    var color: SIMD4<Float>? { nil }
-
-}
-
-typealias CubeDemoGraph = BaseGraph<CubeDemoNodeValue, CubeDemoEdgeValue>
-
+typealias CubeDemoGraph = BaseGraph<CubeDemoNodeValue, Void>
