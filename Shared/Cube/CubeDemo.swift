@@ -28,7 +28,7 @@ class CubeDemo: ObservableObject, Demo {
 
     var type: DemoType { return .cube }
 
-    var info: String { return "Demonstrates orbit, fadeout, and changing the point of view" }
+    var info: String { return "Demonstrates point of view settings and changes" }
 
     @Published var needsPresentation = true
 

@@ -36,15 +36,7 @@ struct CubeDemoControls: View {
 
                 Divider()
 
-                Text("Fadeout")
-                    .font(.headline.smallCaps())
-                FadeoutControls(fovController: demo.fovController)
-                    .padding(.leading, 10)
-                    .frame(maxWidth: .infinity)
-
-                Divider()
-
-                Text("Changing the point of view")
+                Text("Changing the POV")
                     .font(.headline.smallCaps())
                 POVControllerUsage(demo: demo)
                     .padding(.leading, 10)
@@ -71,26 +63,6 @@ struct OrbitControls: View {
                 Text("Speed")
                     .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
                 Slider(value: $povController.orbitSpeed, in: -1...1)
-            }
-        }
-    }
-}
-
-struct FadeoutControls: View {
-
-    @ObservedObject var fovController: PerspectiveFOVController
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Text("Midpoint")
-                    .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $fovController.fadeoutMidpoint, in: 1...100)
-            }
-            HStack {
-                Text("Distance")
-                    .frame(width: CubeDemoControls.labelWidth, alignment: .trailing)
-                Slider(value: $fovController.fadeoutDistance, in: 1...100)
             }
         }
     }
