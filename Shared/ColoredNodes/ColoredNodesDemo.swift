@@ -22,7 +22,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     static var defaultFadeoutDistance: Float = 8
 
-    static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
+    static let defaultEdgeColor = SIMD4<Float>(1, 0, 0.5, 1)
 
     static var initialPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
 
@@ -60,7 +60,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
-        self.wireframe = ZWireframeWithColoredNodes(nodeShape: .disc)
+        self.wireframe = ZWireframeWithColoredNodes(nodeShape: .disc, edgeColor: Self.defaultEdgeColor)
 
         self.wireframe.nodeSize = ColoredNodesDemo.initialPointSize
 

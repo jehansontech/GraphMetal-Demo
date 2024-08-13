@@ -89,7 +89,7 @@ struct MonochromeGraphSettingsControls: View {
                 HStack {
                     Text("Red")
                         .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.x, in: 0...1) {
+                    Slider(value: $demo.wireframe.graphColor.x, in: 0...1) {
                         Text("")
                     }
                 }
@@ -97,7 +97,7 @@ struct MonochromeGraphSettingsControls: View {
                 HStack {
                     Text("Green")
                         .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.y, in: 0...1) {
+                    Slider(value: $demo.wireframe.graphColor.y, in: 0...1) {
                         Text("")
                     }
                 }
@@ -105,7 +105,7 @@ struct MonochromeGraphSettingsControls: View {
                 HStack {
                     Text("Blue")
                         .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.z, in: 0...1) {
+                    Slider(value: $demo.wireframe.graphColor.z, in: 0...1) {
                         Text("")
                     }
                 }
@@ -113,7 +113,7 @@ struct MonochromeGraphSettingsControls: View {
                 HStack {
                     Text("Alpha")
                         .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.w, in: 0...1) {
+                    Slider(value: $demo.wireframe.graphColor.w, in: 0...1) {
                         Text("")
                     }
                 }

@@ -64,7 +64,7 @@ class CubeDemo: ObservableObject, Demo {
         
         self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
                                               nodeSize: Self.nodeSize,
-                                              defaultElementColor: Self.graphColor)
+                                              graphColor: Self.graphColor)
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 

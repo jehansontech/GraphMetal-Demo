@@ -89,7 +89,7 @@ struct ColoredNodesGraphSettingsControls: View {
                 HStack {
                     Text("Red")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.x, in: 0...1) {
+                    Slider(value: $demo.wireframe.edgeColor.x, in: 0...1) {
                         Text("")
                     }
                 }
@@ -97,7 +97,7 @@ struct ColoredNodesGraphSettingsControls: View {
                 HStack {
                     Text("Green")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.y, in: 0...1) {
+                    Slider(value: $demo.wireframe.edgeColor.y, in: 0...1) {
                         Text("")
                     }
                 }
@@ -105,7 +105,7 @@ struct ColoredNodesGraphSettingsControls: View {
                 HStack {
                     Text("Blue")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.z, in: 0...1) {
+                    Slider(value: $demo.wireframe.edgeColor.z, in: 0...1) {
                         Text("")
                     }
                 }
@@ -113,7 +113,7 @@ struct ColoredNodesGraphSettingsControls: View {
                 HStack {
                     Text("Alpha")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.wireframe.defaultElementColor.w, in: 0...1) {
+                    Slider(value: $demo.wireframe.edgeColor.w, in: 0...1) {
                         Text("")
                     }
                 }
