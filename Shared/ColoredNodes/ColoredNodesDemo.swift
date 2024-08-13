@@ -34,7 +34,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     var type: DemoType { .coloredNodes }
 
-    var info: String { "Settings for Wireframe with colored nodes" }
+    var info: String { "Settings for rendering colored nodes" }
 
     var controlsView: some View {
         ColoredNodesControls(demo: self)

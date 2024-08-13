@@ -15,60 +15,61 @@ struct MonochromeControls: View {
 
     @ObservedObject var demo: MonochromeDemo
 
-    @State var nodeSizeIsExpanded = false
+    @State var isGraphSettingsExpanded = false
 
-    @State var graphColorIsExpanded = false
+    @State var isBackgroundSettingsExpanded = false
 
-    @State var backgroundColorIsExpanded = false
+    @State var isFOVSettingsExpanded = false
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
 
-                DisclosureGroup("Node Size", isExpanded: $nodeSizeIsExpanded) {
+                DisclosureGroup("Graph", isExpanded: $isGraphSettingsExpanded) {
                     HStack {
                         Divider()
-                        MonochromeNodeSizeControls(demo: demo)
+                        MonochromeGraphSettingsControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
-                        graphColorIsExpanded = false
-                        backgroundColorIsExpanded = false
+                        isBackgroundSettingsExpanded = false
+                        isFOVSettingsExpanded = false
                     }
                     .padding(.leading, 2)
                 }
 
-                DisclosureGroup("Graph Color", isExpanded: $graphColorIsExpanded) {
+                DisclosureGroup("Background", isExpanded: $isBackgroundSettingsExpanded) {
                     HStack {
                         Divider()
-                        MonochromeGraphColorControls(demo: demo)
+                        MonochromeBackgroundSettingsControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
-                        nodeSizeIsExpanded = false
-                        backgroundColorIsExpanded = false
+                        isGraphSettingsExpanded = false
+                        isFOVSettingsExpanded = false
                     }
                     .padding(.leading, 2)
                 }
 
-                DisclosureGroup("Background Color", isExpanded: $backgroundColorIsExpanded) {
+                DisclosureGroup("Field of View", isExpanded: $isFOVSettingsExpanded) {
                     HStack {
                         Divider()
-                        MonochromeBackgroundColorControls(demo: demo)
+                        MonochromeFOVSettingsControls(fovController: demo.fovController)
                     }
                     .onAppear {
                         // unexpand the others
-                        nodeSizeIsExpanded = false
-                        graphColorIsExpanded = false
+                        isGraphSettingsExpanded = false
+                        isBackgroundSettingsExpanded = false
                     }
                     .padding(.leading, 2)
                 }
+
             }
         }
     }
 }
 
-struct MonochromeNodeSizeControls: View {
+struct MonochromeGraphSettingsControls: View {
 
     private var nodeSizeRange: ClosedRange<Float> { ZWireframeConstants.pointSizeMinimum...ZWireframeConstants.pointSizeMaximum }
 
@@ -83,89 +84,137 @@ struct MonochromeNodeSizeControls: View {
                     Text("")
                 }
             }
+            Text("Color")
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Red")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.wireframe.defaultElementColor.x, in: 0...1) {
+                        Text("")
+                    }
+                }
+
+                HStack {
+                    Text("Green")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.wireframe.defaultElementColor.y, in: 0...1) {
+                        Text("")
+                    }
+                }
+
+                HStack {
+                    Text("Blue")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.wireframe.defaultElementColor.z, in: 0...1) {
+                        Text("")
+                    }
+                }
+
+                HStack {
+                    Text("Alpha")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.wireframe.defaultElementColor.w, in: 0...1) {
+                        Text("")
+                    }
+                }
+            }
         }
     }
 }
 
-struct MonochromeGraphColorControls: View {
+struct MonochromeBackgroundSettingsControls: View {
 
     @ObservedObject var demo: MonochromeDemo
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text("Red")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.defaultElementColor.x, in: 0...1) {
-                    Text("")
+            Text("Color")
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Red")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.renderer.backgroundColor.x, in: 0...1) {
+                        Text("")
+                    }
                 }
-            }
 
-            HStack {
-                Text("Green")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.defaultElementColor.y, in: 0...1) {
-                    Text("")
+                HStack {
+                    Text("Green")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.renderer.backgroundColor.y, in: 0...1) {
+                        Text("")
+                    }
                 }
-            }
 
-            HStack {
-                Text("Blue")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.defaultElementColor.z, in: 0...1) {
-                    Text("")
+                HStack {
+                    Text("Blue")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.renderer.backgroundColor.z, in: 0...1) {
+                        Text("")
+                    }
                 }
-            }
 
-            HStack {
-                Text("Alpha")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.wireframe.defaultElementColor.w, in: 0...1) {
-                    Text("")
+                HStack {
+                    Text("Alpha")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $demo.renderer.backgroundColor.w, in: 0...1) {
+                        Text("")
+                    }
                 }
             }
         }
     }
 }
 
-struct MonochromeBackgroundColorControls: View {
+struct MonochromeFOVSettingsControls: View {
 
-    @ObservedObject var demo: MonochromeDemo
+    let yFOVMin: Float = 0.01 * Float.pi
+    let yFOVMax: Float = 0.99 * Float.pi
+
+    @ObservedObject var fovController: PerspectiveFOVController
 
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                Text("Red")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderer.backgroundColor.x, in: 0...1) {
-                    Text("")
+            Text("Fadeout")
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Midpoint")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $fovController.fadeoutMidpoint, in: 1...20)
+                }
+                HStack {
+                    Text("Distance")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $fovController.fadeoutDistance, in: 1...10)
                 }
             }
 
-            HStack {
-                Text("Green")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderer.backgroundColor.y, in: 0...1) {
-                    Text("")
+            Text("FOVController")
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("zNear")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $fovController.zNear, in: 0.01...9.99) {
+                        Text("")
+                    }
                 }
-            }
 
-            HStack {
-                Text("Blue")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderer.backgroundColor.z, in: 0...1) {
-                    Text("")
+                HStack {
+                    Text("zFar")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $fovController.zFar, in: 10...100) {
+                        Text("")
+                    }
                 }
-            }
 
-            HStack {
-                Text("Alpha")
-                    .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                Slider(value: $demo.renderer.backgroundColor.w, in: 0...1) {
-                    Text("")
+                HStack {
+                    Text("yFOV")
+                        .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
+                    Slider(value: $fovController.yFOV, in: yFOVMin...yFOVMax) {
+                        Text("")
+                    }
                 }
             }
         }
     }
 }
-

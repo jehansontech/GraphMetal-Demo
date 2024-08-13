@@ -11,7 +11,6 @@ enum DemoType: String, CaseIterable {
     case cube = "Cube"
     case ball = "Ball"
     case picking = "Picking"
-    case appearance = "Settings"
     case monochrome = "Monochrome"
     case coloredNodes = "Colored Nodes"
 }

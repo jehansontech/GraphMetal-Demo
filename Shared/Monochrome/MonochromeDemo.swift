@@ -34,7 +34,7 @@ class MonochromeDemo: ObservableObject, Demo {
 
     var type: DemoType { .monochrome }
 
-    var info: String { "Settings for monochrome graphs" }
+    var info: String { "Settings for monochrome rendering" }
 
     var controlsView: some View {
         MonochromeControls(demo: self)

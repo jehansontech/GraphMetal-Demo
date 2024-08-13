@@ -16,11 +16,9 @@ class DemoRegistry: ObservableObject {
 
     lazy var picking = PickingDemo()
 
-    lazy var appearance = SettingsDemo()
+    lazy var monochrome = MonochromeDemo()
 
-    lazy var wireframe2 = ColoredNodesDemo()
-
-    lazy var monochromeSettings = MonochromeDemo()
+    lazy var coloredNodes = ColoredNodesDemo()
 
     func info(_ demo: DemoType) -> String {
         switch demo {
@@ -30,12 +28,10 @@ class DemoRegistry: ObservableObject {
             return cube.info
         case .picking:
             return picking.info
-        case .appearance:
-            return appearance.info
-        case .coloredNodes:
-            return wireframe2.info
         case .monochrome:
-            return monochromeSettings.info
+            return monochrome.info
+        case .coloredNodes:
+            return coloredNodes.info
         }
 
     }
@@ -50,12 +46,10 @@ class DemoRegistry: ObservableObject {
                 cube.controlsView
             case .picking:
                 picking.controlsView
-            case .appearance:
-                appearance.controlsView
-            case .coloredNodes:
-                wireframe2.controlsView
             case .monochrome:
-                monochromeSettings.controlsView
+                monochrome.controlsView
+            case .coloredNodes:
+                coloredNodes.controlsView
             }
         }
     }
@@ -70,12 +64,10 @@ class DemoRegistry: ObservableObject {
                 cube.figureView
             case .picking:
                 picking.figureView
-            case .appearance:
-                appearance.figureView
-            case .coloredNodes:
-                wireframe2.figureView
             case .monochrome:
-                monochromeSettings.figureView
+                monochrome.figureView
+            case .coloredNodes:
+                coloredNodes.figureView
             }
         }
     }
