@@ -30,7 +30,7 @@ actor BallDemoRunner {
 
     var graph: BallDemoGraph
 
-    private var generator: WireframeUpdateGenerator = .init()
+    private var generator: ZWireframeWithColoredNodes.UpdateGenerator<BallDemoGraph> = .init()
 
     private var lastNewNodeTimestamp: Date = .distantPast
 
@@ -39,20 +39,21 @@ actor BallDemoRunner {
     init() {
         self.graph = BallDemoGraph()
         self.settings = BallDemoSettings()
+        self.generator.graph = self.graph
     }
 
     func connect(_ demo: BallDemoViewModel) async {
         self.demo = demo
-        let update = makeStatusUpdate()
+        let stepResult = makeStepResult()
         Task {
-            await self.demo.applyUpdate(update)
+            await self.demo.applyStepResult(stepResult)
         }
     }
 
     func start() async {
         if !isRunning {
             isRunning = true
-            await self.demo.applyUpdate(makeStatusUpdate())
+            await self.demo.applyStepResult(makeStepResult())
             lastStepCompletionDate = Date()
             while isRunning {
                 do {
@@ -62,7 +63,7 @@ actor BallDemoRunner {
                     isRunning = false
                 }
             }
-            await self.demo.applyUpdate(makeStatusUpdate())
+            await self.demo.applyStepResult(makeStepResult())
             lastStepCompletionDate = Date()
         }
     }
@@ -73,9 +74,9 @@ actor BallDemoRunner {
         isRunning = false
 
         if shouldSendUpdate {
-            let update = makeStatusUpdate()
+            let stepResult = makeStepResult()
             Task.detached {
-                await self.demo.applyUpdate(update)
+                await self.demo.applyStepResult(stepResult)
             }
         }
     }
@@ -83,19 +84,19 @@ actor BallDemoRunner {
     func reset() async {
         let shouldSendUpdate = !isRunning
 
-        graph = BallDemoGraph()
-
+        self.graph = BallDemoGraph()
+        self.generator.graph = self.graph
         if shouldSendUpdate {
-            let update = makeTotalUpdate()
+            let update = makeStepResult()
             Task {
-                await self.demo.applyUpdate(update)
+                await self.demo.applyStepResult(update)
             }
         }
     }
 
     func step() async throws {
         let t0 = Date()
-        await self.demo.applyUpdate(doStep())
+        await self.demo.applyStepResult(doStep())
         let sleepTime = settings.stepTimeInterval - Date().timeIntervalSince(t0)
         if sleepTime > 0 {
             await Task.uncheckedSleep(seconds: sleepTime)
@@ -103,35 +104,22 @@ actor BallDemoRunner {
     }
 
     private func doStep() -> StepResult {
-        var nodeAdded = false
         if Date().timeIntervalSince(lastNewNodeTimestamp) >= settings.newNodeTimeInterval {
             addNode(graph)
+            generator.graphHasChanged(nodeSet: true)
             lastNewNodeTimestamp = Date()
-            nodeAdded = true
         }
-        return makeStepUpdate(nodeAdded)
+        else {
+            generator.graphHasChanged(nodeColors: true)
+        }
+        return makeStepResult()
     }
 
-    private func makeStatusUpdate() -> StepResult {
+    private func makeStepResult() -> StepResult {
         return StepResult(isRunning: self.isRunning,
                           nodeCount: graph.nodes.count,
                           edgeCount: graph.edges.count,
-                          wireframeUpdate: nil)
-    }
-
-    private func makeStepUpdate(_ nodeAdded: Bool) -> StepResult {
-        return StepResult(isRunning: self.isRunning,
-                          nodeCount: graph.nodes.count,
-                          edgeCount: graph.edges.count,
-                          wireframeUpdate: generator.makeUpdate(graph,
-                                                                nodeAdded ? .topology : .nodeColors))
-    }
-
-    private func makeTotalUpdate() -> StepResult {
-        return StepResult(isRunning: self.isRunning,
-                          nodeCount: graph.nodes.count,
-                          edgeCount: graph.edges.count,
-                          wireframeUpdate: generator.makeUpdate(graph, .all))
+                          wireframeUpdate: generator.makeUpdate())
     }
 
     private func addNode(_ graph: BallDemoGraph) {
@@ -143,7 +131,7 @@ actor BallDemoRunner {
 
         let newNode = graph.addNode(BallDemoNodeValue(randomLocation()))
         for targetID in targetIDs {
-            try! graph.addEdge(newNode.nodeNumber, targetID, BallDemoEdgeValue())
+            try! graph.addEdge(newNode.nodeNumber, targetID)
         }
     }
 
@@ -159,6 +147,6 @@ struct StepResult: Sendable {
     var isRunning: Bool
     var nodeCount: Int
     var edgeCount: Int
-    var wireframeUpdate: WireframeUpdate?
+    var wireframeUpdate: ZWireframeWithColoredNodes.Update?
 }
 

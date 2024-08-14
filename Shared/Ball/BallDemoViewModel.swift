@@ -17,30 +17,26 @@ class BallDemoViewModel: ObservableObject {
 
     @Published var edgeCount: Int = 0
 
-    var renderController: RenderController
-
     var povController = OrbitingPOVController(pov: CenteredPOV(location: SIMD3<Float>(0, 0, -2)))
 
     var fovController = PerspectiveFOVController()
 
-    private var wireframe: Wireframe
+    var wireframe = ZWireframeWithColoredNodes()
+
+    var renderer: ZRenderer
 
     private var runner: BallDemoRunner
 
     init() {
-        self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe(nodePositionBufferIndex: 1,
-                                   nodeColorBufferIndex: 2)
+        self.renderer = ZRenderer(povController, fovController, wireframe)
         self.runner = BallDemoRunner()
-
-        self.renderController.renderables.append(wireframe)
         Task {
             await runner.connect(self)
         }
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.setColorScheme(colorScheme)
+        renderer.setColorScheme(colorScheme)
     }
 
     func start() {
@@ -61,9 +57,11 @@ class BallDemoViewModel: ObservableObject {
         }
     }
 
-    func applyUpdate(_ update: StepResult) async {
-        self.nodeCount = update.nodeCount
-        self.edgeCount = update.edgeCount
-        wireframe.addBufferUpdate(update.wireframeUpdate)
+    func applyStepResult(_ stepResult: StepResult) async {
+        self.nodeCount = stepResult.nodeCount
+        self.edgeCount = stepResult.edgeCount
+        if let wireframeUpdate = stepResult.wireframeUpdate {
+            wireframe.addUpdate(wireframeUpdate)
+        }
     }
 }

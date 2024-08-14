@@ -17,14 +17,14 @@ struct BallDemoFigure: View {
 
     var body: some View {
         ZStack {
-            RendererView(viewModel.renderController,
-                         GestureHandlers(primaryDrag: viewModel.renderController,
-                                         pinch: viewModel.renderController,
-                                         rotation: viewModel.renderController))
+            ZRendererView(viewModel.renderer,
+                         GestureHandlers(primaryDrag: viewModel.renderer,
+                                         pinch: viewModel.renderer,
+                                         rotation: viewModel.renderer))
             .onDisappear {
                 viewModel.stop()
             }
-            Overlay(viewModel.renderController)
+            ZOverlay(viewModel.renderer)
         }
         .onChange(of: colorScheme) { newValue in
             viewModel.setColorScheme(newValue)
