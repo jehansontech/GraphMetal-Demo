@@ -107,7 +107,7 @@ struct SelectedNodeValueControls2: View {
         }
         .onChange(of: nodeLocation) { newValue in
             changeLocation()
-            demo.updateFigure(.geometry)
+            demo.updateFigure(nodePositionChanged: true)
         }
     }
 
@@ -115,7 +115,7 @@ struct SelectedNodeValueControls2: View {
         if let nodeNumber = demo.selection.nodeNumber,
            let node = demo.graph.nodes[nodeNumber] {
             node.value?.group = demo.selection.group
-            demo.updateFigure(.nodeColors)
+            demo.updateFigure(nodeColorChanged: true)
             demo.selection.copyFrom(node)
         }
     }
@@ -124,7 +124,7 @@ struct SelectedNodeValueControls2: View {
         if let nodeNumber = demo.selection.nodeNumber,
            let node = demo.graph.nodes[nodeNumber] {
             node.value?.location = nodeLocation
-            demo.updateFigure(.geometry)
+            demo.updateFigure(nodePositionChanged: true)
             demo.selection.copyFrom(node)
         }
     }

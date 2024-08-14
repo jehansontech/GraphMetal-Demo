@@ -39,11 +39,6 @@ struct PickingDemoNodeValue: EmbeddedValue, ColoredValue {
     }
 }
 
-struct PickingDemoEdgeValue: ColoredValue {
-
-    var color: SIMD4<Float>? { nil }
-}
-
-typealias PickingDemoNode = BaseGraphNode<PickingDemoNodeValue, PickingDemoEdgeValue>
-typealias PickingDemoGraph = BaseGraph<PickingDemoNodeValue, PickingDemoEdgeValue>
+typealias PickingDemoNode = BaseGraphNode<PickingDemoNodeValue, Void>
+typealias PickingDemoGraph = BaseGraph<PickingDemoNodeValue, Void>
 

@@ -38,55 +38,60 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
     var fovController: PerspectiveFOVController
 
-    var renderController: RenderController
+    var renderer: ZRenderer
 
-    var wireframe: Wireframe
+    var wireframe: ZWireframeWithColoredNodes
 
-    var generator = WireframeUpdateGenerator()
+    var generator: ZWireframeWithColoredNodes.UpdateGenerator<PickingDemoGraph>
 
     init() {
-        self.graph = GraphBuilder(PickingDemoNodeValue.init, PickingDemoEdgeValue.init).simpleOctahedron()
-        self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), orbitEnabled: false)
-        self.fovController = PerspectiveFOVController()
-        self.renderController = RenderController(povController, fovController)
-        self.wireframe = Wireframe(settings: WireframeSettings(nodeColorDefault: Self.nodeColorDefault),
-                                   nodePositionBufferIndex: 1,
-                                   nodeColorBufferIndex: 2)
+        self.graph = GraphBuilder(PickingDemoNodeValue.init)
+            .simpleOctahedron()
 
-        renderController.renderables.append(wireframe)
-        updateFigure(.all)
+        self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), 
+                                                   orbitEnabled: false)
+        self.fovController = PerspectiveFOVController()
+        self.wireframe = ZWireframeWithColoredNodes()
+        self.renderer = ZRenderer(povController, fovController, wireframe)
+        self.generator = ZWireframeWithColoredNodes.UpdateGenerator()
+
+        self.generator.graph = self.graph
+        wireframe.addUpdate(generator.makeUpdate())
+
     }
 
-    func updateFigure(_ change: RenderableGraphChange) {
-        wireframe.addBufferUpdate(generator.makeUpdate(graph, change))
+    func updateFigure(nodePositionChanged: Bool = false,
+                      nodeColorChanged: Bool = false) {
+        generator.graphHasChanged(nodePositions: nodePositionChanged, nodeColors: nodeColorChanged)
+        wireframe.addUpdate(generator.makeUpdate())
     }
     
     func resetGraph() {
         selection.clear()
-        graph = GraphBuilder(PickingDemoNodeValue.init, PickingDemoEdgeValue.init)
+        self.graph = GraphBuilder(PickingDemoNodeValue.init)
             .simpleOctahedron()
-        updateFigure(.all)
+        self.generator.graph = self.graph
+        wireframe.addUpdate(generator.makeUpdate())
     }
 
     func tap(at touchLocation: SIMD2<Float>) {
         print("PickingDemo.tap. location: \(touchLocation.prettyString)")
 
-        let nodeSize = Float(wireframe.settings.getNodeSize(forPOV: renderController.povController.pov,
-                                                      bbox: graph.makeBoundingBox()))
+        let pointSize = wireframe.makePointSize(povController.pov.location)
 
         // How much to enlarge touch size by, so that we accept a near miss.
         let fudgeFactor: Float = 1
 
         // The factor of 2 is b/c view size is 2 in clip space
         let touchSize = SIMD2<Float>(
-            2 * fudgeFactor * nodeSize  / Float(renderController.viewBounds.width),
-            2 * fudgeFactor * nodeSize / Float(renderController.viewBounds.height))
+            2 * fudgeFactor * pointSize  / Float(renderer.viewBounds.width),
+            2 * fudgeFactor * pointSize / Float(renderer.viewBounds.height))
 
         //        print("PickingDemo.anyTap:    nodeSize = \(nodeSize)")
         //        print("PickingDemo.anyTap:    viewSize = \(renderController.fovController.viewSize)")
         //        print("PickingDemo.anyTap:    touchSize= \(touchSize.prettyString)")
 
-        let touchRay = renderController.touchRay(at: touchLocation, size: touchSize)
+        let touchRay = renderer.touchRay(at: touchLocation, size: touchSize)
 
         //        print("PickingDemo.anyTap:    touchRay: \(touchRay)")
 
@@ -94,7 +99,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
-        renderController.setColorScheme(colorScheme)
+        renderer.setColorScheme(colorScheme)
     }
 
 }
