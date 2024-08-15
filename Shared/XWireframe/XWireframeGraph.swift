@@ -1,5 +1,5 @@
 //
-//  OldWireframeGraph.swift
+//  XWireframeGraph.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 8/15/24.
@@ -29,7 +29,7 @@ fileprivate func colorAt(_ location: SIMD3<Float>) -> SIMD4<Float>? {
         1)
 }
 
-struct OldWireframeNodeValue: EmbeddedValue, ColoredValue {
+struct XWireframeNodeValue: EmbeddedValue, ColoredValue {
 
     private static var createdCount: Int = 0
 
@@ -44,9 +44,9 @@ struct OldWireframeNodeValue: EmbeddedValue, ColoredValue {
     }
 }
 
-struct OldWireframeEdgeValue: ColoredValue {
+struct XWireframeEdgeValue: ColoredValue {
 
     var color: SIMD4<Float>? = nil
 }
 
-typealias OldWireframeGraph = BaseGraph<OldWireframeNodeValue, OldWireframeEdgeValue>
+typealias XWireframeGraph = BaseGraph<XWireframeNodeValue, XWireframeEdgeValue>

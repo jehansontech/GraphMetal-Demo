@@ -1,5 +1,5 @@
 //
-//  OldWireframeDemo.swift
+//  XWireframeDemo.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 8/15/24.
@@ -10,7 +10,7 @@ import GenericGraph
 import GraphMetal
 import Wacoma
 
-class OldWireframeDemo: ObservableObject, Demo {
+class XWireframeDemo: ObservableObject, Demo {
 
     static var defaultOrbitEnabled: Bool = true
 
@@ -28,30 +28,30 @@ class OldWireframeDemo: ObservableObject, Demo {
 
     static var defaultPOV = CenteredPOV(location: SIMD3<Float>(4, 0, -4))
 
-    var type: DemoType { .oldWireframe }
+    var type: DemoType { .xWireframe }
 
     var info: String { "" }
 
     var controlsView: some View {
-        OldWireframeControls(demo: self)
+        XWireframeControls(demo: self)
     }
 
     var figureView: some View {
-        OldWireframeFigure(demo: self)
+        XWireframeFigure(demo: self)
     }
 
-    var graph: OldWireframeGraph
+    var graph: XWireframeGraph
 
     var povController: OrbitingPOVController
 
     var fovController: PerspectiveFOVController
 
-    var wireframe: Wireframe
+    var wireframe: XWireframe
 
-    var renderer: RenderController
+    var renderer: XRenderController
 
     init() {
-        self.graph = GraphBuilder(OldWireframeNodeValue.init, OldWireframeEdgeValue.init)
+        self.graph = GraphBuilder(XWireframeNodeValue.init, XWireframeEdgeValue.init)
             .simpleCube()
 
         self.povController = OrbitingPOVController(pov: Self.initialPOV,
@@ -60,21 +60,25 @@ class OldWireframeDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
-        self.wireframe = Wireframe(nodePositionBufferIndex: 1,
+        self.wireframe = XWireframe(nodePositionBufferIndex: 1,
                                    nodeColorBufferIndex: 2)
 
 
-        self.renderer = RenderController(povController, fovController)
+        self.renderer = XRenderController(povController, fovController)
 
-        //        self.wireframe.nodeSize = OldWireframeDemo.initialPointSize
-        //        wireframe.addUpdate(.makeTotalUpdate(self.graph))
-
+        // wireframe.nodeSize = OldWireframeDemo.initialPointSize
+        wireframe.addBufferUpdate(makeTotalUpdate())
         renderer.renderables.append(wireframe)
         povController.fly(to: Self.defaultPOV)
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
         renderer.setColorScheme(colorScheme)
+    }
+
+    private func makeTotalUpdate() -> XWireframeUpdate? {
+        var generator = XWireframeUpdateGenerator()
+        return generator.makeUpdate(self.graph, .all)
     }
 
 }

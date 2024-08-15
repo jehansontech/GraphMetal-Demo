@@ -11,7 +11,7 @@ import Wacoma
 
 struct Overlay: View {
 
-    var renderController: RenderController
+    var renderController: XRenderController
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -41,7 +41,7 @@ struct Overlay: View {
         }
     }
 
-    init(_ renderController: RenderController) {
+    init(_ renderController: XRenderController) {
         self.renderController = renderController
     }
 }

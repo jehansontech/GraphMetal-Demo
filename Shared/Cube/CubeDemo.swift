@@ -86,4 +86,3 @@ class CubeDemo: ObservableObject, Demo {
         renderer.setColorScheme(colorScheme)
     }
 }
-

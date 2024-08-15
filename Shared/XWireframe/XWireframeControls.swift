@@ -1,5 +1,5 @@
 //
-//  OldWireframeControls.swift
+//  XWireframeControls.swift
 //  GraphMetal-Demo
 //
 //  Created by Jim Hanson on 8/15/24.
@@ -9,11 +9,11 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct OldWireframeControls: View {
+struct XWireframeControls: View {
 
     static var labelWidth: CGFloat = 90
 
-    @ObservedObject var demo: OldWireframeDemo
+    @ObservedObject var demo: XWireframeDemo
 
     @State var isGraphSettingsExpanded = false
 
@@ -28,7 +28,7 @@ struct OldWireframeControls: View {
                 DisclosureGroup("Graph", isExpanded: $isGraphSettingsExpanded) {
                     HStack {
                         Divider()
-                        OldWireframeGraphSettingsControls(demo: demo)
+                        XWireframeGraphSettingsControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
@@ -41,7 +41,7 @@ struct OldWireframeControls: View {
                 DisclosureGroup("Background", isExpanded: $isBackgroundSettingsExpanded) {
                     HStack {
                         Divider()
-                        OldWireframeBackgroundSettingsControls(demo: demo)
+                        XWireframeBackgroundSettingsControls(demo: demo)
                     }
                     .onAppear {
                         // unexpand the others
@@ -54,7 +54,7 @@ struct OldWireframeControls: View {
                 DisclosureGroup("Field of View", isExpanded: $isFOVSettingsExpanded) {
                     HStack {
                         Divider()
-                        OldWireframeFOVSettingsControls(fovController: demo.fovController)
+                        XWireframeFOVSettingsControls(fovController: demo.fovController)
                     }
                     .onAppear {
                         // unexpand the others
@@ -69,17 +69,17 @@ struct OldWireframeControls: View {
     }
 }
 
-struct OldWireframeGraphSettingsControls: View {
+struct XWireframeGraphSettingsControls: View {
 
     private var nodeSizeRange: ClosedRange<Float> { ZWireframeConstants.pointSizeMinimum...ZWireframeConstants.pointSizeMaximum }
 
-    @ObservedObject var demo: OldWireframeDemo
+    @ObservedObject var demo: XWireframeDemo
 
     var body: some View {
         VStack(alignment: .leading) {
 //            HStack {
 //                Text("Node Size")
-//                    .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                    .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                Slider(value: $demo.wireframe.nodeSize, in: nodeSizeRange) {
 //                    Text("")
 //                }
@@ -88,7 +88,7 @@ struct OldWireframeGraphSettingsControls: View {
 //            VStack(alignment: .leading) {
 //                HStack {
 //                    Text("Red")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.wireframe.edgeColor.x, in: 0...1) {
 //                        Text("")
 //                    }
@@ -96,7 +96,7 @@ struct OldWireframeGraphSettingsControls: View {
 //
 //                HStack {
 //                    Text("Green")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.wireframe.edgeColor.y, in: 0...1) {
 //                        Text("")
 //                    }
@@ -104,7 +104,7 @@ struct OldWireframeGraphSettingsControls: View {
 //
 //                HStack {
 //                    Text("Blue")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.wireframe.edgeColor.z, in: 0...1) {
 //                        Text("")
 //                    }
@@ -112,7 +112,7 @@ struct OldWireframeGraphSettingsControls: View {
 //
 //                HStack {
 //                    Text("Alpha")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.wireframe.edgeColor.w, in: 0...1) {
 //                        Text("")
 //                    }
@@ -122,9 +122,9 @@ struct OldWireframeGraphSettingsControls: View {
     }
 }
 
-struct OldWireframeBackgroundSettingsControls: View {
+struct XWireframeBackgroundSettingsControls: View {
 
-    @ObservedObject var demo: OldWireframeDemo
+    @ObservedObject var demo: XWireframeDemo
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -132,7 +132,7 @@ struct OldWireframeBackgroundSettingsControls: View {
 //            VStack(alignment: .leading) {
 //                HStack {
 //                    Text("Red")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.renderer.backgroundColor.x, in: 0...1) {
 //                        Text("")
 //                    }
@@ -140,7 +140,7 @@ struct OldWireframeBackgroundSettingsControls: View {
 //
 //                HStack {
 //                    Text("Green")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.renderer.backgroundColor.y, in: 0...1) {
 //                        Text("")
 //                    }
@@ -148,7 +148,7 @@ struct OldWireframeBackgroundSettingsControls: View {
 //
 //                HStack {
 //                    Text("Blue")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.renderer.backgroundColor.z, in: 0...1) {
 //                        Text("")
 //                    }
@@ -156,7 +156,7 @@ struct OldWireframeBackgroundSettingsControls: View {
 //
 //                HStack {
 //                    Text("Alpha")
-//                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+//                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
 //                    Slider(value: $demo.renderer.backgroundColor.w, in: 0...1) {
 //                        Text("")
 //                    }
@@ -166,7 +166,7 @@ struct OldWireframeBackgroundSettingsControls: View {
     }
 }
 
-struct OldWireframeFOVSettingsControls: View {
+struct XWireframeFOVSettingsControls: View {
 
     let yFOVMin: Float = 0.01 * Float.pi
     let yFOVMax: Float = 0.99 * Float.pi
@@ -179,12 +179,12 @@ struct OldWireframeFOVSettingsControls: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text("Midpoint")
-                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
                     Slider(value: $fovController.fadeoutMidpoint, in: 1...20)
                 }
                 HStack {
                     Text("Distance")
-                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
                     Slider(value: $fovController.fadeoutDistance, in: 1...10)
                 }
             }
@@ -193,7 +193,7 @@ struct OldWireframeFOVSettingsControls: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text("zNear")
-                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
                     Slider(value: $fovController.zNear, in: 0.01...9.99) {
                         Text("")
                     }
@@ -201,7 +201,7 @@ struct OldWireframeFOVSettingsControls: View {
 
                 HStack {
                     Text("zFar")
-                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
                     Slider(value: $fovController.zFar, in: 10...100) {
                         Text("")
                     }
@@ -209,7 +209,7 @@ struct OldWireframeFOVSettingsControls: View {
 
                 HStack {
                     Text("yFOV")
-                        .frame(width: OldWireframeControls.labelWidth, alignment: .trailing)
+                        .frame(width: XWireframeControls.labelWidth, alignment: .trailing)
                     Slider(value: $fovController.yFOV, in: yFOVMin...yFOVMax) {
                         Text("")
                     }
