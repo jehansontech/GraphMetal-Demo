@@ -61,12 +61,12 @@ class MonochromeDemo: ObservableObject, Demo {
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
         self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
-                                             nodeSize: MonochromeDemo.initialPointSize)
+                                              nodeSize: MonochromeDemo.initialPointSize)
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 
-        var updateGenerator = ZMonochromeWireframe.UpdateGenerator(graph: self.graph)
-        wireframe.addUpdate(updateGenerator.makeUpdate())
+        var updateGenerator = ZMonochromeWireframe.UpdateGenerator()
+        wireframe.addUpdate(updateGenerator.makeUpdate(graph))
         povController.fly(to: Self.defaultPOV)
     }
 
