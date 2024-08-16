@@ -42,7 +42,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
     var wireframe: ZWireframeWithColoredNodes
 
-    var generator: ZWireframeWithColoredNodes.UpdateGenerator<PickingDemoGraph>
+    var generator: ZWireframeWithColoredNodes.UpdateGenerator
 
     init() {
         self.graph = GraphBuilder(PickingDemoNodeValue.init)
@@ -55,23 +55,21 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         self.renderer = ZRenderer(povController, fovController, wireframe)
         self.generator = ZWireframeWithColoredNodes.UpdateGenerator()
 
-        self.generator.graph = self.graph
-        wireframe.addUpdate(generator.makeUpdate())
+        wireframe.addUpdate(generator.makeUpdate(graph))
 
     }
 
     func updateFigure(nodePositionChanged: Bool = false,
                       nodeColorChanged: Bool = false) {
-        generator.graphHasChanged(nodePositions: nodePositionChanged, nodeColors: nodeColorChanged)
-        wireframe.addUpdate(generator.makeUpdate())
+        generator.graphHasChanged(graph, nodePositions: nodePositionChanged, nodeColors: nodeColorChanged)
+        wireframe.addUpdate(generator.makeUpdate(graph))
     }
     
     func resetGraph() {
         selection.clear()
-        self.graph = GraphBuilder(PickingDemoNodeValue.init)
+        graph = GraphBuilder(PickingDemoNodeValue.init)
             .simpleOctahedron()
-        self.generator.graph = self.graph
-        wireframe.addUpdate(generator.makeUpdate())
+        wireframe.addUpdate(generator.makeUpdate(graph))
     }
 
     func tap(at touchLocation: SIMD2<Float>) {

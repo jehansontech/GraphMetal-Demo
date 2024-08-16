@@ -66,8 +66,8 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 
-        var updateGenerator = ZWireframeWithColoredNodes.UpdateGenerator(graph: self.graph)
-        wireframe.addUpdate(updateGenerator.makeUpdate())
+        var updateGenerator = ZWireframeWithColoredNodes.UpdateGenerator()
+        wireframe.addUpdate(updateGenerator.makeUpdate(graph))
         povController.fly(to: Self.defaultPOV)
     }
 

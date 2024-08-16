@@ -30,7 +30,7 @@ actor BallDemoRunner {
 
     var graph: BallDemoGraph
 
-    private var generator: ZWireframeWithColoredNodes.UpdateGenerator<BallDemoGraph> = .init()
+    private var generator: ZWireframeWithColoredNodes.UpdateGenerator
 
     private var lastNewNodeTimestamp: Date = .distantPast
 
@@ -39,7 +39,7 @@ actor BallDemoRunner {
     init() {
         self.graph = BallDemoGraph()
         self.settings = BallDemoSettings()
-        self.generator.graph = self.graph
+        self.generator = ZWireframeWithColoredNodes.UpdateGenerator()
     }
 
     func connect(_ demo: BallDemoViewModel) async {
@@ -85,7 +85,6 @@ actor BallDemoRunner {
         let shouldSendUpdate = !isRunning
 
         self.graph = BallDemoGraph()
-        self.generator.graph = self.graph
         if shouldSendUpdate {
             let update = makeStepResult()
             Task {
@@ -106,11 +105,11 @@ actor BallDemoRunner {
     private func doStep() -> StepResult {
         if Date().timeIntervalSince(lastNewNodeTimestamp) >= settings.newNodeTimeInterval {
             addNode(graph)
-            generator.graphHasChanged(nodeSet: true)
+            generator.graphHasChanged(graph, nodeSet: true)
             lastNewNodeTimestamp = Date()
         }
         else {
-            generator.graphHasChanged(nodeColors: true)
+            generator.graphHasChanged(graph, nodeColors: true)
         }
         return makeStepResult()
     }
@@ -119,7 +118,7 @@ actor BallDemoRunner {
         return StepResult(isRunning: self.isRunning,
                           nodeCount: graph.nodes.count,
                           edgeCount: graph.edges.count,
-                          wireframeUpdate: generator.makeUpdate())
+                          wireframeUpdate: generator.makeUpdate(graph))
     }
 
     private func addNode(_ graph: BallDemoGraph) {
