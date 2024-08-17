@@ -9,42 +9,42 @@ import SwiftUI
 import GraphMetal
 import Wacoma
 
-struct Overlay: View {
-
-    var renderController: XRenderController
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-
-                Button {
-                    do {
-                        try renderController.requestSnapshot { response in
-                            print(response)
-                        }
-                    }
-                    catch {
-                        print("\(error)")
-                    }
-                } label:  {
-                    Image(systemName: "camera.on.rectangle")
-                }
-                .padding(4)
-                .background(Color.clear)
-                .imageScale(.large)
-                .help("Take a snapshot of the figure")
-
-                Spacer()
-            }
-
-            Spacer()
-        }
-    }
-
-    init(_ renderController: XRenderController) {
-        self.renderController = renderController
-    }
-}
+//struct Overlay: View {
+//
+//    var renderController: XRenderController
+//
+//    var body: some View {
+//        VStack(alignment: .leading) {
+//            HStack(alignment: .top) {
+//
+//                Button {
+//                    do {
+//                        try renderController.requestSnapshot { response in
+//                            print(response)
+//                        }
+//                    }
+//                    catch {
+//                        print("\(error)")
+//                    }
+//                } label:  {
+//                    Image(systemName: "camera.on.rectangle")
+//                }
+//                .padding(4)
+//                .background(Color.clear)
+//                .imageScale(.large)
+//                .help("Take a snapshot of the figure")
+//
+//                Spacer()
+//            }
+//
+//            Spacer()
+//        }
+//    }
+//
+//    init(_ renderController: XRenderController) {
+//        self.renderController = renderController
+//    }
+//}
 
 struct ZOverlay: View {
 
