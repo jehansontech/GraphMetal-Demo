@@ -20,7 +20,7 @@ class DemoRegistry: ObservableObject {
 
     lazy var coloredNodes = ColoredNodesDemo()
 
-    lazy var oldWireframe = XWireframeDemo()
+    // lazy var xWireframe = XWireframeDemo()
 
     func info(_ demo: DemoType) -> String {
         switch demo {
@@ -34,8 +34,8 @@ class DemoRegistry: ObservableObject {
             return monochrome.info
         case .coloredNodes:
             return coloredNodes.info
-        case .xWireframe:
-            return oldWireframe.info
+//        case .xWireframe:
+//            return xWireframe.info
         }
     }
 
@@ -53,8 +53,8 @@ class DemoRegistry: ObservableObject {
                 monochrome.controlsView
             case .coloredNodes:
                 coloredNodes.controlsView
-            case .xWireframe:
-                oldWireframe.controlsView
+//            case .xWireframe:
+//                xWireframe.controlsView
             }
         }
     }
@@ -73,8 +73,8 @@ class DemoRegistry: ObservableObject {
                 monochrome.figureView
             case .coloredNodes:
                 coloredNodes.figureView
-            case .xWireframe:
-                oldWireframe.figureView
+//            case .xWireframe:
+//                xWireframe.figureView
             }
         }
     }
