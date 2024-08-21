@@ -257,10 +257,10 @@
 		38E383B1276A25340066E304 /* Picking */ = {
 			isa = PBXGroup;
 			children = (
-				38E383BB276A25850066E304 /* PickingDemoGraph.swift */,
 				38E38F00278A1C4D00AEF89F /* PickingDemo.swift */,
-				38E38F03278A1CB700AEF89F /* PickingDemoFigure.swift */,
 				38E38F06278A1E7800AEF89F /* PickingDemoControls.swift */,
+				38E38F03278A1CB700AEF89F /* PickingDemoFigure.swift */,
+				38E383BB276A25850066E304 /* PickingDemoGraph.swift */,
 			);
 			path = Picking;
 			sourceTree = "<group>";
