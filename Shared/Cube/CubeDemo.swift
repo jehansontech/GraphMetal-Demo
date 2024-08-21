@@ -22,7 +22,7 @@ class CubeDemo: ObservableObject, Demo {
 
     static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
 
-    static let nodeSize: Float = 4
+    static let nodeSize: Float = 16
 
     static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
 

@@ -17,11 +17,11 @@ class BallDemoViewModel: ObservableObject {
 
     @Published var edgeCount: Int = 0
 
-    var povController = OrbitingPOVController(pov: CenteredPOV(location: SIMD3<Float>(0, 0, -2)))
+    var povController = OrbitingPOVController(pov: CenteredPOV(location: SIMD3<Float>(0, 0, -3)))
 
     var fovController = PerspectiveFOVController()
 
-    var wireframe = ZWireframeWithColoredNodes()
+    var wireframe = ZWireframeWithColoredNodes(nodeSize: 3)
 
     var renderer: ZRenderer
 

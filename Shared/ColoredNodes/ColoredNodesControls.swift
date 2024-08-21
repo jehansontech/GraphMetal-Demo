@@ -71,7 +71,7 @@ struct ColoredNodesControls: View {
 
 struct ColoredNodesGraphSettingsControls: View {
 
-    private var nodeSizeRange: ClosedRange<Float> { ZWireframeConstants.pointSizeMinimum...ZWireframeConstants.pointSizeMaximum }
+    private var nodeSizeRange: ClosedRange<Float> { 1...32 }
 
     @ObservedObject var demo: ColoredNodesDemo
 
