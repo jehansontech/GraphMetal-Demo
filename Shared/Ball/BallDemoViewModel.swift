@@ -21,7 +21,7 @@ class BallDemoViewModel: ObservableObject {
 
     var fovController = PerspectiveFOVController()
 
-    var wireframe = ZWireframeWithColoredNodes(nodeSize: 3)
+    var wireframe = ZWireframeWithColoredNodes(nodeSize: 1)
 
     var renderer: ZRenderer
 

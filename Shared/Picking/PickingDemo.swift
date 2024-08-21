@@ -51,7 +51,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), 
                                                    orbitEnabled: false)
         self.fovController = PerspectiveFOVController()
-        self.wireframe = ZWireframeWithColoredNodes(nodeShape: .ring)
+        self.wireframe = ZWireframeWithColoredNodes(nodeSize: 2)
         self.renderer = ZRenderer(povController, fovController, wireframe)
         self.generator = ZWireframeWithColoredNodes.UpdateGenerator()
 
