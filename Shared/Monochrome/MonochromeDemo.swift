@@ -16,7 +16,7 @@ class MonochromeDemo: ObservableObject, Demo {
 
     static var defaultOrbitSpeed: Float = .pi/30
 
-    static var initialPointSize: Float  = ZWireframeConstants.pointSizeMinimum
+    static var initialNodeSize: Float  = 4
 
     static var defaultFadeoutMidpoint: Float = 10
 
@@ -61,7 +61,7 @@ class MonochromeDemo: ObservableObject, Demo {
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
         self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
-                                              nodeSize: MonochromeDemo.initialPointSize)
+                                              nodeSize: MonochromeDemo.initialNodeSize)
 
         self.renderer = ZRenderer(povController, fovController, wireframe)
 
