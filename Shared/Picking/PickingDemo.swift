@@ -38,11 +38,11 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
     var fovController: PerspectiveFOVController
 
-    var renderer: ZRenderer
+    var renderer: Renderer
 
-    var wireframe: ZWireframeWithColoredNodes
+    var wireframe: ColoredNodeWireframe
 
-    var generator: ZWireframeWithColoredNodes.UpdateGenerator
+    var generator: ColoredNodeWireframe.UpdateGenerator
 
     init() {
         self.graph = GraphBuilder(PickingDemoNodeValue.init)
@@ -51,9 +51,9 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), 
                                                    orbitEnabled: false)
         self.fovController = PerspectiveFOVController()
-        self.wireframe = ZWireframeWithColoredNodes(nodeSize: 2)
-        self.renderer = ZRenderer(povController, fovController, wireframe)
-        self.generator = ZWireframeWithColoredNodes.UpdateGenerator()
+        self.wireframe = ColoredNodeWireframe(nodeSize: 2)
+        self.renderer = Renderer(povController, fovController, wireframe)
+        self.generator = ColoredNodeWireframe.UpdateGenerator()
 
         wireframe.addUpdate(generator.makeUpdate(graph))
 

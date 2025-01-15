@@ -48,7 +48,7 @@ import Wacoma
 
 struct ZOverlay: View {
 
-    var renderer: ZRenderer
+    var renderer: Renderer
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -78,7 +78,7 @@ struct ZOverlay: View {
         }
     }
 
-    init(_ renderer: ZRenderer) {
+    init(_ renderer: Renderer) {
         self.renderer = renderer
     }
 }

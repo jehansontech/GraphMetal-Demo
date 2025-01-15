@@ -46,9 +46,9 @@ class MonochromeDemo: ObservableObject, Demo {
 
     var fovController: PerspectiveFOVController
 
-    var wireframe: ZMonochromeWireframe
+    var wireframe: MonochromeWireframe
 
-    var renderer: ZRenderer
+    var renderer: Renderer
 
     init() {
         self.graph = GraphBuilder(MonochromeNodeValue.init)
@@ -60,12 +60,12 @@ class MonochromeDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
-        self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
+        self.wireframe = MonochromeWireframe(nodeShape: .disc,
                                               nodeSize: MonochromeDemo.initialNodeSize)
 
-        self.renderer = ZRenderer(povController, fovController, wireframe)
+        self.renderer = Renderer(povController, fovController, wireframe)
 
-        var updateGenerator = ZMonochromeWireframe.UpdateGenerator()
+        var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
         povController.fly(to: Self.defaultPOV)
     }

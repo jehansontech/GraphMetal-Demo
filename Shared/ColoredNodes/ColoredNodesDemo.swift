@@ -16,7 +16,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     static var defaultOrbitSpeed: Float = .pi/30
 
-    static var initialPointSize: Float  = ZWireframeConstants.pointSizeMinimum
+    static var initialPointSize: Float  = WireframeConstants.pointSizeMinimum
 
     static var defaultFadeoutMidpoint: Float = 4
 
@@ -46,9 +46,9 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     var fovController: PerspectiveFOVController
 
-    var wireframe: ZWireframeWithColoredNodes
+    var wireframe: ColoredNodeWireframe
 
-    var renderer: ZRenderer
+    var renderer: Renderer
 
     init() {
         self.graph = GraphBuilder(ColoredNodeValue.init)
@@ -60,13 +60,13 @@ class ColoredNodesDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
 
-        self.wireframe = ZWireframeWithColoredNodes(nodeShape: .disc, edgeColor: Self.defaultEdgeColor)
+        self.wireframe = ColoredNodeWireframe(nodeShape: .disc, edgeColor: Self.defaultEdgeColor)
 
         self.wireframe.nodeSize = ColoredNodesDemo.initialPointSize
 
-        self.renderer = ZRenderer(povController, fovController, wireframe)
+        self.renderer = Renderer(povController, fovController, wireframe)
 
-        var updateGenerator = ZWireframeWithColoredNodes.UpdateGenerator()
+        var updateGenerator = ColoredNodeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
         povController.fly(to: Self.defaultPOV)
     }

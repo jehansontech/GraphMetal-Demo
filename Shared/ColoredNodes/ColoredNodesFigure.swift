@@ -17,7 +17,7 @@ struct ColoredNodesFigure: View {
 
     var body: some View {
         ZStack {
-            ZRendererView(demo.renderer,
+            RendererView(demo.renderer,
                          GestureHandlers(primaryDrag: demo.renderer,
                                          pinch: demo.renderer,
                                          rotation: demo.renderer))

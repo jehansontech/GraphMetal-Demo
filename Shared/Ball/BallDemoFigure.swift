@@ -17,7 +17,7 @@ struct BallDemoFigure: View {
 
     var body: some View {
         ZStack {
-            ZRendererView(viewModel.renderer,
+            RendererView(viewModel.renderer,
                          GestureHandlers(primaryDrag: viewModel.renderer,
                                          pinch: viewModel.renderer,
                                          rotation: viewModel.renderer))

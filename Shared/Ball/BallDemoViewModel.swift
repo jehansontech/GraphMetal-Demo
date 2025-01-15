@@ -21,14 +21,14 @@ class BallDemoViewModel: ObservableObject {
 
     var fovController = PerspectiveFOVController()
 
-    var wireframe = ZWireframeWithColoredNodes(nodeSize: 1)
+    var wireframe = ColoredNodeWireframe(nodeSize: 1)
 
-    var renderer: ZRenderer
+    var renderer: Renderer
 
     private var runner: BallDemoRunner
 
     init() {
-        self.renderer = ZRenderer(povController, fovController, wireframe)
+        self.renderer = Renderer(povController, fovController, wireframe)
         self.runner = BallDemoRunner()
         Task {
             await runner.connect(self)

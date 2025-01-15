@@ -27,14 +27,6 @@
 		38187E94274D5EE900244D04 /* GraphMetal in Frameworks */ = {isa = PBXBuildFile; productRef = 38187E93274D5EE900244D04 /* GraphMetal */; };
 		3832225827565AAE00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
 		3832225927565AAF00B91665 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832225727565AAE00B91665 /* DisplayState.swift */; };
-		384B6FB12C6E1C210019300A /* XWireframeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB02C6E1C210019300A /* XWireframeDemo.swift */; };
-		384B6FB22C6E1C210019300A /* XWireframeDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB02C6E1C210019300A /* XWireframeDemo.swift */; };
-		384B6FB42C6E1DF50019300A /* XWireframeControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB32C6E1DF50019300A /* XWireframeControls.swift */; };
-		384B6FB52C6E1DF50019300A /* XWireframeControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB32C6E1DF50019300A /* XWireframeControls.swift */; };
-		384B6FB72C6E1E120019300A /* XWireframeFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB62C6E1E120019300A /* XWireframeFigure.swift */; };
-		384B6FB82C6E1E120019300A /* XWireframeFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB62C6E1E120019300A /* XWireframeFigure.swift */; };
-		384B6FBA2C6E1E320019300A /* XWireframeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB92C6E1E320019300A /* XWireframeGraph.swift */; };
-		384B6FBB2C6E1E320019300A /* XWireframeGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384B6FB92C6E1E320019300A /* XWireframeGraph.swift */; };
 		3850A78E27673303004452C6 /* GraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* GraphBuilder.swift */; };
 		3850A78F27673303004452C6 /* GraphBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850A78D27673303004452C6 /* GraphBuilder.swift */; };
 		385550962767BF4F0041104B /* CubeDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385550952767BF4F0041104B /* CubeDemoGraph.swift */; };
@@ -93,10 +85,6 @@
 		38187E75274D5E3D00244D04 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		3832225727565AAE00B91665 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
 		38404C3C275EAC3800A7486A /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
-		384B6FB02C6E1C210019300A /* XWireframeDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XWireframeDemo.swift; sourceTree = "<group>"; };
-		384B6FB32C6E1DF50019300A /* XWireframeControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XWireframeControls.swift; sourceTree = "<group>"; };
-		384B6FB62C6E1E120019300A /* XWireframeFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XWireframeFigure.swift; sourceTree = "<group>"; };
-		384B6FB92C6E1E320019300A /* XWireframeGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XWireframeGraph.swift; sourceTree = "<group>"; };
 		3850A78D27673303004452C6 /* GraphBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphBuilder.swift; sourceTree = "<group>"; };
 		385550952767BF4F0041104B /* CubeDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeDemoGraph.swift; sourceTree = "<group>"; };
 		385550A12767E9970041104B /* BallDemoGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoGraph.swift; sourceTree = "<group>"; };
@@ -181,7 +169,6 @@
 				38E62F292C595B25008C02AA /* ColoredNodes */,
 				38187E98274D5EFC00244D04 /* Cube */,
 				380AB4082C679BE900244DAE /* Monochrome */,
-				384B6FAF2C6E1BF50019300A /* XWireframe */,
 				38E383B1276A25340066E304 /* Picking */,
 			);
 			path = Shared;
@@ -233,17 +220,6 @@
 				385550952767BF4F0041104B /* CubeDemoGraph.swift */,
 			);
 			path = Cube;
-			sourceTree = "<group>";
-		};
-		384B6FAF2C6E1BF50019300A /* XWireframe */ = {
-			isa = PBXGroup;
-			children = (
-				384B6FB02C6E1C210019300A /* XWireframeDemo.swift */,
-				384B6FB32C6E1DF50019300A /* XWireframeControls.swift */,
-				384B6FB62C6E1E120019300A /* XWireframeFigure.swift */,
-				384B6FB92C6E1E320019300A /* XWireframeGraph.swift */,
-			);
-			path = XWireframe;
 			sourceTree = "<group>";
 		};
 		3858DC48275FAC8000C2D31E /* iOS */ = {
@@ -384,7 +360,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				380AB4132C679D5300244DAE /* MonochromeGraph.swift in Sources */,
-				384B6FBA2C6E1E320019300A /* XWireframeGraph.swift in Sources */,
 				38E62F2B2C595B46008C02AA /* ColoredNodesDemo.swift in Sources */,
 				38187E78274D5E3D00244D04 /* ContentView.swift in Sources */,
 				38E383AF276A169A0066E304 /* Overlay.swift in Sources */,
@@ -400,14 +375,11 @@
 				38E38F01278A1C4D00AEF89F /* PickingDemo.swift in Sources */,
 				380AB40A2C679C2C00244DAE /* MonochromeDemo.swift in Sources */,
 				38187E76274D5E3D00244D04 /* GraphMetal_DemoApp.swift in Sources */,
-				384B6FB42C6E1DF50019300A /* XWireframeControls.swift in Sources */,
 				3850A78E27673303004452C6 /* GraphBuilder.swift in Sources */,
 				385550A22767E9970041104B /* BallDemoGraph.swift in Sources */,
 				385550A827680FCA0041104B /* Demo.swift in Sources */,
 				387BD24D28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */,
 				38E62F342C595BFE008C02AA /* ColoredNodesGraph.swift in Sources */,
-				384B6FB72C6E1E120019300A /* XWireframeFigure.swift in Sources */,
-				384B6FB12C6E1C210019300A /* XWireframeDemo.swift in Sources */,
 				380AB40D2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F07278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,
 				38E38EFE278A180E00AEF89F /* BallDemoControls.swift in Sources */,
@@ -424,7 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				380AB4142C679D5300244DAE /* MonochromeGraph.swift in Sources */,
-				384B6FBB2C6E1E320019300A /* XWireframeGraph.swift in Sources */,
 				38E62F2C2C595B65008C02AA /* ColoredNodesDemo.swift in Sources */,
 				38187E79274D5E3D00244D04 /* ContentView.swift in Sources */,
 				38E383B0276A169A0066E304 /* Overlay.swift in Sources */,
@@ -440,14 +411,11 @@
 				38E38F02278A1C4D00AEF89F /* PickingDemo.swift in Sources */,
 				380AB40B2C679C4E00244DAE /* MonochromeDemo.swift in Sources */,
 				38E38EFC278A179200AEF89F /* BallDemoFigure.swift in Sources */,
-				384B6FB52C6E1DF50019300A /* XWireframeControls.swift in Sources */,
 				3850A78F27673303004452C6 /* GraphBuilder.swift in Sources */,
 				385550A32767E9970041104B /* BallDemoGraph.swift in Sources */,
 				385550A927680FCA0041104B /* Demo.swift in Sources */,
 				38E38EFF278A180E00AEF89F /* BallDemoControls.swift in Sources */,
 				387BD24E28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */,
-				384B6FB82C6E1E120019300A /* XWireframeFigure.swift in Sources */,
-				384B6FB22C6E1C210019300A /* XWireframeDemo.swift in Sources */,
 				38E62F352C595BFE008C02AA /* ColoredNodesGraph.swift in Sources */,
 				380AB40E2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F08278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,

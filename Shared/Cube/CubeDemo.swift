@@ -48,9 +48,9 @@ class CubeDemo: ObservableObject, Demo {
 
     var fovController: PerspectiveFOVController
 
-    var wireframe: ZMonochromeWireframe
+    var wireframe: MonochromeWireframe
 
-    var renderer: ZRenderer
+    var renderer: Renderer
 
     init() {
         self.graph = GraphBuilder(CubeDemoNodeValue.init)
@@ -62,13 +62,13 @@ class CubeDemo: ObservableObject, Demo {
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
                                                       fadeoutDistance: Self.defaultFadeoutDistance)
         
-        self.wireframe = ZMonochromeWireframe(nodeShape: .disc,
+        self.wireframe = MonochromeWireframe(nodeShape: .disc,
                                               nodeSize: Self.nodeSize,
                                               graphColor: Self.graphColor)
 
-        self.renderer = ZRenderer(povController, fovController, wireframe)
+        self.renderer = Renderer(povController, fovController, wireframe)
 
-        var updateGenerator = ZMonochromeWireframe.UpdateGenerator()
+        var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
         povController.jump(to: Self.initialPOV)
     }

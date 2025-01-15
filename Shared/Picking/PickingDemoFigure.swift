@@ -17,7 +17,7 @@ struct PickingDemoFigure: View {
     
     var body: some View {
         ZStack {
-            ZRendererView(demo.renderer,
+            RendererView(demo.renderer,
                          GestureHandlers(primaryTap: demo,
                                          primaryDrag: demo.renderer,
                                          pinch: demo.renderer,

@@ -30,7 +30,7 @@ actor BallDemoRunner {
 
     var graph: BallDemoGraph
 
-    private var generator: ZWireframeWithColoredNodes.UpdateGenerator
+    private var generator: ColoredNodeWireframe.UpdateGenerator
 
     private var lastNewNodeTimestamp: Date = .distantPast
 
@@ -39,7 +39,7 @@ actor BallDemoRunner {
     init() {
         self.graph = BallDemoGraph()
         self.settings = BallDemoSettings()
-        self.generator = ZWireframeWithColoredNodes.UpdateGenerator()
+        self.generator = ColoredNodeWireframe.UpdateGenerator()
     }
 
     func connect(_ demo: BallDemoViewModel) async {
@@ -146,6 +146,6 @@ struct StepResult: Sendable {
     var isRunning: Bool
     var nodeCount: Int
     var edgeCount: Int
-    var wireframeUpdate: ZWireframeWithColoredNodes.Update?
+    var wireframeUpdate: ColoredNodeWireframe.Update?
 }
 
