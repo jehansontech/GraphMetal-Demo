@@ -39,6 +39,8 @@
 		387BD24828EDE676003BA3B1 /* BallDemoRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BD24628EDE676003BA3B1 /* BallDemoRunner.swift */; };
 		387BD24D28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BD24C28EDFD2D003BA3B1 /* BallDemoViewModel.swift */; };
 		387BD24E28EDFD2D003BA3B1 /* BallDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387BD24C28EDFD2D003BA3B1 /* BallDemoViewModel.swift */; };
+		38A887DD2D3A7AB600879167 /* Renderer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A887DC2D3A7AB600879167 /* Renderer+Extensions.swift */; };
+		38A887DE2D3A7AB600879167 /* Renderer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A887DC2D3A7AB600879167 /* Renderer+Extensions.swift */; };
 		38E383AF276A169A0066E304 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E383AE276A169A0066E304 /* Overlay.swift */; };
 		38E383B0276A169A0066E304 /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E383AE276A169A0066E304 /* Overlay.swift */; };
 		38E383BC276A25850066E304 /* PickingDemoGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E383BB276A25850066E304 /* PickingDemoGraph.swift */; };
@@ -91,6 +93,7 @@
 		385550A727680FCA0041104B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		387BD24628EDE676003BA3B1 /* BallDemoRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoRunner.swift; sourceTree = "<group>"; };
 		387BD24C28EDFD2D003BA3B1 /* BallDemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallDemoViewModel.swift; sourceTree = "<group>"; };
+		38A887DC2D3A7AB600879167 /* Renderer+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Renderer+Extensions.swift"; sourceTree = "<group>"; };
 		38B1AAD4274E7C8800D29C5A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		38B1AAD9274E7C9B00D29C5A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		38E383AE276A169A0066E304 /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 				3850A78D27673303004452C6 /* GraphBuilder.swift */,
 				38187E66274D5E3C00244D04 /* GraphMetal_DemoApp.swift */,
 				38E383AE276A169A0066E304 /* Overlay.swift */,
+				38A887DC2D3A7AB600879167 /* Renderer+Extensions.swift */,
 				38187E68274D5E3D00244D04 /* Assets.xcassets */,
 				38187E97274D5EF400244D04 /* Ball */,
 				38E62F292C595B25008C02AA /* ColoredNodes */,
@@ -383,6 +387,7 @@
 				380AB40D2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F07278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,
 				38E38EFE278A180E00AEF89F /* BallDemoControls.swift in Sources */,
+				38A887DD2D3A7AB600879167 /* Renderer+Extensions.swift in Sources */,
 				38E38EEE2786FE0F00AEF89F /* CubeDemo.swift in Sources */,
 				3807A39F2755626B006C8AB9 /* DemoRegistry.swift in Sources */,
 				38E38F04278A1CB700AEF89F /* PickingDemoFigure.swift in Sources */,
@@ -419,6 +424,7 @@
 				38E62F352C595BFE008C02AA /* ColoredNodesGraph.swift in Sources */,
 				380AB40E2C679CE600244DAE /* MonochromeControls.swift in Sources */,
 				38E38F08278A1E7800AEF89F /* PickingDemoControls.swift in Sources */,
+				38A887DE2D3A7AB600879167 /* Renderer+Extensions.swift in Sources */,
 				3807A3A02755626B006C8AB9 /* DemoRegistry.swift in Sources */,
 				38E38EF12787028200AEF89F /* CubeDemoControls.swift in Sources */,
 				38E38F05278A1CB700AEF89F /* PickingDemoFigure.swift in Sources */,

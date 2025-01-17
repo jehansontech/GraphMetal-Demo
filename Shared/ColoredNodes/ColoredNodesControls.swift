@@ -133,7 +133,7 @@ struct ColoredNodesBackgroundSettingsControls: View {
                 HStack {
                     Text("Red")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.renderer.backgroundColor.x, in: 0...1) {
+                    Slider(value: $demo.renderer.backgroundRenderColor.x, in: 0...1) {
                         Text("")
                     }
                 }
@@ -141,7 +141,7 @@ struct ColoredNodesBackgroundSettingsControls: View {
                 HStack {
                     Text("Green")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.renderer.backgroundColor.y, in: 0...1) {
+                    Slider(value: $demo.renderer.backgroundRenderColor.y, in: 0...1) {
                         Text("")
                     }
                 }
@@ -149,7 +149,7 @@ struct ColoredNodesBackgroundSettingsControls: View {
                 HStack {
                     Text("Blue")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.renderer.backgroundColor.z, in: 0...1) {
+                    Slider(value: $demo.renderer.backgroundRenderColor.z, in: 0...1) {
                         Text("")
                     }
                 }
@@ -157,7 +157,7 @@ struct ColoredNodesBackgroundSettingsControls: View {
                 HStack {
                     Text("Alpha")
                         .frame(width: ColoredNodesControls.labelWidth, alignment: .trailing)
-                    Slider(value: $demo.renderer.backgroundColor.w, in: 0...1) {
+                    Slider(value: $demo.renderer.backgroundRenderColor.w, in: 0...1) {
                         Text("")
                     }
                 }
