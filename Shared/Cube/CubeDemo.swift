@@ -24,9 +24,9 @@ class CubeDemo: ObservableObject, Demo {
 
     static let nodeSize: Float = 16
 
-    static var initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
+    static var initialLocation = SIMD3<Float>(30, 0, -120)
 
-    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -48))
+    static var defaultLocation = SIMD3<Float>(10, 0, -48)
 
     var type: DemoType { return .cube }
 
@@ -56,7 +56,7 @@ class CubeDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(CubeDemoNodeValue.init)
             .fancyCube(divisions: 5)
 
-        self.povController = OrbitingPOVController(pov: Self.defaultPOV,
+        self.povController = OrbitingPOVController(location: Self.defaultLocation,
                                                    orbitEnabled: false,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
@@ -70,9 +70,7 @@ class CubeDemo: ObservableObject, Demo {
 
         var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
-        povController.jumpTo(location: Self.initialPOV.location,
-                             center: Self.initialPOV.center,
-                             up: Self.initialPOV.up)
+        povController.flyTo(location: Self.initialLocation, flightTime: 0)
     }
 
 

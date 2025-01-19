@@ -48,7 +48,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         self.graph = GraphBuilder(PickingDemoNodeValue.init)
             .simpleOctahedron()
 
-        self.povController = OrbitingPOVController(pov: CenteredPOV(location: Self.locationDefault), 
+        self.povController = OrbitingPOVController(location: Self.locationDefault, 
                                                    orbitEnabled: false)
         self.fovController = PerspectiveFOVController()
         self.wireframe = ColoredNodeWireframe(nodeSize: 2)

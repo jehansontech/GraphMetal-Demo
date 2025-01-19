@@ -24,9 +24,9 @@ class MonochromeDemo: ObservableObject, Demo {
 
     static let graphColor = SIMD4<Float>(1, 0, 0.5, 1)
 
-    static let initialPOV = CenteredPOV(location: SIMD3<Float>(30, 0, -120))
+    static let initialLocation = SIMD3<Float>(30, 0, -120)
 
-    static let defaultPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
+    static let defaultLocation = SIMD3<Float>(10, 0, -10)
 
     var type: DemoType { .monochrome }
 
@@ -54,7 +54,7 @@ class MonochromeDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(MonochromeNodeValue.init)
             .fancyCube(divisions: 2)
 
-        self.povController = OrbitingPOVController(pov: Self.initialPOV,
+        self.povController = OrbitingPOVController(location: Self.initialLocation,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
@@ -67,9 +67,7 @@ class MonochromeDemo: ObservableObject, Demo {
 
         var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
-        povController.flyTo(location: Self.defaultPOV.location,
-                            center: Self.defaultPOV.center,
-                            up: Self.defaultPOV.up)
+        povController.flyTo(location: Self.defaultLocation)
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {

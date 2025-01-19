@@ -24,9 +24,9 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     static let defaultEdgeColor = SIMD4<Float>(1, 0, 0.5, 1)
 
-    static var initialPOV = CenteredPOV(location: SIMD3<Float>(10, 0, -10))
+    static var initialLocation = SIMD3<Float>(10, 0, -10)
 
-    static var defaultPOV = CenteredPOV(location: SIMD3<Float>(4, 0, -4))
+    static var defaultLocation = SIMD3<Float>(4, 0, -4)
 
     var type: DemoType { .coloredNodes }
 
@@ -54,7 +54,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(ColoredNodeValue.init)
             .simpleCube()
 
-        self.povController = OrbitingPOVController(pov: Self.initialPOV,
+        self.povController = OrbitingPOVController(location: Self.initialLocation,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
@@ -68,9 +68,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
         var updateGenerator = ColoredNodeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
-        povController.flyTo(location: Self.defaultPOV.location,
-                            center: Self.defaultPOV.center,
-                            up: Self.defaultPOV.up)
+        povController.flyTo(location: Self.defaultLocation)
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
