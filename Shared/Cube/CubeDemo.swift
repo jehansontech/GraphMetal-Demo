@@ -70,7 +70,9 @@ class CubeDemo: ObservableObject, Demo {
 
         var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
-        povController.jump(to: Self.initialPOV)
+        povController.jumpTo(location: Self.initialPOV.location,
+                             center: Self.initialPOV.center,
+                             up: Self.initialPOV.up)
     }
 
 

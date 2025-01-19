@@ -95,14 +95,15 @@ struct POVControllerUsage: View {
 
             HStack {
                 Button {
-                    demo.povController.jump(to: demo.povController.defaultPOV)
+                    demo.povController.jumpTo(location: demo.povController.defaultPOV.location,
+                                              center: demo.povController.defaultPOV.center,
+                                              up: demo.povController.defaultPOV.up)
                 } label: {
                     Text("Reset POV")
                 }
             }
             .padding(.top, 10)
             .frame(maxWidth: .infinity)
-
         }
     }
 
