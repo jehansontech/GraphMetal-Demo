@@ -48,7 +48,7 @@ struct CubeDemoControls: View {
 
 struct OrbitControls: View {
 
-    @ObservedObject var povController: OrbitingPOVController
+    @ObservedObject var povController: CenteredPOVController
 
     var body: some View {
         VStack(alignment: .leading) {

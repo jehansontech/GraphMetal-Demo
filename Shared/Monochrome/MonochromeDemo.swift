@@ -42,7 +42,7 @@ class MonochromeDemo: ObservableObject, Demo {
 
     var graph: MonochromeGraph
 
-    var povController: OrbitingPOVController
+    var povController: CenteredPOVController
 
     var fovController: PerspectiveFOVController
 
@@ -54,7 +54,7 @@ class MonochromeDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(MonochromeNodeValue.init)
             .fancyCube(divisions: 2)
 
-        self.povController = OrbitingPOVController(location: Self.initialLocation,
+        self.povController = CenteredPOVController(location: Self.initialLocation,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,

@@ -42,7 +42,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
     var graph: ColoredNodesGraph
 
-    var povController: OrbitingPOVController
+    var povController: CenteredPOVController
 
     var fovController: PerspectiveFOVController
 
@@ -54,7 +54,7 @@ class ColoredNodesDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(ColoredNodeValue.init)
             .simpleCube()
 
-        self.povController = OrbitingPOVController(location: Self.initialLocation,
+        self.povController = CenteredPOVController(location: Self.initialLocation,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,

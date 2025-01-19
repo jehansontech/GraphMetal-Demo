@@ -34,7 +34,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
     var graph: PickingDemoGraph
 
-    var povController: OrbitingPOVController
+    var povController: CenteredPOVController
 
     var fovController: PerspectiveFOVController
 
@@ -48,7 +48,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
         self.graph = GraphBuilder(PickingDemoNodeValue.init)
             .simpleOctahedron()
 
-        self.povController = OrbitingPOVController(location: Self.locationDefault, 
+        self.povController = CenteredPOVController(location: Self.locationDefault, 
                                                    orbitEnabled: false)
         self.fovController = PerspectiveFOVController()
         self.wireframe = ColoredNodeWireframe(nodeSize: 2)

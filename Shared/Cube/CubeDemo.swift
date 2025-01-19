@@ -44,7 +44,7 @@ class CubeDemo: ObservableObject, Demo {
 
     var graph: CubeDemoGraph
 
-    var povController: OrbitingPOVController
+    var povController: CenteredPOVController
 
     var fovController: PerspectiveFOVController
 
@@ -56,7 +56,7 @@ class CubeDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(CubeDemoNodeValue.init)
             .fancyCube(divisions: 5)
 
-        self.povController = OrbitingPOVController(location: Self.defaultLocation,
+        self.povController = CenteredPOVController(location: Self.defaultLocation,
                                                    orbitEnabled: false,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,

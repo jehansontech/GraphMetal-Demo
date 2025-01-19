@@ -17,7 +17,7 @@ class BallDemoViewModel: ObservableObject {
 
     @Published var edgeCount: Int = 0
 
-    var povController = OrbitingPOVController(location: SIMD3<Float>(0, 0, -3))
+    var povController = CenteredPOVController(location: SIMD3<Float>(0, 0, -3))
 
     var fovController = PerspectiveFOVController()
 
