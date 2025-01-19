@@ -68,7 +68,9 @@ class ColoredNodesDemo: ObservableObject, Demo {
 
         var updateGenerator = ColoredNodeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
-        povController.fly(to: Self.defaultPOV)
+        povController.flyTo(location: Self.defaultPOV.location,
+                            center: Self.defaultPOV.center,
+                            up: Self.defaultPOV.up)
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {

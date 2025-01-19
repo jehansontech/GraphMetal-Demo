@@ -79,7 +79,9 @@ class CubeDemo: ObservableObject, Demo {
     func present() {
         if needsPresentation {
             needsPresentation = false
-            povController.fly(to: povController.defaultPOV)
+            povController.flyTo(location: povController.defaultPOV.location,
+                                center: povController.defaultPOV.center,
+                                up: povController.defaultPOV.up)
             self.povController.orbitEnabled = Self.defaultOrbitEnabled
         }
     }
