@@ -75,7 +75,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
     func tap(at touchLocation: SIMD2<Float>) {
         print("PickingDemo.tap. location: \(touchLocation.prettyString)")
 
-        let pointSize = wireframe.makePointSize(povController.pov.location)
+        let pointSize = wireframe.makePointSize(povController.location)
 
         // How much to enlarge touch size by, so that we accept a near miss.
         let fudgeFactor: Float = 1

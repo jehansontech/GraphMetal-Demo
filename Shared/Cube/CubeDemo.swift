@@ -56,7 +56,7 @@ class CubeDemo: ObservableObject, Demo {
         self.graph = GraphBuilder(CubeDemoNodeValue.init)
             .fancyCube(divisions: 5)
 
-        self.povController = CenteredPOVController(location: Self.defaultLocation,
+        self.povController = CenteredPOVController(location: Self.initialLocation,
                                                    orbitEnabled: false,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
         self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
@@ -70,17 +70,14 @@ class CubeDemo: ObservableObject, Demo {
 
         var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
-        povController.flyTo(location: Self.initialLocation, flightTime: 0)
     }
 
 
     func present() {
         if needsPresentation {
             needsPresentation = false
-            povController.flyTo(location: povController.centeredPOVDefault.location,
-                                center: povController.centeredPOVDefault.center,
-                                up: povController.centeredPOVDefault.up)
-            self.povController.orbitEnabled = Self.defaultOrbitEnabled
+            povController.flyTo(location: Self.defaultLocation)
+            povController.orbitEnabled = Self.defaultOrbitEnabled
         }
     }
 

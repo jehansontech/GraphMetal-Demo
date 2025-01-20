@@ -95,10 +95,7 @@ struct POVControllerUsage: View {
 
             HStack {
                 Button {
-                    demo.povController.flyTo(location: demo.povController.centeredPOVDefault.location,
-                                             center: demo.povController.centeredPOVDefault.center,
-                                             up: demo.povController.centeredPOVDefault.up,
-                                             flightTime: 0)
+                    demo.povController.flyTo(location: CubeDemo.defaultLocation)
                 } label: {
                     Text("Reset POV")
                 }
