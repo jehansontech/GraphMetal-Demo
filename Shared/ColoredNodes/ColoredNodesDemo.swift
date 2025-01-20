@@ -57,14 +57,15 @@ class ColoredNodesDemo: ObservableObject, Demo {
         self.povController = CenteredPOVController(location: Self.initialLocation,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
-        self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
-                                                      fadeoutDistance: Self.defaultFadeoutDistance)
+        self.fovController = PerspectiveFOVController()
 
         self.wireframe = ColoredNodeWireframe(nodeShape: .disc, edgeColor: Self.defaultEdgeColor)
 
         self.wireframe.nodeSize = ColoredNodesDemo.initialPointSize
 
         self.renderer = Renderer(povController, fovController, wireframe)
+        self.renderer.fadeoutDistance = Self.defaultFadeoutDistance
+        self.renderer.fadeoutMidpoint = Self.defaultFadeoutMidpoint
 
         var updateGenerator = ColoredNodeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))

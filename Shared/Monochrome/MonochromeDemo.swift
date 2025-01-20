@@ -57,14 +57,14 @@ class MonochromeDemo: ObservableObject, Demo {
         self.povController = CenteredPOVController(location: Self.initialLocation,
                                                    orbitEnabled: Self.defaultOrbitEnabled,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
-        self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
-                                                      fadeoutDistance: Self.defaultFadeoutDistance)
+        self.fovController = PerspectiveFOVController()
 
         self.wireframe = MonochromeWireframe(nodeShape: .disc,
                                               nodeSize: MonochromeDemo.initialNodeSize)
 
         self.renderer = Renderer(povController, fovController, wireframe)
-
+        self.renderer.fadeoutDistance = Self.defaultFadeoutDistance
+        self.renderer.fadeoutMidpoint = Self.defaultFadeoutMidpoint
         var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
         povController.flyTo(location: Self.defaultLocation)

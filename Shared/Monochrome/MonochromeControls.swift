@@ -54,7 +54,7 @@ struct MonochromeControls: View {
                 DisclosureGroup("Field of View", isExpanded: $isFOVSettingsExpanded) {
                     HStack {
                         Divider()
-                        MonochromeFOVSettingsControls(fovController: demo.fovController)
+                        MonochromeFOVSettingsControls(demo.renderer, demo.fovController)
                     }
                     .onAppear {
                         // unexpand the others
@@ -169,7 +169,10 @@ struct MonochromeBackgroundSettingsControls: View {
 struct MonochromeFOVSettingsControls: View {
 
     let yFOVMin: Float = 0.01 * Float.pi
+
     let yFOVMax: Float = 0.99 * Float.pi
+
+    @ObservedObject var renderer: Renderer
 
     @ObservedObject var fovController: PerspectiveFOVController
 
@@ -180,16 +183,16 @@ struct MonochromeFOVSettingsControls: View {
                 HStack {
                     Text("Midpoint")
                         .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                    Slider(value: $fovController.fadeoutMidpoint, in: 1...20)
+                    Slider(value: $renderer.fadeoutMidpoint, in: 1...20)
                 }
                 HStack {
                     Text("Distance")
                         .frame(width: MonochromeControls.labelWidth, alignment: .trailing)
-                    Slider(value: $fovController.fadeoutDistance, in: 1...10)
+                    Slider(value: $renderer.fadeoutDistance, in: 1...10)
                 }
             }
 
-            Text("FOVController")
+            Text("FOV")
             VStack(alignment: .leading) {
                 HStack {
                     Text("zNear")
@@ -216,5 +219,10 @@ struct MonochromeFOVSettingsControls: View {
                 }
             }
         }
+    }
+
+    init(_ renderer: Renderer, _ fovController: PerspectiveFOVController) {
+        self.renderer = renderer
+        self.fovController = fovController
     }
 }

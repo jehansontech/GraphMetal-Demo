@@ -59,14 +59,15 @@ class CubeDemo: ObservableObject, Demo {
         self.povController = CenteredPOVController(location: Self.initialLocation,
                                                    orbitEnabled: false,
                                                    orbitSpeed: Self.defaultOrbitSpeed)
-        self.fovController = PerspectiveFOVController(fadeoutMidpoint: Self.defaultFadeoutMidpoint,
-                                                      fadeoutDistance: Self.defaultFadeoutDistance)
+        self.fovController = PerspectiveFOVController()
         
         self.wireframe = MonochromeWireframe(nodeShape: .disc,
                                               nodeSize: Self.nodeSize,
                                               graphColor: Self.graphColor)
 
         self.renderer = Renderer(povController, fovController, wireframe)
+        self.renderer.fadeoutDistance = Self.defaultFadeoutDistance
+        self.renderer.fadeoutMidpoint = Self.defaultFadeoutMidpoint
 
         var updateGenerator = MonochromeWireframe.UpdateGenerator()
         wireframe.addUpdate(updateGenerator.makeUpdate(graph))
