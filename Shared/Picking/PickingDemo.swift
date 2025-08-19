@@ -93,7 +93,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
         //        print("PickingDemo.anyTap:    touchRay: \(touchRay)")
 
-        selection.copyFrom(graph.pickNode(touchRay))
+        selection.copyFrom(graph.pickBestNode(touchRay))
     }
 
     func setColorScheme(_ colorScheme: ColorScheme) {
