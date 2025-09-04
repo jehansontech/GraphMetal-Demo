@@ -128,7 +128,7 @@ actor BallDemoRunner {
             targetIDs.append(node.nodeNumber)
         }
 
-        let newNode = graph.addNode(BallDemoNodeValue(randomLocation()))
+        let newNode = graph.addNode(value: BallDemoNodeValue(randomLocation()))
         for targetID in targetIDs {
             try! graph.addEdge(newNode.nodeNumber, targetID)
         }

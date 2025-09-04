@@ -61,7 +61,7 @@ class PickingDemo: ObservableObject, Demo, TapHandler {
 
     func updateFigure(nodePositionChanged: Bool = false,
                       nodeColorChanged: Bool = false) {
-        generator.graphHasChanged(graph, nodePositions: nodePositionChanged, nodeColors: nodeColorChanged)
+        generator.graphHasChanged(graph, nodeColors: nodeColorChanged, nodePositions: nodePositionChanged)
         wireframe.addUpdate(generator.makeUpdate(graph))
     }
     

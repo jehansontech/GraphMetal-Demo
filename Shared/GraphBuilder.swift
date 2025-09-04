@@ -125,7 +125,7 @@ struct GraphBuilder<N, E> where N: EmbeddedValue {
         if let factory = nodeValueFactory {
             newValue = factory(location)
         }
-        let newNode = graph.addNode(newValue)
+        let newNode = graph.addNode(value: newValue)
         return newNode.nodeNumber
     }
 
@@ -134,7 +134,7 @@ struct GraphBuilder<N, E> where N: EmbeddedValue {
         if let factory = edgeValueFactory {
             newValue = factory()
         }
-        let newEdge = try! graph.addEdge(source, target, newValue)
+        let newEdge = try! graph.addEdge(source, target, value: newValue)
         return newEdge.edgeNumber
     }
 
